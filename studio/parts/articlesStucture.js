@@ -4,7 +4,7 @@ import {RiStarSFill, RiDraftFill, RiArticleFill, RiGlobeFill, RiPriceTag3Fill, R
 import {AiOutlineExclamationCircle} from 'react-icons/ai'
 import PreviewIFrame from './previewIFrame'
 
-function articlesStructure ({documentType, plural, indexPageId, categoryDocumentType, categoryName, showFeatured, indexPageType = 'listingPage'}) {
+function articlesStructure ({documentType, plural, indexPageId = null, categoryDocumentType, categoryName, showFeatured, indexPageType = 'listingPage'}) {
   let featured
   if (showFeatured) {
     featured = S.listItem()
@@ -77,6 +77,22 @@ function articlesStructure ({documentType, plural, indexPageId, categoryDocument
     }
   }
 
+  function indexPage () {
+    if (indexPageId) {
+      return S.listItem()
+        .title('Index Page')
+        .icon(RiPagesLine)
+        .child(
+          S.document()
+            .schemaType(indexPageType)
+            .documentId(indexPageId)
+            .views([S.view.form(), PreviewIFrame()])
+        )
+    } else {
+      return S.divider()
+    }
+  }
+
   return S.listItem()
     .title(plural)
     .icon(MdInfo)
@@ -120,16 +136,7 @@ function articlesStructure ({documentType, plural, indexPageId, categoryDocument
             ),
           featured,
           // S.divider(),
-          S.listItem()
-            .title('Index Page')
-            .icon(RiPagesLine)
-            .child(
-              S.document()
-                .schemaType(indexPageType)
-                .documentId(indexPageId)
-                .views([S.view.form(), PreviewIFrame()])
-            ),
-          S.divider(),
+          indexPage(),
           categories(),
           articlesByCategory(),
           uncategorisedArticles()
