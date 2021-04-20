@@ -1,4 +1,4 @@
-import {kataConfig} from '../kata.config'
+kataConfig = module.main.require('../kata.config')
 
 export default {
   widgets: [

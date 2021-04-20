@@ -1,4 +1,4 @@
-import {standardImage} from '../schemas/partials/standardImage'
+import {standardImage} from '../partials/image'
 import {BsFillChatQuoteFill} from 'react-icons/bs'
 
 const quote = {

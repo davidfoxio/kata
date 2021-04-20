@@ -1,5 +1,5 @@
 import {title, location, text, email, website, address, telephone} from './contactFields'
-import {defaultOptions} from '../schemas/partials/defaults'
+import {defaultOptions} from '../partials/defaults'
 
 const contact02 = {
   name: 'contact02',

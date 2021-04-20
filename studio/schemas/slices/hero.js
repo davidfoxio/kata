@@ -1,7 +1,7 @@
 import {title, text, superHeading} from './heroFields'
-import {links} from '../schemas/partials/links'
-import {media} from '../schemas/partials/media'
-import {defaultOptions} from '../schemas/partials/defaults'
+import {links} from '../partials/links'
+import {media} from '../partials/media'
+import {defaultOptions} from '../partials/defaults'
 
 const hero01 = {
   name: 'hero01',
@@ -9,11 +9,11 @@ const hero01 = {
   title: 'Hero #1',
   options: defaultOptions,
   fields: [
-    media,
+    media(),
     superHeading,
     title,
     text,
-    links
+    links()
   ]
 }
 
@@ -23,11 +23,11 @@ const hero05 = {
   title: 'Hero #5',
   options: defaultOptions,
   fields: [
-    media,
+    media(),
     superHeading,
     title,
     text,
-    links
+    links()
   ]
 }
 
@@ -37,10 +37,10 @@ const hero06 = {
   title: 'Hero #6',
   options: defaultOptions,
   fields: [
-    media,
+    media(),
     title,
     text,
-    links
+    links()
   ]
 }
 
@@ -50,11 +50,11 @@ const hero09 = {
   title: 'Hero #9',
   options: defaultOptions,
   fields: [
-    media,
+    media(),
     superHeading,
     title,
     text,
-    links
+    links()
   ]
 }
 
@@ -64,11 +64,11 @@ const hero10 = {
   title: 'Hero #10',
   options: defaultOptions,
   fields: [
-    media,
+    media(),
     superHeading,
     title,
     text,
-    links
+    links()
   ]
 }
 

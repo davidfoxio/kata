@@ -1,4 +1,4 @@
-import {linkText, linkStyle} from '../schemas/partials/links'
+import {linkText, linkStyle} from '../partials/links'
 import {BiLinkExternal} from 'react-icons/bi'
 
 export default {

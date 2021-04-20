@@ -1,5 +1,5 @@
-import {links} from '../schemas/partials/links'
-import {defaultOptions} from '../schemas/partials/defaults'
+import {links} from '../partials/links'
+import {defaultOptions} from '../partials/defaults'
 import {title, text} from './ctaFields'
 
 const cta01 = {
@@ -7,7 +7,7 @@ const cta01 = {
   type: 'object',
   title: 'Call To Action #01',
   options: defaultOptions,
-  fields: [title, text, links]
+  fields: [title, text, links()]
 }
 
 const cta08 = {
@@ -15,7 +15,7 @@ const cta08 = {
   type: 'object',
   title: 'Call To Action #08',
   options: defaultOptions,
-  fields: [links]
+  fields: [links()]
 }
 
 export {cta01, cta08}

@@ -1,5 +1,5 @@
 import {title} from './newsFields'
-import {defaultOptions} from '../schemas/partials/defaults'
+import {defaultOptions} from '../partials/defaults'
 
 const news02 = {
   name: 'news02',
@@ -21,4 +21,14 @@ const news03 = {
   ]
 }
 
-export {news02, news03}
+const news05 = {
+  name: 'news05',
+  type: 'object',
+  title: 'News #5',
+  options: defaultOptions,
+  fields: [
+    title
+  ]
+}
+
+export {news02, news03, news05}

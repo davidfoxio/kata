@@ -1,11 +1,18 @@
-import {allTypes} from '../studio/partials/allTypes'
-import {standardImage} from '../schemas/partials/standardImage'
+const allTypes = module.main.require('schemas/partials/allTypes')
+import {standardImage} from '../partials/image'
 import {BiListPlus} from 'react-icons/bi'
 
 const title = {
   name: 'title',
   type: 'string',
   title: 'Title'
+}
+
+const text = {
+  name: 'text',
+  type: 'text',
+  title: 'Text',
+  rows: 3
 }
 
 const thumbnails = {
@@ -21,7 +28,7 @@ const thumbnails = {
       title: 'Item',
       type: 'object',
       fields: [
-        standardImage,
+        standardImage(),
         {
           name: 'title',
           title: 'Title',
@@ -70,7 +77,7 @@ const imageThumbnails = {
       title: 'Item',
       type: 'object',
       fields: [
-        standardImage,
+        standardImage(),
         {
           name: 'title',
           title: 'Title',
@@ -107,9 +114,7 @@ const portfolio06Slides = {
   options: {
     collapsable: true
   },
-  of: [
-    standardImage
-  ]
+  of: [standardImage()]
 }
 
-export {title, thumbnails, imageThumbnails, portfolio06Slides}
+export {title, text, thumbnails, imageThumbnails, portfolio06Slides}

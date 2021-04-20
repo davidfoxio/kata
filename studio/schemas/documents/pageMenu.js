@@ -1,8 +1,14 @@
-import {hiddenTitle} from '../schemas/partials/meta'
-import {allTypes} from '../studio/partials/allTypes'
+import {hiddenTitle} from '../partials/meta'
+const allTypes = module.main.require('schemas/partials/allTypes')
+// const parentDir = path.dirname(module.parent && module.parent.filename ? module.parent.filename : '.');
+// const path = require('path')
+// const fs = require("fs")
+// const allTypes = require(path.join(__dirname, '..', '..', 'schemas', 'partials', 'allTypes'))
+// import {allTypes} from 'file:../../../../../schemas/partials/allTypes'
 
-export default {
-  type: 'document',
+const pageMenu = (allTypes) => {
+  return {
+    type: 'document',
   name: 'pageMenu',
   title: 'Menu',
   initialValue: {
@@ -24,4 +30,6 @@ export default {
       ]
     }
   ]
+  }
 }
+

@@ -1,4 +1,4 @@
-import {allTypes} from '../studio/schemas/partials/allTypes'
+const allTypes = module.main.require('schemas/partials/allTypes')
 import {BiLinkExternal, BiLink} from 'react-icons/bi'
 import {GoFileSymlinkFile} from 'react-icons/go'
 import {standardImage} from '../partials/image'

@@ -1,5 +1,5 @@
-import {allTypes} from '../studio/schemas/partials/allTypes'
-import {linkText, linkStyle} from '../schemas/partials/links'
+const allTypes = module.main.require('schemas/partials/allTypes')
+import {linkText, linkStyle} from '../partials/links'
 import {BiLink} from 'react-icons/bi'
 
 export default {

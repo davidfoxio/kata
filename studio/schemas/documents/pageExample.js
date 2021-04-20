@@ -1,5 +1,5 @@
 
-import {metaField, metaFieldset, hiddenTitle, hiddenSlug} from '../schemas/partials/meta'
+import {metaField, metaFieldset, hiddenTitle, hiddenSlug} from '../partials/meta'
 
 export default {
   type: 'document',

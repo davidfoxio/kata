@@ -1,14 +1,14 @@
 import {title, list, superHeading} from './textFields'
-import {basicTextEditor} from '../schemas/partials/basicTextEditor'
-import {media} from '../schemas/partials/media'
-import {defaultOptions} from '../schemas/partials/defaults'
+import {basicTextEditor} from '../partials/textEditor'
+import {defaultOptions} from '../partials/defaults'
+import {standardImage} from '../partials/image'
 
 const text01 = {
   name: 'text01',
   type: 'object',
   title: 'Text #1',
   options: defaultOptions,
-  fields: [title, basicTextEditor]
+  fields: [title, basicTextEditor()]
 }
 
 const text02 = {
@@ -16,7 +16,7 @@ const text02 = {
   type: 'object',
   title: 'Text #2',
   options: defaultOptions,
-  fields: [title, basicTextEditor]
+  fields: [title, basicTextEditor()]
 }
 
 const text03 = {
@@ -24,7 +24,7 @@ const text03 = {
   type: 'object',
   title: 'Text #3',
   options: defaultOptions,
-  fields: [title, basicTextEditor]
+  fields: [title, basicTextEditor()]
 }
 
 const text04 = {
@@ -32,7 +32,7 @@ const text04 = {
   type: 'object',
   title: 'Text #4',
   options: defaultOptions,
-  fields: [superHeading, title, list, media]
+  fields: [superHeading, title, list, standardImage()]
 }
 
 const text05 = {
@@ -40,7 +40,7 @@ const text05 = {
   type: 'object',
   title: 'Text #5',
   options: defaultOptions,
-  fields: [title, basicTextEditor, media]
+  fields: [title, basicTextEditor(), standardImage()]
 }
 
 const text06 = {
@@ -48,7 +48,7 @@ const text06 = {
   type: 'object',
   title: 'Text #6',
   options: defaultOptions,
-  fields: [title, basicTextEditor]
+  fields: [title, basicTextEditor()]
 }
 
 const text07 = {
@@ -64,7 +64,7 @@ const text08 = {
   type: 'object',
   title: 'Text #8',
   options: defaultOptions,
-  fields: [title, basicTextEditor]
+  fields: [title, basicTextEditor()]
 }
 
 export {text01, text02, text03, text04, text05, text06, text07, text08}

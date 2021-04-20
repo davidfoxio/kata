@@ -1,14 +1,14 @@
-import {title, thumbnails, imageThumbnails, portfolio06Slides} from './portfolioFields'
-import {defaultOptions} from '../schemas/partials/defaults'
-import {links} from '../schemas/partials/links'
-import {basicTextEditor} from '../schemas/partials/basicTextEditor'
+import {title, text, thumbnails, imageThumbnails, portfolio06Slides} from './portfolioFields'
+import {defaultOptions} from '../partials/defaults'
+import {links} from '../partials/links'
+import {basicTextEditor} from '../partials/textEditor'
 
 const portfolio04 = {
   name: 'portfolio04',
   type: 'object',
   title: 'Portfolio #4',
   options: defaultOptions,
-  fields: [title, thumbnails, links]
+  fields: [title, thumbnails, links()]
 }
 
 const portfolio05 = {
@@ -24,7 +24,7 @@ const portfolio06 = {
   type: 'object',
   title: 'Portfolio #6',
   options: defaultOptions,
-  fields: [title, portfolio06Slides, basicTextEditor]
+  fields: [title, portfolio06Slides, basicTextEditor(), links()]
 }
 
 const portfolio07 = {
@@ -48,7 +48,7 @@ const portfolio09 = {
   type: 'object',
   title: 'Portfolio #9',
   options: defaultOptions,
-  fields: [title, thumbnails]
+  fields: [title, text, thumbnails]
 }
 
 const portfolio10 = {

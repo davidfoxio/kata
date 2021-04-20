@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/weflocc/kata/issues"
   },
-  "homepage": "https://github.com/weflocc/kata#readme"
+  "homepage": "https://github.com/weflocc/kata#readme",
+  "dependencies": {
+    "@sanity/base": "^2.6.2",
+    "@sanity/desk-tool": "^2.8.1",
+    "@sanity/production-preview": "^2.2.6",
+    "get-youtube-id": "^1.0.1",
+    "lodash.camelcase": "^4.3.0",
+    "react-youtube": "^7.13.1",
+    "react-icons": "^4.2.0"
+  }
 }

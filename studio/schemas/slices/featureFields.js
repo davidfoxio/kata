@@ -1,7 +1,7 @@
-import standardImage from '../components/standardImage'
-import {basicTextEditor} from '../schemas/partials/basicTextEditor'
+import {standardImage} from '../partials/image'
+import {basicTextEditor} from '../partials/textEditor'
 import {BiListPlus} from 'react-icons/bi'
-import {allTypes} from '../studio/partials/allTypes'
+const allTypes = module.main.require('schemas/partials/allTypes')
 
 const title = {
   name: 'title',

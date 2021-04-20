@@ -1,5 +1,5 @@
 import {title, statistics} from './statsFields'
-import {defaultOptions} from '../schemas/partials/defaults'
+import {defaultOptions} from '../partials/defaults'
 
 const stats01 = {
   name: 'stats01',
