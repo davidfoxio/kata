@@ -1,14 +1,18 @@
-const links = {
-  name: 'links',
-  title: 'Links',
-  type: 'array',
-  validation: Rule => Rule.max(2).warning('The maximum number of CTA links on this slice is 2'),
-  editModal: 'popover',
-  of: [
-    {type: 'internalLink'},
-    {type: 'fileLink'},
-    {type: 'externalLink'}
-  ]
+const camelCase = require('lodash.camelcase')
+
+const links = (name = 'Links') => {
+  return {
+    name: camelCase(name),
+    title: name,
+    type: 'array',
+    validation: Rule => Rule.max(2).warning('The maximum number of CTA links on this slice is 2'),
+    editModal: 'popover',
+    of: [
+      {type: 'internalLink'},
+      {type: 'fileLink'},
+      {type: 'externalLink'}
+    ]
+  }
 }
 
 const linkText = {

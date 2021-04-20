@@ -117,13 +117,13 @@ const featureImageTabs = {
           name: 'tabName',
           title: 'Tab Name'
         },
-        standardImage,
+        standardImage(),
         {
           type: 'string',
           name: 'title',
           title: 'Title'
         },
-        basicTextEditor,
+        basicTextEditor(),
         {
           name: 'links',
           type: 'link',
@@ -175,7 +175,7 @@ const featureTabs = {
                   name: 'title',
                   title: 'Title'
                 },
-                basicTextEditor
+                basicTextEditor()
               ],
               preview: {
                 select: {

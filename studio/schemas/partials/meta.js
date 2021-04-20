@@ -18,7 +18,7 @@ const title = {
   name: 'title',
   title: 'Title',
   type: 'string',
-  validation: Rule => Rule.required().warning('Please set a title.')
+  validation: Rule => Rule.required('Please set a title.')
 }
 
 const hiddenTitle = {
@@ -35,7 +35,7 @@ const slug = {
     source: 'title',
     maxLength: 96
   },
-  validation: Rule => Rule.required().warning('A slug is required before you can publish.')
+  validation: Rule => Rule.required('A slug is required before you can publish.')
 }
 
 const hiddenSlug = {
@@ -47,7 +47,7 @@ const hiddenSlug = {
     source: 'title',
     maxLength: 96
   },
-  validation: Rule => Rule.required().warning('A slug is required before you can publish.')
+  validation: Rule => Rule.required('A slug is required before you can publish.')
 }
 
 export {metaFieldset, metaField, title, slug, hiddenTitle, hiddenSlug}

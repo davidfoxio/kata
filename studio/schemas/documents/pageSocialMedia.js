@@ -1,4 +1,4 @@
-import {hiddenTitle} from '../schemas/partials/meta'
+import {hiddenTitle} from '../partials/meta'
 
 export default {
   type: 'document',

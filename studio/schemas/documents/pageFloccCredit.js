@@ -1,4 +1,5 @@
-import {hiddenTitle} from '../schemas/partials/meta'
+import {linkText} from '../partials/links'
+import {hiddenTitle} from '../partials/meta'
 
 export default {
   type: 'document',
@@ -6,18 +7,16 @@ export default {
   title: 'Flocc Credit',
   initialValue: {
     title: 'Flocc Credit',
-    floccCredit: {
-      _type: 'externalLink',
-      linkText: 'Digital Marketing by flocc',
-      linkStyle: 'btn-link',
-      url: 'https://flocc.co'
-    }
+    linkText: 'Digital Marketing by flocc',
+    url: 'https://flocc.co'
   },
   fields: [
     hiddenTitle,
+    linkText,
     {
-      type: 'externalLink',
-      name: 'floccCredit'
+      type: 'url',
+      name: 'url',
+      title: 'URL'
     }
   ]
 }
