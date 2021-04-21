@@ -1,4 +1,4 @@
-const allTypes = module.main.require('schemas/partials/allTypes')
+import {allTypes} from '../../site'
 import {linkText, linkStyle} from '../partials/links'
 import {BiLink} from 'react-icons/bi'
 

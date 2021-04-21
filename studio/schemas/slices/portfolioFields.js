@@ -1,4 +1,4 @@
-const allTypes = module.main.require('schemas/partials/allTypes')
+import {allTypes} from '../../site'
 import {standardImage} from '../partials/image'
 import {BiListPlus} from 'react-icons/bi'
 

@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/weflocc/kata#readme",
   "dependencies": {
-    "@sanity/base": "^2.6.2",
     "@sanity/desk-tool": "^2.8.1",
     "@sanity/production-preview": "^2.2.6",
     "get-youtube-id": "^1.0.1",
