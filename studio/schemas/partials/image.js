@@ -1,4 +1,3 @@
-import {defaultOptions} from './defaults'
 const camelCase = require('lodash.camelcase')
 
 const standardImage = (name = 'Image', vars = {}) => {
@@ -9,7 +8,8 @@ const standardImage = (name = 'Image', vars = {}) => {
     type: 'image',
     options: {
       hotspot: true,
-      ...defaultOptions
+      collapsable: true,
+      collapsed: false
     },
     validation: required ? Rule => Rule.required('Please select an image.') : null
   }
