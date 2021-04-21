@@ -4,14 +4,14 @@ import resolveUrl from './resolvePreviewUrl'
 
 const env = process.env.NODE_ENV || 'development'
 
-const PreviewIFrame = () =>
+const PreviewIFrame = (kataConfig) =>
   S.view
     .component(({document}) => {
       const {displayed} = document
       if (!displayed) {
         return <p>Nothing to display</p>
       }
-      const url = resolveUrl(displayed)
+      const url = resolveUrl(displayed, kataConfig)
       return (
         <React.Fragment>
           {

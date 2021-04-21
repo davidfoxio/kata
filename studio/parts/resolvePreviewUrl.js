@@ -1,10 +1,10 @@
-kataConfig = module.main.require('../kata.config')
+// kataConfig = module.main.require('../kata.config')
 
-const ENV = process.env.NODE_ENV || 'development'
+export default function resolvePreviewUrl (document, kataConfig) {
+  const ENV = process.env.NODE_ENV || 'development'
 const WEB_URL = kataConfig.domain.production
 const PATHS = kataConfig.paths
 
-export default function resolvePreviewUrl (document) {
   const baseUrl = ENV === 'development' ? 'http://localhost:3000' : WEB_URL
   const append = '?preview=true'
   let path = ''

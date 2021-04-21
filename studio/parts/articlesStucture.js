@@ -1,10 +1,10 @@
-import S from '@sanity/desk-tool/structure-builder'
+// import S from '@sanity/desk-tool/structure-builder'
 import {MdInfo} from 'react-icons/md'
 import {RiStarSFill, RiDraftFill, RiArticleFill, RiGlobeFill, RiPriceTag3Fill, RiPagesLine} from 'react-icons/ri'
 import {AiOutlineExclamationCircle} from 'react-icons/ai'
 import PreviewIFrame from './previewIFrame'
 
-function articlesStructure ({documentType, plural, indexPageId = null, categoryDocumentType, categoryName, showFeatured, indexPageType = 'listingPage'}) {
+function articlesStructure (S, kataConfig,  {documentType, plural, indexPageId = null, categoryDocumentType, categoryName, showFeatured, indexPageType = 'listingPage'}) {
   let featured
   if (showFeatured) {
     featured = S.listItem()
@@ -86,7 +86,7 @@ function articlesStructure ({documentType, plural, indexPageId = null, categoryD
           S.document()
             .schemaType(indexPageType)
             .documentId(indexPageId)
-            .views([S.view.form(), PreviewIFrame()])
+            .views([S.view.form(), PreviewIFrame(kataConfig)])
         )
     } else {
       return S.divider()
@@ -114,7 +114,7 @@ function articlesStructure ({documentType, plural, indexPageId = null, categoryD
                   S.document()
                     .documentId(documentId)
                     .schemaType(documentType)
-                    .views([S.view.form(), PreviewIFrame()])
+                    .views([S.view.form(), PreviewIFrame(kataConfig)])
                 )
             ),
           S.listItem()
@@ -131,7 +131,7 @@ function articlesStructure ({documentType, plural, indexPageId = null, categoryD
                   S.document()
                     .documentId(documentId)
                     .schemaType(documentType)
-                    .views([S.view.form(), PreviewIFrame()])
+                    .views([S.view.form(), PreviewIFrame(kataConfig)])
                 )
             ),
           featured,

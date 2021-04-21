@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/weflocc/kata#readme",
   "dependencies": {
+    "@sanity/desk-tool": "^2.8.1",
     "get-youtube-id": "^1.0.1",
     "lodash.camelcase": "^4.3.0",
     "react-icons": "^4.2.0",
+    "react": "^17.0",
     "react-youtube": "^7.13.1"
   }
 }
