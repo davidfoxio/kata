@@ -16,6 +16,10 @@ export default {
   fields: [
     hiddenTitle,
     {
+      name: 'test',
+      type: 'string'
+    },
+    {
       title: 'Menu',
       type: 'array',
       name: 'menu',

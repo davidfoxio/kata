@@ -2,7 +2,7 @@ import {defaultOptions} from './defaults'
 const camelCase = require('lodash.camelcase')
 
 const standardImage = (name = 'Image', vars = {}) => {
-  const required = vars?.required || false
+  const required = vars ? vars.required : false
   return {
     name: camelCase(name),
     title: name,
