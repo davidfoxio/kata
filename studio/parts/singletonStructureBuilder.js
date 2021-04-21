@@ -1,14 +1,14 @@
-import S from '@sanity/desk-tool/structure-builder'
+// import S from '@sanity/desk-tool/structure-builder'
 import {RiPagesLine} from 'react-icons/ri'
 import PreviewIFrame from './previewIFrame'
 
-function singletonStructure (name, {
+function singletonStructureBuilder (S, kataConfig, name, {
   icon = RiPagesLine,
   schemaType = 'page' + name.replace(' ', ''),
   documentId = 'page' + name.replace(' ', ''),
   showPreview = true
 } = {}) {
-  let preview = showPreview ? PreviewIFrame() : ''
+  let preview = showPreview ? PreviewIFrame(kataConfig) : ''
 
   return S.listItem()
     .title(name)
@@ -21,4 +21,4 @@ function singletonStructure (name, {
     )
 }
 
-export default singletonStructure
+export {singletonStructureBuilder}
