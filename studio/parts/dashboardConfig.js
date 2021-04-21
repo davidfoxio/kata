@@ -1,34 +1,35 @@
-kataConfig = module.main.require('../kata.config')
-
-export default {
-  widgets: [
-    {
-      name: 'welcome',
-      options: {
-        client: kataConfig.domain.prettyName || ''
+export default function(kataConfig) {
+  return {
+    widgets: [
+      {
+        name: 'welcome',
+        options: {
+          client: kataConfig.domain.prettyName || ''
+        },
+        layout: {
+          width: 'small',
+          height: 'small'
+        }
       },
-      layout: {
-        width: 'small',
-        height: 'small'
-      }
-    },
-    {
-      name: 'netlify',
-      layout: {
-        width: 'small',
-        height: 'small'
+      {
+        name: 'netlify',
+        layout: {
+          width: 'small',
+          height: 'small'
+        },
+        options: {
+          title: 'Deploy changes',
+          sites: kataConfig.netlifyDeploy
+        }
       },
-      options: {
-        title: 'Deploy changes',
-        sites: kataConfig.netlifyDeploy
+      {
+        name: 'project-users',
+        layout: {
+          width: 'small',
+          height: 'small'
+        }
       }
-    },
-    {
-      name: 'project-users',
-      layout: {
-        width: 'small',
-        height: 'small'
-      }
-    }
-  ]
+    ]
+  }
+  
 }
