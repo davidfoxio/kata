@@ -5,7 +5,7 @@
       id="articlesSearch"
       type="text"
       :value="searchTerm"
-      class="focus:outline-none focus:ring-2 ring-secondary border-primary border-2 w-full mb-3 bg-transparent py-1 px-small"
+      class="focus:outline-none focus:ring-2 border-2 w-full mb-3 bg-transparent py-1 px-small"
       name="articlesSearch"
       placeholder="Search"
       @keyup="searchArticles"
@@ -39,3 +39,12 @@ export default {
   },
 }
 </script>
+
+
+<style >
+.articles-search input {
+  border-color: var(--searchBorderColour, var(--primary));
+  border-radius: var(--searchBorderRadius, 0);
+  --tw-ring-color: var(--searchBorderColour, var(--primary));
+}
+</style>

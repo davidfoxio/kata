@@ -11,7 +11,7 @@
         >
           <button
             type="button"
-            class="block w-max filter-btn"
+            class="block w-max filter-btn outline-none"
             :class="{ selected: filter.active }"
             @click="toggleFilter(filter.id, filterGroup.label)"
           >
@@ -54,15 +54,19 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 button {
-  @apply border-primary border-b-2 outline-none;
+  border-color: transparent;
+  @apply border-b-2;
+  text-transform: var(--buttonTextTransform, none);
   transition: 0.4s ease;
 
   &:focus,
   &:hover,
   &.selected {
-    @apply border-secondary border-b-2 outline-none;
+    border-color: var(--buttonBorderColour, var(--primary));
+    @apply outline-none;
   }
+
 }
 </style>
