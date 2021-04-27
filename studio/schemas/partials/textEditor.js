@@ -146,6 +146,9 @@ const fullTextEditor = (name = 'Text Body') => {
         type: 'youtube'
       },
       {
+        type: 'tableField'
+      },
+      {
         type: 'link',
         title: 'Buttons'
       }
