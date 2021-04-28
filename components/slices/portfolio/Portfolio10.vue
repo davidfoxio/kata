@@ -76,7 +76,7 @@ export default {
         ],
       },
       afterChange: function (e) {
-        console.log('cahnged;', e)
+        console.log('changed;', e)
       },
     }
   },
