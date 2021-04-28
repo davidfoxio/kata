@@ -4,7 +4,7 @@ import {RiStarSFill, RiDraftFill, RiArticleFill, RiGlobeFill, RiPriceTag3Fill, R
 import {AiOutlineExclamationCircle} from 'react-icons/ai'
 import PreviewIFrame from './previewIFrame'
 
-function articlesStructureBuilder (S, kataConfig,  {documentType, plural, indexPageId = null, categoryDocumentType, categoryName, showFeatured, indexPageType = 'listingPage'}) {
+function articlesStructureBuilder (S, kataConfig,  {documentType, plural, indexPageId = null, categoryDocumentType, categoryName, showFeatured, indexPageType = 'listingPage', icon = RiArticleFill}) {
   let featured
   if (showFeatured) {
     featured = S.listItem()
@@ -95,7 +95,7 @@ function articlesStructureBuilder (S, kataConfig,  {documentType, plural, indexP
 
   return S.listItem()
     .title(plural)
-    .icon(MdInfo)
+    .icon(icon)
     .child(
       S.list()
         .title(plural)
