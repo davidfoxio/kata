@@ -1,4 +1,7 @@
-import {allTypes} from '../../site'
+
+// const {allTypes} = require('../../../../universityarms/studio/schemas/partials/allTypes')
+// const {allTypes} = require('file:../../../../../studio/schemas/partials/allTypes')
+const {allTypes} = require('../../site')
 const camelCase = require('lodash.camelcase')
 
 const links = (name = 'Links') => {
@@ -45,4 +48,4 @@ const linkStyle = {
   }
 }
 
-export {linkText, linkStyle, links}
+export {linkText, linkStyle, links, internalLink}

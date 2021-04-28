@@ -2,7 +2,6 @@ import {internalLink} from '../partials/links'
 import {BiLinkExternal, BiLink} from 'react-icons/bi'
 import {GoFileSymlinkFile} from 'react-icons/go'
 import {standardImage} from '../partials/image'
-import internalLink from '../components/internalLink'
 const camelCase = require('lodash.camelcase')
 
 const basicTextEditor = (name = 'Text Body') => {
