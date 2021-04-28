@@ -1,4 +1,4 @@
-import {allTypes} from '../../site'
+import {internalLink} from '../partials/links'
 import {standardImage} from '../partials/image'
 import {BiListPlus} from 'react-icons/bi'
 
@@ -40,12 +40,7 @@ const thumbnails = {
           type: 'text',
           rows: 3
         },
-        {
-          name: 'link',
-          title: 'Link',
-          type: 'reference',
-          to: allTypes
-        }
+        internalLink('link')
       ],
       preview: {
         select: {
@@ -83,12 +78,7 @@ const imageThumbnails = {
           title: 'Title',
           type: 'string'
         },
-        {
-          name: 'link',
-          title: 'Link',
-          type: 'reference',
-          to: allTypes
-        }
+        internalLink('link')
       ],
       preview: {
         select: {

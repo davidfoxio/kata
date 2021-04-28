@@ -1,7 +1,8 @@
-import {allTypes} from '../../site'
+import {internalLink} from '../partials/links'
 import {BiLinkExternal, BiLink} from 'react-icons/bi'
 import {GoFileSymlinkFile} from 'react-icons/go'
 import {standardImage} from '../partials/image'
+import internalLink from '../components/internalLink'
 const camelCase = require('lodash.camelcase')
 
 const basicTextEditor = (name = 'Text Body') => {
@@ -49,14 +50,7 @@ const basicTextEditor = (name = 'Text Body') => {
               blockEditor: {
                 icon: BiLink
               },
-              fields: [
-                {
-                  name: 'reference',
-                  type: 'reference',
-                  title: 'Reference',
-                  to: allTypes
-                }
-              ]
+              fields: [internalLink('reference')]
             }
           ]
         }
@@ -109,12 +103,7 @@ const fullTextEditor = (name = 'Text Body') => {
                 icon: BiLink
               },
               fields: [
-                {
-                  name: 'reference',
-                  type: 'reference',
-                  title: 'Reference',
-                  to: allTypes
-                }
+                internalLink('reference')
               ]
             },
             {
@@ -128,8 +117,6 @@ const fullTextEditor = (name = 'Text Body') => {
                 {
                   name: 'file',
                   type: 'file',
-                  title: 'File',
-                  to: allTypes
                 }
               ]
             }

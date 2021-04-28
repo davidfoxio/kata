@@ -1,11 +1,6 @@
 import {hiddenTitle} from '../partials/meta'
-import {allTypes} from '../../site'
-// const allTypes = module.main.require('schemas/partials/allTypes')
-// const parentDir = path.dirname(module.parent && module.parent.filename ? module.parent.filename : '.');
-// const path = require('path')
-// const fs = require("fs")
-// const allTypes = require(path.join(__dirname, '..', '..', 'schemas', 'partials', 'allTypes'))
-// import {allTypes} from 'file:../../../../../schemas/partials/allTypes'
+import {internalLink} from '../partials/links'
+
 export default {
   type: 'document',
   name: 'pageMenu',
@@ -24,12 +19,7 @@ export default {
       type: 'array',
       name: 'menu',
       of: [
-        {
-          title: 'Internal Link',
-          name: 'internalLink',
-          type: 'reference',
-          to: allTypes
-        },
+        internalLink(),
         {
           title: 'External Link',
           name: 'externalLink',

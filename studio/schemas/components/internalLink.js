@@ -1,4 +1,4 @@
-import {allTypes} from '../../site'
+import {internalLink} from '../partials/links'
 import {linkText, linkStyle} from '../partials/links'
 import {BiLink} from 'react-icons/bi'
 
@@ -7,11 +7,7 @@ export default {
   type: 'object',
   title: 'Internal Link',
   fields: [
-    {
-      type: 'reference',
-      name: 'internalLink',
-      to: allTypes
-    },
+    internalLink(),
     linkText,
     linkStyle
   ],

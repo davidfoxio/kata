@@ -1,3 +1,4 @@
+import {allTypes} from '../../site'
 const camelCase = require('lodash.camelcase')
 
 const links = (name = 'Links') => {
@@ -12,6 +13,14 @@ const links = (name = 'Links') => {
       {type: 'fileLink'},
       {type: 'externalLink'}
     ]
+  }
+}
+
+const internalLink = (name = 'internalLink') => {
+  return {
+      name: name,
+      type: 'reference',
+      to: allTypes
   }
 }
 

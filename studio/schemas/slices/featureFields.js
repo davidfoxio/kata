@@ -1,7 +1,7 @@
 import {standardImage} from '../partials/image'
 import {basicTextEditor} from '../partials/textEditor'
 import {BiListPlus} from 'react-icons/bi'
-import {allTypes} from '../../site'
+import {internalLink} from '../partials/links'
 
 const title = {
   name: 'title',
@@ -34,13 +34,7 @@ const features = {
           title: 'Text',
           rows: 2
         },
-        {
-          type: 'reference',
-          name: 'link',
-          title: 'Link',
-          to: allTypes,
-          description: 'Optional'
-        }
+        internalLink('link')
       ],
       preview: {
         select: {
@@ -78,13 +72,7 @@ const shortFeatures = {
           name: 'title',
           title: 'Title'
         },
-        {
-          type: 'reference',
-          name: 'link',
-          title: 'Link',
-          to: allTypes,
-          description: 'Optional'
-        }
+        internalLink('link')
       ],
       preview: {
         select: {
