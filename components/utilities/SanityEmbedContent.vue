@@ -7,12 +7,13 @@
 </template>
 
 <script>
-import Youtube from './serializers/Youtube.vue'
-import Image from './serializers/SanityImage.vue'
-import KataLinks from './KataLinks.vue'
-import FileLink from './serializers/FileLink.vue'
-import InternalLink from './serializers/InternalLink.vue'
-import ExternalLink from './serializers/ExternalLink.vue'
+import Youtube from '~/components/utilities/serializers/Youtube.vue'
+import Image from '~/components/utilities/serializers/SanityImage.vue'
+import BlockLinks from '~/components/utilities/serializers/BlockLinks.vue'
+import FileLink from '~/components/utilities/serializers/FileLink.vue'
+import InternalLink from '~/components/utilities/serializers/InternalLink.vue'
+import ExternalLink from '~/components/utilities/serializers/ExternalLink.vue'
+import TableField from '~/components/utilities/serializers/TableField.vue'
 
 export default {
   props: {
@@ -26,8 +27,9 @@ export default {
       serializers: {
         types: {
           youtube: Youtube,
-          standardImage: Image,
-          link: KataLinks,
+          image: Image,
+          link: BlockLinks,
+          tableField: TableField,
         },
         marks: {
           internalLink: InternalLink,
@@ -43,9 +45,30 @@ export default {
 <style lang="scss">
 .embed-content-wrap {
   img,
+  h2,
+  h3,
   .youtube-wrap,
   .btn-primary {
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-medium);
+  }
+  p + ul,
+  p + h2,
+  p + h3 {
+    margin-top: var(--spacing-medium);
+  }
+  li {
+    position: relative;
+    padding-left: 20px;
+    list-style: none;
+    margin-left: 10px;
+
+    &::before {
+      content: '\2022';
+      // color: $tertiary;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 }
 </style>

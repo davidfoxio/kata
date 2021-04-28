@@ -1,7 +1,5 @@
 <template>
   <img
-    v-lazy-load
-    :alt="image.asset && image.asset._ref ? $imgMeta(image.asset._ref).alt : ''"
     :srcSet="srcSet"
     :src="src"
     :sizes="sizes"
@@ -26,7 +24,7 @@ export default {
     },
     maxWidth: {
       type: Number,
-      default: 500,
+      default: 800,
     },
     ratio: {
       type: Number,
@@ -93,8 +91,6 @@ export default {
       return this.$store.getters['references/getImageMetadata'](ref)
     },
     // onLoad() {
-    //   // console.log('Image Loaded called ')
-    //   this.loaded = true
     // },
   },
 }
@@ -104,8 +100,8 @@ export default {
 img.kata-image {
   transition: 1s ease;
   opacity: 0;
-
-  &.loaded {
+  &.loaded,
+  &.isLoaded {
     opacity: 1;
   }
 }

@@ -5,7 +5,7 @@
       :href="socialMedia.twitter"
       title="Twitter"
       target="_blank"
-      class="inline-block"
+      class="inline-block hover:text-secondary"
     >
       <twitterIcon />
     </a>
@@ -14,7 +14,7 @@
       :href="socialMedia.facebook"
       title="Facebook"
       target="_blank"
-      class="inline-block"
+      class="inline-block hover:text-secondary"
     >
       <facebookIcon />
     </a>
@@ -23,7 +23,7 @@
       :href="socialMedia.linkedIn"
       title="Linked In"
       target="_blank"
-      class="inline-block"
+      class="inline-block hover:text-secondary"
     >
       <linkedinIcon />
     </a>
@@ -32,7 +32,7 @@
       :href="socialMedia.youtube"
       title="Youtube"
       target="_blank"
-      class="inline-block"
+      class="inline-block hover:text-secondary"
     >
       <youtubeIcon />
     </a>
@@ -41,7 +41,7 @@
       :href="socialMedia.instagram"
       title="Instagram"
       target="_blank"
-      class="inline-block"
+      class="inline-block hover:text-secondary"
     >
       <instagramIcon />
     </a>
@@ -73,12 +73,11 @@ export default {
 
 <style lang="scss">
 .social {
-  &.logo-dark {
-    svg path {
-      fill: black;
-    }
-    svg circle {
-      fill: black;
+  svg {
+    circle,
+    path {
+      fill: currentColor;
+      transition: 0.4s ease;
     }
   }
   a {

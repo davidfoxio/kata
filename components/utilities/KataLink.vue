@@ -7,7 +7,7 @@
     v-else-if="fileLink"
     :href="link"
     :class="linkStyle"
-    class="file-btn"
+    class="btn-file"
     target="_blank"
     download
   >
@@ -47,8 +47,7 @@ export default {
     link() {
       if (this.url) {
         return this.url
-      }
-      if (this.internalLink || this.fileLink) {
+      } else if (this.internalLink || this.fileLink) {
         const ref = this.internalLink
           ? this.internalLink._ref
           : this.fileLink.asset._ref
