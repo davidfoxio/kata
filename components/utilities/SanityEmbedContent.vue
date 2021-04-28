@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import Youtube from '~/components/utilities/serializers/Youtube.vue'
-import Image from '~/components/utilities/serializers/SanityImage.vue'
-import BlockLinks from '~/components/utilities/serializers/BlockLinks.vue'
-import FileLink from '~/components/utilities/serializers/FileLink.vue'
-import InternalLink from '~/components/utilities/serializers/InternalLink.vue'
-import ExternalLink from '~/components/utilities/serializers/ExternalLink.vue'
-import TableField from '~/components/utilities/serializers/TableField.vue'
+import Youtube from './serializers/Youtube.vue'
+import Image from './serializers/SanityImage.vue'
+import BlockLinks from './serializers/BlockLinks.vue'
+import FileLink from './serializers/FileLink.vue'
+import InternalLink from './serializers/InternalLink.vue'
+import ExternalLink from './serializers/ExternalLink.vue'
+import TableField from './serializers/TableField.vue'
 
 export default {
   props: {

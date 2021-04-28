@@ -89,9 +89,6 @@ export default {
 </script>
 
 <style lang="scss">
-:root {
-  --aa-primary-color: $primary;
-}
 .search-icon {
   border: none;
   width: 20px;

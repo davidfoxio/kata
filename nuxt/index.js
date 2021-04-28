@@ -15,6 +15,7 @@ export default function () {
       '../components/slices/testimonial',
       '../components/slices/text',
       '../components/utilities',
+      // '../components/utilities/serializers', // not actually needed, direcly imported in SanityEmbedContent
     ]
     ourDirs.forEach( (dir) => {
       dirs.push({
