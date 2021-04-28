@@ -1,7 +1,15 @@
 
-// const {allTypes} = require('../../../../universityarms/studio/schemas/partials/allTypes')
-// const {allTypes} = require('file:../../../../../studio/schemas/partials/allTypes')
-const {allTypes} = require('../../site')
+try {
+  // this will load the types from the site!
+  const {allTypes} = require('../../../../../../schemas/partials/allTypes')
+}
+catch (e) {
+  // when using yarn link locally, the above path won't work. fall back to this so as not to get errors
+  console.log('could not load allTypes from site')
+  console.log(e)
+  const {allTypes} = require('../../site')
+ }
+
 const camelCase = require('lodash.camelcase')
 
 const links = (name = 'Links') => {
