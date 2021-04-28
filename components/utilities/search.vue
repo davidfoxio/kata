@@ -76,11 +76,11 @@ export default {
         selector: 'div#aa-search',
 
         theme: {
-          mark: '#198E83', // Color of the matching content
+          mark: '#000000', // Color of the matching content
           background: '#fff', // Background Color of the input and the panel
           // selected: '#111432', // Background Color of the selected item
-          text: '#198E83', // Color of the title of the items
-          colorSourceIcon: '#198E83', // Color of the icon on the left of results
+          text: '#000000', // Color of the title of the items
+          colorSourceIcon: '#000000', // Color of the icon on the left of results
         },
       })
     },
@@ -89,7 +89,9 @@ export default {
 </script>
 
 <style lang="scss">
-
+:root {
+  --aa-primary-color: $primary;
+}
 .search-icon {
   border: none;
   width: 20px;
@@ -101,7 +103,7 @@ export default {
   height: 30px;
 }
 
-@media (min-width: 600px) {
+@include md-up {
   .kata-header.is-home {
     svg path {
       fill: white;
@@ -123,15 +125,16 @@ export default {
     left: 0;
     top: 0;
     z-index: 1000;
-    background: rgba(white, 0.95);
+    background: rgba($primary, 0.95);
     transition: 1s ease;
 
     .close {
       position: absolute;
       top: 5%;
       right: 5%;
-      border-bottom: 2px solid $primary;
-      color: black;
+      border-bottom: 2px solid white;
+      color: white;
+      font-weight: bold;
     }
   }
 
@@ -142,9 +145,17 @@ export default {
     .aa-Form {
       height: auto;
       align-items: center;
-      border: 2px solid $secondary;
+      border: 2px solid white;
       background: white;
       padding: 5px;
+      border-radius: 10px;
+    }
+
+    .aa-SubmitIcon {
+      height: auto;
+      path {
+        fill: $primary;
+      }
     }
 
     .aa-TouchSearchButton {
@@ -182,23 +193,92 @@ export default {
 
   .aa-Panel {
     position: fixed !important;
+
+    .aa-PanelLayout {
+      border-radius: 10px;
+    }
+
+    ul.aa-List {
+      padding: 15px 25px;
+      li {
+        margin-bottom: 15px;
+
+        .aa-ItemIcon {
+          display: none;
+        }
+      }
+    }
   }
 }
-@media (max-width: 599px) {
+@include md-down {
+  .aa-Autocomplete,
+  .aa-Panel,
+  .aa-DetachedContainer {
+    --color-mark: white;
+    --color-background: $primary;
+    --color-text: white;
+    --color-source-icon: white;
+  }
   .aa-DetachedSearchButton {
     border: none;
     padding: 0;
+  }
+  .aa-DetachedCancelButton {
+    display: inline-block;
+    height: 30px;
   }
   .aa-DetachedSearchButtonPlaceholder {
     display: none;
   }
   .aa-DetachedOverlay {
     z-index: 999999;
-    background-color: rgba(white, 0.95);
+    background-color: rgba($primary, 0.95);
+  }
+  .aa-Form {
+    border: 2px solid white !important;
+
+    ::placeholder {
+      color: white;
+      opacity: 1;
+    }
+
+    svg {
+      height: auto;
+      opacity: 1;
+      path {
+        fill: white;
+      }
+    }
+  }
+  .aa-DetachedContainer {
+    min-height: 100%;
+    background-color: rgba($primary, 0.95);
   }
   .aa-DetachedContainer .aa-DetachedFormContainer {
     border: none;
     padding: 10%;
+    background-color: rgba($primary, 0.95);
+  }
+  .aa-Panel,
+  .aa-Panel .aa-PanelLayout {
+    background-color: rgba($primary, 0.95) !important;
+  }
+  .aa-Panel .aa-PanelLayout {
+    padding: 15px 25px !important;
+  }
+  .aa-Item .aa-ItemDescription {
+    color: white;
+  }
+  .aa-ItemIcon {
+    display: none !important;
+  }
+}
+.aa-powered-by {
+  opacity: 0.4;
+  font-size: 10px;
+
+  a {
+    height: 14px;
   }
 }
 </style>

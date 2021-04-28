@@ -15,5 +15,10 @@ export default {
       default: '',
     },
   },
+  methods: {
+    isDraft(id) {
+      return id.slice(0, 6) == 'drafts'
+    },
+  },
 }
 </script>

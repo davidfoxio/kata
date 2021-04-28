@@ -3,7 +3,7 @@
     <ul class="kata-menu-list p-0">
       <li v-for="item in menu" :key="item._key" class="nav-link-wrap mb-0">
         <n-link
-          v-if="item._type == 'internalLink' && link(item._ref)"
+          v-if="link(item._ref)"
           :to="link(item._ref).path"
           class="nav-link inline-block"
           @click.native="clickFn"

@@ -1,9 +1,9 @@
 <template>
-  <div v-if="links.length" class="-mx-2">
+  <div v-if="link" class="-mx-2 my-medium">
     <KataLink
-      v-for="link in links"
-      v-bind="link"
-      :key="link._key"
+      v-for="item in link"
+      v-bind="item"
+      :key="item._key"
       class="mx-2 inline-block"
     />
   </div>
@@ -12,7 +12,7 @@
 <script>
 export default {
   props: {
-    links: {
+    link: {
       type: Array,
       default: null,
     },
