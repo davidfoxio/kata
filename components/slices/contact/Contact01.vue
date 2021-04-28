@@ -1,7 +1,7 @@
 <template>
   <div class="slice contact-1 md:flex w-r10/12 mx-r1/12">
     <div class="md:w-1/2 md:pr-large">
-      <h1 v-if="title" class="mb-medium" v-html="title" />
+      <h2 v-if="title" class="mb-medium" v-html="title" />
       <p v-if="text" class="mb-medium" v-html="text" />
       <div class="columns fade-up">
         <div v-if="address" class="mb-medium">
@@ -124,7 +124,7 @@ export default {
   .textarea,
   .input {
     display: block;
-    border: 1px solid $primary;
+    border: 2px solid $primary;
     padding: 10px;
 
     &::placeholder {
