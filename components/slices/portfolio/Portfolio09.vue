@@ -1,6 +1,9 @@
 <template>
   <div class="portfolio-9 w-r10/12 mx-r1/12">
-    <h2 v-if="title" class="mb-large heading-2 text-center" v-html="title" />
+    <div class="mb-large text-center">
+      <h2 v-if="title" class="heading-2 fade-up" v-html="title" />
+      <p v-if="text" class="mt-medium fade-up" v-html="text" />
+    </div>
     <div
       v-if="thumbnails"
       class="flex flex-wrap sm:-mr-medium sm:content-start"
@@ -9,7 +12,7 @@
         v-for="(item, index) in thumbnails"
         :key="item.title"
         ref="items"
-        class="item lg:w-1/3 sm:w-1/2 sm:pr-medium mb-medium"
+        class="item md:w-1/3 sm:w-1/2 sm:pr-medium mb-medium fade-up"
         @mouseenter="!isTouch ? toggleTile(index) : null"
         @mouseleave="!isTouch ? toggleTile(index) : null"
         @click="isTouch ? toggleTile(index) : null"
@@ -20,7 +23,7 @@
           <div class="overlay">
             <div class="title">
               <p class="heading-1">{{ '0' + (index + 1) }}</p>
-              <h3 v-if="item.title" class="leabel-1" v-html="item.title" />
+              <h3 v-if="item.title" class="label-1" v-html="item.title" />
             </div>
             <div class="body">
               <p v-if="item.text" class="para-2" v-html="item.text" />
@@ -33,9 +36,9 @@
 </template>
 
 <script>
-import { title } from '../shared'
+import { title, text } from '../shared'
 export default {
-  mixins: [title],
+  mixins: [title, text],
   props: {
     thumbnails: {
       type: Array,
@@ -52,15 +55,16 @@ export default {
       for (let index = 0; index < this.thumbnails.length; index++) {
         const element = this.$refs.items[index]
         element.classList.remove('active')
-        let height = this.$refs.items[index].querySelector('.title')
-          .clientHeight
-        this.$refs.items[index].querySelector('.overlay').style.paddingTop =
-          height + 100 + 'px'
+        console.log(element, element.querySelector('.title'))
+        if (process.client && element.querySelector('.title')) {
+          let height = element.querySelector('.title').clientHeight
+          element.querySelector('.overlay').style.paddingTop =
+            height + 100 + 'px'
+        }
       }
     })
     if (process.client) {
       this.isTouch = this.is_touch_device()
-      console.log('touch', this.isTouch)
     }
   },
   methods: {
@@ -83,8 +87,6 @@ export default {
       const prefixes = ['', '-webkit-', '-moz-', '-o-', '-ms-']
       const queries = prefixes.map((prefix) => `(${prefix}touch-enabled)`)
 
-      console.log('matchMedia', window.matchMedia(queries.join(',')).matches)
-
       return window.matchMedia(queries.join(',')).matches
     },
   },
@@ -96,7 +98,7 @@ export default {
   .relative {
     height: 100%;
     width: 100%;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     overflow: hidden;
     transition: 0.7s ease;
 
@@ -104,12 +106,26 @@ export default {
       content: '';
       height: 0;
       width: 100%;
-      background: $secondary;
+      background: $primary;
       position: absolute;
       bottom: 0;
       left: 0;
       z-index: 1;
       transition: 0.7s ease;
+    }
+  }
+
+  .item {
+    @media (max-width: 1150px) {
+      width: 50%;
+    }
+  }
+
+  .item .block {
+    background: black;
+
+    img.loaded {
+      opacity: 0.8 !important;
     }
   }
 
@@ -124,12 +140,12 @@ export default {
   .overlay {
     z-index: 2;
     position: relative;
-    padding: 100px 30px 30px;
+    padding: 150px 20px 20px;
     color: white;
     height: 100%;
 
     @include sm-down {
-      padding: 150px 30px 30px;
+      padding-top: 200px;
     }
   }
 
@@ -146,9 +162,9 @@ export default {
 
   .title {
     position: absolute;
-    bottom: 30px;
-    left: 30px;
-    right: 30px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
     transition: 0.7s ease;
 
     h3 {

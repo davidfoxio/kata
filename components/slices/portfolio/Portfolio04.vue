@@ -1,13 +1,13 @@
 <template>
   <div class="slice portfolio-5 mx-r1/12 w-r10/12">
     <div class="mb-large text-center">
-      <h2 v-if="title" class="mb-medium">{{ title }}</h2>
+      <h2 v-if="title" class="mb-medium fade-up">{{ title }}</h2>
     </div>
     <div class="mb-large flex flex-wrap justify-evenly -mx-small">
       <div
         v-for="item in thumbnails"
         :key="item._key"
-        class="px-small md:w-1/3"
+        class="px-small md:w-1/3 fade-up"
       >
         <KataImage
           v-if="item.image"
@@ -56,34 +56,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.portfolio-5 {
-  .carousel-nav {
-    width: 20px;
-    height: 20px;
-    position: relative;
-
-    &:before {
-      border-style: solid;
-      border-width: 2px 2px 0 0;
-      content: '';
-      display: inline-block;
-      height: 20px;
-      width: 20px;
-      vertical-align: top;
-    }
-  }
-
-  .prev {
-    &:before {
-      transform: rotate(-135deg);
-    }
-  }
-  .next {
-    &:before {
-      transform: rotate(45deg);
-    }
-  }
-}
-</style>

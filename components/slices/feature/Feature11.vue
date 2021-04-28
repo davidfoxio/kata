@@ -2,7 +2,7 @@
   <div class="slice feature-11 w-r10/12 mx-r1/12">
     <transition-group
       name="fade-list"
-      class="flex -mx-small mb-medium flex-wrap"
+      class="flex -mx-small mb-medium flex-wrap fade-up"
       tag="div"
     >
       <div
@@ -26,6 +26,7 @@
     <transition-group
       name="staggered-fade"
       :css="false"
+      class="fade-up"
       @before-enter="beforeEnter"
       @enter="enter"
       @leave="leave"
@@ -47,6 +48,7 @@
             :image="item.standardImage.image"
             :ratio="685 / 514"
             :max-width="1500"
+            sizes="(max-width: 500px) 100vw, 45vw"
             class="h-full w-full object-cover"
           />
         </div>

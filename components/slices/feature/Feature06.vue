@@ -4,7 +4,7 @@
   >
     <div class="w-full sm:w-3/5 mb-large sm:mb-0 sm:pr-large">
       <h2 v-if="title" class="mb-medium fade-up" v-html="title" />
-      <KataLinks :links="links" />
+      <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
     <div class="sm:w-2/5">
       <ul

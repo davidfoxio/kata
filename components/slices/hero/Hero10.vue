@@ -7,7 +7,7 @@
       class="h-screen w-full object-cover"
     />
     <div
-      class="w-r10/12 p-r1/12 h-screen flex flex-col justify-end items-start text-left z-1"
+      class="w-r10/12 lg:w-r9/12 xl:w-r7/12 p-r1/12 h-screen flex flex-col justify-end items-start text-left z-1"
     >
       <div v-if="superHeading">
         <h1 class="label-1 text-white mb-medium" v-html="superHeading" />
@@ -18,7 +18,11 @@
         />
       </div>
       <h1 v-else class="heading-1 text-white mb-medium" v-html="title" />
-      <p v-if="text" class="text-white mb-medium" v-html="text" />
+      <p
+        v-if="text"
+        class="text-white mb-medium whitespace-pre-line"
+        v-html="text"
+      />
       <KataLinks v-if="links" :links="links" />
     </div>
   </div>

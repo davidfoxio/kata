@@ -2,14 +2,14 @@
   <div class="slice portfolio-7 relative slice-animation">
     <div v-if="title" class="heading pointer-events-none">
       <div class="heading-inner">
-        <h2 class="text-tertiary" v-html="title" />
+        <h2 class="text-tertiary fade-up" v-html="title" />
       </div>
     </div>
     <div class="w-r10/12 mx-r1/12 grid grid-cols-2 gap-small">
       <div
         v-for="(item, index) in imageThumbnails"
         :key="item._key"
-        class="relative item"
+        class="relative item fade-up"
         :class="thumbnailClass(index + 1)"
       >
         <KataImage

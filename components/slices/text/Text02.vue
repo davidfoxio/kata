@@ -1,7 +1,7 @@
 <template>
   <div class="slice text-2 px-r3/12">
-    <h2 v-if="title" class="label-1" v-html="title" />
-    <SanityEmbedContent v-if="textBody" :blocks="textBody" />
+    <h2 v-if="title" class="label-1 fade-up" v-html="title" />
+    <SanityEmbedContent v-if="textBody" :blocks="textBody" class="fade-up" />
   </div>
 </template>
 

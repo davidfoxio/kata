@@ -1,13 +1,14 @@
 <template>
-  <div class="news-3 slice">
-    <h2
-      v-if="title"
-      class="heading-2 mb-large text-center fade-up"
-      v-html="title"
-    />
-
-    <div v-if="articles" ref="listItems" class="relative">
-      <VueSlickCarousel v-bind="settings" class="article-results-slider">
+  <div class="portfolio-10 slice">
+    <div v-if="title" class="w-r10/12 mx-r1/12 text-center title">
+      <h2 class="heading-2 mb-large fade-up" v-html="title" />
+    </div>
+    <div v-if="articles && articles.length > 0" class="slider relative fade-up">
+      <VueSlickCarousel
+        v-bind="settings"
+        ref="portfolio-10-slider"
+        class="portfolio-10-slider pl-r1/12"
+      >
         <template #prevArrow="arrowOption">
           <button
             class="carousel-nav prev focus:outline-none mb-medium"
@@ -16,13 +17,11 @@
             <span></span>
           </button>
         </template>
-        <div
-          v-for="item in articles"
-          :key="item._id"
-          class="px-small slide-item"
-        >
-          <slot name="tease" :item="item" class="fade-up"></slot>
+
+        <div v-for="item in articles" :key="item._id" class="px-small">
+          <slot name="tease" :item="item"></slot>
         </div>
+
         <template #nextArrow="arrowOption">
           <button
             class="carousel-nav next focus:outline-none"
@@ -49,8 +48,8 @@ export default {
   mixins: [title],
   props: {
     articles: {
-      type: Array,
       default: null,
+      type: Array,
     },
   },
   data() {
@@ -58,9 +57,8 @@ export default {
       settings: {
         arrows: true,
         dots: false,
-        slidesToShow: 3,
-        centerMode: true,
-        infinite: true,
+        slidesToShow: 3.5,
+        infinite: false,
         responsive: [
           {
             breakpoint: 850,
@@ -71,36 +69,34 @@ export default {
           {
             breakpoint: 700,
             settings: {
-              slidesToShow: 1,
-              autoplaySpeed: 3000,
+              slidesToShow: 1.2,
+              autoplaySpeed: 2000,
             },
           },
         ],
       },
+      afterChange: function (e) {
+        console.log('cahnged;', e)
+      },
     }
+  },
+  methods: {
+    showNext() {
+      this.$refs['portfolio-10-slider'].next()
+    },
+    showPrev() {
+      this.$refs['portfolio-10-slider'].prev()
+    },
   },
 }
 </script>
 
 <style lang="scss">
-.news-3 {
-  .slick-track {
-    display: flex;
+.portfolio-10 {
+  position: relative;
 
-    .slick-slide > div {
-      height: 100%;
-    }
-  }
-  .carousel-nav {
-    position: absolute;
-    z-index: 50;
-
-    &.prev {
-      left: var(--screen-border-size);
-    }
-    &.next {
-      right: var(--screen-border-size);
-    }
+  .slick-disabled {
+    opacity: 0;
   }
 }
 </style>

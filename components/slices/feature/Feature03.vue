@@ -1,7 +1,7 @@
 <template>
   <div class="slice feature-3 stack-children">
-    <KataMedia
-      :media="media"
+    <KataImage
+      :image="image"
       :ratio="16 / 9"
       :max-width="3000"
       class="h-screen w-full object-cover"
@@ -9,23 +9,27 @@
     <div
       class="w-r6/12 h-screen flex flex-col justify-end items-start z-1 p-r1/12"
     >
-      <h2 class="heading-2 text-white mb-medium" v-html="title" />
-      <p v-if="text" class="text-center text-white mb-medium" v-html="text" />
-      <KataLinks :links="links" class="text-center" />
+      <h2 class="heading-2 text-white mb-medium fade-up" v-html="title" />
+      <p
+        v-if="text"
+        class="text-center text-white mb-medium fade-up"
+        v-html="text"
+      />
+      <KataLinks :links="links" class="text-center fade-up" />
     </div>
   </div>
 </template>
 
 <script>
-import { title, text, links, media } from '../shared'
+import { title, text, links, image } from '../shared'
 
 export default {
-  mixins: [title, text, links, media],
+  mixins: [title, text, links, image],
 }
 </script>
 
 <style lang="scss" scoped>
-.feature-5 {
+.feature-3 {
   position: relative;
   background: black;
 

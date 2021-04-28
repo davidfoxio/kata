@@ -1,21 +1,20 @@
 <template>
-  <div class="slice feature-9 w-r10/12 mx-r1/12">
+  <div class="slice feature-9 w-r10/12 mx-r1/12 fade-up">
     <h2 v-if="title" class="text-center mb-large" v-html="title" />
     <transition-group
       name="fade-list"
-      class="flex -mx-small mb-large flex-wrap"
+      class="flex sm:-mx-small mb-large flex-wrap justify-between items-center"
       tag="div"
     >
       <div
         v-for="(item, i) in featureTabs"
         :key="item._key"
-        class="inline-block transition-all duration-500"
+        class="inline-block transition-all duration-500 mb-small w-full sm:w-auto"
       >
         <button
-          class="focus:outline-none border-b-2 mx-small transition-all duration-500 label-1 hover:border-secondary"
+          class="sm:mx-small label-1 text-left w-full sm:w-auto sm:text-center tab-btn"
           :class="{
-            'border-secondary': i == currentTab,
-            'border-tertiary border-opacity-25': i != currentTab,
+            active: i == currentTab,
           }"
           @click="click(i)"
         >
@@ -56,6 +55,20 @@
 </template>
 
 <script>
+// you can pass in a intial tab, .e.g your parent componnent might do this:
+// computed: {
+//     initialActionsTab() {
+//       switch (this.$route.params.slug) {
+//         case 'discovery-attraction':
+//           return 2
+//         case 'innovation-accelerator':
+//           return 1
+//         default:
+//           return 0
+//       }
+//     },
+//   },
+
 import { title } from '../shared'
 export default {
   mixins: [title],
@@ -64,10 +77,14 @@ export default {
       type: Array,
       required: true,
     },
+    initialTab: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
-      currentTab: 0,
+      currentTab: this.initialTab,
     }
   },
   methods: {
@@ -98,8 +115,18 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .list-fade-item {
   transition: all 0.5s;
+}
+.tab-btn {
+  outline: none !important;
+  appearance: none;
+  border-bottom: 2px solid rgba($primary, 0.25);
+  transition: 0.4s ease;
+  &.active,
+  &:hover {
+    border-color: rgba($secondary, 1);
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="portfolio-11 slice relative sm:flex">
+  <div class="portfolio-11 slice relative sm:flex fade-up">
     <div v-if="articles.length" class="bg-primary sm:w-1/3 articles-list">
       <ul class="p-medium">
         <li

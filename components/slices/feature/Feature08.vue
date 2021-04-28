@@ -2,14 +2,14 @@
   <div class="slice feature-8">
     <div class="w-r10/12 mx-r1/12 sm:flex mb-large">
       <div class="sm:w-r6/12 mr-large">
-        <h2 class="heading-2 text-white" v-html="title" />
+        <h2 class="heading-2 text-white fade-up" v-html="title" />
       </div>
       <div class="sm:w-r4/12">
-        <p v-if="text" class="text-center text-white" v-html="text" />
+        <p v-if="text" class="text-center text-white fade-up" v-html="text" />
       </div>
     </div>
-    <KataMedia
-      :media="media"
+    <KataImage
+      :image="image"
       :ratio="16 / 9"
       :max-width="3000"
       class="h-screen w-full object-cover"
@@ -18,10 +18,10 @@
 </template>
 
 <script>
-import { title, text, media } from '../shared'
+import { title, text, image } from '../shared'
 
 export default {
-  mixins: [title, text, media],
+  mixins: [title, text, image],
 }
 </script>
 

@@ -21,6 +21,11 @@
           :ratio="1"
           class="mb-small"
         />
+        <p
+          v-else-if="autoNumber"
+          class="heading-2"
+          v-html="index + 1 < 10 ? '0' + (index + 1) : index + 1"
+        />
         <h3 v-if="item.title" class="label-1 mb-small" v-html="item.title" />
         <p v-if="item.text" v-html="item.text" />
       </li>
@@ -37,6 +42,10 @@ export default {
     features: {
       type: Array,
       required: true,
+    },
+    autoNumber: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {

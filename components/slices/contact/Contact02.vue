@@ -1,37 +1,40 @@
 <template>
   <div class="slice contact-2 md:flex">
-    <div class="md:w-r5/12">
+    <div class="w-full md:w-r5/12 mb-large md:mb-0">
       <GMap
         ref="gMap"
         language="en"
         :center="{ lat: location.lat, lng: location.lng }"
-        :options="{ fullscreenControl: false }"
+        :options="{ fullscreenControl: false, styles: mapStyle }"
         :zoom="13"
       >
-        <GMapMarker :position="{ lat: location.lat, lng: location.lng }" />
+        <GMapMarker
+          :position="{ lat: location.lat, lng: location.lng }"
+          :options="{ icon: mapPin }"
+        />
       </GMap>
     </div>
-    <div class="md:w-r5/12 md:mx-r1/12 md:py-slice-half">
-      <h2 v-if="title" class="mb-medium heading-2" v-html="title" />
-      <p v-if="description" class="mb-medium" v-html="description" />
+    <div class="w-r10/12 md:w-r5/12 mx-r1/12 md:py-slice-half">
+      <h2 v-if="title" class="mb-medium heading-2 fade-up" v-html="title" />
+      <p v-if="text" class="mb-medium fade-up" v-html="text" />
       <div class="columns">
-        <div v-if="address" class="mb-medium">
+        <div v-if="address" class="mb-medium fade-up">
           <p class="label-1">Address</p>
-          <p v-html="address" />
+          <p class="whitespace-pre-line" v-html="address" />
         </div>
-        <div v-if="website" class="mb-medium">
+        <div v-if="website" class="mb-medium fade-up">
           <p class="label-1">Website</p>
           <p>
             <a :href="website" target="_blank">{{ website }}</a>
           </p>
         </div>
-        <div v-if="email" class="mb-medium">
+        <div v-if="email" class="mb-medium fade-up">
           <p class="label-1">Email</p>
           <p>
             <a :href="'mailto:' + email">{{ email }}</a>
           </p>
         </div>
-        <div v-if="telephone" class="mb-medium">
+        <div v-if="telephone" class="mb-medium fade-up">
           <p class="label-1">Telephone</p>
           <p>
             <a :href="'tel:' + telephone">{{ telephone }}</a>
@@ -75,6 +78,14 @@ export default {
       type: String,
       required: true,
     },
+    mapPin: {
+      type: String,
+      default: '',
+    },
+    mapStyle: {
+      type: Array,
+      default: null,
+    },
   },
 }
 </script>
@@ -82,12 +93,13 @@ export default {
 <style lang="scss">
 .contact-2 {
   .columns {
-    columns: 2 100px;
+    columns: 2 150px;
     column-gap: var(--spacing-medium);
   }
   .GMap__Wrapper,
   .GMap {
     height: 100%;
+    min-height: 50vh;
   }
 }
 </style>

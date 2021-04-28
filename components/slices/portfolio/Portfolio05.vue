@@ -25,7 +25,7 @@
         ref="portfolio-5-carousel"
         class="w-full"
       >
-        <div v-for="item in thumbnails" :key="item._key" class="pr-large slide">
+        <div v-for="item in thumbnails" :key="item._key" class="slide">
           <div class="portfolio-5-image mb-medium">
             <KataImage
               v-if="item.image"
@@ -33,6 +33,7 @@
               :ratio="825 / 500"
               :max-width="1500"
               sizes="75vw"
+              data-not-lazy
             />
           </div>
           <h3 v-if="item.title" class="mb-small label-1" v-html="item.title" />
@@ -48,14 +49,12 @@ import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import { title } from '../shared'
 
 export default {
   components: { VueSlickCarousel },
+  mixins: [title],
   props: {
-    title: {
-      type: String,
-      required: true,
-    },
     thumbnails: {
       type: Array,
       required: true,
@@ -67,8 +66,11 @@ export default {
         arrows: false,
         dots: false,
         slidesToShow: 1.1,
-        infinite: false,
+        infinite: true,
         centerMode: false,
+        lazyLoad: 'ondemand',
+        autoplay: true,
+        autoplaySpeed: 5000,
       },
     }
   },
@@ -85,66 +87,9 @@ export default {
 
 <style lang="scss" scoped>
 .portfolio-5 {
-  .carousel-nav {
-    width: 25px;
-    height: 20px;
-    position: relative;
-
-    &:before {
-      content: '';
-      border-style: solid;
-      border-width: 2px 2px 0 0;
-      display: inline-block;
-      height: 10px;
-      width: 10px;
-      vertical-align: top;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      transition: 0.5s ease;
-    }
-
-    span {
-      width: 25px;
-      background: black;
-      height: 2px;
-      display: block;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      transition: 0.5s ease;
-    }
-
-    &:hover {
-      span {
-        background: $secondary;
-      }
-    }
-  }
-
-  .prev {
-    &:before {
-      transform: rotate(-135deg);
-      left: 0;
-    }
-    span {
-      left: -1px;
-    }
-  }
-  .next {
-    &:before {
-      transform: rotate(45deg);
-      right: 0;
-    }
-    span {
-      right: -1px;
-    }
-  }
-
   .slide {
     outline: none !important;
+    padding-left: 10%; //fixes infinite loop problem
   }
 }
 </style>
