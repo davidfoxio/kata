@@ -141,7 +141,6 @@ export default {
       this.currentArticle = item
     },
     setActive(item) {
-      console.log(item.path)
       this.$router.push({ path: this.path + '/' + item.slug })
     },
     mapLoaded(e) {
@@ -162,8 +161,6 @@ export default {
       })
     },
     openInfoWindow(item, event) {
-      console.log(item, event)
-
       // this.$google.infoWindow.setPosition({
       //   lat: item.location.lat,
       //   lng: item.location.lng,

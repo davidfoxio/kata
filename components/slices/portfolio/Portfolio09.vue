@@ -55,7 +55,6 @@ export default {
       for (let index = 0; index < this.thumbnails.length; index++) {
         const element = this.$refs.items[index]
         element.classList.remove('active')
-        console.log(element, element.querySelector('.title'))
         if (process.client && element.querySelector('.title')) {
           let height = element.querySelector('.title').clientHeight
           element.querySelector('.overlay').style.paddingTop =
@@ -70,7 +69,6 @@ export default {
   methods: {
     toggleTile(index) {
       this.$refs.items[index].classList.toggle('active')
-      console.log()
     },
     is_touch_device() {
       if ('ontouchstart' in window || navigator.maxTouchPoints) {

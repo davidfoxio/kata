@@ -1,6 +1,6 @@
 <template>
   <div class="slice contact-2 md:flex">
-    <div class="w-full md:w-r5/12 mb-large md:mb-0">
+    <div class="w-full md:w-r5/12 mb-large md:mb-0 map">
       <GMap
         ref="gMap"
         language="en"
@@ -14,33 +14,33 @@
         />
       </GMap>
     </div>
-    <div class="w-r10/12 md:w-r5/12 mx-r1/12 md:py-slice-half">
+    <div class="w-r10/12 md:w-r5/12 mx-r1/12 md:py-slice-half body">
       <h2 v-if="title" class="mb-medium heading-2 fade-up" v-html="title" />
       <p v-if="text" class="mb-medium fade-up" v-html="text" />
-      <div class="columns">
-        <div v-if="address" class="mb-medium fade-up">
+      <ul class="columns fade-up">
+        <li v-if="address" class="mb-medium item">
           <p class="label-1">Address</p>
           <p class="whitespace-pre-line" v-html="address" />
-        </div>
-        <div v-if="website" class="mb-medium fade-up">
+        </li>
+        <li v-if="website" class="mb-medium item">
           <p class="label-1">Website</p>
           <p>
             <a :href="website" target="_blank">{{ website }}</a>
           </p>
-        </div>
-        <div v-if="email" class="mb-medium fade-up">
+        </li>
+        <li v-if="email" class="mb-medium item">
           <p class="label-1">Email</p>
           <p>
             <a :href="'mailto:' + email">{{ email }}</a>
           </p>
-        </div>
-        <div v-if="telephone" class="mb-medium fade-up">
+        </li>
+        <li v-if="telephone" class="mb-medium item">
           <p class="label-1">Telephone</p>
           <p>
             <a :href="'tel:' + telephone">{{ telephone }}</a>
           </p>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -95,6 +95,12 @@ export default {
   .columns {
     columns: 2 150px;
     column-gap: var(--spacing-medium);
+
+    .item {
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
   }
   .GMap__Wrapper,
   .GMap {
