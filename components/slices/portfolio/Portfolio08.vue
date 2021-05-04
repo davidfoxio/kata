@@ -9,7 +9,7 @@
       name="fade"
       mode="out-in"
     >
-      <li v-for="(item, i) in feed" :key="item._id || i">
+      <li v-for="(item, i) in feed" :key="item._id || i" class="mb-medium relative">
         <slot name="tease" :item="item"></slot>
       </li>
     </transition-group>
@@ -35,7 +35,7 @@ export default {
     ulClass() {
       switch (this.cols) {
         case 4:
-          return 'w-full grid gap-medium grid-cols-1 md:grid-cols-2 xl:grid-cols-4'
+          return 'w-full grid gap-medium grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'
         case 2:
           return 'w-full grid gap-medium grid-cols-1 lg:grid-cols-2'
         default:
