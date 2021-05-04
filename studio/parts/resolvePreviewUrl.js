@@ -7,6 +7,10 @@ export default function resolvePreviewUrl (document, kataConfig) {
   let path = ''
   let slug = ''
 
+  if (document._type === 'pageHome' || document._type === 'pageHub') {
+    return `${baseUrl}${append}`
+  }
+
   PATHS.forEach(element => {
     if (document._type === element.type) {
       path = element.path
@@ -14,14 +18,10 @@ export default function resolvePreviewUrl (document, kataConfig) {
   })
 
   if (document.slug) {
-    slug = `/${document.slug.current}`
+    slug = `/${document.slug.current}/`
   }
 
-  if (document._type === 'pageHome') {
-    slug = ''
-  }
-
-  const url = `${baseUrl}${path}${slug}/${append}`
+  const url = `${baseUrl}${path}${slug}${append}`
   console.log(url)
   return url
 }
