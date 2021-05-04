@@ -7,10 +7,14 @@ const env = process.env.NODE_ENV || 'development'
 const PreviewIFrame = (kataConfig) =>
   S.view
     .component(({document}) => {
+      console.log('document')
+      console.log(document)
       const {displayed} = document
-      if (displayed) {
+      console.log('displayed')
+      console.log(displayed)
+      if (!displayed) {
         // return <p>Nothing to display</p>
-        return React.createElement("p", null, "Nothing to display");
+        return React.createElement("p", null, "Nothing to display.");
       }
       const url = resolveUrl(displayed, kataConfig)
       // return (
@@ -30,7 +34,8 @@ const PreviewIFrame = (kataConfig) =>
       //     />
       //   </React.Fragment>
       // )
-      React.createElement(React.Fragment, null, env !== 'development' && /*#__PURE__*/React.createElement("div", {
+
+      return React.createElement(React.Fragment, null, env !== 'development' && /*#__PURE__*/React.createElement("div", {
         style: {
           padding: '0 0.5em'
         }
@@ -41,7 +46,8 @@ const PreviewIFrame = (kataConfig) =>
         },
         frameBorder: '0',
         src: url
-      }));
+      }))
+
     })
     .title('Web preview')
 
