@@ -11,15 +11,22 @@
         >
           <button
             type="button"
-            class="block w-max filter-btn outline-none"
+            class="block w-max filter-btn btn-large outline-none"
             :class="{ selected: filter.active }"
             @click="toggleFilter(filter.id, filterGroup.label)"
           >
             {{ filter.label }}
           </button>
         </div>
-      </div>
     </div>
+    <button
+            type="button"
+            class="btn-secondary btn-small !py-1 mt-small"
+            @click="clear(filterGroup.label)"
+          >
+            Clear
+          </button>
+      </div>
   </div>
 </template>
 
@@ -46,6 +53,12 @@ export default {
     toggleFilter(filterId, filterGroup) {
       this.$store.commit('articles/toggleFilter', {
         filterId: filterId,
+        filterGroup: filterGroup,
+        instance: this.articleInstance,
+      })
+    },
+    clear(filterGroup) {
+      this.$store.commit('articles/clear', {
         filterGroup: filterGroup,
         instance: this.articleInstance,
       })
