@@ -4,7 +4,7 @@
       :media="media"
       :ratio="16 / 9"
       :max-width="2500"
-      class="px-screen-border"
+      class="px-medium"
     />
 
     <div class="mt-slice-half mx-r1/12 w-r10/12 sm:flex">
