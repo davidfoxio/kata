@@ -21,6 +21,7 @@ export default function resolvePreviewUrl (document, kataConfig) {
     slug = ''
   }
 
-  const url = `${baseUrl}${path}${slug}${append}`
+  const url = `${baseUrl}${path}${slug}/${append}`
+  console.log(url)
   return url
 }
