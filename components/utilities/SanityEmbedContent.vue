@@ -45,16 +45,20 @@ export default {
 <style lang="scss">
 .embed-content-wrap {
   img,
-  h2,
-  h3,
   .youtube-wrap,
   .btn-primary {
     margin-bottom: var(--spacing-medium);
   }
-  p + ul,
+  h2,
+  h3 {
+    margin-bottom: var(--spacing-small);
+  }
+  p + ul {
+    margin-top: var(--spacing-medium);
+  }
   p + h2,
   p + h3 {
-    margin-top: var(--spacing-medium);
+    margin-top: var(--spacing-large);
   }
   li {
     position: relative;
