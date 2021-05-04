@@ -2,7 +2,7 @@
   <div class="search-wrap">
     <button
       ref="search"
-      class="ml-0 md:ml-small search-icon outline-none focus:outline-none hidden md:block"
+      class="search-icon outline-none focus:outline-none hidden md:block"
       @click="searchOpen = true"
     >
       <SearchIcon />
@@ -89,6 +89,9 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+  --aa-primary-color: $primary;
+}
 .search-icon {
   border: none;
   width: 20px;
