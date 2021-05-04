@@ -5,7 +5,7 @@
       v-for="(item, i) in items"
       :key="item._ref"
       :to="link(item._id)"
-      class="item md:flex mb-slice md:mb-slice-half md:space-x-medium block"
+      class="item md:flex md:items-center mb-slice md:mb-slice-half md:space-x-medium block"
       :class="{
         'md:flex-row-reverse md:space-x-reverse': i % 2,
       }"

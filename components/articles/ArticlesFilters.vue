@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-button {
+button.filter-btn {
   border-color: transparent;
   @apply border-b-2;
   text-transform: var(--buttonTextTransform, none);

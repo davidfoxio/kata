@@ -7,7 +7,7 @@
       <VueSlickCarousel
         v-bind="settings"
         ref="portfolio-10-slider"
-        class="portfolio-10-slider pl-r1/12"
+        class="portfolio-10-slider"
       >
         <template #prevArrow="arrowOption">
           <button
@@ -18,8 +18,8 @@
           </button>
         </template>
 
-        <div v-for="item in articles" :key="item._id" class="px-small">
-          <slot name="tease" :item="item"></slot>
+        <div v-for="(item, i) in articles" :key="item._id" class="px-small">
+          <slot name="tease" :item="item" :index="i + 1"></slot>
         </div>
 
         <template #nextArrow="arrowOption">
@@ -57,9 +57,27 @@ export default {
       settings: {
         arrows: true,
         dots: false,
-        slidesToShow: 3.5,
+        slidesToShow: 6.25,
         infinite: false,
         responsive: [
+          {
+            breakpoint: 2000,
+            settings: {
+              slidesToShow: 5.25,
+            },
+          },
+          {
+            breakpoint: 1500,
+            settings: {
+              slidesToShow: 4.25,
+            },
+          },
+          {
+            breakpoint: 1100,
+            settings: {
+              slidesToShow: 3.5,
+            },
+          },
           {
             breakpoint: 850,
             settings: {
@@ -95,8 +113,43 @@ export default {
 .portfolio-10 {
   position: relative;
 
+  .portfolio-10-slider {
+    padding-left: calc(var(--r1_12) - var(--spacing-small));
+  }
+  .carousel-nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 50;
+
+    &:not(.slick-disabled):hover {
+      color: white;
+    }
+
+    &.prev {
+      left: 30px;
+    }
+    &.next {
+      right: 11%;
+
+      @media (min-width: 1100px) {
+        right: 3%;
+      }
+    }
+  }
+
   .slick-disabled {
     opacity: 0;
+  }
+
+  @include sm-down {
+    .carousel-nav.prev {
+      left: 15px;
+    }
+    .carousel-nav.next {
+      right: 15px;
+    }
   }
 }
 </style>

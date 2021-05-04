@@ -25,7 +25,7 @@
         <li v-if="website" class="mb-medium item">
           <p class="label-1">Website</p>
           <p>
-            <a :href="website" target="_blank">{{ website }}</a>
+            <a :href="website" target="_blank">{{ websiteText || website }}</a>
           </p>
         </li>
         <li v-if="email" class="mb-medium item">
@@ -54,7 +54,7 @@
 //      key: 'AIzaSyDqa_gfKjehO6LI6vCIG1gOjhd3TiUE7ew',
 //    },
 // ],
-import { title, text } from '../shared'
+import { title, text } from "../shared";
 export default {
   mixins: [title, text],
   props: {
@@ -74,26 +74,30 @@ export default {
       type: String,
       required: true,
     },
+    websiteText: {
+      type: String,
+      default: "",
+    },
     telephone: {
       type: String,
       required: true,
     },
     mapPin: {
       type: String,
-      default: '',
+      default: "",
     },
     mapStyle: {
       type: Array,
       default: null,
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
 .contact-2 {
   .columns {
-    columns: 2 150px;
+    columns: 2 250px;
     column-gap: var(--spacing-medium);
 
     .item {

@@ -2,7 +2,7 @@
   <div class="search-wrap">
     <button
       ref="search"
-      class="ml-0 md:ml-small search-icon outline-none focus:outline-none hidden md:block"
+      class="search-icon outline-none focus:outline-none hidden md:block"
       @click="searchOpen = true"
     >
       <SearchIcon />
@@ -13,9 +13,10 @@
         <button
           ref="close"
           class="close outline-none focus:outline-none hidden md:block"
+          :class="{ 'text-btn': showCloseText, 'icon-btn': !showCloseText }"
           @click="searchOpen = false"
         >
-          Close
+          {{ showCloseText ? Close : '' }}
         </button>
       </div>
     </transition>
@@ -27,6 +28,12 @@ import SearchIcon from '~/assets/svgs/search.svg?inline'
 
 export default {
   components: { SearchIcon },
+  props: {
+    showCloseText: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       searchOpen: false,
@@ -89,6 +96,9 @@ export default {
 </script>
 
 <style lang="scss">
+// :root {
+//   --aa-primary-color: $primary;
+// }
 .search-icon {
   border: none;
   width: 20px;
@@ -101,17 +111,6 @@ export default {
 }
 
 @include md-up {
-  .kata-header.is-home {
-    svg path {
-      fill: white;
-    }
-
-    &.sticky {
-      svg path {
-        fill: black;
-      }
-    }
-  }
   .search-lightbox {
     position: fixed;
     height: 100%;
@@ -122,16 +121,43 @@ export default {
     left: 0;
     top: 0;
     z-index: 1000;
-    background: rgba($primary, 0.95);
+    background: rgba($primary, 0.98);
     transition: 1s ease;
 
     .close {
       position: absolute;
       top: 5%;
       right: 5%;
+    }
+
+    .text-btn {
       border-bottom: 2px solid white;
       color: white;
       font-weight: bold;
+    }
+
+    .icon-btn {
+      position: absolute;
+      right: 32px;
+      top: 32px;
+      width: 32px;
+      height: 32px;
+
+      &:before,
+      &:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: white;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
     }
   }
 
