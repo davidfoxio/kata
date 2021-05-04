@@ -19,7 +19,7 @@ export default function(kataConfig) {
         },
         options: {
           title: 'Deploy changes',
-          sites: kataConfig.netlifyDeploy
+          sites: kataConfig.netlifyDeploy || []
         }
       },
       {
