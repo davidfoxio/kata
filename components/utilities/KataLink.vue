@@ -17,6 +17,13 @@
   <a v-else-if="url" :href="link" :class="linkStyle">
     {{ text }}
   </a>
+  <nuxt-link
+    v-else-if="query && query != null"
+    :to="{ query: { lightbox: query } }"
+    :class="linkStyle"
+  >
+    {{ text }}
+  </nuxt-link>
 </template>
 
 <script>
@@ -39,6 +46,10 @@ export default {
       default: null,
     },
     url: {
+      type: String,
+      default: null,
+    },
+    query: {
       type: String,
       default: null,
     },
