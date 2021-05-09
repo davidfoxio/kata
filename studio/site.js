@@ -1,4 +1,3 @@
-import {FaHome} from 'react-icons/fa'
-const allTypes = [{type: 'pageHub', icon: FaHome}]
+const allTypes = [{type: 'pageHub'}]
 
 export {allTypes}
