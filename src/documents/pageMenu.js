@@ -1,5 +1,5 @@
 import {hiddenTitle} from 'part:@weflocc/kata/partials/meta'
-import config from 'config:kata'
+import config from 'config:@weflocc/kata'
 
 export default {
   type: 'document',

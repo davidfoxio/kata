@@ -1,4 +1,4 @@
-import config from 'config:kata'
+import config from 'config:@weflocc/kata'
 import {BiLinkExternal, BiLink} from 'react-icons/bi'
 import {GoFileSymlinkFile} from 'react-icons/go'
 import {standardImage} from 'part:@weflocc/kata/partials/image'

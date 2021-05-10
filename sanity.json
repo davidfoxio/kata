@@ -106,7 +106,7 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "slices/cta/cta02"
+      "path": "slices/cta/cta08"
     },
     {
       "implements": "part:@sanity/base/schema-type",

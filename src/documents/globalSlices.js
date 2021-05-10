@@ -1,4 +1,4 @@
-import config from 'config:kata'
+import config from 'config:@weflocc/kata'
 import {RiGlobeFill} from 'react-icons/ri'
 
 export default {
