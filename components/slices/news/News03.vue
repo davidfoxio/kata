@@ -7,7 +7,7 @@
     />
 
     <div v-if="articles" ref="listItems" class="relative">
-      <VueSlickCarousel v-bind="settings" class="article-results-slider">
+      <VueSlickCarousel v-bind="settings" class="news-3-slider">
         <template #prevArrow="arrowOption">
           <button
             class="carousel-nav prev focus:outline-none mb-medium"
