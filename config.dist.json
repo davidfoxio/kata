@@ -1,5 +1,6 @@
 {
   "allTypes":[
-   {"type": "page"}
- ]
+    {"type": "page"}
+  ],
+  "allSlices": []
 }

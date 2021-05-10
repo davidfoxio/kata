@@ -1,4 +1,4 @@
-import {allTypes} from '../../../schemas/partials/allTypes'
+import config from 'config:kata'
 import {BiLinkExternal, BiLink} from 'react-icons/bi'
 import {GoFileSymlinkFile} from 'react-icons/go'
 import {standardImage} from 'part:@weflocc/kata/partials/image'
@@ -54,7 +54,7 @@ const basicTextEditor = (name = 'Text Body') => {
                   name: 'reference',
                   type: 'reference',
                   title: 'Reference',
-                  to: allTypes
+                  to: config.allTypes
                 }
               ]
             }
@@ -113,7 +113,7 @@ const fullTextEditor = (name = 'Text Body') => {
                   name: 'reference',
                   type: 'reference',
                   title: 'Reference',
-                  to: allTypes
+                  to: config.allTypes
                 }
               ]
             },
@@ -129,7 +129,7 @@ const fullTextEditor = (name = 'Text Body') => {
                   name: 'file',
                   type: 'file',
                   title: 'File',
-                  to: allTypes
+                  to: config.allTypes
                 }
               ]
             }

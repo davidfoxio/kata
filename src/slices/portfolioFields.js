@@ -1,4 +1,4 @@
-import {allTypes} from '../../../schemas/partials/allTypes'
+import config from 'config:kata'
 import {standardImage} from 'part:@weflocc/kata/partials/image'
 import {BiListPlus} from 'react-icons/bi'
 
@@ -44,7 +44,7 @@ const thumbnails = {
           name: 'link',
           title: 'Link',
           type: 'reference',
-          to: allTypes
+          to: config.allTypes
         }
       ],
       preview: {
@@ -87,7 +87,7 @@ const imageThumbnails = {
           name: 'link',
           title: 'Link',
           type: 'reference',
-          to: allTypes
+          to: config.allTypes
         }
       ],
       preview: {

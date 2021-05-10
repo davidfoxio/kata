@@ -1,4 +1,4 @@
-import {allTypes} from '../../../schemas/partials/allTypes'
+import config from 'config:kata'
 import {linkText, linkStyle} from 'part:@weflocc/kata/partials/links'
 import {BiLink} from 'react-icons/bi'
 
@@ -10,7 +10,7 @@ export default {
     {
       type: 'reference',
       name: 'internalLink',
-      to: allTypes
+      to: config.allTypes
     },
     linkText,
     linkStyle

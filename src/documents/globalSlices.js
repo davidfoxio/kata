@@ -1,4 +1,4 @@
-import {allSlices} from '../../../schemas/partials/allSlices'
+import config from 'config:kata'
 import {RiGlobeFill} from 'react-icons/ri'
 
 export default {
@@ -21,7 +21,7 @@ export default {
       options: {
         editModal: 'fullscreen'
       },
-      of: allSlices
+      of: config.allSlices
     }
   ]
 }

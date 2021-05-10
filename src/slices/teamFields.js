@@ -1,5 +1,4 @@
 import {BiListPlus} from 'react-icons/bi'
-import {allTypes} from '../../../schemas/partials/allTypes'
 import {standardImage} from 'part:@weflocc/kata/partials/image'
 
 const title = {

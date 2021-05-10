@@ -1,5 +1,5 @@
 import {hiddenTitle} from 'part:@weflocc/kata/partials/meta'
-import {allTypes} from '../../../schemas/partials/allTypes'
+import config from 'config:kata'
 
 export default {
   type: 'document',
@@ -20,7 +20,7 @@ export default {
           title: 'Menu',
           name: 'menu',
           type: 'reference',
-          to: allTypes
+          to: config.allTypes
         }
       ]
     }

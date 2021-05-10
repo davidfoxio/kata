@@ -1,7 +1,7 @@
 import {standardImage} from 'part:@weflocc/kata/partials/image'
 import {basicTextEditor} from 'part:@weflocc/kata/partials/textEditor'
 import {BiListPlus} from 'react-icons/bi'
-import {allTypes} from '../../../schemas/partials/allTypes'
+import config from 'config:kata'
 
 const title = {
   name: 'title',
@@ -38,7 +38,7 @@ const features = {
           type: 'reference',
           name: 'link',
           title: 'Link',
-          to: allTypes,
+          to: config.allTypes,
           description: 'Optional'
         }
       ],
@@ -82,7 +82,7 @@ const shortFeatures = {
           type: 'reference',
           name: 'link',
           title: 'Link',
-          to: allTypes,
+          to: config.allTypes,
           description: 'Optional'
         }
       ],
