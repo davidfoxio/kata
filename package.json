@@ -1,11 +1,17 @@
 {
   "name": "@weflocc/kata",
-  "version": "0.2.18",
+  "version": "0.3.2",
   "description": "Core dependencies for kata sites",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "sanipack build",
+    "watch": "sanipack build --watch",
+    "prepublishOnly": "sanipack build && sanipack verify"
   },
+  "keywords": [
+    "sanity",
+    "sanity-plugin"
+  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/weflocc/kata.git"
@@ -20,10 +26,35 @@
     "@sanity/desk-tool": "^2.10.2",
     "get-youtube-id": "^1.0.1",
     "lodash.camelcase": "^4.3.0",
-    "react": "^17.0",
     "react-icons": "^4.2.0",
     "react-youtube": "^7.13.1",
     "sanity-plugin-table": "^2.2.0",
     "vue-slick-carousel": "^1.0.6"
+  },
+  "devDependencies": {
+    "eslint": "7.25.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-config-sanity": "5.1.0",
+    "eslint-plugin-react": "7.23.2",
+    "prettier": "2.2.1",
+    "sanipack": "2.0.1"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "parser": "sanipack/babel/eslint-parser",
+    "extends": [
+      "sanity",
+      "sanity/react",
+      "prettier",
+      "prettier/react"
+    ]
   }
 }
