@@ -158,6 +158,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "slices/featureList/featureList01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "slices/hero/hero01"
     },
     {
