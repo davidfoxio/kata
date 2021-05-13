@@ -1,5 +1,5 @@
 <template>
-  <div v-if="media && media[0] && media.length == 1" class="media-image bg-black">
+  <div v-if="media && media[0] && media.length == 1" class="media-image">
     <KataImage
       :image="media[0]"
       :sizes="sizes"
