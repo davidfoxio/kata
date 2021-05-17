@@ -13,13 +13,16 @@
         @mouseleave="isMobile ? null : closeChild(item, i)"
       >
         <n-link
-          v-if="link(item.link._ref)"
+          v-if="item.link && link(item.link._ref)"
           :to="link(item.link._ref).path"
           class="nav-link inline-block"
           @click.native="clickFn"
         >
           {{ link(item.link._ref).title }}
         </n-link>
+        <div v-else class="nav-link inline-block">
+          {{ item.noLinkJustTitle }}
+        </div>
         <button
           v-if="item.children"
           title="Show/Hide Child Menu"
@@ -53,7 +56,7 @@ export default {
     clickFn: {
       type: Function,
       default: () => {
-        console.log('no click function available')
+        // console.log('no click function available')
       },
     },
   },
@@ -147,7 +150,7 @@ export default {
     padding: 15px;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: -15px;
     right: 0;
     margin: auto;
     min-width: 200px;
