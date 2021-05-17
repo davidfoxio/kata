@@ -76,9 +76,9 @@ export default {
       }
 
       algoliasearchNetlify({
-        appId: 'JJ3XWFTJJP',
-        apiKey: '6ffac447b1f7dc6dc2824f718e8dbea6',
-        siteId: 'e10b183f-94fa-491d-a64a-f4fe70c26680',
+        appId: '',
+        apiKey: '',
+        siteId: '',
         branch: targetBranch,
         selector: 'div#aa-search',
 
