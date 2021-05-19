@@ -74,5 +74,9 @@ export default {
   li {
     padding-left: 0 !important;
   }
+
+  a {
+    @apply text-primary;
+  }
 }
 </style>
