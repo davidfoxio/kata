@@ -60,19 +60,19 @@ export default {
   p + h3 {
     margin-top: var(--spacing-large);
   }
-  li {
-    position: relative;
-    padding-left: 20px;
-    list-style: none;
-    margin-left: 10px;
 
-    &::before {
-      content: '\2022';
-      // color: $tertiary;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+  ol {
+    list-style: decimal;
+    padding-left: 2.5em;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 2.5em;
+  }
+
+  li {
+    padding-left: 0 !important;
   }
 }
 </style>
