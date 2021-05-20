@@ -14,6 +14,7 @@ import FileLink from './serializers/FileLink.vue'
 import InternalLink from './serializers/InternalLink.vue'
 import ExternalLink from './serializers/ExternalLink.vue'
 import TableField from './serializers/TableField.vue'
+import Accordion from './serializers/Accordion.vue'
 
 export default {
   props: {
@@ -30,6 +31,7 @@ export default {
           image: Image,
           link: BlockLinks,
           tableField: TableField,
+          accordion: Accordion
         },
         marks: {
           internalLink: InternalLink,
