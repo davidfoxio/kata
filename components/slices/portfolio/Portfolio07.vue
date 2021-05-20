@@ -2,14 +2,14 @@
   <div class="slice portfolio-7 relative slice-animation">
     <div v-if="title" class="heading pointer-events-none">
       <div class="heading-inner">
-        <h2 class="text-tertiary fade-up" v-html="title" />
+        <h2 class="text-tertiary heading-1" v-html="title" />
       </div>
     </div>
     <div class="w-r10/12 mx-r1/12 grid grid-cols-2 gap-small">
       <div
         v-for="(item, index) in imageThumbnails"
         :key="item._key"
-        class="relative item fade-up"
+        class="relative item"
         :class="thumbnailClass(index + 1)"
       >
         <KataImage
@@ -106,34 +106,34 @@ export default {
       animation-fill-mode: both;
       font-weight: normal;
       margin: 0;
-      line-height: 1;
-      width: fit-content;
-      @include fluid-type(150px, 200px);
+      width: 100vw;
       transition: 0.5s ease;
+      line-height: 1;
+      @include fluid-type(150px, 200px);
     }
   }
 
-  @include md-up {
-    @keyframes titlePan {
-      from {
-        transform: translateX(50%);
-      }
-      to {
-        transform: translateX(0%);
-      }
+  // @include md-up {
+  @keyframes titlePan {
+    from {
+      transform: translateX(50vw);
+    }
+    to {
+      transform: translateX(-50vw);
     }
   }
+  // }
 
-  @include md-down {
-    @keyframes titlePan {
-      from {
-        transform: translateX(90%);
-      }
-      to {
-        transform: translateX(0);
-      }
-    }
-  }
+  // @include md-down {
+  //   @keyframes titlePan {
+  //     from {
+  //       transform: translateX(90vw);
+  //     }
+  //     to {
+  //       transform: translateX(0);
+  //     }
+  //   }
+  // }
 
   .landscape:nth-child(odd) {
     align-self: end;

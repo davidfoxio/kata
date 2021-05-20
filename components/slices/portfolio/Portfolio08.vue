@@ -1,7 +1,9 @@
 <template>
   <div class="portfolio-8 slice w-r10/12 mx-r1/12">
-    <h2 v-if="title" class="mb-medium" v-html="title" />
-    <p v-if="text" class="mb-medium" v-html="text" />
+    <div class="mb-large">
+      <h2 v-if="title" v-html="title" />
+      <p v-if="text" class="mt-medium" v-html="text" />
+    </div>
     <transition-group
       v-if="feed"
       :class="ulClass"
