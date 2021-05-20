@@ -4,19 +4,47 @@
       <input :id="'chck' + i" type="checkbox" name="rd" />
       <label class="tab-label" :for="'chck' + i">{{ item.title }}</label>
       <div class="tab-content">
-        <SanityEmbedContent :blocks="item.textBody" />
+        <SanityContent :blocks="item.textBody" :serializers="serializers" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+// This duplicates SanityEmbedContent but does not include Accordion as a type
+// This avoids a never-ending-loop of <SanityEmbedontent> and <Accordion> components
+
+import Youtube from './Youtube.vue'
+import Image from './SanityImage.vue'
+import BlockLinks from './BlockLinks.vue'
+import FileLink from './FileLink.vue'
+import InternalLink from './InternalLink.vue'
+import ExternalLink from './ExternalLink.vue'
+import TableField from './TableField.vue'
+
 export default {
   props: {
     items: {
-      type: Object,
-      default: () => {},
+      type: Array,
+      default: () => [],
     },
+  },
+    data() {
+    return {
+      serializers: {
+        types: {
+          youtube: Youtube,
+          image: Image,
+          link: BlockLinks,
+          tableField: TableField,
+        },
+        marks: {
+          internalLink: InternalLink,
+          externalLink: ExternalLink,
+          file: FileLink,
+        },
+      },
+    }
   },
 }
 </script>
