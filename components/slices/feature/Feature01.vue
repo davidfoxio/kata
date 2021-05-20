@@ -1,11 +1,21 @@
 <template>
-  <div class="slice feature-1 w-r10/12 mx-r1/12 flex flex-col sm:flex-row sm:gap-x-large">
-    <div class="sm:w-1/2 order-2 sm:order-1 py-medium">
-      <h2 v-if="title" class="mb-large fade-up" v-html="title" />
+  <div
+    class="slice feature-1 w-r10/12 mx-r1/12 flex flex-col"
+    :class="{ 'md:flex-row-reverse': reversed, 'md:flex-row': !reversed }"
+  >
+    <div
+      class="md:w-1/2 order-2 md:order-1 py-medium"
+      :class="{ 'md:mr-large': !reversed, 'md:ml-large': reversed }"
+    >
+      <div v-if="superHeading">
+        <h2 class="label-1 mb-medium" v-html="superHeading" />
+        <h3 v-if="title" class="heading-2 mb-medium" v-html="title" />
+      </div>
+      <h2 v-else class="heading-2 mb-medium" v-html="title" />
       <p v-if="text" class="mb-large fade-up" v-html="text" />
       <KataLinks :links="links" class="fade-up" />
     </div>
-    <div class="sm:w-1/2 order-1 sm:order-2 mb-large sm:mb-0">
+    <div class="md:w-1/2 order-1 md:order-2 mb-large md:mb-0">
       <KataImage
         v-if="image"
         :image="image"
@@ -19,9 +29,15 @@
 </template>
 
 <script>
-import { title, text, links, image } from '../shared'
+import { superHeading, title, text, links, image } from '../shared'
 
 export default {
-  mixins: [title, text, links, image],
+  mixins: [superHeading, title, text, links, image],
+  props: {
+    reversed: {
+      type: Boolean,
+      default: false,
+    },
+  },
 }
 </script>

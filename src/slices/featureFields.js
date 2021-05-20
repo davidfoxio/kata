@@ -7,6 +7,11 @@ const title = {
   name: 'title',
   type: 'string'
 }
+const superHeading = {
+  title: 'Super Heading',
+  name: 'superHeading',
+  type: 'string'
+}
 
 const features = {
   title: 'Features',
@@ -280,6 +285,7 @@ const locations = {
 }
 
 export {
+  superHeading,
   title,
   features,
   text,

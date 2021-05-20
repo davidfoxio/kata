@@ -1,4 +1,4 @@
-import {title, textBody, shortFeatures, features, text, featureTabs, featureImageTabs, locations} from './featureFields'
+import {title, superHeading, shortFeatures, features, text, featureTabs, featureImageTabs, locations} from './featureFields'
 import {standardImage} from 'part:@weflocc/kata/partials/image'
 import {links} from 'part:@weflocc/kata/partials/links'
 import {defaultOptions} from 'part:@weflocc/kata/partials/defaults'
@@ -8,7 +8,7 @@ const feature01 = {
   type: 'object',
   title: 'Feature #1',
   options: defaultOptions,
-  fields: [title, text, links(), standardImage()]
+  fields: [superHeading, title, text, links(), standardImage()]
 }
 
 const feature02 = {
