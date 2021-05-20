@@ -42,7 +42,7 @@ export default {
                   title: 'Menu',
                   name: 'menu',
                   type: 'reference',
-                  to: allTypes
+                  to: config.allTypes
                 }
               ]
             }

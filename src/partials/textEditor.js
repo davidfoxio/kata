@@ -148,6 +148,17 @@ const fullTextEditor = (name = 'Text Body') => {
       {
         type: 'link',
         title: 'Buttons'
+      },
+      {
+        title: 'Table Field',
+        name: 'tableField',
+        type: 'object',
+        fields: [
+          { 
+            name: 'table',
+            type: 'table'
+          }
+        ]
       }
     ]
   }
