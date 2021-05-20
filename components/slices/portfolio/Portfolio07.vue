@@ -109,17 +109,17 @@ export default {
       width: 100vw;
       transition: 0.5s ease;
       line-height: 1;
-      @include fluid-type(150px, 200px);
+      @include fluid-type(65px, 200px);
     }
   }
 
   // @include md-up {
   @keyframes titlePan {
     from {
-      transform: translateX(50vw);
+      transform: translateX(70vw);
     }
     to {
-      transform: translateX(-50vw);
+      transform: translateX(-30vw);
     }
   }
   // }
