@@ -58,9 +58,7 @@ const image = {
   props: {
     image: {
       type: Object,
-      default: function () {
-        return {}
-      },
+      default: () => {},
     },
   },
 }
@@ -74,4 +72,4 @@ const description = {
   },
 }
 
-export { title, superHeading, text, textBody, description, links, media, image }
+export {title, superHeading, text, textBody, description, links, media, image}

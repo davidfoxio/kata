@@ -10,7 +10,6 @@
       class="sm:w-r5/12 order-1 sm:order-2 mb-large sm:mb-0 sm:relative image"
     >
       <KataImage
-        v-if="image"
         :image="image"
         :ratio="510 / 714"
         :max-width="1000"

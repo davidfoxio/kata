@@ -17,7 +17,6 @@
     </div>
     <div class="md:w-1/2 order-1 md:order-2 mb-large md:mb-0">
       <KataImage
-        v-if="image"
         :image="image"
         :ratio="685 / 514"
         :max-width="1500"

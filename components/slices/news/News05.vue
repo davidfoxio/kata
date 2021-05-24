@@ -22,11 +22,7 @@
         <p v-if="item.text" class="para-2 mt-medium" v-html="item.text" />
       </div>
       <div class="md:w-5/12 lg:w-7/12 image md:mb-0 mb-medium">
-        <KataImage
-          v-if="item.image"
-          :image="item.image"
-          class="h-full w-full object-cover"
-        />
+        <KataImage :image="item.image" class="h-full w-full object-cover" />
       </div>
     </component>
   </div>

@@ -2,7 +2,6 @@
   <div class="slice text-4 md:flex w-full md:items-center">
     <div class="w-full md:w-1/3 mb-large sm:mb-0 image">
       <KataImage
-        v-if="image"
         :image="image"
         :ratio="ratio"
         :max-width="900"

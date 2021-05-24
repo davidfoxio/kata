@@ -9,12 +9,7 @@
         :key="item._key"
         class="px-small md:w-1/3 fade-up"
       >
-        <KataImage
-          v-if="item.image"
-          :image="item.image"
-          :ratio="4 / 3"
-          class="mb-small"
-        />
+        <KataImage :image="item.image" :ratio="4 / 3" class="mb-small" />
         <h3 v-if="item.title" class="mb-small label-1" v-html="item.title" />
         <p v-if="item.description" class="para-4" v-html="item.description" />
       </div>

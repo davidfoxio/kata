@@ -28,7 +28,6 @@
         <div v-for="item in thumbnails" :key="item._key" class="slide">
           <div class="portfolio-5-image mb-medium">
             <KataImage
-              v-if="item.image"
               :image="item.image"
               :ratio="825 / 500"
               :max-width="1500"

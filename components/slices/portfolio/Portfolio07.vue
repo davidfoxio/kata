@@ -13,7 +13,6 @@
         :class="thumbnailClass(index + 1)"
       >
         <KataImage
-          v-if="item.image"
           :image="item.image"
           :max-width="1000"
           :ratio="ratio(index + 1)"

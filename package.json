@@ -52,20 +52,5 @@
   },
   "peerDependencies": {
     "react": "^17.0.0"
-  },
-  "prettier": {
-    "semi": false,
-    "printWidth": 100,
-    "bracketSpacing": false,
-    "singleQuote": true
-  },
-  "eslintConfig": {
-    "parser": "sanipack/babel/eslint-parser",
-    "extends": [
-      "sanity",
-      "sanity/react",
-      "prettier",
-      "prettier/react"
-    ]
   }
 }
