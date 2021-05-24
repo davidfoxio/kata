@@ -26,11 +26,11 @@ export default {
       type: Object,
       // required: true,
       default: () => {
-        if (process.env.NODE_ENV === 'production') {
-          return {}
-        } else {
+        if (process.env.NODE_ENV !== 'production' && defaultImage.asset._ref) {
           return defaultImage
         }
+
+        return {}
       },
     },
     loader: {
