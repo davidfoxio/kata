@@ -10,7 +10,6 @@
       <slot name="tease" :item="item">
         <NuxtLink :to="getLink(item._id)">
           <KataImage
-            v-if="item.image.asset"
             :image="item.image"
             :max-width="650"
             :ratio="6 / 4"

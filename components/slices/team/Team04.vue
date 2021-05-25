@@ -9,7 +9,6 @@
         <li v-for="item in thumbnails" :key="item._id" class="fade-up">
           <slot name="tease" :item="item">
             <KataImage
-              v-if="item.image"
               :image="item.image"
               class="mb-small"
               :ratio="255 / 340"

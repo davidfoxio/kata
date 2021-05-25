@@ -146,6 +146,9 @@ const fullTextEditor = (name = 'Text Body') => {
         type: 'youtube'
       },
       {
+        type: 'accordion'
+      },
+      {
         type: 'link',
         title: 'Buttons'
       },

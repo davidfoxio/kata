@@ -1,7 +1,6 @@
 <template>
   <component :is="link ? 'nuxt-link' : 'div'" :to="link">
     <KataImage
-      v-if="image.asset"
       :image="image"
       :max-width="650"
       :ratio="6 / 4"
@@ -20,9 +19,7 @@ export default {
   props: {
     image: {
       type: Object,
-      default: function () {
-        return {}
-      },
+      default: () => {},
     },
     itemId: {
       type: String,
