@@ -14,7 +14,7 @@
     {{ text }}
   </a>
 
-  <a v-else-if="url" :href="link" :class="linkStyle">
+  <a v-else-if="url" :href="link" target="_blank" :class="linkStyle">
     {{ text }}
   </a>
   <nuxt-link

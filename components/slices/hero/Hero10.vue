@@ -4,10 +4,10 @@
       :media="media"
       :ratio="16 / 9"
       :max-width="3000"
-      class="h-screen w-full object-cover"
+      class="min-h-screen w-full object-cover"
     />
     <div
-      class="w-r10/12 lg:w-r9/12 xl:w-r7/12 p-r1/12 h-screen flex flex-col justify-end items-start text-left z-1"
+      class="w-r10/12 lg:w-r9/12 xl:w-r7/12 p-r1/12 min-h-screen flex flex-col justify-end items-start text-left z-1"
     >
       <div v-if="superHeading">
         <h1 class="label-1 text-white mb-medium" v-html="superHeading" />
