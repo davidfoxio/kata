@@ -1,18 +1,23 @@
 import config from 'config:@weflocc/kata'
-import {standardImage} from 'part:@weflocc/kata/partials/image'
-import {BiListPlus} from 'react-icons/bi'
+import { standardImage } from 'part:@weflocc/kata/partials/image'
+import { BiListPlus } from 'react-icons/bi'
 
 const title = {
   name: 'title',
   type: 'string',
-  title: 'Title'
+  title: 'Title',
+}
+
+const superHeading = {
+  name: 'superHeading',
+  type: 'string',
 }
 
 const text = {
   name: 'text',
   type: 'text',
   title: 'Text',
-  rows: 3
+  rows: 3,
 }
 
 const thumbnails = {
@@ -20,7 +25,7 @@ const thumbnails = {
   title: 'Thumbnails',
   type: 'array',
   options: {
-    collapsable: true
+    collapsable: true,
   },
   of: [
     {
@@ -32,36 +37,36 @@ const thumbnails = {
         {
           name: 'title',
           title: 'Title',
-          type: 'string'
+          type: 'string',
         },
         {
           name: 'text',
           title: 'Text',
           type: 'text',
-          rows: 3
+          rows: 3,
         },
         {
           name: 'link',
           title: 'Link',
           type: 'reference',
-          to: config.allTypes
-        }
+          to: config.allTypes,
+        },
       ],
       preview: {
         select: {
           heading: 'title',
-          image: 'image'
+          image: 'image',
         },
-        prepare (selection) {
-          const {heading, image} = selection
+        prepare(selection) {
+          const { heading, image } = selection
           return {
             title: heading,
-            media: image || BiListPlus
+            media: image || BiListPlus,
           }
-        }
-      }
-    }
-  ]
+        },
+      },
+    },
+  ],
 }
 
 const imageThumbnails = {
@@ -69,7 +74,7 @@ const imageThumbnails = {
   title: 'Thumbnails',
   type: 'array',
   options: {
-    collapsable: true
+    collapsable: true,
   },
   of: [
     {
@@ -81,30 +86,30 @@ const imageThumbnails = {
         {
           name: 'title',
           title: 'Title',
-          type: 'string'
+          type: 'string',
         },
         {
           name: 'link',
           title: 'Link',
           type: 'reference',
-          to: config.allTypes
-        }
+          to: config.allTypes,
+        },
       ],
       preview: {
         select: {
           heading: 'title',
-          image: 'image'
+          image: 'image',
         },
-        prepare (selection) {
-          const {heading, image} = selection
+        prepare(selection) {
+          const { heading, image } = selection
           return {
             title: heading,
-            media: image || BiListPlus
+            media: image || BiListPlus,
           }
-        }
-      }
-    }
-  ]
+        },
+      },
+    },
+  ],
 }
 
 const portfolio06Slides = {
@@ -112,9 +117,16 @@ const portfolio06Slides = {
   title: 'Thumbnails',
   type: 'array',
   options: {
-    collapsable: true
+    collapsable: true,
   },
-  of: [standardImage()]
+  of: [standardImage()],
 }
 
-export {title, text, thumbnails, imageThumbnails, portfolio06Slides}
+export {
+  title,
+  superHeading,
+  text,
+  thumbnails,
+  imageThumbnails,
+  portfolio06Slides,
+}
