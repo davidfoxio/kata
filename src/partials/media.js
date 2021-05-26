@@ -1,4 +1,4 @@
-import {standardImage} from 'part:@weflocc/kata/partials/image'
+import { standardImage } from 'part:@weflocc/kata/partials/image'
 const camelCase = require('lodash.camelcase')
 
 const media = (name = 'Media') => {
@@ -8,11 +8,11 @@ const media = (name = 'Media') => {
     type: 'array',
     editModal: 'popover',
     of: [
-      standardImage()
+      standardImage(),
       // {type: 'video'},
     ],
-    validation: Rule => Rule.min(1).required('Please select at least one image.')
+    // validation: Rule => Rule.min(1).required('Please select at least one image.')
   }
 }
 
-export {media}
+export { media }

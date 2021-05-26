@@ -1,15 +1,14 @@
-import {linkText} from 'part:@weflocc/kata/partials/links'
-import {hiddenTitle} from 'part:@weflocc/kata/partials/meta'
+import { linkText } from 'part:@weflocc/kata/partials/links'
+import { hiddenTitle } from 'part:@weflocc/kata/partials/meta'
 
 export default {
   type: 'document',
   name: 'pageFloccCredit',
   title: 'Flocc Credit',
-  __experimental_actions: ['update', 'publish'],
   initialValue: {
     title: 'Flocc Credit',
     linkText: 'Digital Marketing by flocc',
-    url: 'https://flocc.co'
+    url: 'https://flocc.co',
   },
   fields: [
     hiddenTitle,
@@ -17,7 +16,7 @@ export default {
     {
       type: 'url',
       name: 'url',
-      title: 'URL'
-    }
-  ]
+      title: 'URL',
+    },
+  ],
 }

@@ -110,6 +110,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "slices/cta/cta05"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "slices/cta/cta08"
     },
     {
