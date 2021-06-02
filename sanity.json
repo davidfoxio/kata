@@ -70,6 +70,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "components/accordion"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "documents/globalSlices"
     },
     {
