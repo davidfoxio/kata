@@ -110,7 +110,8 @@ export default {
       return Math.floor(val / this.ratio)
     },
     imgMeta(ref) {
-      return this.$store.getters['references/getImageMetadata'](ref)
+      if(ref) return this.$store.getters['references/getImageMetadata'](ref)
+      return null
     },
     // onLoad() {
     // },

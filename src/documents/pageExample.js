@@ -6,7 +6,6 @@ export default {
   name: 'pageExample',
   title: 'Example',
   fieldsets: [metaFieldset],
-  __experimental_actions: ['update', 'publish'],
   fields: [
     metaField,
     hiddenTitle,

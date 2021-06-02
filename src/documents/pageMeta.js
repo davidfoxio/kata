@@ -4,7 +4,6 @@ export default {
   type: 'document',
   name: 'pageMeta',
   title: 'Global Meta',
-  __experimental_actions: ['update', 'publish'],
   initialValue: {
     title: 'Global Meta'
   },
