@@ -1,5 +1,5 @@
 <template>
-  <div class="slice portfolio-5 mx-r1/12 w-r10/12">
+  <div class="slice portfolio-4 mx-r1/12 w-r10/12">
     <div class="mb-large text-center">
       <h2 v-if="title" class="mb-medium fade-up">{{ title }}</h2>
     </div>
@@ -21,9 +21,9 @@
               v-html="item.title"
             />
             <p
-              v-if="item.description"
+              v-if="item.text"
               class="para-4"
-              v-html="item.description"
+              v-html="item.text"
             />
           </component>
         </slot>
@@ -55,14 +55,6 @@ export default {
         centerMode: false,
       },
     }
-  },
-  methods: {
-    showNext() {
-      this.$refs['portfolio-5-carousel'].next()
-    },
-    showPrev() {
-      this.$refs['portfolio-5-carousel'].prev()
-    },
   },
 }
 </script>
