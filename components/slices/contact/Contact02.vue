@@ -1,5 +1,5 @@
 <template>
-  <div class="slice contact-2 md:flex">
+  <div class="slice contact-2 md:flex" v-if="location">
     <div class="w-full md:w-r5/12 mb-large md:mb-0 map">
       <GMap
         ref="gMap"

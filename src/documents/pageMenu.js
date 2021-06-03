@@ -24,7 +24,7 @@ export default {
             {
               title: 'No link, just a title',
               name: 'noLinkJustTitle',
-              description: 'Use this instead of chosing a link, to make a menu item that is just a parent, not a link to something.',
+              description: 'Use this instead of choosing a link, to make a menu item that is just a parent, not a link to something.',
               type: 'string'
             },
             {
@@ -55,7 +55,7 @@ export default {
             prepare (selection) {
               const {title, noLinkJustTitle} = selection
               return {
-                title: title || noLinkJustTitle || 'unknown',
+                title: title || noLinkJustTitle || 'Unknown',
                 media: RiMenuAddLine
               }
             }

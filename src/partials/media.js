@@ -1,4 +1,5 @@
 import {standardImage} from 'part:@weflocc/kata/partials/image'
+import { videoSrcset } from './videoSrcset'
 const camelCase = require('lodash.camelcase')
 
 const media = (name = 'Media') => {
@@ -9,10 +10,10 @@ const media = (name = 'Media') => {
     editModal: 'popover',
     of: [
       standardImage(),
-      
-      // {type: 'video'},
+      videoSrcset()
     ],
-    validation: Rule => Rule.min(1).required('Please select at least one image.')
+    validation: (Rule) =>
+      Rule.min(1).required('Please select at least one item.'),
   }
 }
 
