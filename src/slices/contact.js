@@ -1,4 +1,15 @@
-import {title, location, text, email, website, websiteText, address, telephone, thanks} from './contactFields'
+import {
+  title,
+  location,
+  text,
+  email,
+  website,
+  websiteText,
+  address,
+  telephone,
+  thanks,
+  openingTimes,
+} from './contactFields'
 import {defaultOptions} from 'part:@weflocc/kata/partials/defaults'
 
 const contact01 = {
