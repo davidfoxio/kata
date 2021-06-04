@@ -90,6 +90,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "documents/pageTwoMenus"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "documents/pageMeta"
     },
     {

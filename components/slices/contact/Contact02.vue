@@ -22,6 +22,10 @@
           <p class="label-1">Address</p>
           <p class="whitespace-pre-line" v-html="address" />
         </li>
+        <li v-if="openingTimes" class="mb-medium item">
+          <p class="label-1">Opening Times</p>
+          <p class="whitespace-pre-line" v-html="openingTimes" />
+        </li>
         <li v-if="website" class="mb-medium item">
           <p class="label-1">Website</p>
           <p>
@@ -64,23 +68,27 @@ export default {
     },
     address: {
       type: String,
-      required: true,
+      default: ''
+    },
+    openingTimes: {
+      type: String,
+      default: ''
     },
     email: {
       type: String,
-      required: true,
+      default: ''
     },
     website: {
       type: String,
-      required: true,
+      default: ''
     },
     websiteText: {
       type: String,
-      default: "",
+      default: ''
     },
     telephone: {
       type: String,
-      required: true,
+      default: ''
     },
     mapPin: {
       type: String,
