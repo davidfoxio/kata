@@ -1,5 +1,5 @@
 <template>
-  <div v-if="socialMedia" class="social flex mb-medium space-x-small">
+  <div v-if="socialMedia" class="social flex space-x-small">
     <a
       v-if="socialMedia.twitter"
       :href="socialMedia.twitter"
