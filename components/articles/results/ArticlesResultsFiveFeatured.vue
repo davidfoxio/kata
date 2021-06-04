@@ -8,7 +8,7 @@
   >
     <li v-for="(item, i) in articles" :key="item._id">
       <slot name="tease" :item="item">
-        <NuxtLink :to="getLink(item._id)">
+        <NuxtLink :to="getLink(item._id)" class="block">
           <KataImage
             :image="item.image"
             :max-width="650"
@@ -60,10 +60,9 @@ export default {
 .five-featured-grid {
   grid-template-columns: 2fr 1fr 1fr;
 
-  li:first-child {
+  li:first-child a {
     grid-row-start: 1;
     grid-row-end: span 2;
-
     display: grid;
     grid-template-areas: 'stack';
 
@@ -74,9 +73,9 @@ export default {
 
     .title {
       display: flex;
-      // justify-content: flex-end;
+      justify-content: flex-end;
       flex-direction: column;
-      @apply text-white;
+      color: white;
       @apply p-medium;
     }
   }
