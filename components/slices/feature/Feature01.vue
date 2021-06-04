@@ -4,7 +4,7 @@
     :class="{ 'md:flex-row-reverse': reversed, 'md:flex-row': !reversed }"
   >
     <div
-      class="md:w-1/2 order-2 md:order-1 py-medium"
+      class="md:w-1/2 order-2 md:order-1 py-medium text"
       :class="{ 'md:mr-large': !reversed, 'md:ml-large': reversed }"
     >
       <div v-if="superHeading">
@@ -15,7 +15,7 @@
       <p v-if="text" class="mb-large fade-up" v-html="text" />
       <KataLinks :links="links" class="fade-up" />
     </div>
-    <div class="md:w-1/2 order-1 md:order-2 mb-large md:mb-0">
+    <div class="md:w-1/2 order-1 md:order-2 mb-large md:mb-0 image">
       <KataImage
         :image="image"
         :ratio="685 / 514"
