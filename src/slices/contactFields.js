@@ -23,6 +23,12 @@ const address = {
   type: 'text',
   rows: 4
 }
+const openingTimes = {
+  title: 'Address',
+  name: 'address',
+  type: 'text',
+  rows: 4,
+}
 
 const website = {
   name: 'website',
@@ -51,4 +57,15 @@ const thanks = {
   title: 'Thanks text'
 }
 
-export {title, location, text, email, website, websiteText, address, telephone, thanks}
+export {
+  title,
+  location,
+  text,
+  email,
+  website,
+  websiteText,
+  address,
+  telephone,
+  thanks,
+  openingTimes,
+}
