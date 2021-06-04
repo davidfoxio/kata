@@ -24,8 +24,8 @@ const address = {
   rows: 4
 }
 const openingTimes = {
-  title: 'Address',
-  name: 'address',
+  title: 'Opening Times',
+  name: 'openingTimes',
   type: 'text',
   rows: 4,
 }
