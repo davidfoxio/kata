@@ -13,7 +13,7 @@ const media = (name = 'Media') => {
       videoSrcset()
     ],
     validation: (Rule) =>
-      Rule.min(1).required('Please select at least one item.'),
+      // Rule.min(1).required('Please select at least one item.'),
   }
 }
 
