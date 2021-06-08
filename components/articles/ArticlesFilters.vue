@@ -5,6 +5,18 @@
 
       <div v-if="filterGroup.terms" class="flex flex-wrap">
         <div
+          class="filter-wrapper w-1/2 mr-small md:w-auto block"
+        >
+          <button
+            type="button"
+            class="block w-max filter-btn btn-plain mb-2"
+            :class="{ selected: all(filterGroup.label) }"
+            @click="clear(filterGroup.label)"
+          >
+            All
+          </button>
+        </div>
+        <div
           v-for="filter in filterGroup.terms"
           :key="filter.id"
           class="filter-wrapper w-1/2 mr-small md:w-auto block"
@@ -48,6 +60,11 @@ export default {
         instance: this.articleInstance,
       })
     },
+    activeFilter() {
+      return this.$store.getters['articles/getActiveFiltersIfExists']({
+        instance: this.articleInstance,
+      })
+    },
   },
   methods: {
     toggleFilter(filterId, filterGroup) {
@@ -63,6 +80,9 @@ export default {
         instance: this.articleInstance,
       })
     },
+    all(filterGroup){
+      return this.activeFilter[filterGroup]?.length == 0
+    }
   },
 }
 </script>
