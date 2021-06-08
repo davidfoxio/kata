@@ -11,22 +11,22 @@
         >
           <button
             type="button"
-            class="block w-max filter-btn btn-large outline-none"
+            class="block w-max filter-btn btn-plain mb-2"
             :class="{ selected: filter.active }"
             @click="toggleFilter(filter.id, filterGroup.label)"
           >
             {{ filter.label }}
           </button>
         </div>
-    </div>
-    <button
-            type="button"
-            class="btn-secondary btn-small !py-1 mt-small"
-            @click="clear(filterGroup.label)"
-          >
-            Clear
-          </button>
       </div>
+      <button
+        type="button"
+        class="btn-secondary mt-small"
+        @click="clear(filterGroup.label)"
+      >
+        Clear
+      </button>
+    </div>
   </div>
 </template>
 
@@ -69,17 +69,8 @@ export default {
 
 <style lang="scss" scoped>
 button.filter-btn {
-  border-color: transparent;
-  @apply border-b-2;
-  text-transform: var(--buttonTextTransform, none);
-  transition: 0.4s ease;
-
-  &:focus,
-  &:hover,
-  &.selected {
-    border-color: var(--buttonBorderColour, var(--primary));
-    @apply outline-none;
+  &:focus {
+    outline: none !important;
   }
-
 }
 </style>
