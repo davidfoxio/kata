@@ -4,12 +4,10 @@
       <h3 v-if="categoryLabels">{{ filterGroup.label }}</h3>
 
       <div v-if="filterGroup.terms" class="flex flex-wrap">
-        <div
-          class="filter-wrapper w-1/2 mr-small md:w-auto block"
-        >
+        <div class="filter-wrapper w-auto block">
           <button
             type="button"
-            class="block w-max filter-btn btn-plain mb-2"
+            class="block w-max filter-btn btn-plain mb-2 mr-small"
             :class="{ selected: all(filterGroup.label) }"
             @click="clear(filterGroup.label)"
           >
@@ -19,11 +17,11 @@
         <div
           v-for="filter in filterGroup.terms"
           :key="filter.id"
-          class="filter-wrapper w-1/2 mr-small md:w-auto block"
+          class="filter-wrapper w-auto block"
         >
           <button
             type="button"
-            class="block w-max filter-btn btn-plain mb-2"
+            class="block w-max filter-btn btn-plain mb-2 mr-small"
             :class="{ selected: filter.active }"
             @click="toggleFilter(filter.id, filterGroup.label)"
           >
@@ -80,9 +78,9 @@ export default {
         instance: this.articleInstance,
       })
     },
-    all(filterGroup){
+    all(filterGroup) {
       return this.activeFilter[filterGroup]?.length == 0
-    }
+    },
   },
 }
 </script>
