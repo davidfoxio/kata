@@ -9,7 +9,7 @@
             class="nav-link inline-block"
             @click.native="clickFn"
           >
-            {{ link(item.link._ref).title }}
+            {{ item.noLinkJustTitle ? item.noLinkJustTitle : link(item.link._ref).title }}
           </n-link>
         </div>
         <div v-else>
@@ -19,7 +19,7 @@
             class="nav-link inline-block"
             @click.native="clickFn"
           >
-            {{ link(item._ref).title }}
+            {{ item.noLinkJustTitle ? item.noLinkJustTitle : link(item._ref).title }}
           </n-link>
           <a
             v-else
@@ -27,7 +27,7 @@
             class="nav-link inline-block"
             @click="clickFn"
           >
-            {{ item.title }}
+            {{ item.noLinkJustTitle ? item.noLinkJustTitle : item.title }}
           </a>
         </div>
       </li>
