@@ -41,6 +41,10 @@ export default {
       type: Object,
       default: null,
     },
+    anchor: {
+      type: String,
+      default: null,
+    },
     fileLink: {
       type: Object,
       default: null,
@@ -69,7 +73,12 @@ export default {
       }
     },
     path() {
-      const path = this.link ? this.link.path : null
+      let path = this.link ? this.link.path : null
+      console.log('herhe', this.anchor)
+      if (this.internalLink && this.anchor) {
+        console.log('herhe', this.anchor)
+        path += this.anchor
+      }
       return path
     },
     text() {
