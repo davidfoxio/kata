@@ -3,7 +3,7 @@
     <div class="back-btn mt-small mb-large mx-screen-border">
       <nuxt-link :to="indexPath">{{ backText }}</nuxt-link>
     </div>
-    <div class="simple-hero mb-slice">
+    <div class="simple-hero mb-large">
       <div class="md:w-r8/12 md:mx-r2/12 w-r10/12 mx-r1/12 mb-large">
         <h1 class="text-center">{{ c.title }}</h1>
       </div>
@@ -19,11 +19,11 @@
 
     <div class="main-content mb-slice md:w-r6/12 md:mx-r3/12 w-r10/12 mx-r1/12">
       <div
-        v-if="c.date || c.location || c.startDate"
-        class="sm:flex justify-between sm:flex-wrap"
+        v-if="c.date || c.location || c.startDate || c.date"
+        class="sm:flex justify-between sm:flex-wrap mb-large"
       >
         <p v-if="c.startDate" class="font-bold sm:mr-small">
-          {{ c.startDate | formatDate }}
+          {{ (c.startDate || c.date) | formatDate }}
         </p>
         <p v-if="c.date" class="font-bold sm:mr-small">
           {{ c.date | formatDate }}
