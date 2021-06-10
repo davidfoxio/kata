@@ -1,4 +1,4 @@
-import {fullTextEditor} from 'part:@weflocc/kata/partials/textEditor'
+import { fullTextEditor } from 'part:@weflocc/kata/partials/textEditor'
 
 export default {
   name: 'accordion',
@@ -15,12 +15,12 @@ export default {
           fields: [
             {
               name: 'title',
-              type: 'string'
+              type: 'string',
             },
-            fullTextEditor()
-          ]
-        }
-      ]
-    }
+            fullTextEditor(),
+          ],
+        },
+      ],
+    },
   ],
 }

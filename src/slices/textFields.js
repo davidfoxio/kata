@@ -1,14 +1,14 @@
-import {BiListPlus} from 'react-icons/bi'
-import {links} from 'part:@weflocc/kata/partials/links'
+import { BiListPlus } from 'react-icons/bi'
+import { links } from 'part:@weflocc/kata/partials/links'
 
 const title = {
   name: 'title',
-  type: 'string'
+  type: 'string',
 }
 
 const superHeading = {
   name: 'superHeading',
-  type: 'string'
+  type: 'string',
 }
 
 const textBody = {
@@ -23,13 +23,13 @@ const textBody = {
       marks: {
         // Only allow these decorators
         decorators: [
-          {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'}
+          { title: 'Strong', value: 'strong' },
+          { title: 'Emphasis', value: 'em' },
         ],
-        annotations: []
-      }
-    }
-  ]
+        annotations: [],
+      },
+    },
+  ],
 }
 
 const list = {
@@ -44,30 +44,29 @@ const list = {
         {
           title: 'Title',
           name: 'title',
-          type: 'string'
+          type: 'string',
         },
         {
           title: 'Text',
           name: 'text',
           type: 'text',
-          rows: 3
-        }
-
+          rows: 3,
+        },
       ],
       preview: {
         select: {
-          heading: 'title'
+          heading: 'title',
         },
-        prepare (selection) {
-          const {heading} = selection
+        prepare(selection) {
+          const { heading } = selection
           return {
             title: heading,
-            media: BiListPlus
+            media: BiListPlus,
           }
-        }
-      }
-    }
-  ]
+        },
+      },
+    },
+  ],
 }
 
-export {title, textBody, list, superHeading}
+export { title, textBody, list, superHeading }

@@ -1,4 +1,4 @@
-import {defaultOptions} from 'part:@weflocc/kata/partials/defaults'
+import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
 
 const feedSelector = ({
   field,
@@ -9,7 +9,7 @@ const feedSelector = ({
   categoryType,
   description,
   sliceTitle,
-  noShowAll
+  noShowAll,
 }) => {
   // Defaults
   selectedTitle = selectedTitle || 'Choose manually'
@@ -27,9 +27,9 @@ const feedSelector = ({
     of: [
       {
         type: 'reference',
-        to: {type: articleType}
-      }
-    ]
+        to: { type: articleType },
+      },
+    ],
   }
 
   const categories = {
@@ -39,9 +39,9 @@ const feedSelector = ({
     of: [
       {
         type: 'reference',
-        to: {type: categoryType}
-      }
-    ]
+        to: { type: categoryType },
+      },
+    ],
   }
 
   // const max = {
@@ -54,7 +54,7 @@ const feedSelector = ({
   const show = {
     name: 'show',
     title: `Display all ${articleType} articles?`,
-    type: 'boolean'
+    type: 'boolean',
   }
 
   const fields = []
@@ -63,7 +63,7 @@ const feedSelector = ({
     const title = {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
     }
     fields.push(title)
   }
@@ -84,8 +84,8 @@ const feedSelector = ({
     type: 'object',
     description: description,
     fields: fields,
-    options: defaultOptions
+    options: defaultOptions,
   }
 }
 
-export {feedSelector}
+export { feedSelector }

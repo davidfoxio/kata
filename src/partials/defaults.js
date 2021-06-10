@@ -1,6 +1,6 @@
 const defaultOptions = {
   collapsable: true,
-  collapsed: false
+  collapsed: false,
 }
 
-export {defaultOptions}
+export { defaultOptions }

@@ -1,18 +1,18 @@
 const title = {
   name: 'title',
-  type: 'string'
+  type: 'string',
 }
 
 const superHeading = {
   name: 'superHeading',
-  type: 'string'
+  type: 'string',
 }
 
 const text = {
   name: 'text',
   title: 'Text',
   type: 'text',
-  rows: 3
+  rows: 3,
 }
 
-export {title, text, superHeading}
+export { title, text, superHeading }

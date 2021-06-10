@@ -1,27 +1,27 @@
 const title = {
   name: 'title',
-  type: 'string'
+  type: 'string',
 }
 
 const location = {
   title: 'Location',
   name: 'location',
   type: 'geopoint',
-  validation: Rule => Rule.required('Please enter a location.')
+  validation: (Rule) => Rule.required('Please enter a location.'),
 }
 
 const text = {
   title: 'Text',
   name: 'text',
   type: 'text',
-  rows: 4
+  rows: 4,
 }
 
 const address = {
   title: 'Address',
   name: 'address',
   type: 'text',
-  rows: 4
+  rows: 4,
 }
 const openingTimes = {
   title: 'Opening Times',
@@ -32,29 +32,29 @@ const openingTimes = {
 
 const website = {
   name: 'website',
-  type: 'url'
+  type: 'url',
 }
 
 const websiteText = {
   name: 'websiteText',
   type: 'string',
-  title: 'Website Text to show on the site'
+  title: 'Website Text to show on the site',
 }
 
 const email = {
   name: 'email',
-  type: 'string'
+  type: 'string',
 }
 
 const telephone = {
   name: 'telephone',
-  type: 'string'
+  type: 'string',
 }
 
 const thanks = {
   name: 'thanks',
   type: 'string',
-  title: 'Thanks text'
+  title: 'Thanks text',
 }
 
 export {

@@ -1,40 +1,40 @@
-import {standardImage} from 'part:@weflocc/kata/partials/image'
-import {BsFillChatQuoteFill} from 'react-icons/bs'
+import { standardImage } from 'part:@weflocc/kata/partials/image'
+import { BsFillChatQuoteFill } from 'react-icons/bs'
 
 const quote = {
   name: 'quote',
   type: 'text',
-  rows: 3
+  rows: 3,
 }
 
 const cite = {
   name: 'cite',
-  type: 'string'
+  type: 'string',
 }
 
 const name = {
   name: 'name',
-  type: 'string'
+  type: 'string',
 }
 
 const job = {
   name: 'job',
-  type: 'string'
+  type: 'string',
 }
 
 const links = {
   name: 'links',
   type: 'link',
-  title: 'Buttons'
+  title: 'Buttons',
 }
 
 const preview = {
   select: {
     title: 'quote',
-    subtitle: 'name'
+    subtitle: 'name',
   },
-  prepare (selection) {
-    const {title, subtitle} = selection
+  prepare(selection) {
+    const { title, subtitle } = selection
     let showEllipsis = true
     if (title.length < 50) {
       showEllipsis = false
@@ -43,16 +43,16 @@ const preview = {
     return {
       title: `${heading}${showEllipsis ? '...' : ''}`,
       subtitle: subtitle,
-      media: BsFillChatQuoteFill
+      media: BsFillChatQuoteFill,
     }
-  }
+  },
 }
 
 const testimonials = {
   name: 'testimonials',
   type: 'array',
   options: {
-    collapsable: true
+    collapsable: true,
   },
   of: [
     {
@@ -60,9 +60,9 @@ const testimonials = {
       title: 'Item',
       type: 'object',
       fields: [quote, name, job],
-      preview: preview
-    }
-  ]
+      preview: preview,
+    },
+  ],
 }
 
 const testimonialsImage = {
@@ -70,7 +70,7 @@ const testimonialsImage = {
   title: 'Testimonials',
   type: 'array',
   options: {
-    collapsable: true
+    collapsable: true,
   },
   of: [
     {
@@ -78,9 +78,9 @@ const testimonialsImage = {
       title: 'Item',
       type: 'object',
       fields: [standardImage(), quote, name, job, links],
-      preview: preview
-    }
-  ]
+      preview: preview,
+    },
+  ],
 }
 
-export {testimonials, testimonialsImage, quote, cite, name, job}
+export { testimonials, testimonialsImage, quote, cite, name, job }

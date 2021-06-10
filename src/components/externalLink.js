@@ -1,5 +1,5 @@
-import {linkText, linkStyle} from 'part:@weflocc/kata/partials/links'
-import {BiLinkExternal} from 'react-icons/bi'
+import { linkText, linkStyle } from 'part:@weflocc/kata/partials/links'
+import { BiLinkExternal } from 'react-icons/bi'
 
 export default {
   title: 'External Link',
@@ -11,21 +11,21 @@ export default {
     {
       type: 'url',
       name: 'url',
-      title: 'URL'
-    }
+      title: 'URL',
+    },
   ],
   preview: {
     select: {
       title: 'linkText',
-      subtitle: 'url'
+      subtitle: 'url',
     },
-    prepare (selection) {
-      const {title, subtitle} = selection
+    prepare(selection) {
+      const { title, subtitle } = selection
       return {
         title: title,
         subtitle: subtitle,
-        media: BiLinkExternal
+        media: BiLinkExternal,
       }
-    }
-  }
+    },
+  },
 }

@@ -1,6 +1,6 @@
 import config from 'config:@weflocc/kata'
-import {linkText, linkStyle} from 'part:@weflocc/kata/partials/links'
-import {BiLink} from 'react-icons/bi'
+import { linkText, linkStyle } from 'part:@weflocc/kata/partials/links'
+import { BiLink } from 'react-icons/bi'
 
 export default {
   name: 'internalLink',

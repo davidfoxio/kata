@@ -1,7 +1,7 @@
 import config from 'config:@weflocc/kata'
-import {BiLinkExternal, BiLink} from 'react-icons/bi'
-import {GoFileSymlinkFile} from 'react-icons/go'
-import {standardImage} from 'part:@weflocc/kata/partials/image'
+import { BiLinkExternal, BiLink } from 'react-icons/bi'
+import { GoFileSymlinkFile } from 'react-icons/go'
+import { standardImage } from 'part:@weflocc/kata/partials/image'
 const camelCase = require('lodash.camelcase')
 
 const basicTextEditor = (name = 'Text Body') => {
@@ -12,13 +12,13 @@ const basicTextEditor = (name = 'Text Body') => {
     of: [
       {
         type: 'block',
-        lists: [{title: 'Bullet', value: 'bullet'}],
+        lists: [{ title: 'Bullet', value: 'bullet' }],
         styles: [],
         marks: {
           decorators: [
-            {title: 'Strong', value: 'strong'},
-            {title: 'Emphasis', value: 'em'},
-            {title: 'Underline', value: 'underline'}
+            { title: 'Strong', value: 'strong' },
+            { title: 'Emphasis', value: 'em' },
+            { title: 'Underline', value: 'underline' },
           ],
           annotations: [
             {
@@ -26,42 +26,42 @@ const basicTextEditor = (name = 'Text Body') => {
               type: 'object',
               title: 'External link',
               blockEditor: {
-                icon: BiLinkExternal
+                icon: BiLinkExternal,
               },
               fields: [
                 {
                   name: 'href',
                   type: 'url',
-                  title: 'URL'
+                  title: 'URL',
                 },
                 {
                   title: 'Open in new tab',
                   name: 'blank',
                   type: 'boolean',
-                  layout: 'checkbox'
-                }
-              ]
+                  layout: 'checkbox',
+                },
+              ],
             },
             {
               name: 'internalLink',
               type: 'object',
               title: 'Internal link',
               blockEditor: {
-                icon: BiLink
+                icon: BiLink,
               },
               fields: [
                 {
                   name: 'reference',
                   type: 'reference',
                   title: 'Reference',
-                  to: config.allTypes
-                }
-              ]
-            }
-          ]
-        }
-      }
-    ]
+                  to: config.allTypes,
+                },
+              ],
+            },
+          ],
+        },
+      },
+    ],
   }
 }
 
@@ -75,9 +75,9 @@ const fullTextEditor = (name = 'Text Body') => {
         type: 'block',
         marks: {
           decorators: [
-            {title: 'Strong', value: 'strong'},
-            {title: 'Emphasis', value: 'em'},
-            {title: 'Underline', value: 'underline'}
+            { title: 'Strong', value: 'strong' },
+            { title: 'Emphasis', value: 'em' },
+            { title: 'Underline', value: 'underline' },
           ],
           annotations: [
             {
@@ -85,86 +85,86 @@ const fullTextEditor = (name = 'Text Body') => {
               type: 'object',
               title: 'External link',
               blockEditor: {
-                icon: BiLinkExternal
+                icon: BiLinkExternal,
               },
               fields: [
                 {
                   name: 'href',
                   type: 'url',
-                  title: 'URL'
+                  title: 'URL',
                 },
                 {
                   title: 'Open in new tab',
                   name: 'blank',
                   type: 'boolean',
-                  layout: 'checkbox'
-                }
-              ]
+                  layout: 'checkbox',
+                },
+              ],
             },
             {
               name: 'internalLink',
               type: 'object',
               title: 'Internal link',
               blockEditor: {
-                icon: BiLink
+                icon: BiLink,
               },
               fields: [
                 {
                   name: 'reference',
                   type: 'reference',
                   title: 'Reference',
-                  to: config.allTypes
-                }
-              ]
+                  to: config.allTypes,
+                },
+              ],
             },
             {
               name: 'file',
               type: 'object',
               title: 'File',
               blockEditor: {
-                icon: GoFileSymlinkFile
+                icon: GoFileSymlinkFile,
               },
               fields: [
                 {
                   name: 'file',
                   type: 'file',
                   title: 'File',
-                  to: config.allTypes
-                }
-              ]
-            }
-          ]
+                  to: config.allTypes,
+                },
+              ],
+            },
+          ],
         },
         styles: [
-          {title: 'Normal', value: 'normal'},
-          {title: 'Heading', value: 'h2'},
-          {title: 'Subheading', value: 'h3'}
-        ]
+          { title: 'Normal', value: 'normal' },
+          { title: 'Heading', value: 'h2' },
+          { title: 'Subheading', value: 'h3' },
+        ],
       },
       standardImage(),
       {
-        type: 'youtube'
+        type: 'youtube',
       },
       {
-        type: 'accordion'
+        type: 'accordion',
       },
       {
         type: 'link',
-        title: 'Buttons'
+        title: 'Buttons',
       },
       {
         title: 'Table Field',
         name: 'tableField',
         type: 'object',
         fields: [
-          { 
+          {
             name: 'table',
-            type: 'table'
-          }
-        ]
-      }
-    ]
+            type: 'table',
+          },
+        ],
+      },
+    ],
   }
 }
 
-export {basicTextEditor, fullTextEditor}
+export { basicTextEditor, fullTextEditor }

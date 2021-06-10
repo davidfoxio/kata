@@ -1,15 +1,15 @@
-import {BiListPlus} from 'react-icons/bi'
-import {standardImage} from 'part:@weflocc/kata/partials/image'
+import { BiListPlus } from 'react-icons/bi'
+import { standardImage } from 'part:@weflocc/kata/partials/image'
 
 const title = {
   name: 'title',
-  type: 'string'
+  type: 'string',
 }
 
 const text = {
   name: 'text',
   type: 'text',
-  rows: 3
+  rows: 3,
 }
 
 const thumbnails = {
@@ -17,7 +17,7 @@ const thumbnails = {
   title: 'Thumbnails',
   type: 'array',
   options: {
-    collapsable: true
+    collapsable: true,
   },
   of: [
     {
@@ -29,30 +29,30 @@ const thumbnails = {
         {
           name: 'title',
           title: 'Title',
-          type: 'string'
+          type: 'string',
         },
         {
           name: 'text',
           title: 'Text',
           type: 'text',
-          rows: 3
-        }
+          rows: 3,
+        },
       ],
       preview: {
         select: {
           heading: 'title',
-          image: 'image'
+          image: 'image',
         },
-        prepare (selection) {
-          const {heading, image} = selection
+        prepare(selection) {
+          const { heading, image } = selection
           return {
             title: heading,
-            media: image || BiListPlus
+            media: image || BiListPlus,
           }
-        }
-      }
-    }
-  ]
+        },
+      },
+    },
+  ],
 }
 
-export {title, text, thumbnails}
+export { title, text, thumbnails }

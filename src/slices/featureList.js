@@ -1,10 +1,10 @@
-// nb, this uses the fields from featureFields. 
+// nb, this uses the fields from featureFields.
 
-import {features} from './featureFields'
+import { features } from './featureFields'
 // import {title, textBody, shortFeatures, features, text, featureTabs, featureImageTabs, locations} from './featureFields'
 // import {standardImage} from 'part:@weflocc/kata/partials/image'
 // import {links} from 'part:@weflocc/kata/partials/links'
-import {defaultOptions} from 'part:@weflocc/kata/partials/defaults'
+import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
 
 const featureList01 = {
   name: 'featureList01',
@@ -12,7 +12,7 @@ const featureList01 = {
   title: 'Feature List #1',
   options: defaultOptions,
   // fields: [title, features, links()]
-  fields: [features]
+  fields: [features],
 }
 
 // const feature05 = {
@@ -30,4 +30,4 @@ const featureList01 = {
 //   options: defaultOptions,
 //   fields: [title, features, links()]
 // }
-export {featureList01}
+export { featureList01 }

@@ -8,13 +8,14 @@ export default {
       name: 'link',
       title: 'Link',
       type: 'array',
-      validation: Rule => Rule.max(2).warning('The maximum number of CTAs on this slice is 2'),
+      validation: (Rule) =>
+        Rule.max(2).warning('The maximum number of CTAs on this slice is 2'),
       editModal: 'popover',
       of: [
-        {type: 'internalLink'},
-        {type: 'fileLink'},
-        {type: 'externalLink'}
-      ]
-    }
-  ]
+        { type: 'internalLink' },
+        { type: 'fileLink' },
+        { type: 'externalLink' },
+      ],
+    },
+  ],
 }

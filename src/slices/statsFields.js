@@ -1,8 +1,8 @@
-import {BiListPlus} from 'react-icons/bi'
+import { BiListPlus } from 'react-icons/bi'
 
 const title = {
   name: 'title',
-  type: 'string'
+  type: 'string',
 }
 
 const statistics = {
@@ -17,22 +17,22 @@ const statistics = {
         {
           title: 'Statistic',
           name: 'stat',
-          type: 'string'
+          type: 'string',
         },
         {
           title: 'Title',
           name: 'title',
           type: 'text',
-          rows: 3
-        }
+          rows: 3,
+        },
       ],
       preview: {
         select: {
           title: 'stat',
-          subtitle: 'title'
+          subtitle: 'title',
         },
-        prepare (selection) {
-          const {title, subtitle} = selection
+        prepare(selection) {
+          const { title, subtitle } = selection
           let showEllipsis = true
           if (title.length < 50) {
             showEllipsis = false
@@ -41,12 +41,12 @@ const statistics = {
           return {
             title: title,
             subtitle: `${shortenedSubtitle}${showEllipsis ? '...' : ''}`,
-            media: BiListPlus
+            media: BiListPlus,
           }
-        }
-      }
-    }
-  ]
+        },
+      },
+    },
+  ],
 }
 
-export {title, statistics}
+export { title, statistics }

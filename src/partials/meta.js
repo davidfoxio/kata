@@ -3,28 +3,28 @@ const metaFieldset = {
   title: 'Meta',
   options: {
     collapsed: true,
-    collapsible: true
-  }
+    collapsible: true,
+  },
 }
 
 const metaField = {
   name: 'seoMeta',
   type: 'seoMeta',
   title: 'SEO & Meta',
-  fieldset: 'meta'
+  fieldset: 'meta',
 }
 
 const title = {
   name: 'title',
   title: 'Title',
   type: 'string',
-  validation: Rule => Rule.required('Please set a title.')
+  validation: (Rule) => Rule.required('Please set a title.'),
 }
 
 const hiddenTitle = {
   name: 'title',
   type: 'string',
-  hidden: true
+  hidden: true,
 }
 
 const slug = {
@@ -33,9 +33,10 @@ const slug = {
   type: 'slug',
   options: {
     source: 'title',
-    maxLength: 96
+    maxLength: 96,
   },
-  validation: Rule => Rule.required('A slug is required before you can publish.')
+  validation: (Rule) =>
+    Rule.required('A slug is required before you can publish.'),
 }
 
 const hiddenSlug = {
@@ -45,9 +46,10 @@ const hiddenSlug = {
   hidden: true,
   options: {
     source: 'title',
-    maxLength: 96
+    maxLength: 96,
   },
-  validation: Rule => Rule.required('A slug is required before you can publish.')
+  validation: (Rule) =>
+    Rule.required('A slug is required before you can publish.'),
 }
 
-export {metaFieldset, metaField, title, slug, hiddenTitle, hiddenSlug}
+export { metaFieldset, metaField, title, slug, hiddenTitle, hiddenSlug }

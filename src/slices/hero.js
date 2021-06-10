@@ -1,20 +1,14 @@
-import {title, text, superHeading} from './heroFields'
-import {links} from 'part:@weflocc/kata/partials/links'
-import {media} from 'part:@weflocc/kata/partials/media'
-import {defaultOptions} from 'part:@weflocc/kata/partials/defaults'
+import { title, text, superHeading } from './heroFields'
+import { links } from 'part:@weflocc/kata/partials/links'
+import { media } from 'part:@weflocc/kata/partials/media'
+import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
 
 const hero01 = {
   name: 'hero01',
   type: 'object',
   title: 'Hero #1',
   options: defaultOptions,
-  fields: [
-    media(),
-    superHeading,
-    title,
-    text,
-    links()
-  ]
+  fields: [media(), superHeading, title, text, links()],
 }
 
 const hero05 = {
@@ -22,13 +16,7 @@ const hero05 = {
   type: 'object',
   title: 'Hero #5',
   options: defaultOptions,
-  fields: [
-    media(),
-    superHeading,
-    title,
-    text,
-    links()
-  ]
+  fields: [media(), superHeading, title, text, links()],
 }
 
 const hero06 = {
@@ -36,12 +24,7 @@ const hero06 = {
   type: 'object',
   title: 'Hero #6',
   options: defaultOptions,
-  fields: [
-    media(),
-    title,
-    text,
-    links()
-  ]
+  fields: [media(), title, text, links()],
 }
 
 const hero09 = {
@@ -49,13 +32,7 @@ const hero09 = {
   type: 'object',
   title: 'Hero #9',
   options: defaultOptions,
-  fields: [
-    media(),
-    superHeading,
-    title,
-    text,
-    links()
-  ]
+  fields: [media(), superHeading, title, text, links()],
 }
 
 const hero10 = {
@@ -63,13 +40,7 @@ const hero10 = {
   type: 'object',
   title: 'Hero #10',
   options: defaultOptions,
-  fields: [
-    media(),
-    superHeading,
-    title,
-    text,
-    links()
-  ]
+  fields: [media(), superHeading, title, text, links()],
 }
 
-export {hero01, hero05, hero06, hero09, hero10}
+export { hero01, hero05, hero06, hero09, hero10 }

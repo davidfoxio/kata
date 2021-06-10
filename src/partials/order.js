@@ -2,7 +2,7 @@ const order = {
   name: 'order',
   title: 'Order',
   type: 'number',
-  hidden: true
+  hidden: true,
 }
 
-export {order}
+export { order }

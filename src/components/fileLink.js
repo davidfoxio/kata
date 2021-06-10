@@ -1,5 +1,5 @@
-import {linkText, linkStyle} from 'part:@weflocc/kata/partials/links'
-import {GoFileSymlinkFile} from 'react-icons/go'
+import { linkText, linkStyle } from 'part:@weflocc/kata/partials/links'
+import { GoFileSymlinkFile } from 'react-icons/go'
 
 export default {
   name: 'fileLink',
@@ -8,21 +8,21 @@ export default {
   fields: [
     {
       type: 'file',
-      name: 'fileLink'
+      name: 'fileLink',
     },
     linkText,
-    linkStyle
+    linkStyle,
   ],
   preview: {
     select: {
-      title: 'linkText'
+      title: 'linkText',
     },
-    prepare (selection) {
-      const {title} = selection
+    prepare(selection) {
+      const { title } = selection
       return {
         title: title,
-        media: GoFileSymlinkFile
+        media: GoFileSymlinkFile,
       }
-    }
-  }
+    },
+  },
 }

@@ -1,6 +1,6 @@
 const title = {
   name: 'title',
-  type: 'string'
+  type: 'string',
 }
 
-export {title}
+export { title }

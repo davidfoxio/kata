@@ -1,11 +1,11 @@
 const title = {
   name: 'title',
-  type: 'string'
+  type: 'string',
 }
 
 const superHeading = {
   name: 'superHeading',
-  type: 'string'
+  type: 'string',
 }
 
 const textBody = {
@@ -20,12 +20,13 @@ const textBody = {
       marks: {
         // Only allow these decorators
         decorators: [
-          {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'}
+          { title: 'Strong', value: 'strong' },
+          { title: 'Emphasis', value: 'em' },
         ],
-        annotations: []
-      }
-    }]
+        annotations: [],
+      },
+    },
+  ],
 }
 
 // const image = {
@@ -38,7 +39,7 @@ const text = {
   name: 'text',
   title: 'Text',
   type: 'text',
-  rows: 4
+  rows: 4,
 }
 
-export {title, superHeading, textBody, text}
+export { title, superHeading, textBody, text }

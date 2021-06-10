@@ -1,14 +1,12 @@
-import {title, text, thumbnails} from './teamFields'
-import {defaultOptions} from 'part:@weflocc/kata/partials/defaults'
+import { title, text, thumbnails } from './teamFields'
+import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
 
 const team04 = {
   name: 'team04',
   type: 'object',
   title: 'Team #4',
   options: defaultOptions,
-  fields: [
-    title, text, thumbnails
-  ]
+  fields: [title, text, thumbnails],
 }
 
-export {team04}
+export { team04 }

@@ -1,5 +1,5 @@
-import {linkText, linkStyle} from 'part:@weflocc/kata/partials/links'
-import {BsFilePost} from 'react-icons/bs'
+import { linkText, linkStyle } from 'part:@weflocc/kata/partials/links'
+import { BsFilePost } from 'react-icons/bs'
 
 export default {
   name: 'lightboxButton',
@@ -11,24 +11,24 @@ export default {
       name: 'query',
       title: 'Query',
       description:
-        'For developer use only. If you edit this, your lightbox will break.'
+        'For developer use only. If you edit this, your lightbox will break.',
       // validation: (Rule) =>
       //   Rule.warning('If you edit this, your lightbox will break.')
     },
     linkText,
-    linkStyle
+    linkStyle,
   ],
   preview: {
     select: {
-      title: 'linkText'
+      title: 'linkText',
     },
-    prepare (selection) {
-      const {title, subtitle} = selection
+    prepare(selection) {
+      const { title, subtitle } = selection
       return {
         title: title,
         subtitle: subtitle,
-        media: BsFilePost
+        media: BsFilePost,
       }
-    }
-  }
+    },
+  },
 }

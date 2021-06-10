@@ -1,16 +1,16 @@
-import {standardImage} from 'part:@weflocc/kata/partials/image'
-import {basicTextEditor} from 'part:@weflocc/kata/partials/textEditor'
-import {BiListPlus} from 'react-icons/bi'
+import { standardImage } from 'part:@weflocc/kata/partials/image'
+import { basicTextEditor } from 'part:@weflocc/kata/partials/textEditor'
+import { BiListPlus } from 'react-icons/bi'
 import config from 'config:@weflocc/kata'
 
 const title = {
   name: 'title',
-  type: 'string'
+  type: 'string',
 }
 const superHeading = {
   title: 'Super Heading',
   name: 'superHeading',
-  type: 'string'
+  type: 'string',
 }
 
 const features = {
@@ -26,41 +26,41 @@ const features = {
         {
           type: 'image',
           name: 'icon',
-          title: 'Icon'
+          title: 'Icon',
         },
         {
           type: 'string',
           name: 'title',
-          title: 'Title'
+          title: 'Title',
         },
         {
           type: 'text',
           name: 'text',
           title: 'Text',
-          rows: 2
+          rows: 2,
         },
         {
           type: 'reference',
           name: 'link',
           title: 'Link',
           to: config.allTypes,
-          description: 'Optional'
-        }
+          description: 'Optional',
+        },
       ],
       preview: {
         select: {
-          heading: 'title'
+          heading: 'title',
         },
-        prepare (selection) {
-          const {heading} = selection
+        prepare(selection) {
+          const { heading } = selection
           return {
             title: heading,
-            media: BiListPlus
+            media: BiListPlus,
           }
-        }
-      }
-    }
-  ]
+        },
+      },
+    },
+  ],
 }
 
 const shortFeatures = {
@@ -76,35 +76,35 @@ const shortFeatures = {
         {
           type: 'image',
           name: 'icon',
-          title: 'Icon'
+          title: 'Icon',
         },
         {
           type: 'string',
           name: 'title',
-          title: 'Title'
+          title: 'Title',
         },
         {
           type: 'reference',
           name: 'link',
           title: 'Link',
           to: config.allTypes,
-          description: 'Optional'
-        }
+          description: 'Optional',
+        },
       ],
       preview: {
         select: {
-          heading: 'title'
+          heading: 'title',
         },
-        prepare (selection) {
-          const {heading} = selection
+        prepare(selection) {
+          const { heading } = selection
           return {
             title: heading,
-            media: BiListPlus
+            media: BiListPlus,
           }
-        }
-      }
-    }
-  ]
+        },
+      },
+    },
+  ],
 }
 
 const featureImageTabs = {
@@ -120,35 +120,35 @@ const featureImageTabs = {
         {
           type: 'string',
           name: 'tabName',
-          title: 'Tab Name'
+          title: 'Tab Name',
         },
         standardImage(),
         {
           type: 'string',
           name: 'title',
-          title: 'Title'
+          title: 'Title',
         },
         basicTextEditor(),
         {
           name: 'links',
           type: 'link',
-          title: 'Buttons'
-        }
+          title: 'Buttons',
+        },
       ],
       preview: {
         select: {
-          heading: 'tabName'
+          heading: 'tabName',
         },
-        prepare (selection) {
-          const {heading} = selection
+        prepare(selection) {
+          const { heading } = selection
           return {
             title: heading,
-            media: BiListPlus
+            media: BiListPlus,
           }
-        }
-      }
-    }
-  ]
+        },
+      },
+    },
+  ],
 }
 
 const featureTabs = {
@@ -164,7 +164,7 @@ const featureTabs = {
         {
           type: 'string',
           name: 'tabName',
-          title: 'Tab Name'
+          title: 'Tab Name',
         },
         {
           type: 'array',
@@ -178,52 +178,52 @@ const featureTabs = {
                 {
                   type: 'string',
                   name: 'title',
-                  title: 'Title'
+                  title: 'Title',
                 },
-                basicTextEditor()
+                basicTextEditor(),
               ],
               preview: {
                 select: {
-                  heading: 'title'
+                  heading: 'title',
                 },
-                prepare (selection) {
-                  const {heading} = selection
+                prepare(selection) {
+                  const { heading } = selection
                   return {
                     title: heading,
-                    media: BiListPlus
+                    media: BiListPlus,
                   }
-                }
-              }
-            }
-          ]
+                },
+              },
+            },
+          ],
         },
         {
           name: 'links',
           type: 'link',
-          title: 'Links'
-        }
+          title: 'Links',
+        },
       ],
       preview: {
         select: {
-          heading: 'tabName'
+          heading: 'tabName',
         },
-        prepare (selection) {
-          const {heading} = selection
+        prepare(selection) {
+          const { heading } = selection
           return {
             title: heading,
-            media: BiListPlus
+            media: BiListPlus,
           }
-        }
-      }
-    }
-  ]
+        },
+      },
+    },
+  ],
 }
 
 const text = {
   name: 'text',
   title: 'Text',
   type: 'text',
-  rows: 3
+  rows: 3,
 }
 
 const textBody = {
@@ -238,13 +238,13 @@ const textBody = {
       marks: {
         // Only allow these decorators
         decorators: [
-          {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'}
-        ]
+          { title: 'Strong', value: 'strong' },
+          { title: 'Emphasis', value: 'em' },
+        ],
         // annotations: []
-      }
-    }
-  ]
+      },
+    },
+  ],
 }
 
 const locations = {
@@ -260,28 +260,28 @@ const locations = {
         {
           title: 'Title',
           name: 'title',
-          type: 'string'
+          type: 'string',
         },
         {
           title: 'Location',
           name: 'location',
-          type: 'geopoint'
-        }
+          type: 'geopoint',
+        },
       ],
       preview: {
         select: {
-          heading: 'title'
+          heading: 'title',
         },
-        prepare (selection) {
-          const {heading} = selection
+        prepare(selection) {
+          const { heading } = selection
           return {
             title: heading,
-            media: BiListPlus
+            media: BiListPlus,
           }
-        }
-      }
-    }
-  ]
+        },
+      },
+    },
+  ],
 }
 
 export {
@@ -293,5 +293,5 @@ export {
   shortFeatures,
   featureImageTabs,
   featureTabs,
-  locations
+  locations,
 }

@@ -1,38 +1,38 @@
-import {hiddenTitle} from 'part:@weflocc/kata/partials/meta'
+import { hiddenTitle } from 'part:@weflocc/kata/partials/meta'
 
 export default {
   type: 'document',
   name: 'pageSocialMedia',
   title: 'Social Media',
   initialValue: {
-    title: 'Social Media'
+    title: 'Social Media',
   },
   fields: [
     hiddenTitle,
     {
       title: 'Twitter',
       name: 'twitter',
-      type: 'string'
+      type: 'string',
     },
     {
       title: 'Facebook',
       name: 'facebook',
-      type: 'string'
+      type: 'string',
     },
     {
       title: 'Instagram',
       name: 'instagram',
-      type: 'string'
+      type: 'string',
     },
     {
       title: 'Linked In',
       name: 'linkedIn',
-      type: 'string'
+      type: 'string',
     },
     {
       title: 'Youtube',
       name: 'youtube',
-      type: 'string'
-    }
-  ]
+      type: 'string',
+    },
+  ],
 }
