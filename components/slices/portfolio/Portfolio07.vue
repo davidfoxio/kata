@@ -19,7 +19,17 @@
         />
         <div
           v-if="item.title"
-          class="overlay absolute top-0 left-0 w-full h-full p-4 sm:p-small opacity-0"
+          class="
+            overlay
+            absolute
+            top-0
+            left-0
+            w-full
+            h-full
+            p-4
+            sm:p-small
+            opacity-0
+          "
         >
           <p class="heading-3" v-html="item.title" />
         </div>
@@ -72,6 +82,12 @@ export default {
 <style lang="scss" scoped>
 .portfolio-7 {
   max-width: 100vw;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
   .heading {
     position: absolute;
@@ -90,6 +106,12 @@ export default {
       max-width: 100vw;
       position: sticky;
       top: 40%;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
     }
 
     h2 {

@@ -15,7 +15,8 @@
       </GMap>
     </div>
     <div class="w-r10/12 md:w-r5/12 mx-r1/12 md:py-slice-half body">
-      <h2 v-if="title" class="mb-medium heading-2 fade-up" v-html="title" />
+      <h1 v-if="isH1 && title" class="mb-medium heading-2 fade-up" v-html="title" />
+      <h2 v-else-if="title" class="mb-medium heading-2 fade-up" v-html="title" />
       <p v-if="text" class="mb-medium fade-up" v-html="text" />
       <ul class="columns fade-up">
         <li v-if="address" class="mb-medium item">
@@ -98,6 +99,10 @@ export default {
       type: Array,
       default: null,
     },
+    isH1: {
+      type: Boolean,
+      default: false
+    }
   },
 };
 </script>

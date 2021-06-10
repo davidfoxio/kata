@@ -10,23 +10,28 @@ export default {
     {
       type: 'reference',
       name: 'internalLink',
-      to: config.allTypes
+      to: config.allTypes,
     },
     linkText,
-    linkStyle
+    linkStyle,
+    {
+      name: 'anchor',
+      type: 'string',
+      title: 'Anchor link or Query string',
+    },
   ],
   preview: {
     select: {
       title: 'linkText',
-      subtitle: 'internalLink.title'
+      subtitle: 'internalLink.title',
     },
-    prepare (selection) {
-      const {title, subtitle} = selection
+    prepare(selection) {
+      const { title, subtitle } = selection
       return {
         title: title,
         subtitle: subtitle,
-        media: BiLink
+        media: BiLink,
       }
-    }
-  }
+    },
+  },
 }
