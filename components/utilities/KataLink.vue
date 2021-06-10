@@ -74,9 +74,7 @@ export default {
     },
     path() {
       let path = this.link ? this.link.path : null
-      console.log('herhe', this.anchor)
       if (this.internalLink && this.anchor) {
-        console.log('herhe', this.anchor)
         path += this.anchor
       }
       return path
