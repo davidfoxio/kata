@@ -178,6 +178,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "slices/hero/hero04"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "slices/hero/hero05"
     },
     {

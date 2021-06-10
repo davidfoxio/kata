@@ -11,6 +11,14 @@ const hero01 = {
   fields: [media(), superHeading, title, text, links()],
 }
 
+const hero04 = {
+  name: 'hero04',
+  type: 'object',
+  title: 'Hero #4',
+  options: defaultOptions,
+  fields: [media(), title],
+}
+
 const hero05 = {
   name: 'hero05',
   type: 'object',
@@ -43,4 +51,4 @@ const hero10 = {
   fields: [media(), superHeading, title, text, links()],
 }
 
-export { hero01, hero05, hero06, hero09, hero10 }
+export { hero01, hero04, hero05, hero06, hero09, hero10 }
