@@ -1,13 +1,13 @@
-import {hiddenTitle} from '../partials/meta'
+import { hiddenTitle } from '../partials/meta'
 import config from 'config:@weflocc/kata'
-import {RiMenuAddLine} from 'react-icons/ri'
+import { RiMenuAddLine } from 'react-icons/ri'
 
 export default {
   type: 'document',
   name: 'pageMenu',
   title: 'Menu',
   initialValue: {
-    title: 'Menu'
+    title: 'Menu',
   },
   fields: [
     hiddenTitle,
@@ -24,14 +24,15 @@ export default {
             {
               title: 'No link, just a title',
               name: 'noLinkJustTitle',
-              description: 'Use this instead of choosing a link, to make a menu item that is just a parent, not a link to something.',
-              type: 'string'
+              description:
+                'Use this instead of choosing a link, to make a menu item that is just a parent, not a link to something.',
+              type: 'string',
             },
             {
               title: 'Link',
               name: 'link',
               type: 'reference',
-              to: config.allTypes
+              to: config.allTypes,
             },
             {
               title: 'Children',
@@ -42,26 +43,26 @@ export default {
                   title: 'Menu',
                   name: 'menu',
                   type: 'reference',
-                  to: config.allTypes
-                }
-              ]
-            }
+                  to: config.allTypes,
+                },
+              ],
+            },
           ],
           preview: {
             select: {
               title: 'link.title',
-              noLinkJustTitle: 'noLinkJustTitle'
+              noLinkJustTitle: 'noLinkJustTitle',
             },
-            prepare (selection) {
-              const {title, noLinkJustTitle} = selection
+            prepare(selection) {
+              const { title, noLinkJustTitle } = selection
               return {
                 title: title || noLinkJustTitle || 'Unknown',
-                media: RiMenuAddLine
+                media: RiMenuAddLine,
               }
-            }
-          }
-        }
-      ]
-    }
-  ]
+            },
+          },
+        },
+      ],
+    },
+  ],
 }
