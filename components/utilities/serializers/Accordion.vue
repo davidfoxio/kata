@@ -29,7 +29,7 @@ export default {
       default: () => [],
     },
   },
-    data() {
+  data() {
     return {
       serializers: {
         types: {

@@ -31,7 +31,7 @@ export default {
           image: Image,
           link: BlockLinks,
           tableField: TableField,
-          accordion: Accordion
+          accordion: Accordion,
         },
         marks: {
           internalLink: InternalLink,

@@ -1,5 +1,5 @@
 <template>
-  <div class="slice contact-2 md:flex" v-if="location">
+  <div v-if="location" class="slice contact-2 md:flex">
     <div class="w-full md:w-r5/12 mb-large md:mb-0 map">
       <GMap
         ref="gMap"
@@ -15,8 +15,16 @@
       </GMap>
     </div>
     <div class="w-r10/12 md:w-r5/12 mx-r1/12 md:py-slice-half body">
-      <h1 v-if="isH1 && title" class="mb-medium heading-2 fade-up" v-html="title" />
-      <h2 v-else-if="title" class="mb-medium heading-2 fade-up" v-html="title" />
+      <h1
+        v-if="isH1 && title"
+        class="mb-medium heading-2 fade-up"
+        v-html="title"
+      />
+      <h2
+        v-else-if="title"
+        class="mb-medium heading-2 fade-up"
+        v-html="title"
+      />
       <p v-if="text" class="mb-medium fade-up" v-html="text" />
       <ul class="columns fade-up">
         <li v-if="address" class="mb-medium item">
@@ -59,7 +67,7 @@
 //      key: 'AIzaSyDqa_gfKjehO6LI6vCIG1gOjhd3TiUE7ew',
 //    },
 // ],
-import { title, text } from "../shared";
+import { title, text } from '../shared'
 export default {
   mixins: [title, text],
   props: {
@@ -69,31 +77,31 @@ export default {
     },
     address: {
       type: String,
-      default: ''
+      default: '',
     },
     openingTimes: {
       type: String,
-      default: ''
+      default: '',
     },
     email: {
       type: String,
-      default: ''
+      default: '',
     },
     website: {
       type: String,
-      default: ''
+      default: '',
     },
     websiteText: {
       type: String,
-      default: ''
+      default: '',
     },
     telephone: {
       type: String,
-      default: ''
+      default: '',
     },
     mapPin: {
       type: String,
-      default: "",
+      default: '',
     },
     mapStyle: {
       type: Array,
@@ -101,10 +109,10 @@ export default {
     },
     isH1: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-};
+}
 </script>
 
 <style lang="scss">

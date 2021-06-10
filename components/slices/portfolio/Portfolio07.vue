@@ -19,17 +19,7 @@
         />
         <div
           v-if="item.title"
-          class="
-            overlay
-            absolute
-            top-0
-            left-0
-            w-full
-            h-full
-            p-4
-            sm:p-small
-            opacity-0
-          "
+          class="overlay absolute top-0 left-0 w-full h-full p-4 sm:p-small opacity-0"
         >
           <p class="heading-3" v-html="item.title" />
         </div>

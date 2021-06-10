@@ -12,9 +12,7 @@
     </div>
   </div>
   <div v-else class="py-slice-half px-5 sm:flex sm:space-x-5">
-    <p>
-      No results found.
-    </p>
+    <p>No results found.</p>
   </div>
 </template>
 
