@@ -18,13 +18,20 @@ import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
 
 const featureList01 = {
   name: 'featureList01',
-  type: 'array',
   title: 'Feature List #1',
+  type: 'object',
   options: defaultOptions,
-  of: [
+  fields: [
     {
-      type: 'feature01',
-      name: 'feature01',
+      name: 'features',
+      type: 'array',
+      title: 'Features',
+      of: [
+        {
+          type: 'feature01',
+          name: 'feature01',
+        },
+      ],
     },
   ],
 }
