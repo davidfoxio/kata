@@ -7,23 +7,23 @@
       class="min-h-screen w-full object-cover"
     />
     <div
-      class="w-r10/12 lg:w-r9/12 xl:w-r7/12 p-r1/12 min-h-screen flex flex-col justify-end items-start text-left z-1"
+      class="w-r10/12 lg:w-r9/12 xl:w-r7/12 px-r1/12 py-screen-border min-h-screen flex flex-col justify-end items-start text-left z-1"
     >
       <div v-if="superHeading">
         <h1 class="label-1 text-white mb-medium" v-html="superHeading" />
         <h2
           v-if="title"
-          class="heading-1 text-white mb-medium"
+          class="heading-1 text-white"
           v-html="title"
         />
       </div>
-      <h1 v-else class="heading-1 text-white mb-medium" v-html="title" />
+      <h1 v-else class="heading-1 text-white" v-html="title" />
       <p
         v-if="text"
-        class="text-white mb-medium whitespace-pre-line"
+        class="text-white mt-medium whitespace-pre-line"
         v-html="text"
       />
-      <KataLinks v-if="links" :links="links" />
+      <KataLinks v-if="links" :links="links" class="mt-medium" />
     </div>
   </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .hero-10 {
   position: relative;
   background: black;
