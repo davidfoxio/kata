@@ -5,6 +5,7 @@
       :key="feature._key"
       v-bind="feature"
       :reversed="i % 2 == 0"
+      class="mb-slice slice-animation"
     />
   </div>
 </template>
