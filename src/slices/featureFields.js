@@ -223,7 +223,7 @@ const text = {
   name: 'text',
   title: 'Text',
   type: 'text',
-  rows: 3
+  rows: 4
 }
 
 const textBody = {
