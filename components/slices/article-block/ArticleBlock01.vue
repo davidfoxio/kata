@@ -10,19 +10,17 @@
     <div
       :class="{
         'md:w-2/3': hasImg,
-        'md:mr-large': imgRight,
+        'md:mr-large': (hasImg && !imgLeft) || imgRight,
         'md:ml-large': imgLeft,
       }"
     >
-      <span v-if="showNumbers" class="heading-2">{{ number }}.</span>
-      <h3
-        v-if="title"
-        class="mb-large heading-2 fade-up inline"
-        v-html="title"
-      />
+      <h3 v-if="title" class="mb-medium heading-2 fade-up">
+        <span v-if="showNumbers && number">{{ number }}.</span>
+        {{ title }}
+      </h3>
       <SanityEmbedContent v-if="textBody" :blocks="textBody" class="fade-up" />
     </div>
-    <div class="md:w-r1/3">
+    <div class="md:w-r1/3" v-if="image">
       <KataImage :image="image" :ratio="510 / 714" :max-width="1000" class="" />
     </div>
   </section>
