@@ -1,4 +1,4 @@
-import {join} from 'path'
+import { join } from 'path'
 
 export default function () {
   const ourDirs = [
@@ -12,6 +12,7 @@ export default function () {
     './components/slices/portfolio',
     './components/slices/testimonial',
     './components/slices/text',
+    './components/slices/article-block',
     './components/utilities',
     // './components/utilities/serializers', // not actually needed, direcly imported in SanityEmbedContent
   ]
