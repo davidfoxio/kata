@@ -13,25 +13,12 @@
 </template>
 
 <script>
-const defaultImage = {
-  _type: 'image',
-  asset: {
-    _ref: process.env.placeholderId || '',
-    _type: 'reference',
-  },
-}
 export default {
   props: {
     image: {
       type: Object,
       // required: true,
-      default: () => {
-        if (process.env.NODE_ENV !== 'production' && defaultImage.asset._ref) {
-          return defaultImage
-        }
-
-        return {}
-      },
+      default: () => {},
     },
     loader: {
       type: Boolean,
@@ -59,14 +46,12 @@ export default {
   },
   computed: {
     imageIsSet() {
-      return this.image.asset?._ref
+      return this.image?.asset?._ref
     },
     theImage() {
       // we often get an empty object when no image is defined
       if (this.imageIsSet) {
         return this.image
-      } else if (defaultImage.asset._ref) {
-        return defaultImage
       } else {
         return {}
       }
