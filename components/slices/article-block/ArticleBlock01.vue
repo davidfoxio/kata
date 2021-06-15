@@ -21,7 +21,11 @@
         <h3 v-if="title" class="heading-2 fade-up inline" v-html="title" />
       </div>
 
-      <SanityEmbedContent v-if="textBody" :blocks="textBody" class="fade-up" />
+      <SanityEmbedContent
+        v-if="textBody"
+        :blocks="textBody"
+        class="fade-up mb-medium"
+      />
     </div>
     <div class="md:w-r4/12">
       <KataImage :image="image" :ratio="510 / 714" :max-width="1000" class="" />
