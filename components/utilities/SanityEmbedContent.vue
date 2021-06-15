@@ -56,7 +56,7 @@ export default {
     margin-bottom: var(--spacing-small);
   }
   p + ul {
-    margin-top: var(--spacing-medium);
+    margin-top: var(--spacing-small);
   }
   p + h2,
   p + h3 {
@@ -71,6 +71,10 @@ export default {
   ul {
     list-style: disc;
     padding-left: 2.5em;
+  }
+  
+  ol, ul {
+    margin-bottom: var(--spacing-medium);
   }
 
   li {
