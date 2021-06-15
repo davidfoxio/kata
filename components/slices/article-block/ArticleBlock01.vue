@@ -8,21 +8,21 @@
     }"
   >
     <div
+      class="mx-r1/12"
       :class="{
-        'md:w-2/3': hasImg,
+        'md:w-r7/12': hasImg,
         'md:mr-large': imgRight,
         'md:ml-large': imgLeft,
       }"
     >
-      <span v-if="showNumbers" class="heading-2">{{ number }}.</span>
-      <h3
-        v-if="title"
-        class="mb-large heading-2 fade-up inline"
-        v-html="title"
-      />
+      <div class="mb-medium">
+        <span v-if="showNumbers" class="heading-2">{{ number }}.</span>
+        <h3 v-if="title" class="heading-2 fade-up inline" v-html="title" />
+      </div>
+
       <SanityEmbedContent v-if="textBody" :blocks="textBody" class="fade-up" />
     </div>
-    <div class="md:w-r1/3">
+    <div class="md:w-r4/12">
       <KataImage :image="image" :ratio="510 / 714" :max-width="1000" class="" />
     </div>
   </section>
