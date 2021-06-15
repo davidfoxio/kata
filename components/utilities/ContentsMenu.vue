@@ -52,8 +52,8 @@ export default {
 
 <style>
 ol {
-  column-width: 25ch;
-  column-gap: 10ch;
+  columns: 3 300px;
+  column-gap: var(--spacing-medium);
 }
 .numbered {
   list-style: decimal;
