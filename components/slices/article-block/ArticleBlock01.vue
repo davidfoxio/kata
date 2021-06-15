@@ -1,36 +1,12 @@
 <template>
-  <section
+  <Text05
+    v-if="hasImg"
     :id="anchor"
-    class="slice article-block-1 mb-slice"
-    :class="{
-      'md:flex': hasImg,
-      'md:flex-row-reverse': imgLeft,
-    }"
-  >
-    <div
-      class="mx-r1/12"
-      :class="{
-        'md:w-r7/12': hasImg,
-        'mx-r2/12': !hasImg,
-        'md:mr-large': imgRight && hasImg,
-        'md:ml-large': imgLeft && hasImg,
-      }"
-    >
-      <div class="mb-medium">
-        <span v-if="showNumbers" class="heading-2">{{ number }}.</span>
-        <h3 v-if="title" class="heading-2 fade-up inline" v-html="title" />
-      </div>
-
-      <SanityEmbedContent
-        v-if="textBody"
-        :blocks="textBody"
-        class="fade-up mb-medium"
-      />
-    </div>
-    <div class="md:w-r4/12">
-      <KataImage :image="image" :ratio="510 / 714" :max-width="1000" class="" />
-    </div>
-  </section>
+    v-bind="$props"
+    :title="number + '. ' + title"
+    :class="{ 'sm:flex-row-reverse': imgLeft }"
+  />
+  <Text02 v-else :id="anchor" v-bind="$props" :title="number + '. ' + title" />
 </template>
 
 <script>
@@ -61,9 +37,6 @@ export default {
     },
     imgLeft() {
       return this.imageAlignment == 'left'
-    },
-    imgRight() {
-      return this.imageAlignment == 'right'
     },
   },
 }

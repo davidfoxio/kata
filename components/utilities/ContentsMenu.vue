@@ -1,9 +1,9 @@
 <template>
   <div class="py-slice-half mb-slice">
-    <nav class="w-r10/12 mx-r1/12">
+    <nav class="w-r10/12 mx-r1/12 text-max">
       <h2 v-if="menuTitle" class="mb-medium">{{ menuTitle }}</h2>
       <ol :class="{ numbered: showNumbers }">
-        <li v-for="item in items" :key="item._key">
+        <li v-for="item in items" :key="item._key" class="mb-small">
           <a
             :href="'#' + camelCase(item.title)"
             @click.prevent="scrollToAnchor(camelCase(item.title))"
