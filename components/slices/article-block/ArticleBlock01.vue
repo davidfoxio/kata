@@ -4,6 +4,7 @@
     class="slice article-block-1 mb-slice"
     :class="{
       'md:flex': hasImg,
+      'w-r10/12 mx-r1/12': !hasImg,
       'md:flex-row-reverse': imgLeft,
     }"
   >
