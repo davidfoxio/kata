@@ -52,11 +52,11 @@ export default {
     width() {
       let length = this.features.length
       if (length % 4 == 0) {
-        return 'sm:w-1/2 md:w-1/4'
+        return 'w-full sm:w-1/2 md:w-1/4'
       } else if (length % 3 == 0 || length % 6 == 0 || length % 5 == 0) {
-        return 'sm:w-1/2 md:w-1/3'
+        return 'w-full sm:w-1/2 md:w-1/3'
       }
-      return 'sm:w-1/2'
+      return 'w-full sm:w-1/2'
     },
   },
 }

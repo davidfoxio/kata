@@ -89,6 +89,7 @@ export default {
       animation-delay: calc(var(--slice-move) * -1s);
       animation-iteration-count: 1;
       animation-fill-mode: both;
+      width: var(--screen-border-size);
     }
   }
 
