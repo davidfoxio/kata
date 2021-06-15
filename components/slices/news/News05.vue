@@ -1,11 +1,20 @@
 <template>
   <div class="news-5 slice w-r10/12 mx-r1/12">
+    <h2 v-if="title" v-html="title" class="mb-large text-center" />
     <component
       :is="link(item._id) ? 'n-link' : 'div'"
       v-for="(item, i) in items"
       :key="item._ref"
-      :to="link(item._id)"
-      class="item md:flex md:items-center mb-slice md:mb-slice-half md:space-x-medium block"
+      :to="item._id ? link(item._id) : ''"
+      class="
+        item
+        md:flex
+        md:items-center
+        mb-slice
+        md:mb-slice-half
+        md:space-x-medium
+        block
+      "
       :class="{
         'md:flex-row-reverse md:space-x-reverse': i % 2,
       }"
@@ -29,7 +38,9 @@
 </template>
 
 <script>
+import {title} from '../shared'
 export default {
+  mixins: [title],
   props: {
     items: {
       type: Array,
