@@ -11,8 +11,9 @@
       class="mx-r1/12"
       :class="{
         'md:w-r7/12': hasImg,
-        'md:mr-large': imgRight,
-        'md:ml-large': imgLeft,
+        'mx-r2/12': !hasImg,
+        'md:mr-large': imgRight && hasImg,
+        'md:ml-large': imgLeft && hasImg,
       }"
     >
       <div class="mb-medium">
