@@ -12,10 +12,10 @@
       <h2 class="heading-2 text-white mb-medium fade-up" v-html="title" />
       <p
         v-if="text"
-        class="text-center text-white mb-medium fade-up"
+        class="text-white mb-medium fade-up"
         v-html="text"
       />
-      <KataLinks :links="links" class="text-center fade-up" />
+      <KataLinks :links="links" class="fade-up" />
     </div>
   </div>
 </template>
