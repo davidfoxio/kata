@@ -44,15 +44,5 @@ export default {
   img {
     opacity: 0.75 !important;
   }
-
-  &:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 20%;
-    left: 1px;
-    top: 0px;
-    background: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0) 100%);
-  }
 }
 </style>

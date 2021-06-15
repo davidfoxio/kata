@@ -9,7 +9,10 @@
       >
         <div
           class="top"
-          :class="{ 'has-children relative flex flex-wrap items-center': item.children && item.children.length > 0 }"
+          :class="{
+            'has-children relative flex flex-wrap items-center':
+              item.children && item.children.length > 0,
+          }"
         >
           <n-link
             v-if="item.link && link(item.link._ref)"
@@ -29,18 +32,22 @@
             :class="{
               'title-has-children cursor-pointer': item.children,
             }"
-            @click="item.children ? toggleChild(item, i) : null"
+            @click="
+              item.children && item.children.length
+                ? toggleChild(item, i)
+                : null
+            "
           >
             {{ item.noLinkJustTitle }}
           </div>
           <button
-            v-if="item.children"
+            v-if="item.children && item.children.length"
             title="Show/Hide Child Menu"
             class="inline-block dropdown-trigger border-none ml-small"
             @click="toggleChild(item, i)"
           ></button>
         </div>
-        <div v-if="item.children" class="child-menu w-full">
+        <div v-if="item.children && item.children.length" class="child-menu w-full">
           <div
             v-for="child in item.children"
             :key="child.title"
