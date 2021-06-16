@@ -1,29 +1,39 @@
 <template>
-  <div class="slice hero-10 stack-children">
-    <KataMedia
-      :media="media"
-      :ratio="16 / 9"
-      :max-width="3000"
-      class="min-h-screen w-full object-cover"
-    />
-    <div
-      class="w-r10/12 lg:w-r9/12 xl:w-r7/12 px-r1/12 py-screen-border min-h-screen flex flex-col justify-end items-start text-left z-1"
-    >
-      <div v-if="superHeading">
-        <h1 class="label-1 text-white mb-medium" v-html="superHeading" />
-        <h2
-          v-if="title"
-          class="heading-1 text-white"
-          v-html="title"
+  <div class="slice hero-10">
+    <div class="w-r10/12 lg:w-r9/12 xl:w-r7/12 px-r1/12 relative z-1">
+      <div
+        class="
+          flex-col flex
+          items-end
+          justify-end
+          w-full
+          h-full
+          min-h-screen
+          py-screen-border
+        "
+      >
+        <div v-if="superHeading">
+          <h1 class="label-1 text-white mb-medium" v-html="superHeading" />
+          <h2 v-if="title" class="heading-1 text-white" v-html="title" />
+        </div>
+        <h1 v-else class="heading-1 text-white" v-html="title" />
+        <p
+          v-if="text"
+          class="text-white mt-medium whitespace-pre-line"
+          v-html="text"
         />
+        <KataLinks v-if="links" :links="links" class="mt-medium" />
       </div>
-      <h1 v-else class="heading-1 text-white" v-html="title" />
-      <p
-        v-if="text"
-        class="text-white mt-medium whitespace-pre-line"
-        v-html="text"
+    </div>
+    <div
+      class="bg-black w-full h-full overflow-hidden image absolute top-0 left-0"
+    >
+      <KataMedia
+        :media="media"
+        :ratio="16 / 9"
+        :max-width="3000"
+        class="w-full h-full"
       />
-      <KataLinks v-if="links" :links="links" class="mt-medium" />
     </div>
   </div>
 </template>
@@ -43,6 +53,9 @@ export default {
 
   img {
     opacity: 0.75 !important;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
   }
 }
 </style>
