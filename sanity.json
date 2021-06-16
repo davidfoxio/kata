@@ -291,6 +291,10 @@
     {
       "implements": "part:@sanity/base/schema-type",
       "path": "slices/text/text08"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/text/text09"
     }
   ]
 }

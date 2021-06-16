@@ -69,4 +69,22 @@ const text08 = {
   fields: [title, basicTextEditor()],
 }
 
-export { text01, text02, text03, text04, text05, text06, text07, text08 }
+const text09 = {
+  name: 'text09',
+  type: 'object',
+  title: 'Text #9',
+  options: defaultOptions,
+  fields: [title, list],
+}
+
+export {
+  text01,
+  text02,
+  text03,
+  text04,
+  text05,
+  text06,
+  text07,
+  text08,
+  text09,
+}
