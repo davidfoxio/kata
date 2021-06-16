@@ -56,11 +56,18 @@ const list = {
       preview: {
         select: {
           heading: 'title',
+          text: 'text'
         },
         prepare(selection) {
-          const { heading } = selection
+          const { heading, text } = selection
+          let showEllipsis = true
+          if (text.length < 50) {
+            showEllipsis = false
+          }
+          const shortenedSubtitle = text.toString().slice(0, 50)
           return {
             title: heading,
+            subtitle: `${shortenedSubtitle}${showEllipsis ? '...' : ''}`,
             media: BiListPlus,
           }
         },

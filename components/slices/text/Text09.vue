@@ -6,7 +6,7 @@
     <div ref="content" class="content">
       <!-- <h3 v-if="superHeading" class="mb-medium fade-up" v-html="superHeading" /> -->
       <div v-if="list" class="sticky-content">
-        <div v-for="(item, i) in list" :key="i" class="fade-up">
+        <div v-for="(item, i) in list" :key="i" class="fade-up mb-slice">
           <h3 v-if="item.title" v-html="item.title" />
           <p v-if="item.text" v-html="item.text" />
         </div>
@@ -15,7 +15,8 @@
   </div>
 </template>
 
-<script>import { superHeading, title } from '../shared'
+<script>
+import { superHeading, title } from '../shared'
 export default {
   mixins: [superHeading, title],
   props: {
@@ -31,27 +32,27 @@ export default {
       contentVisible: false,
     }
   },
-  mounted() {
-    if (process.client) {
-      window.addEventListener('scroll', this.handleScroll)
-    }
-  },
-  beforeDestroy() {
-    if (process.client) {
-      window.removeEventListener('scroll', this.handleScroll)
-    }
-  },
-  methods: {
-    handleScroll() {
-      if (!this.contentVisible) {
-        let top = this.$refs.sticky360.offsetTop
-        if (top - 100 < window.pageYOffset) {
-          this.$refs.content.style.opacity = 1
-          this.contentVisible = true
-        }
-      }
-    },
-  },
+  // mounted() {
+  //   if (process.client) {
+  //     window.addEventListener('scroll', this.handleScroll)
+  //   }
+  // },
+  // beforeDestroy() {
+  //   if (process.client) {
+  //     window.removeEventListener('scroll', this.handleScroll)
+  //   }
+  // },
+  // methods: {
+  //   handleScroll() {
+  //     if (!this.contentVisible) {
+  //       let top = this.$refs.sticky360.offsetTop
+  //       if (top - 100 < window.pageYOffset) {
+  //         this.$refs.content.style.opacity = 1
+  //         this.contentVisible = true
+  //       }
+  //     }
+  //   },
+  // },
 }
 </script>
 
@@ -67,24 +68,22 @@ export default {
     display: flex;
     position: relative;
     align-items: flex-start;
+    min-height: 100vh;
 
     .content {
-      padding: 5%;
       width: 50%;
-      margin-top: 50%;
-      margin-bottom: 20%;
-      opacity: 0;
-      transition: 1s ease;
+      margin-top: calc(var(--header-height) + var(--spacing-large));
+      // margin-bottom: 20%;
     }
 
     .sticky {
-      padding: 5%;
       width: 50%;
       display: flex;
       align-items: center;
       position: sticky; //overflow-x hidden on body breaks this
-      top: 0;
-      min-height: 100vh;
+      top: calc(var(--header-height) + var(--spacing-slice));
+      // top: 50%;
+      // transform: translateY(-50%);
     }
   }
 }
