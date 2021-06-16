@@ -1,9 +1,17 @@
 <template>
   <div
     v-if="articles"
-    class="py-slice-half w-r10/12 mx-r1/12 md:px-r1/12 lg:px-r2/12 sm:flex relative"
+    class="
+      py-slice-half
+      w-r10/12
+      mx-r1/12
+      md:px-r1/12
+      lg:px-r2/12
+      sm:flex
+      relative
+    "
   >
-    <transition-group tag="ul" name="fade" mode="out-in">
+    <transition-group tag="ul" name="fade" mode="out-in" class="w-full">
       <li v-for="item in articles" :key="item._id">
         <slot name="tease" :item="item"></slot>
       </li>

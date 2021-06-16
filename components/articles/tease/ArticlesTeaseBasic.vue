@@ -54,9 +54,10 @@ export default {
 
 <style lang="scss" scoped>
 .article-tease-basic {
-  
   .title-wrap {
-    padding-right: 30px;
+    h3 {
+      padding-right: 60px;
+    }
     .read {
       width: 20px;
       height: 20px;
