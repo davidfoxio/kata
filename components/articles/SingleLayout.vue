@@ -39,6 +39,8 @@
         <p v-if="c.location" class="font-bold">Location: {{ c.location }}</p>
       </div>
       <SanityEmbedContent v-if="c.textBody" :blocks="c.textBody" />
+      <!-- allowing for older versions -->
+      <SanityEmbedContent v-else-if="c.body" :blocks="c.body" />
     </div>
 
     <div class="text-center px-screen-border mb-slice-half">
