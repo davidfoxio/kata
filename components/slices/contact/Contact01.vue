@@ -31,7 +31,7 @@
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        action="#submitted"
+        :action="action"
       >
         <input type="hidden" name="form-name" value="contact" />
 
@@ -100,6 +100,10 @@ export default {
     telephone: {
       type: String,
       required: true,
+    },
+    action: {
+      type: String,
+      default: '#submitted'
     },
     thanks: {
       type: String,
