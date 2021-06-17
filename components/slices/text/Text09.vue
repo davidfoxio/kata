@@ -1,13 +1,13 @@
 <template>
   <div class="slice text-9 w-r10/12 mx-r1/12">
-    <div class="sticky">
+    <div class="sticky md:w-1/2 md:mr-medium">
       <h2 class="mb-medium fade-up" v-html="title" v-if="title"></h2>
     </div>
-    <div ref="content" class="content">
+    <div ref="content" class="content md:w-1/2 md:ml-medium">
       <!-- <h3 v-if="superHeading" class="mb-medium fade-up" v-html="superHeading" /> -->
       <div v-if="list" class="sticky-content">
         <div v-for="(item, i) in list" :key="i" class="fade-up mb-slice">
-          <h3 v-if="item.title" v-html="item.title" />
+          <h3 v-if="item.title" v-html="item.title" class="mb-small" />
           <p v-if="item.text" v-html="item.text" />
         </div>
       </div>
@@ -71,13 +71,11 @@ export default {
     min-height: 100vh;
 
     .content {
-      width: 50%;
       margin-top: calc(var(--header-height) + var(--spacing-large));
       // margin-bottom: 20%;
     }
 
     .sticky {
-      width: 50%;
       display: flex;
       align-items: center;
       position: sticky; //overflow-x hidden on body breaks this
