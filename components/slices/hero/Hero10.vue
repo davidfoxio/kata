@@ -4,7 +4,7 @@
       <div
         class="
           flex-col flex
-          items-end
+          items-start
           justify-end
           w-full
           h-full
