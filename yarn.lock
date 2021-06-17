@@ -3742,6 +3742,11 @@ history@^4.6.3:
     tiny-warning "^1.0.0"
     value-equal "^1.0.1"
 
+hls.js@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/hls.js/-/hls.js-1.0.7.tgz#b4ab75e7a46650d02245a1da091efd15f07d16eb"
+  integrity sha512-NsGaksvOuYNyTmu/w239EtYFMadFzIoDkmStc1FDRcrGmvxOfMGKad/hLj4NHoE8H1S+Q8dT7HufMJJ6yiht7g==
+
 hoist-non-react-statics@^2.1.1:
   version "2.5.5"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
