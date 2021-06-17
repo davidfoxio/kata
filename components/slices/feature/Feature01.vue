@@ -13,12 +13,13 @@
       </div>
       <h2 v-else class="heading-2 mb-medium" v-html="title" />
       <p v-if="text" class="mb-large fade-up" v-html="text" />
-      <KataLinks :links="links" class="fade-up" />
+      <KataLinks :links="links" class="fade-up" v-if="links" />
     </div>
     <div class="md:w-1/2 order-1 md:order-2 mb-large md:mb-0 image">
       <KataImage
+        v-if="image"
         :image="image"
-        :ratio="685 / 514"
+        :ratio="ratio"
         :max-width="1500"
         class="h-full w-full object-cover"
         sizes="(max-width:699px) 90vw, (max-width:1439px) 50vw, 50vw"
@@ -36,6 +37,10 @@ export default {
     reversed: {
       type: Boolean,
       default: false,
+    },
+    ratio: {
+      type: Number,
+      default: 685 / 514,
     },
   },
 }
