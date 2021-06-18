@@ -8,7 +8,7 @@
             :href="'#' + camelCase(item.title)"
             @click.prevent="scrollToAnchor(camelCase(item.title))"
           >
-            {{ item.title }}
+            {{ item.menuTitle ? item.menuTitle : item.title }}
           </a>
         </li>
       </ol>
