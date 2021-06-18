@@ -29,6 +29,7 @@ export default {
       type: Array,
       default: null,
     },
+    
     itemId: {
       type: String,
       required: true,
