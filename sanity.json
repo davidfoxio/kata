@@ -198,6 +198,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "slices/hero/hero11"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "slices/news/news02"
     },
     {

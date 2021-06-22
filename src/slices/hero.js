@@ -51,4 +51,25 @@ const hero10 = {
   fields: [media(), superHeading, title, text, links()],
 }
 
-export { hero01, hero04, hero05, hero06, hero09, hero10 }
+const hero11 = {
+  name: 'hero11',
+  type: 'object',
+  title: 'Hero #11',
+  options: defaultOptions,
+  fields: [
+    title,
+    text,
+    links(),
+    {
+      name: 'sideLinkText',
+      type: 'string',
+    },
+    {
+      name: 'subtitle',
+      type: 'string',
+    },
+    media(),
+  ],
+}
+
+export { hero01, hero04, hero05, hero06, hero09, hero10, hero11 }
