@@ -10,6 +10,7 @@ const feedSelector = ({
   description,
   sliceTitle,
   noShowAll,
+  
 }) => {
   // Defaults
   selectedTitle = selectedTitle || 'Choose manually'

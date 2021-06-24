@@ -106,7 +106,7 @@ export default {
 
 <style scoped lang="scss">
 img.kata-image {
-  transition: 1s ease;
+  transition: opacity 1s ease;
   opacity: 0;
   &.loaded,
   &.isLoaded {

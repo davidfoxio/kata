@@ -12,7 +12,7 @@
         <h3 v-if="title" class="heading-2 mb-medium" v-html="title" />
       </div>
       <h2 v-else class="heading-2 mb-medium" v-html="title" />
-      <p v-if="text" class="mb-large fade-up" v-html="text" />
+      <p v-if="text" class="mb-large fade-up whitespace-pre-line" v-html="text" />
       <KataLinks :links="links" class="fade-up" v-if="links" />
     </div>
     <div class="md:w-1/2 order-1 md:order-2 mb-large md:mb-0 image">

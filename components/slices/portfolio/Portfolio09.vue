@@ -26,7 +26,7 @@
               <h3 v-if="item.title" class="label-1" v-html="item.title" />
             </div>
             <div class="body">
-              <p v-if="item.text" class="para-2" v-html="item.text" />
+              <p v-if="item.text" class="para-2 whitespace-pre-line" v-html="item.text" />
             </div>
           </div>
         </LinkSlot>

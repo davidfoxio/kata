@@ -1,7 +1,7 @@
 <template>
   <div class="slice text-5 flex flex-col sm:flex-row relative justify-start">
     <div
-      class="sm:w-r6/12 sm:ml-r1/12 sm:mr-large order-2 sm:order-1 sm:py-slice body"
+      class="w-r10/12 mx-r1/12 sm:w-r6/12 sm:ml-r1/12 sm:mr-large order-2 sm:order-1 sm:py-slice body"
     >
       <h2 v-if="title" class="mb-large heading-2 fade-up" v-html="title" />
       <SanityEmbedContent v-if="textBody" :blocks="textBody" class="fade-up" />
