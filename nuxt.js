@@ -6,13 +6,17 @@ export default function () {
     './components/articles/results',
     './components/articles/tease',
     './components/slices',
+    './components/slices/article-block',
     './components/slices/call-to-action',
+    './components/slices/contact',
     './components/slices/feature',
     './components/slices/hero',
     './components/slices/portfolio',
+    './components/slices/statistics',
+    './components/slices/team',
     './components/slices/testimonial',
     './components/slices/text',
-    './components/slices/article-block',
+
     './components/utilities',
     // './components/utilities/serializers', // not actually needed, direcly imported in SanityEmbedContent
   ]
