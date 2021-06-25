@@ -1,5 +1,5 @@
 <template>
-  <Portfolio04 :thumbnails="thumnails" />
+  <Portfolio04 :thumbnails="thumbnails" />
 </template>
 
 <script>

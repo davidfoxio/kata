@@ -1,16 +1,21 @@
 <template>
-  <div v-if="media && media[0] && media.length == 1" class="media-image">
+  <div v-if="media[0] && media.length == 1" class="media-image">
     <KataImage
+      v-if="media[0]._type == 'image'"
       :image="media[0]"
       :sizes="sizes"
       :ratio="ratio"
       :max-width="maxWidth"
       class="h-full w-full object-cover"
     />
+    <KataVideo
+      v-else-if="media[0]._type == 'video'"
+      :video="media[0]"
+    ></KataVideo>
   </div>
-  <div v-else-if="media && media.length > 1" class="media-slider">
+  <div v-else-if="slides.length" class="media-slider">
     <VueSlickCarousel v-bind="settings" class="h-full w-full">
-      <div v-for="item in media" :key="item._ref" class="h-full w-full">
+      <div v-for="item in slides" :key="item._ref" class="h-full w-full">
         <KataImage
           :image="item"
           :sizes="sizes"
@@ -67,6 +72,17 @@ export default {
         lazyload: 'ondemand',
       },
     }
+  },
+  computed: {
+    slides() {
+      let slides = []
+      // only return images for now
+      if (this.media && this.media.length > 1) {
+        slides = this.media.filter((item) => item._type == 'image')
+      }
+
+      return slides
+    },
   },
 }
 </script>
