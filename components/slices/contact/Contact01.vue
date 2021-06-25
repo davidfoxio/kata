@@ -34,6 +34,7 @@
         :action="action"
       >
         <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="subject" value="Contact form submission" />
 
         <div class="w-full mb-small field">
           <label for="name" class="sr-only">Name</label>
