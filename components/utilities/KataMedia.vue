@@ -14,7 +14,7 @@
     ></KataVideo>
   </div>
   <div v-else-if="slides.length" class="media-slider">
-    <VueSlickCarousel v-bind="settings" class="h-full w-full">
+    <!-- <VueSlickCarousel v-bind="settings" class="h-full w-full">
       <div v-for="item in slides" :key="item._ref" class="h-full w-full">
         <KataImage
           :image="item"
@@ -25,7 +25,8 @@
           data-not-lazy
         />
       </div>
-    </VueSlickCarousel>
+    </VueSlickCarousel> -->
+    <KataCssSlider :images="slides" class="w-full h-full" />
   </div>
 </template>
 

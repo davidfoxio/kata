@@ -2,7 +2,6 @@
   <div
     class="slider"
     :class="{ loaded: !loading }"
-    :style="'--width:' + sliderWidth"
   >
     <div ref="slider" class="css-slider">
       <div
@@ -35,10 +34,13 @@ export default {
       type: Array,
       default: null,
     },
+    ratio: {
+      type: Number,
+      default: 4 / 3,
+    },
   },
   data() {
     return {
-      ratio: 536 / 685,
       loading: true,
       animate: false,
       sliderindex: 1,
@@ -52,7 +54,7 @@ export default {
       } else {
         this.sliderindex = 1
       }
-    }, 3000)
+    }, 4000)
     this.handleResize()
     if (process.client) {
       window.addEventListener('resize', this.handleResize)
@@ -97,7 +99,6 @@ export default {
     object-fit: cover;
     height: 100%;
     min-height: 50vh;
-    min-width: var(--width);
     object-position: center center;
   }
   @include lg-up {
@@ -111,27 +112,31 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    transition: width 0.5s ease-in;
+    transition: opacity 1s ease-in;
     z-index: 1;
-    width: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
     overflow: hidden;
 
     &.last-active {
       z-index: 3;
       width: 100%;
       transition: 0;
+      opacity: 1;
     }
 
     &.active {
       z-index: 5;
       width: 100%;
       transition: 0;
+      opacity: 1;
     }
 
     img {
       height: 100%;
-      min-width: var(--width);
-      object-position: center center;
+      width: 100%;
+      object-fit: cover;
     }
   }
 }

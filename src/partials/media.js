@@ -10,7 +10,7 @@ const media = (name = 'Media') => {
     editModal: 'popover',
     of: [
       standardImage(),
-      videoSrcset(),
+      // videoSrcset(),
       {
         title: 'Video file',
         name: 'video',

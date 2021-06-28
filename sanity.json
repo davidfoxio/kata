@@ -78,10 +78,6 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "documents/pageExample"
-    },
-    {
-      "implements": "part:@sanity/base/schema-type",
       "path": "documents/pageFloccCredit"
     },
     {
