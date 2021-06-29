@@ -8,9 +8,7 @@
     :autoplay="false"
     preload="true"
     playsinline
-    class="w-full h-auto"
   ></video>
-  <p v-else>Loading...</p>
 </template>
 
 <script>

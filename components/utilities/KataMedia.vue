@@ -11,21 +11,11 @@
     <KataVideo
       v-else-if="media[0]._type == 'video'"
       :video="media[0]"
+      class="h-full w-full object-cover"
+      loop
     ></KataVideo>
   </div>
   <div v-else-if="slides.length" class="media-slider">
-    <!-- <VueSlickCarousel v-bind="settings" class="h-full w-full">
-      <div v-for="item in slides" :key="item._ref" class="h-full w-full">
-        <KataImage
-          :image="item"
-          :sizes="sizes"
-          :ratio="ratio"
-          :max-width="maxWidth"
-          class="h-full w-full object-cover"
-          data-not-lazy
-        />
-      </div>
-    </VueSlickCarousel> -->
     <KataCssSlider :images="slides" class="w-full h-full" />
   </div>
 </template>
