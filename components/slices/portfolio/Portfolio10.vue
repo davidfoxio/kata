@@ -19,7 +19,9 @@
         </template>
 
         <div v-for="(item, i) in articles" :key="item._id" class="px-small">
-          <slot name="tease" :item="item" :index="i + 1"></slot>
+          <slot name="tease" :item="item" :index="i + 1">
+            <ArticlesTeaseParagraphOverlay v-bind="item" :index="i + 1" />
+          </slot>
         </div>
 
         <template #nextArrow="arrowOption">
