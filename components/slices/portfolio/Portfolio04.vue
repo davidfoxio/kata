@@ -38,7 +38,7 @@ export default {
   props: {
     thumbnails: {
       type: Array,
-      required: true,
+      default: null,
     },
   },
   data() {

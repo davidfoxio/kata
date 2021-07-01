@@ -43,7 +43,7 @@ const thumbnails = {
           name: 'text',
           title: 'Text',
           type: 'text',
-          rows: 3,
+          rows: 4,
         },
         {
           name: 'link',
