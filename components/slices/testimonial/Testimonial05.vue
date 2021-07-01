@@ -4,7 +4,7 @@
   >
     <p v-if="quote" class="heading-3 mb-large fade-up" v-html="quote" />
     <p v-if="cite" class="label-1 fade-up" v-html="cite" />
-    <KataLinks v-if="links" v-bind="links" class="mt-large fade-up" />
+    <KataLinks v-if="links.length" v-bind="links" class="mt-large fade-up" />
   </div>
 </template>
 
