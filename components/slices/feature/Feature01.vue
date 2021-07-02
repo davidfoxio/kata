@@ -8,10 +8,10 @@
       :class="{ 'md:mr-large': !reversed, 'md:ml-large': reversed }"
     >
       <div v-if="superHeading">
-        <h2 class="label-1 mb-medium" v-html="superHeading" />
-        <h3 v-if="title" class="heading-2 mb-medium" v-html="title" />
+        <h2 class="label-1 mb-medium fade-up" v-html="superHeading" />
+        <h3 v-if="title" class="heading-2 mb-medium fade-up" v-html="title" />
       </div>
-      <h2 v-else class="heading-2 mb-medium" v-html="title" />
+      <h2 v-else class="heading-2 mb-medium fade-up" v-html="title" />
       <p v-if="text" class="mb-large fade-up whitespace-pre-line" v-html="text" />
       <KataLinks :links="links" class="fade-up" v-if="links" />
     </div>

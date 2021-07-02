@@ -38,9 +38,7 @@ const links = {
   props: {
     links: {
       type: Array,
-      default: function () {
-        return []
-      },
+      default: null,
     },
   },
 }
@@ -58,7 +56,7 @@ const image = {
   props: {
     image: {
       type: Object,
-      default: () => {},
+      default: null,
     },
   },
 }

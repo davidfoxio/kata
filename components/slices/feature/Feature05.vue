@@ -12,13 +12,11 @@
         class="mb-large fade-up px-medium item"
         :class="width"
       >
-        <KataImage
+        <KataSimpleImage
           v-if="item.icon"
           :image="item.icon"
           width="50"
           height="50"
-          :max-width="400"
-          :ratio="1"
           class="mb-small"
         />
         <p
@@ -30,7 +28,7 @@
         <p v-if="item.text" v-html="item.text" />
       </li>
     </ul>
-    <KataLinks :links="links" />
+    <KataLinks :links="links" v-if="links" />
   </div>
 </template>
 
@@ -41,7 +39,7 @@ export default {
   props: {
     features: {
       type: Array,
-      required: true,
+      default: null
     },
     autoNumber: {
       type: Boolean,
