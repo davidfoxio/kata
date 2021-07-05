@@ -49,13 +49,14 @@ const features = {
       ],
       preview: {
         select: {
-          heading: 'title'
+          heading: 'title',
+          image: 'icon'
         },
         prepare (selection) {
-          const {heading} = selection
+          const { heading, image } = selection
           return {
             title: heading,
-            media: BiListPlus
+            media: image || BiListPlus,
           }
         }
       }
