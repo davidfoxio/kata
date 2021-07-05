@@ -32,7 +32,7 @@ const hero06 = {
   type: 'object',
   title: 'Hero #6',
   options: defaultOptions,
-  fields: [media(), title, text, links()],
+  fields: [media(), superHeading, title, text, links()],
 }
 
 const hero09 = {
