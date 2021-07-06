@@ -15,9 +15,9 @@
           data-not-lazy
           :image="item"
           :ratio="ratio"
-          :max-width="1500"
+          :max-width="maxWidth"
           class="h-full max-h-screen object-cover w-full"
-          sizes="(max-width:699px) 90vw, (max-width:1439px) 50vw, 50vw"
+          :sizes="sizes"
         />
       </div>
     </div>
@@ -33,7 +33,15 @@ export default {
     },
     ratio: {
       type: Number,
-      default: 3 / 4,
+      default: 4 / 3,
+    },
+    maxWidth: {
+      type: Number,
+      default: 2000,
+    },
+    sizes: {
+      type: String,
+      default: '100vw',
     },
   },
   data() {

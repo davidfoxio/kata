@@ -16,7 +16,13 @@
     ></KataVideo>
   </div>
   <div v-else-if="slides.length" class="media-slider">
-    <KataCssSlider :images="slides" class="w-full h-full" />
+    <KataCssSlider
+      :images="slides"
+      class="w-full h-full"
+      :sizes="sizes"
+      :ratio="ratio"
+      :max-width="maxWidth"
+    />
   </div>
 </template>
 
