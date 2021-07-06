@@ -87,10 +87,6 @@ export default {
 
 <style scoped lang="scss">
 .tease-paragraph-overlay {
-  @media (max-width: 1150px) {
-    width: 50%;
-  }
-
   .inner {
     background: black;
     transition: 0.5s ease;
@@ -169,13 +165,6 @@ export default {
       transform: translateY(calc(-100% - 30px));
       bottom: unset;
     }
-  }
-}
-</style>
-
-<style lang="scss">
-.tease-paragraph-overlay {
-  img {
   }
 }
 </style>
