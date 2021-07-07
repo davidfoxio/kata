@@ -31,25 +31,23 @@ export default {
     },
     itemId: {
       type: String,
-      required: true,
+      default: '',
     },
     link: {
       type: String,
-      required: true,
+      default: '',
     },
     title: {
       type: String,
-      required: true,
+      default: '',
     },
     date: {
       type: String,
-      required: true,
+      default: '',
     },
     categories: {
       type: Array,
-      default: function () {
-        return []
-      },
+      default: null,
     },
   },
   methods: {
