@@ -12,6 +12,9 @@
         <span v-if="i != categories.length - 1">|</span>
       </span>
     </p>
+    <p v-if="date" class="date mt-small">
+      {{ date | formatDate }}
+    </p>
     <h3 class="mt-small">
       {{ title }}
       <DraftLabel :id="itemId" />
@@ -35,6 +38,10 @@ export default {
       required: true,
     },
     title: {
+      type: String,
+      required: true,
+    },
+    date: {
       type: String,
       required: true,
     },

@@ -22,7 +22,8 @@
       @after-leave="end"
     >
       <div v-show="visible" class="accordion-content pt-small">
-        <SanityContent v-if="body" :blocks="body" />
+        <SanityEmbedContent v-if="body" :blocks="body" />
+        <SanityEmbedContent v-else-if="textBody" :blocks="textBody" />
       </div>
     </transition>
   </div>

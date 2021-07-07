@@ -9,7 +9,7 @@
           w-full
           h-full
           min-h-screen
-          py-screen-border
+          py-slice-half
         "
       >
         <div v-if="superHeading">
@@ -22,7 +22,7 @@
           class="text-white mt-medium whitespace-pre-line"
           v-html="text"
         />
-        <KataLinks v-if="links" :links="links" class="mt-medium" />
+        <KataLinks v-if="links" :links="links" class="mt-medium w-full" />
       </div>
     </div>
     <div
