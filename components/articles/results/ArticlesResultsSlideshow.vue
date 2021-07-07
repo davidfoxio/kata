@@ -22,26 +22,19 @@
             >
               {{ item.title }}
             </h3>
-            <p v-if="item.tags && item.tags.length" class="opacity-50 label-2">
-              Tags:
-              <span v-for="(tag, x) in item.tags" :key="tag._key">
-                {{ $store.getters['references/getTagFromReference'](tag._ref) }}
-                <span v-if="x != item.tags.length - 1">,</span>
-              </span>
-            </p>
             <p
-              v-if="item.category && item.category.length"
+              v-if="item[categoryField] && item[categoryField].length"
               class="opacity-50 label-2"
             >
               Tags:
-              <span v-for="(tag, x) in item.category" :key="tag._key">
+              <span v-for="(tag, x) in item[categoryField]" :key="tag._key">
                 {{
                   $store.getters['references/getFieldByRef']({
                     field: 'title',
                     ref: tag._ref,
                   })
                 }}
-                <span v-if="x != item.category.length - 1">,</span>
+                <span v-if="x != item[categoryField].length - 1">,</span>
               </span>
             </p>
           </nuxt-link>
@@ -73,6 +66,10 @@ export default {
     interval: {
       type: Number,
       default: 5000,
+    },
+    categoryField: {
+      type: String,
+      default: 'category',
     },
   },
   data() {

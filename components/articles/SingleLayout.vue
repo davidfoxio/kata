@@ -5,7 +5,7 @@
     </div>
     <div class="simple-hero mb-large">
       <div class="md:w-r8/12 md:mx-r2/12 w-r10/12 mx-r1/12 mb-large">
-        <h1 class="text-center">{{ c.title }}</h1>
+        <h1 class="text-center" v-html="c.title" />
       </div>
       <div class="sm:w-r10/12 sm:mx-r1/12 px-screen-border sm:px-0 w-full">
         <KataMedia
@@ -27,7 +27,7 @@
 
     <div class="main-content mb-slice md:w-r6/12 md:mx-r3/12 w-r10/12 mx-r1/12">
       <div
-        v-if="c.date || c.location || c.startDate || c.date"
+        v-if="c.date || c.location || c.startDate"
         class="sm:flex justify-between sm:flex-wrap mb-large"
       >
         <p v-if="c.startDate" class="font-bold sm:mr-small">
