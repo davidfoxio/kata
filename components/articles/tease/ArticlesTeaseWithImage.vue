@@ -19,6 +19,7 @@
       {{ title }}
       <DraftLabel :id="itemId" />
     </h3>
+    <p v-if="text" class="text mt-small" v-html="text" />
   </component>
 </template>
 
@@ -44,6 +45,10 @@ export default {
     date: {
       type: String,
       default: '',
+    },
+    text: {
+      type: String,
+      default: ''
     },
     categories: {
       type: Array,
