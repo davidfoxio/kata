@@ -15,6 +15,7 @@ import InternalLink from './serializers/InternalLink.vue'
 import ExternalLink from './serializers/ExternalLink.vue'
 import TableField from './serializers/TableField.vue'
 import Accordion from './serializers/Accordion.vue'
+import Testimonial04 from './serializers/Testimonial04Serializer.vue'
 
 export default {
   props: {
@@ -32,6 +33,7 @@ export default {
           link: BlockLinks,
           tableField: TableField,
           accordion: Accordion,
+          testimonial04: Testimonial04,
         },
         marks: {
           internalLink: InternalLink,

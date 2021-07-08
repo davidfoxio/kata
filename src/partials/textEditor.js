@@ -136,7 +136,7 @@ const fullTextEditor = (name = 'Text Body') => {
           ],
         },
         styles: [
-          { title: 'Normal', value: 'p' },
+          { title: 'Normal', value: 'normal' },
           { title: 'Heading', value: 'h2' },
           { title: 'Subheading', value: 'h3' },
         ],
