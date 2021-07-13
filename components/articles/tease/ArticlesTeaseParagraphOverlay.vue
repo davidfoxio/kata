@@ -15,7 +15,7 @@
       />
       <div class="overlay">
         <div class="title">
-          <p class="heading-1">{{ '0' + index }}</p>
+          <p class="heading-1" v-if="index">{{ '0' + index }}</p>
           <h3 v-if="title" class="label-1" v-html="title" />
         </div>
         <div class="body">
