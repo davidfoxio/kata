@@ -7,7 +7,7 @@
       <div
         v-for="item in thumbnails"
         :key="item._key"
-        class="px-small md:w-1/3 fade-up"
+        class="px-small md:w-1/3 fade-up thumbnail"
       >
         <slot name="tease" :item="item">
           <component
