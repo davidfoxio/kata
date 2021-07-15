@@ -1,6 +1,9 @@
 <template>
   <div class="slice feature-7 w-r10/12 mx-r1/12 text-center">
-    <h2 v-if="title" class="mb-large fade-up" v-html="title" />
+    <div class="mb-large" v-if="title || text">
+      <h2 class="fade-up heading-2" v-html="title" />
+      <p v-if="text" v-html="text" class="mt-medium fade-up lg:px-r1/12" />
+    </div>
     <ul
       v-if="features"
       class="flex flex-wrap -mx-medium -mb-large"
@@ -26,9 +29,9 @@
 </template>
 
 <script>
-import { title, links } from '../shared'
+import { title, text, links } from '../shared'
 export default {
-  mixins: [title, links],
+  mixins: [title, text, links],
   props: {
     features: {
       type: Array,

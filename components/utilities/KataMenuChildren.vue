@@ -24,7 +24,7 @@
               : link(item.link._ref).title
           }}
         </n-link>
-        <div v-else class="nav-link inline-block cursor-pointer">
+        <div v-else-if="item.noLinkJustTitle" class="nav-link inline-block cursor-pointer">
           {{ item.noLinkJustTitle }}
         </div>
         <button

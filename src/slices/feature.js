@@ -49,7 +49,7 @@ const feature05 = {
   type: 'object',
   title: 'Feature #5',
   options: defaultOptions,
-  fields: [title, features, links()],
+  fields: [title, text, features, links()],
 }
 const feature06 = {
   name: 'feature06',
@@ -63,7 +63,7 @@ const feature07 = {
   type: 'object',
   title: 'Feature #7',
   options: defaultOptions,
-  fields: [title, features, links()],
+  fields: [title, text, features, links()],
 }
 const feature08 = {
   name: 'feature08',
