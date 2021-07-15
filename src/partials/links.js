@@ -6,8 +6,8 @@ const links = (name = 'Links') => {
     name: camelCase(name),
     title: name,
     type: 'array',
-    validation: (Rule) =>
-      Rule.max(2).warning('The maximum number of CTA links on this slice is 2'),
+    // validation: (Rule) =>
+    //   Rule.max(2).warning('The maximum number of CTA links on this slice is 2'),
     editModal: 'popover',
     of: config.buttonTypes,
   }

@@ -6,7 +6,16 @@
       <div
         v-for="item in statistics"
         :key="item._key"
-        class="stat flex-grow w-full sm:w-1/2 md:w-1/4 mb-medium md:mb-0 px-medium"
+        class="
+          stat
+          flex-grow
+          w-full
+          sm:w-1/2
+          md:w-1/4
+          mb-medium
+          md:mb-0
+          px-medium
+        "
       >
         <p
           v-if="item.stat"
@@ -16,13 +25,15 @@
         <p v-if="item.title" class="fade-up" v-html="item.title" />
       </div>
     </div>
+
+    <KataLinks v-if="links" :links="links" class="mt-medium" />
   </div>
 </template>
 
 <script>
-import { title } from '../shared'
+import { title, links } from '../shared'
 export default {
-  mixins: [title],
+  mixins: [title, links],
   props: {
     statistics: {
       type: Array,

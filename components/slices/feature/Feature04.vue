@@ -5,7 +5,7 @@
     </div>
     <div class="sm:w-1/2 mb-large sm:mb-0 fade-up">
       <p v-if="text" v-html="text" />
-      <KataLinks :links="links" class="mt-medium" />
+      <KataLinks v-if="links" :links="links" class="mt-medium" />
     </div>
   </div>
 </template>
