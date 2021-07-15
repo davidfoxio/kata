@@ -21,7 +21,14 @@
           :key="item._id"
           class="px-small slide-item"
         >
-          <slot name="tease" :item="item" class="fade-up"></slot>
+          <slot name="tease" :item="item" class="fade-up">
+            <ArticlesTeaseWithImage
+              :item-id="item._id"
+              :link="getLink(item._id)"
+              :title="item.title"
+              :image="item.image"
+            />
+          </slot>
         </div>
         <template #nextArrow="arrowOption">
           <button

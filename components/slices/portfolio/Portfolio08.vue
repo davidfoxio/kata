@@ -1,25 +1,25 @@
 <template>
-  <div class="portfolio-8 slice w-r10/12 mx-r1/12">
+  <div class="portfolio-8 slice w-r10/12 mx-r1/12" v-if="feed">
     <div class="mb-large">
       <h2 v-if="title" v-html="title" />
       <p v-if="text" class="mt-medium" v-html="text" />
     </div>
-    <transition-group
-      v-if="feed"
-      :class="ulClass"
-      tag="ul"
-      name="fade"
-      mode="out-in"
-    >
+    <transition-group :class="ulClass" tag="ul" name="fade" mode="out-in">
       <li
         v-for="(item, i) in feed"
         :key="item._id || i"
         class="mb-medium relative"
       >
-        <slot name="tease" :item="item"></slot>
+        <slot name="tease" :item="item">
+          <ArticlesTeaseWithImage
+              :item-id="item._id"
+              :link="getLink(item._id)"
+              :title="item.title"
+              :image="item.image"
+            />
+        </slot>
       </li>
     </transition-group>
-    <p v-else>No results found</p>
   </div>
 </template>
 

@@ -11,8 +11,9 @@
     >
       <KataImage
         :image="image"
-        :ratio="510 / 714"
-        :max-width="1000"
+        :ratio="ratio"
+        :max-width="1500"
+        sizes="(max-width:699px) 90vw, (max-width:1439px) 50vw, 50vw"
         class="sm:h-full sm:w-full sm:absolute sm:top-0 sm:left-0 sm:object-cover sm:bottom-0 sm:m-auto"
       />
     </div>
@@ -23,5 +24,15 @@
 import { title, textBody, image } from '../shared'
 export default {
   mixins: [title, textBody, image],
+  props: {
+    reversed: {
+      type: Boolean,
+      default: false,
+    },
+    ratio: {
+      type: Number,
+      default: 510 / 714,
+    },
+  }
 }
 </script>
