@@ -1,7 +1,8 @@
 <template>
   <div class="slice contact-1 md:flex w-r10/12 mx-r1/12">
     <div class="md:w-1/2 md:pr-large">
-      <h2 v-if="title" class="mb-medium" v-html="title" />
+      <h1 v-if="isH1 && title" class="heading-2 mb-medium" v-html="title" />
+      <h2 v-else-if="title" class="mb-medium" v-html="title" />
       <p v-if="text" class="mb-medium" v-html="text" />
       <div class="columns fade-up">
         <div v-if="address" class="mb-medium">
@@ -90,17 +91,21 @@ import { title, text } from '../shared'
 export default {
   mixins: [title, text],
   props: {
+    isH1: {
+      type: Boolean,
+      default: false
+    },
     address: {
       type: String,
-      required: true,
+      default: ''
     },
     email: {
       type: String,
-      required: true,
+      default: ''
     },
     telephone: {
       type: String,
-      required: true,
+      default: ''
     },
     action: {
       type: String,
