@@ -12,6 +12,7 @@
         v-if="image"
         :image="image"
         class="background object-cover w-full h-full"
+        :data-not-lazy="!lazy"
       />
       <div class="overlay">
         <div class="title">
@@ -40,6 +41,10 @@ export default {
       type: Object,
       default: null,
     },
+    lazy: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
@@ -61,7 +66,6 @@ export default {
   },
   methods: {
     toggleTile() {
-      console.log('click')
       this.active = !this.active
     },
     is_touch_device() {

@@ -37,16 +37,18 @@ export default {
     },
   },
   mounted() {
-    // https://github.com/video-dev/hls.js/#embedding-hlsjs
-    const videoSrc = `https://stream.mux.com/${this.playbackId}.m3u8`
-    const video = this.$refs.video
+    if (this.video) {
+      // https://github.com/video-dev/hls.js/#embedding-hlsjs
+      const videoSrc = `https://stream.mux.com/${this.playbackId}.m3u8`
+      const video = this.$refs.video
 
-    if (Hls.isSupported()) {
-      let hls = new Hls()
-      hls.loadSource(videoSrc)
-      hls.attachMedia(video)
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = videoSrc
+      if (Hls.isSupported()) {
+        let hls = new Hls()
+        hls.loadSource(videoSrc)
+        hls.attachMedia(video)
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = videoSrc
+      }
     }
   },
   methods: {
