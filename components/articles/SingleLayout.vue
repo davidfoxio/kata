@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="back-btn mt-small mb-large mx-screen-border">
+    <div
+      class="back-btn mt-small mb-large mx-screen-border"
+      v-if="indexPath && backText"
+    >
       <nuxt-link :to="indexPath">{{ backText }}</nuxt-link>
     </div>
     <div class="simple-hero mb-large">
@@ -43,7 +46,10 @@
       <SanityEmbedContent v-else-if="c.body" :blocks="c.body" />
     </div>
 
-    <div class="text-center px-screen-border mb-slice-half">
+    <div
+      class="text-center px-screen-border mb-slice-half"
+      v-if="indexPath && backText"
+    >
       <div class="back-btn">
         <nuxt-link :to="indexPath">{{ backText }}</nuxt-link>
       </div>
@@ -60,7 +66,7 @@ export default {
     },
     indexPath: {
       type: String,
-      required: true,
+      default: '',
     },
     backText: {
       type: String,

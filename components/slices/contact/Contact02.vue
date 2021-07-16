@@ -35,12 +35,12 @@
           <p class="label-1">Opening Times</p>
           <p class="whitespace-pre-line" v-html="openingTimes" />
         </li>
-        <li v-if="website" class="mb-medium item">
+        <!-- <li v-if="website" class="mb-medium item">
           <p class="label-1">Website</p>
           <p>
             <a :href="website" target="_blank">{{ websiteText || website }}</a>
           </p>
-        </li>
+        </li> -->
         <li v-if="email" class="mb-medium item">
           <p class="label-1">Email</p>
           <p>

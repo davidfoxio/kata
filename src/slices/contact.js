@@ -32,8 +32,8 @@ const contact02 = {
     address,
     openingTimes,
     email,
-    website,
-    websiteText,
+    // website,
+    // websiteText,
     telephone,
   ],
 }
