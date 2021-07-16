@@ -43,7 +43,7 @@ export default {
     },
     lazy: {
       type: Boolean,
-      default: true,
+      default: true, //if in slider and you don't want to lazy load image, pass this as false.
     },
   },
   data() {

@@ -5,8 +5,10 @@
     controls
     controlsList="nodownload"
     disablePictureInPicture
-    preload="true"
     playsinline
+    width="100%"
+    preload="metadata"
+    :poster="poster"
   ></video>
 </template>
 
@@ -22,15 +24,24 @@ export default {
   },
   computed: {
     playbackId() {
-      return this.$store.getters['references/getPlaybackIdFromRef'](
-        this.video.asset._ref
-      )
+      if (this.video?.asset) {
+        return this.$store.getters['references/getPlaybackIdFromRef'](
+          this.video.asset._ref
+        )
+      }
+      return null
     },
+  },
+  data(){
+    return {
+      poster: ''
+    }
   },
   mounted() {
     if (this.video) {
       // https://github.com/video-dev/hls.js/#embedding-hlsjs
       const videoSrc = `https://stream.mux.com/${this.playbackId}.m3u8`
+      this.poster = `https://image.mux.com/${this.playbackId}/thumbnail.jpg`
       const video = this.$refs.video
 
       if (Hls.isSupported()) {
