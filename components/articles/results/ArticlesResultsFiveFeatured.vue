@@ -8,7 +8,7 @@
   >
     <li v-for="(item, i) in articles" :key="item._id">
       <slot name="tease" :item="item">
-        <NuxtLink :to="getLink(item._id)" class="block">
+        <NuxtLink :to="getLink(item._id)">
           <KataImage
             :image="item.image"
             :max-width="650"
@@ -58,25 +58,62 @@ export default {
 
 <style lang="scss">
 .five-featured-grid {
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1fr;
 
-  li:first-child a {
+  @include md-up {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  @include lg-up {
+    grid-template-columns: 2fr 1fr 1fr;
+
+    li:nth-child(3),
+    li:nth-child(5) {
+      margin-top: 60px;
+    }
+  }
+
+  li:first-child {
     grid-row-start: 1;
     grid-row-end: span 2;
-    display: grid;
-    grid-template-areas: 'stack';
 
-    img,
-    .title {
-      grid-area: stack;
+    // @include md-up {
+    //   grid-row-end: span 4;
+    // }
+
+    // @include lg-up {
+    //   grid-row-end: span 2;
+    // }
+
+    a {
+      display: grid;
+      grid-template-areas: 'stack';
+      position: relative;
+
+      > * {
+        grid-area: stack;
+      }
+
+      &:before {
+        content: '';
+        background-image: linear-gradient(transparent, black);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        z-index: 1;
+      }
     }
 
     .title {
       display: flex;
       justify-content: flex-end;
       flex-direction: column;
-      color: white;
+      @apply text-white;
       @apply p-medium;
+      z-index: 5;
     }
   }
 }

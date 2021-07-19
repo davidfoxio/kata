@@ -28,7 +28,7 @@ const feedSelector = ({
     of: [
       {
         type: 'reference',
-        to: { type: articleType },
+        to: [{ type: articleType }],
       },
     ],
   }
@@ -40,7 +40,7 @@ const feedSelector = ({
     of: [
       {
         type: 'reference',
-        to: { type: categoryType },
+        to: [{ type: categoryType }],
       },
     ],
   }

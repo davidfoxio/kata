@@ -6,7 +6,14 @@
       class="article-results-slider pl-r1/12"
     >
       <div v-for="item in articles" :key="item._id" class="px-small">
-        <slot name="tease" :item="item"></slot>
+        <slot name="tease" :item="item">
+          <ArticlesTeaseWithImage
+            :item-id="item._id"
+            :link="getLink(item._id)"
+            :title="item.title"
+            :image="item.image"
+          />
+        </slot>
       </div>
     </VueSlickCarousel>
     <p v-else>No results found.</p>

@@ -7,7 +7,14 @@
     mode="out-in"
   >
     <li v-for="item in articles" :key="item._id">
-      <slot name="tease" :item="item"></slot>
+      <slot name="tease" :item="item">
+        <ArticlesTeaseWithImage
+          :item-id="item._id"
+          :link="getLink(item._id)"
+          :title="item.title"
+          :image="item.image"
+        />
+      </slot>
     </li>
   </transition-group>
   <p v-else>No results found, try changing your filters</p>
