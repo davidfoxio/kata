@@ -57,6 +57,9 @@ export default {
   li {
     flex-basis: 40%;
     flex-grow: 1;
+    @include md-up {
+      max-width: 50%;
+    }
   }
   :nth-child(10n + 1),
   :nth-child(10n + 2),

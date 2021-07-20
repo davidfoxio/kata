@@ -1,7 +1,7 @@
 <template>
   <transition-group
     v-if="articles"
-    class="w-full grid gap-medium five-featured-grid"
+    class="w-full grid gap-medium five-featured-grid pr-screen-border"
     tag="ul"
     name="fade"
     mode="out-in"
@@ -12,7 +12,7 @@
           <KataImage
             :image="item.image"
             :max-width="650"
-            :ratio="i == 0 ? 4 / 6 : 6 / 4"
+            :ratio="i == 0 ? 3 / 4 : 4 / 3"
             sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
             :class="{ 'mb-small': i != 0 }"
           />
@@ -20,14 +20,14 @@
           <div class="title">
             <p
               v-if="item.category && item.category.length"
-              class="category mt-0 text-center label-2"
+              class="category mt-0 mb-[7px] text-center label-2"
             >
               <span v-for="(cat, catIndex) in item.category" :key="cat._key">
                 {{ getCategoryTitle(cat._ref) }}
                 <span v-if="catIndex != item.category.length - 1">|</span>
               </span>
             </p>
-            <h3 :class="{ 'label-1 p-small': i != 0 }" class="text-center">
+            <h3 :class="{ 'label-1': i != 0 }" class="text-center">
               {{ item.title }}
               <DraftLabel :id="item._id" />
             </h3>
@@ -69,7 +69,7 @@ export default {
 
     li:nth-child(3),
     li:nth-child(5) {
-      margin-top: 60px;
+      margin-top: var(--spacing-large);
     }
   }
 
