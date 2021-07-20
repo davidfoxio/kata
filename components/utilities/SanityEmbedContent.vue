@@ -83,7 +83,7 @@ export default {
     padding-left: 0 !important;
   }
 
-  a {
+  a:not(.btn-primary, .btn-secondary, .btn-tertiary, .btn-plain) {
     @apply text-primary;
   }
 }

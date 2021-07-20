@@ -5,8 +5,16 @@
       v-bind="settings"
       class="article-results-slider pl-r1/12"
     >
-      <div v-for="item in articles" :key="item._id" class="px-small">
-        <slot name="tease" :item="item">
+      <template #prevArrow="arrowOption">
+        <button
+          class="carousel-nav prev focus:outline-none mb-medium"
+          title="Previous Slide"
+        >
+          <span></span>
+        </button>
+      </template>
+      <div v-for="item in articles" :key="item._id" class="px-small slide-item">
+        <slot name="tease" :item="item" class="fade-up">
           <ArticlesTeaseWithImage
             :item-id="item._id"
             :link="getLink(item._id)"
@@ -15,6 +23,11 @@
           />
         </slot>
       </div>
+      <template #nextArrow="arrowOption">
+        <button class="carousel-nav next focus:outline-none" title="Next Slide">
+          <span></span>
+        </button>
+      </template>
     </VueSlickCarousel>
     <p v-else>No results found.</p>
   </div>
@@ -45,7 +58,7 @@ export default {
         infinite: false,
         responsive: [
           {
-            breakpoint: 850,
+            breakpoint: 100,
             settings: {
               slidesToShow: 2.5,
             },
