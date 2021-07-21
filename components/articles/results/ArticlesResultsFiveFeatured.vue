@@ -1,23 +1,25 @@
 <template>
   <transition-group
     v-if="articles"
-    class="w-full grid gap-medium five-featured-grid pr-screen-border"
+    class="w-full grid gap-medium five-featured-grid md:pr-screen-border"
     tag="ul"
     name="fade"
     mode="out-in"
   >
     <li v-for="(item, i) in articles" :key="item._id">
       <slot name="tease" :item="item">
-        <NuxtLink :to="getLink(item._id)">
+        <NuxtLink :to="getLink(item._id)" :class="{ 'large-thumb': i == 0 }">
           <KataImage
             :image="item.image"
             :max-width="650"
             :ratio="i == 0 ? 3 / 4 : 4 / 3"
             sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
-            :class="{ 'mb-small': i != 0 }"
-            class="w-full h-full object-cover max-h-screen"
+            :class="{
+              'mb-small': i != 0,
+              'md:h-full object-cover max-h-screen': i == 0,
+            }"
+            class="w-full"
           />
-
           <div class="title">
             <p
               v-if="item.category && item.category.length"
@@ -28,7 +30,9 @@
                 <span v-if="catIndex != item.category.length - 1">|</span>
               </span>
             </p>
-            <p v-if="item.date">{{item.date | formatDate }}</p>
+            <p v-if="item.date" class="text-center">
+              {{ item.date | formatDate }}
+            </p>
             <h3 :class="{ 'label-1': i != 0 }" class="text-center">
               {{ item.title }}
               <DraftLabel :id="item._id" />
