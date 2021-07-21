@@ -136,8 +136,24 @@ export default {
       > * {
         grid-area: stack;
       }
+    }
 
-      &:before {
+    .title {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      @apply text-white;
+      @apply p-medium;
+      z-index: 5;
+      position: relative;
+
+      p,
+      h3 {
+        z-index: 5;
+        position: relative;
+      }
+
+      &:after {
         content: '';
         background-image: linear-gradient(transparent, black);
         width: 100%;
@@ -148,15 +164,6 @@ export default {
         opacity: 0.5;
         z-index: 1;
       }
-    }
-
-    .title {
-      display: flex;
-      justify-content: flex-end;
-      flex-direction: column;
-      @apply text-white;
-      @apply p-medium;
-      z-index: 5;
     }
   }
 }
