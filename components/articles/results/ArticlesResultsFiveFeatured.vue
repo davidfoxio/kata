@@ -1,7 +1,7 @@
 <template>
   <transition-group
     v-if="articles"
-    class="w-full grid gap-medium five-featured-grid md:pr-screen-border"
+    class="w-full grid gap-medium five-featured-grid pr-screen-border"
     tag="ul"
     name="fade"
     mode="out-in"
@@ -15,6 +15,7 @@
             :ratio="i == 0 ? 3 / 4 : 4 / 3"
             sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
             :class="{ 'mb-small': i != 0 }"
+            class="w-full h-full object-cover max-h-screen"
           />
 
           <div class="title">
@@ -27,6 +28,7 @@
                 <span v-if="catIndex != item.category.length - 1">|</span>
               </span>
             </p>
+            <p v-if="item.date">{{item.date | formatDate }}</p>
             <h3 :class="{ 'label-1': i != 0 }" class="text-center">
               {{ item.title }}
               <DraftLabel :id="item._id" />
