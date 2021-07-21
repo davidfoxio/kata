@@ -38,7 +38,7 @@ export default {
     ulClass() {
       switch (this.cols) {
         case '4':
-          return 'w-full grid gap-medium grid-cols-1 md:grid-cols-2 xl:grid-cols-4'
+          return 'w-full grid gap-medium grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
         case '2':
           return 'w-full grid gap-medium grid-cols-1 lg:grid-cols-2'
         default:
