@@ -1,6 +1,6 @@
 <template>
   <div class="article-results-slideshow">
-    <div class="sm:flex sm:items-center">
+    <div class="sm:flex">
       <ul
         class="
           sm:w-1/2
@@ -59,7 +59,7 @@
           </nuxt-link>
         </li>
       </ul>
-      <div class="sm:w-1/2 xl:w-1/3 image">
+      <div class="sm:w-1/2 xl:w-1/3 image sm:align-center">
         <transition name="fade" mode="out-in">
           <KataImage
             v-if="articles[activeArticle] && articles[activeArticle].image"

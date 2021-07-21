@@ -8,7 +8,7 @@
   >
     <li v-for="(item, i) in articles" :key="item._id">
       <slot name="tease" :item="item">
-        <NuxtLink :to="getLink(item._id)" :class="{ 'large-thumb': i == 0 }">
+        <NuxtLink :to="getLink(item._id)" :class="{ 'large-thumb': i == 0, 'px-r1/12 block md:px-0': i != 0}">
           <KataImage
             :image="item.image"
             :max-width="650"

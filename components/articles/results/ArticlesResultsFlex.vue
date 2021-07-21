@@ -54,20 +54,22 @@ export default {
 
 <style lang="scss">
 .ulClass {
-  li {
-    flex-basis: 40%;
-    flex-grow: 1;
-    @include md-up {
-      max-width: 50%;
+  @include sm-up {
+    li {
+      flex-basis: 40%;
+      flex-grow: 1;
+      @include md-up {
+        max-width: 50%;
+      }
     }
-  }
-  :nth-child(10n + 1),
-  :nth-child(10n + 2),
-  :nth-child(10n + 3),
-  :nth-child(10n + 6),
-  :nth-child(10n + 7),
-  :nth-child(10n + 8) {
-    flex-basis: 30%;
+    :nth-child(10n + 1),
+    :nth-child(10n + 2),
+    :nth-child(10n + 3),
+    :nth-child(10n + 6),
+    :nth-child(10n + 7),
+    :nth-child(10n + 8) {
+      flex-basis: 30%;
+    }
   }
 }
 </style>
