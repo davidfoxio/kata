@@ -1,25 +1,44 @@
 <template>
   <div class="article-results-slideshow">
-    <div class="sm:flex">
+    <div class="sm:flex sm:items-center">
       <ul
-        class="sm:w-1/2 xl:w-2/3 pr-medium flex flex-col justify-between items-start"
+        class="
+          sm:w-1/2
+          xl:w-2/3
+          pr-medium
+          flex flex-col
+          justify-between
+          items-start
+        "
       >
         <li
           v-for="(item, i) in articles"
           :key="i"
-          class="border-primary border-l-2 flex-grow border-opacity-25 mb-0 transition-all duration-500"
+          class="
+            border-primary border-l-2
+            flex-grow
+            border-opacity-25
+            mb-0
+            transition-all
+            duration-500
+          "
           :class="{ 'border-opacity-100': i == activeArticle }"
           @mouseover="activeArticle = i"
         >
           <nuxt-link
             :to="getLink(item._id)"
-            class="mb-small inline-block pl-small hover:text-primary transition-all duration-500"
+            class="
+              mb-small
+              inline-block
+              pl-small
+              hover:text-primary
+              transition-all
+              duration-500
+            "
+            :class="[i == activeArticle ? 'opacity-90' : 'opacity-30']"
           >
             <p class="label-2">Featured</p>
-            <h3
-              :class="[i == activeArticle ? 'opacity-90' : 'opacity-30']"
-              class="heading-3 my-small"
-            >
+            <h3 class="heading-3 my-small">
               {{ item.title }}
             </h3>
             <p
