@@ -21,6 +21,10 @@ export default {
       type: Object,
       default: () => {},
     },
+    thumbnail: {
+      type: Object,
+      default: () => {},
+    },
   },
   computed: {
     playbackId() {
@@ -32,9 +36,9 @@ export default {
       return null
     },
   },
-  data(){
+  data() {
     return {
-      poster: ''
+      poster: '',
     }
   },
   mounted() {
@@ -42,6 +46,11 @@ export default {
       // https://github.com/video-dev/hls.js/#embedding-hlsjs
       const videoSrc = `https://stream.mux.com/${this.playbackId}.m3u8`
       this.poster = `https://image.mux.com/${this.playbackId}/thumbnail.jpg`
+      if (this.thumbnail) {
+        this.poster = this.$imgUrl(this.thumbnail)
+          .quality(80)
+          .url()
+      }
       const video = this.$refs.video
 
       if (Hls.isSupported()) {
