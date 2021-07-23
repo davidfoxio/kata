@@ -10,7 +10,8 @@ const feedSelector = ({
   description,
   sliceTitle,
   noShowAll,
-  
+  filter,
+  filterParams,
 }) => {
   // Defaults
   selectedTitle = selectedTitle || 'Choose manually'
@@ -20,6 +21,16 @@ const feedSelector = ({
     'You can manually select one or more items, or else choose a category to display.'
   sliceTitle = sliceTitle || false
   noShowAll = noShowAll || false
+  filter = filter || false
+  filterParams = filterParams || false
+
+  let options = {}
+  if (filter) {
+    options.filter = filter
+  }
+  if (filterParams) {
+    options.filter = filterParams
+  }
 
   const selected = {
     name: 'selected',
@@ -29,6 +40,7 @@ const feedSelector = ({
       {
         type: 'reference',
         to: [{ type: articleType }],
+        options: options,
       },
     ],
   }
