@@ -7,7 +7,7 @@
       class="h-screen w-full object-cover"
     />
     <div
-      class="w-r10/12 md:w-r8/12  lg:w-r6/12 h-screen flex flex-col justify-end items-start z-1 p-r1/12"
+      class="w-r10/12 md:w-r8/12 lg:w-r6/12 h-screen flex flex-col justify-end items-start z-1 p-r1/12 md:pr-0 content"
     >
       <h2 class="heading-2 text-white mb-medium fade-up" v-html="title" />
       <p

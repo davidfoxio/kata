@@ -74,8 +74,9 @@ export default {
     list-style: disc;
     padding-left: 2.5em;
   }
-  
-  ol, ul {
+
+  ol,
+  ul {
     margin-bottom: var(--spacing-medium);
   }
 
@@ -85,6 +86,12 @@ export default {
 
   a:not(.btn-primary, .btn-secondary, .btn-tertiary, .btn-plain) {
     @apply text-primary;
+  }
+
+  img {
+    max-height: 537px; //from figma
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 </style>

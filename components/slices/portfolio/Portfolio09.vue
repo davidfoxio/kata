@@ -18,15 +18,26 @@
         @click="isTouch ? toggleTile(index) : null"
       >
         <LinkSlot :link="item.link" class="relative block">
-          <KataImage v-if="item.image" :image="item.image" class="background" />
+          <KataImage
+            v-if="item.image"
+            :image="item.image"
+            :ratio="3 / 4"
+            :max-width="650"
+            sizes="(max-width:699px) 95vw, (max-width:700px) 50vw, 33vw"
+            class="background"
+          />
           <div v-else class="background bg-primary" />
           <div class="overlay">
             <div class="title">
-              <p class="heading-1">{{ '0' + (index + 1) }}</p>
+              <p v-if="autoNumber" class="heading-1">{{ '0' + (index + 1) }}</p>
               <h3 v-if="item.title" class="label-1" v-html="item.title" />
             </div>
             <div class="body">
-              <p v-if="item.text" class="para-2 whitespace-pre-line" v-html="item.text" />
+              <p
+                v-if="item.text"
+                class="para-2 whitespace-pre-line"
+                v-html="item.text"
+              />
             </div>
           </div>
         </LinkSlot>
@@ -43,6 +54,10 @@ export default {
     thumbnails: {
       type: Array,
       required: true,
+    },
+    autoNumber: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
