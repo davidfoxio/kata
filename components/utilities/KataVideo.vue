@@ -8,6 +8,7 @@
     :autoplay="false"
     preload="true"
     playsinline
+    :poster="image"
   ></video>
 </template>
 
@@ -27,6 +28,7 @@ export default {
       resizeTimer: null,
       playPromise: false,
       isMobile: false,
+      image: '',
     }
   },
   computed: {
@@ -40,6 +42,7 @@ export default {
     if (this.video) {
       // https://github.com/video-dev/hls.js/#embedding-hlsjs
       const videoSrc = `https://stream.mux.com/${this.playbackId}.m3u8`
+      this.image = `https://image.mux.com/${this.playbackId}/thumbnail.jpg`
       const video = this.$refs.video
 
       if (Hls.isSupported()) {
