@@ -17,7 +17,7 @@
         v-html="subtitle"
       ></p>
       <div class="media-wrap hero-animation border-animate">
-        <KataMedia v-if="media" :media="media" />
+        <KataMedia v-if="media" :media="media" :max-width="2000" />
       </div>
     </div>
   </div>
