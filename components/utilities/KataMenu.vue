@@ -8,13 +8,12 @@
             :to="link(item.link._ref).path"
             class="nav-link inline-block"
             @click.native="clickFn"
-          >
-            {{
+            v-html="
               item.noLinkJustTitle
                 ? item.noLinkJustTitle
                 : link(item.link._ref).title
-            }}
-          </n-link>
+            "
+          />
         </div>
         <div v-else>
           <n-link
@@ -22,21 +21,19 @@
             :to="link(item._ref).path"
             class="nav-link inline-block"
             @click.native="clickFn"
-          >
-            {{
+            v-html="
               item.noLinkJustTitle
                 ? item.noLinkJustTitle
                 : link(item._ref).title
-            }}
-          </n-link>
+            "
+          />
           <a
             v-else
             :href="item.link"
             class="nav-link inline-block"
             @click="clickFn"
-          >
-            {{ item.noLinkJustTitle ? item.noLinkJustTitle : item.title }}
-          </a>
+            v-html="item.noLinkJustTitle ? item.noLinkJustTitle : item.title"
+          />
         </div>
       </li>
     </ul>

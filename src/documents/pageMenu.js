@@ -40,10 +40,35 @@ export default {
               type: 'array',
               of: [
                 {
-                  title: 'Menu',
+                  type: 'object',
+                  title: 'Menu Item',
                   name: 'menu',
-                  type: 'reference',
-                  to: config.allTypes,
+                  fields: [
+                    {
+                      title: 'Custom Title (optional)',
+                      name: 'customTitle',
+                      type: 'string',
+                    },
+                    {
+                      title: 'Link',
+                      name: 'link',
+                      type: 'reference',
+                      to: config.allTypes,
+                    },
+                  ],
+                  preview: {
+                    select: {
+                      title: 'customTitle',
+                      link: 'link.title',
+                    },
+                    prepare(selection) {
+                      const { title, link } = selection
+                      return {
+                        title: title || link,
+                        media: RiMenuAddLine,
+                      }
+                    },
+                  },
                 },
               ],
             },

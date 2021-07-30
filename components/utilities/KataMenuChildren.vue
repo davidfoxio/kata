@@ -17,16 +17,17 @@
           :to="link(item.link._ref).path"
           class="nav-link inline-block"
           @click.native="clickFn"
-        >
-          {{
+          v-html="
             item.noLinkJustTitle
               ? item.noLinkJustTitle
               : link(item.link._ref).title
-          }}
-        </n-link>
-        <div v-else-if="item.noLinkJustTitle" class="nav-link inline-block cursor-pointer">
-          {{ item.noLinkJustTitle }}
-        </div>
+          "
+        />
+        <p
+          v-else-if="item.noLinkJustTitle"
+          class="nav-link inline-block cursor-pointer"
+          v-html="item.noLinkJustTitle"
+        />
         <button
           v-if="item.children"
           title="Show/Hide Child Menu"
@@ -34,15 +35,18 @@
           @click="toggleChild(item, i)"
         ></button>
         <div v-if="item.children" class="child-menu">
-          <div v-for="child in item.children" :key="child.title">
+          <div v-for="child in item.children" :key="child._key">
             <n-link
-              v-if="link(child._ref)"
-              :to="link(child._ref).path"
+              v-if="link(child.link._ref)"
+              :to="link(child.link._ref).path"
               class="nav-link inline-block"
               @click.native="clickFn"
-            >
-              {{ link(child._ref).title }}
-            </n-link>
+              v-html="
+                child.customTitle
+                  ? child.customTitle
+                  : link(child.link._ref).title
+              "
+            />
           </div>
         </div>
       </li>
@@ -104,9 +108,8 @@ export default {
     toggleChild(item, i) {
       if (item.children && item.children.length > 0) {
         let dropdown = this.$refs.list[i].querySelector('.child-menu')
-        let dropdownTrigger = this.$refs.list[i].querySelector(
-          '.dropdown-trigger'
-        )
+        let dropdownTrigger =
+          this.$refs.list[i].querySelector('.dropdown-trigger')
         if (dropdown && dropdown.classList.contains('open')) {
           dropdown.classList.remove('open')
         } else {
