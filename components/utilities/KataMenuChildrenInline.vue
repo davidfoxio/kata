@@ -19,14 +19,13 @@
             :to="link(item.link._ref).path"
             class="heading-3 inline-block transition-all ease-in"
             @click.native="clickFn"
-          >
-            {{
+            v-html="
               item.noLinkJustTitle
                 ? item.noLinkJustTitle
                 : link(item.link._ref).title
-            }}
-          </n-link>
-          <div
+            "
+          />
+          <p
             v-else
             class="heading-3 inline-block title-only"
             :class="{
@@ -37,9 +36,8 @@
                 ? toggleChild(item, i)
                 : null
             "
-          >
-            {{ item.noLinkJustTitle }}
-          </div>
+            v-html="item.noLinkJustTitle"
+          />
           <button
             v-if="item.children && item.children.length"
             title="Show/Hide Child Menu"
@@ -47,20 +45,22 @@
             @click="toggleChild(item, i)"
           ></button>
         </div>
-        <div v-if="item.children && item.children.length" class="child-menu w-full">
-          <div
-            v-for="child in item.children"
-            :key="child.title"
-            class="mb-small"
-          >
+        <div
+          v-if="item.children && item.children.length"
+          class="child-menu w-full"
+        >
+          <div v-for="child in item.children" :key="child._key">
             <n-link
-              v-if="link(child._ref)"
-              :to="link(child._ref).path"
+              v-if="child.link && link(child.link._ref)"
+              :to="link(child.link._ref).path"
               class="label-1 block"
               @click.native="clickFn"
-            >
-              {{ link(child._ref).title }}
-            </n-link>
+              v-html="
+                child.customTitle
+                  ? child.customTitle
+                  : link(child.link._ref).title
+              "
+            />
           </div>
         </div>
       </li>

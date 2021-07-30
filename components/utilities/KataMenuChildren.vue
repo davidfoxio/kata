@@ -37,7 +37,7 @@
         <div v-if="item.children" class="child-menu">
           <div v-for="child in item.children" :key="child._key">
             <n-link
-              v-if="link(child.link._ref)"
+              v-if="child.link && link(child.link._ref)"
               :to="link(child.link._ref).path"
               class="nav-link inline-block"
               @click.native="clickFn"
