@@ -22,10 +22,10 @@ export default {
           name: 'menuItem',
           fields: [
             {
-              title: 'No link, just a title',
+              title: 'Custom Title',
               name: 'noLinkJustTitle',
               description:
-                'Use this instead of choosing a link, to make a menu item that is just a parent, not a link to something.',
+                'You can use this instead of choosing a link, to make a menu item that is just a parent, not a link to something.',
               type: 'string',
             },
             {
@@ -64,7 +64,7 @@ export default {
                     prepare(selection) {
                       const { title, link } = selection
                       return {
-                        title: title || link,
+                        title: title || link || 'Unknown',
                         media: RiMenuAddLine,
                       }
                     },
