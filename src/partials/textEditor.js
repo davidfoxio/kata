@@ -59,8 +59,15 @@ const basicTextEditor = (name = 'Text Body') => {
               ],
             },
             {
-              title: 'Link',
-              type: 'link',
+              name: 'link',
+              type: 'object',
+              title: 'link',
+              fields: [
+                {
+                  name: 'url',
+                  type: 'url',
+                },
+              ],
             },
           ],
         },
@@ -138,8 +145,15 @@ const fullTextEditor = (name = 'Text Body') => {
               ],
             },
             {
-              title: 'Link',
-              type: 'link',
+              name: 'link',
+              type: 'object',
+              title: 'link',
+              fields: [
+                {
+                  name: 'url',
+                  type: 'url',
+                },
+              ],
             },
           ],
         },
