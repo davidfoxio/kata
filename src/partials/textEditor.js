@@ -58,6 +58,10 @@ const basicTextEditor = (name = 'Text Body') => {
                 },
               ],
             },
+            {
+              title: 'Link',
+              type: 'link',
+            },
           ],
         },
       },
@@ -132,6 +136,10 @@ const fullTextEditor = (name = 'Text Body') => {
                   to: config.allTypes,
                 },
               ],
+            },
+            {
+              title: 'Link',
+              type: 'link',
             },
           ],
         },
