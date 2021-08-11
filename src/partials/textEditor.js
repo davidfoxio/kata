@@ -61,10 +61,11 @@ const basicTextEditor = (name = 'Text Body') => {
             {
               name: 'link',
               type: 'object',
-              title: 'link',
+              title: 'Link',
               fields: [
                 {
-                  name: 'url',
+                  name: 'href',
+                  title: 'URL',
                   type: 'url',
                 },
               ],
@@ -147,10 +148,11 @@ const fullTextEditor = (name = 'Text Body') => {
             {
               name: 'link',
               type: 'object',
-              title: 'link',
+              title: 'Link',
               fields: [
                 {
-                  name: 'url',
+                  name: 'href',
+                  title: 'URL',
                   type: 'url',
                 },
               ],
