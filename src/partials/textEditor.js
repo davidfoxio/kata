@@ -4,11 +4,12 @@ import { GoFileSymlinkFile } from 'react-icons/go'
 import { standardImage } from 'part:@weflocc/kata/partials/image'
 const camelCase = require('lodash.camelcase')
 
-const basicTextEditor = (name = 'Text Body') => {
+const basicTextEditor = (name = 'Text Body', settings) => {
   return {
     title: name,
     name: camelCase(name),
     type: 'array',
+    ...settings,
     of: [
       {
         type: 'block',
@@ -77,11 +78,12 @@ const basicTextEditor = (name = 'Text Body') => {
   }
 }
 
-const fullTextEditor = (name = 'Text Body') => {
+const fullTextEditor = (name = 'Text Body', settings) => {
   return {
     title: name,
     name: camelCase(name),
     type: 'array',
+    ...settings,
     of: [
       {
         type: 'block',
