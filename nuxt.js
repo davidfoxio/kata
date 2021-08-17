@@ -2,6 +2,7 @@ import { join } from 'path'
 
 export default function () {
   console.log('Nuxt js called within @weflocc/kata')
+
   const ourDirs = [
     './components/articles',
     './components/articles/results',
@@ -28,22 +29,5 @@ export default function () {
         path: join(__dirname, dir),
       })
     })
-  })
-
-  // const myPlugins = ['./plugins/filters.js', './plugins/globalMixin.js']
-
-  // this.nuxt.hook('plugins', (plugins) => {
-  //   // Add plugins to the list
-  //   myPlugins.forEach((item) => {
-  //     plugins.push(item)
-  //   })
-  // })
-
-  this.nuxt.hook('ready', async (nuxt) => {
-    console.log('Nuxt is ready')
-  })
-
-  this.nuxt.hook('plugins', (plugins) => {
-    plugins.push('./plugins/globalMixin.js')
   })
 }
