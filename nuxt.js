@@ -34,7 +34,7 @@ export default function () {
 
   const pluginFiles = [
     './plugins/global.js',
-    // './plugins/images.js', //images can't access sanity object to pass in 
+    // './plugins/images.js', //images can't access sanity object to pass in - probably just get client details from config and create in plugin
     './plugins/inview.client.js',
     './plugins/preview.client.js',
   ]
