@@ -16,7 +16,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/weflocc/kata.git"
   },
-  "author": "andy@flocc.co",
+  "author": "dev@flocc.co",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/weflocc/kata/issues"
