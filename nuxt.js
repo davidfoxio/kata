@@ -1,4 +1,5 @@
 import { join } from 'path'
+import path from 'path'
 
 export default function () {
   console.log('Nuxt js called within @weflocc/kata')
@@ -30,4 +31,16 @@ export default function () {
       })
     })
   })
+
+  const pluginFiles = [
+    './plugins/global.js',
+    // './plugins/images.js', //images can't access sanity object to pass in 
+    './plugins/inview.client.js',
+    './plugins/preview.client.js',
+  ]
+
+  pluginFiles.forEach((item) => {
+    this.addPlugin(path.resolve(__dirname, item))
+  })
+  
 }

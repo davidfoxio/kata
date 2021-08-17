@@ -1,8 +1,5 @@
 import Vue from 'vue'
 
-console.log('Kata plugin is registered')
-console.log(Vue.__globalMixin__)
-
 if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
   Vue.__globalMixin__ = true
   Vue.mixin({
@@ -14,8 +11,6 @@ if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
     },
   })
 }
-
-console.log(Vue.__globalMixin__)
 
 Vue.directive('kata-html', {
   bind: (el, binding) => {
@@ -44,5 +39,3 @@ Vue.filter('formatDateTime', (value) => {
     minute: '2-digit',
   })
 })
-
-console.log('Kata plugin end')
