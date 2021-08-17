@@ -18,22 +18,22 @@
       <h1
         v-if="isH1 && title"
         class="mb-medium heading-2 fade-up"
-        v-html="title"
+        v-kata-html="title"
       />
       <h2
         v-else-if="title"
         class="mb-medium heading-2 fade-up"
-        v-html="title"
+        v-kata-html="title"
       />
-      <p v-if="text" class="mb-medium fade-up" v-html="text" />
+      <p v-if="text" class="mb-medium fade-up" v-kata-html="text" />
       <ul class="columns fade-up">
         <li v-if="address" class="mb-medium item">
           <p class="label-1">Address</p>
-          <p class="whitespace-pre-line" v-html="address" />
+          <p class="whitespace-pre-line" v-kata-html="address" />
         </li>
         <li v-if="openingTimes" class="mb-medium item">
           <p class="label-1">Opening Times</p>
-          <p class="whitespace-pre-line" v-html="openingTimes" />
+          <p class="whitespace-pre-line" v-kata-html="openingTimes" />
         </li>
         <!-- <li v-if="website" class="mb-medium item">
           <p class="label-1">Website</p>

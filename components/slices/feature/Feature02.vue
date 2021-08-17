@@ -3,8 +3,8 @@
     class="slice feature-2 flex flex-col md:flex-row relative justify-start px-r1/12 md:px-0"
   >
     <div class="md:w-r5/12 md:ml-r1/12 md:mr-large order-2 md:order-1 body">
-      <h2 v-if="title" class="mb-large fade-up" v-html="title" />
-      <p v-if="text" class="mb-large fade-up" v-html="text" />
+      <h2 v-if="title" class="mb-large fade-up" v-kata-html="title" />
+      <p v-if="text" class="mb-large fade-up" v-kata-html="text" />
       <ul v-if="shortFeatures">
         <li
           v-for="(item, index) in shortFeatures"
@@ -26,8 +26,8 @@
               height="30"
               class="mb-1 mr-small"
             />
-            <h3 v-if="item.title" class="label-1" v-html="item.title" />
-            <p v-if="item.text" v-html="item.text" />
+            <h3 v-if="item.title" class="label-1" v-kata-html="item.title" />
+            <p v-if="item.text" v-kata-html="item.text" />
           </component>
         </li>
       </ul>

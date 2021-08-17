@@ -7,7 +7,7 @@
     </thead>
     <tbody>
       <tr v-for="row in body" :key="row._key">
-        <td v-for="cell in row.cells" :key="cell" v-html="cell" />
+        <td v-for="cell in row.cells" :key="cell" v-kata-html="cell" />
       </tr>
     </tbody>
   </table>

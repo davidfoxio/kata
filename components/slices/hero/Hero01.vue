@@ -25,15 +25,15 @@
       <h1
         v-if="superHeading"
         class="super-heading mb-medium"
-        v-html="superHeading"
+        v-kata-html="superHeading"
       />
-      <h1 v-else-if="title" class="heading-1 mb-medium" v-html="title" />
+      <h1 v-else-if="title" class="heading-1 mb-medium" v-kata-html="title" />
       <h2
         v-if="title && superHeading"
         class="heading-1 mb-medium"
-        v-html="title"
+        v-kata-html="title"
       />
-      <p v-if="text" class="whitespace-pre-line" v-html="text" />
+      <p v-if="text" class="whitespace-pre-line" v-kata-html="text" />
       <KataLinks v-if="links" :links="links" />
     </div>
 

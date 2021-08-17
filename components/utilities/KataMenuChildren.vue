@@ -17,7 +17,7 @@
           :to="link(item.link._ref).path"
           class="nav-link inline-block"
           @click.native="clickFn"
-          v-html="
+          v-kata-html="
             item.noLinkJustTitle
               ? item.noLinkJustTitle
               : link(item.link._ref).title
@@ -26,7 +26,7 @@
         <p
           v-else-if="item.noLinkJustTitle"
           class="nav-link inline-block cursor-pointer"
-          v-html="item.noLinkJustTitle"
+          v-kata-html="item.noLinkJustTitle"
         />
         <button
           v-if="item.children"
@@ -41,7 +41,7 @@
               :to="link(child.link._ref).path"
               class="nav-link inline-block"
               @click.native="clickFn"
-              v-html="
+              v-kata-html="
                 child.customTitle
                   ? child.customTitle
                   : link(child.link._ref).title

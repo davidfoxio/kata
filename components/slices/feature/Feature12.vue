@@ -9,8 +9,8 @@
     <div
       class="w-full md:w-r6/12 min-h-screen flex flex-col justify-end items-start z-1 p-r1/12 text-white"
     >
-      <h2 class="heading-2 mb-medium" v-html="title" />
-      <p v-if="text" class="mb-medium" v-html="text" />
+      <h2 class="heading-2 mb-medium" v-kata-html="title" />
+      <p v-if="text" class="mb-medium" v-kata-html="text" />
       <ul v-if="shortFeatures">
         <li
           v-for="(item, index) in shortFeatures"
@@ -29,8 +29,8 @@
               height="30"
               class="mb-1 mr-small"
             />
-            <h3 v-if="item.title" class="label-1" v-html="item.title" />
-            <!-- <p v-if="item.text" v-html="item.text" /> -->
+            <h3 v-if="item.title" class="label-1" v-kata-html="item.title" />
+            <!-- <p v-if="item.text" v-kata-html="item.text" /> -->
           </component>
         </li>
       </ul>

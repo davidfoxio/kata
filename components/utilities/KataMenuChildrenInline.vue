@@ -19,7 +19,7 @@
             :to="link(item.link._ref).path"
             class="heading-3 inline-block transition-all ease-in"
             @click.native="clickFn"
-            v-html="
+            v-kata-html="
               item.noLinkJustTitle
                 ? item.noLinkJustTitle
                 : link(item.link._ref).title
@@ -36,7 +36,7 @@
                 ? toggleChild(item, i)
                 : null
             "
-            v-html="item.noLinkJustTitle"
+            v-kata-html="item.noLinkJustTitle"
           />
           <button
             v-if="item.children && item.children.length"
@@ -55,7 +55,7 @@
               :to="link(child.link._ref).path"
               class="label-1 block"
               @click.native="clickFn"
-              v-html="
+              v-kata-html="
                 child.customTitle
                   ? child.customTitle
                   : link(child.link._ref).title

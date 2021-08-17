@@ -19,7 +19,7 @@
       {{ title }}
       <DraftLabel :id="itemId" />
     </h3>
-    <p v-if="text" class="text mt-small" v-html="text" />
+    <p v-if="text" class="text mt-small" v-kata-html="text" />
   </component>
 </template>
 

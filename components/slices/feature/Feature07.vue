@@ -1,8 +1,8 @@
 <template>
   <div class="slice feature-7 w-r10/12 mx-r1/12 text-center">
     <div class="mb-large" v-if="title || text">
-      <h2 class="fade-up heading-2" v-html="title" />
-      <p v-if="text" v-html="text" class="mt-medium fade-up lg:px-r1/12" />
+      <h2 class="fade-up heading-2" v-kata-html="title" />
+      <p v-if="text" v-kata-html="text" class="mt-medium fade-up lg:px-r1/12" />
     </div>
     <ul
       v-if="features"
@@ -20,8 +20,8 @@
           :image="item.icon"
           class="mb-small mx-auto object-contain"
         />
-        <h3 v-if="item.title" class="label-1 mb-small" v-html="item.title" />
-        <p v-if="item.text" class="para-2" v-html="item.text" />
+        <h3 v-if="item.title" class="label-1 mb-small" v-kata-html="item.title" />
+        <p v-if="item.text" class="para-2" v-kata-html="item.text" />
       </li>
     </ul>
     <KataLinks v-if="links" :links="links" class="mt-large fade-up" />

@@ -9,11 +9,11 @@
     <div
       class="w-r10/12 mx-r1/12 md:w-r6/12 md:mx-r3/12 h-screen flex flex-col justify-center text-center z-1"
     >
-      <h1 class="heading-1 text-white mb-medium" v-html="title" />
+      <h1 class="heading-1 text-white mb-medium" v-kata-html="title" />
       <p
         v-if="text"
         class="text-center text-white mb-medium whitespace-pre-line"
-        v-html="text"
+        v-kata-html="text"
       />
       <KataLinks v-if="links" :links="links" class="text-center" />
     </div>

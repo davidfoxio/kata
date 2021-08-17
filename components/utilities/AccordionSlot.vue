@@ -1,7 +1,7 @@
 <template>
   <div class="accordion-item">
     <div class="accordion-trigger pb-small" :class="{ active: visible }" @click="open">
-      <h3 v-if="title" v-html="title" />
+      <h3 v-if="title" v-kata-html="title" />
       <div class="plus" :class="{ open: visible }"></div>
     </div>
 

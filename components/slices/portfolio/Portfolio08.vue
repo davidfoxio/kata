@@ -1,8 +1,8 @@
 <template>
   <div class="portfolio-8 slice w-r10/12 mx-r1/12" v-if="feed">
     <div class="mb-large">
-      <h2 v-if="title" v-html="title" />
-      <p v-if="text" class="mt-medium" v-html="text" />
+      <h2 v-if="title" v-kata-html="title" />
+      <p v-if="text" class="mt-medium" v-kata-html="text" />
     </div>
     <transition-group :class="ulClass" tag="ul" name="fade" mode="out-in">
       <li

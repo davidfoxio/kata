@@ -1,7 +1,7 @@
 <template>
   <div class="accordion-item pb-small mb-small">
     <div class="accordion-trigger" :class="{ active: visible }" @click="open">
-      <h3 v-if="title" v-html="title" />
+      <h3 v-if="title" v-kata-html="title" />
       <DraftLabel :id="itemId" />
 
       <p v-if="categories && categories.length" class="label-2 mt-0">

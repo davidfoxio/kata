@@ -9,12 +9,12 @@
 
     <div class="mt-large mx-r1/12 w-r10/12 sm:flex sm:justify-between">
       <div class="sm:w-1/2 sm:pr-large">
-        <h1 v-if="superHeading" class="super-heading" v-html="superHeading" />
-        <h1 v-else-if="title" class="heading-1" v-html="title" />
-        <h2 v-if="superHeading && title" class="heading-1 mt-small" v-html="title" />
+        <h1 v-if="superHeading" class="super-heading" v-kata-html="superHeading" />
+        <h1 v-else-if="title" class="heading-1" v-kata-html="title" />
+        <h2 v-if="superHeading && title" class="heading-1 mt-small" v-kata-html="title" />
       </div>
       <div class="sm:w-1/2">
-        <p v-if="text" class="mb-medium whitespace-pre-line" v-html="text" />
+        <p v-if="text" class="mb-medium whitespace-pre-line" v-kata-html="text" />
         <KataLinks v-if="links" :links="links" />
       </div>
     </div>

@@ -8,7 +8,7 @@
             :to="link(item.link._ref).path"
             class="nav-link inline-block"
             @click.native="clickFn"
-            v-html="
+            v-kata-html="
               item.noLinkJustTitle
                 ? item.noLinkJustTitle
                 : link(item.link._ref).title
@@ -21,7 +21,7 @@
             :to="link(item._ref).path"
             class="nav-link inline-block"
             @click.native="clickFn"
-            v-html="
+            v-kata-html="
               item.noLinkJustTitle
                 ? item.noLinkJustTitle
                 : link(item._ref).title
@@ -32,7 +32,7 @@
             :href="item.link"
             class="nav-link inline-block"
             @click="clickFn"
-            v-html="item.noLinkJustTitle ? item.noLinkJustTitle : item.title"
+            v-kata-html="item.noLinkJustTitle ? item.noLinkJustTitle : item.title"
           />
         </div>
       </li>

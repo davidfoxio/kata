@@ -1,8 +1,8 @@
 <template>
   <div class="slice feature-5 w-r10/12 mx-r1/12">
     <div class="mb-large" v-if="title || text">
-      <h2 class="fade-up heading-2" v-html="title" />
-      <p v-if="text" v-html="text" class="mt-medium fade-up lg:px-r1/12" />
+      <h2 class="fade-up heading-2" v-kata-html="title" />
+      <p v-if="text" v-kata-html="text" class="mt-medium fade-up lg:px-r1/12" />
     </div>
     <ul
       v-if="features"
@@ -25,10 +25,10 @@
         <p
           v-else-if="autoNumber"
           class="heading-2"
-          v-html="index + 1 < 10 ? '0' + (index + 1) : index + 1"
+          v-kata-html="index + 1 < 10 ? '0' + (index + 1) : index + 1"
         />
-        <h3 v-if="item.title" class="label-1 mb-small" v-html="item.title" />
-        <p v-if="item.text" v-html="item.text" />
+        <h3 v-if="item.title" class="label-1 mb-small" v-kata-html="item.title" />
+        <p v-if="item.text" v-kata-html="item.text" />
       </li>
     </ul>
     <KataLinks :links="links" v-if="links" />

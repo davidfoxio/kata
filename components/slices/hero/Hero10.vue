@@ -14,14 +14,14 @@
         "
       >
         <div v-if="superHeading">
-          <h1 class="label-1 text-white mb-medium" v-html="superHeading" />
-          <h2 v-if="title" class="heading-1 text-white" v-html="title" />
+          <h1 class="label-1 text-white mb-medium" v-kata-html="superHeading" />
+          <h2 v-if="title" class="heading-1 text-white" v-kata-html="title" />
         </div>
-        <h1 v-else class="heading-1 text-white" v-html="title" />
+        <h1 v-else class="heading-1 text-white" v-kata-html="title" />
         <p
           v-if="text"
           class="text-white mt-medium whitespace-pre-line"
-          v-html="text"
+          v-kata-html="text"
         />
         <KataLinks v-if="links" :links="links" class="mt-medium w-full" />
       </div>

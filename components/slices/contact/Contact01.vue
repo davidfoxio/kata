@@ -1,13 +1,13 @@
 <template>
   <div class="slice contact-1 md:flex w-r10/12 mx-r1/12">
     <div class="md:w-1/2 md:pr-large">
-      <h1 v-if="isH1 && title" class="heading-2 mb-medium" v-html="title" />
-      <h2 v-else-if="title" class="mb-medium" v-html="title" />
-      <p v-if="text" class="mb-medium" v-html="text" />
+      <h1 v-if="isH1 && title" class="heading-2 mb-medium" v-kata-html="title" />
+      <h2 v-else-if="title" class="mb-medium" v-kata-html="title" />
+      <p v-if="text" class="mb-medium" v-kata-html="text" />
       <div class="columns fade-up">
         <div v-if="address" class="mb-medium">
           <p class="label-1">Address</p>
-          <p class="whitespace-pre-line" v-html="address" />
+          <p class="whitespace-pre-line" v-kata-html="address" />
         </div>
         <div v-if="email" class="mb-medium">
           <p class="label-1">Email</p>
@@ -25,7 +25,7 @@
       <SocialMedia />
     </div>
     <div class="md:w-1/2 md:pl-large">
-      <p v-if="submitted" v-html="thanks" />
+      <p v-if="submitted" v-kata-html="thanks" />
       <form
         v-else
         name="contact"

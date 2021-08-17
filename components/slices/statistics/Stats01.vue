@@ -1,6 +1,6 @@
 <template>
   <div class="slice stats-1 w-r10/12 mx-r1/12">
-    <h2 v-if="title" class="heading-2 fade-up mb-medium" v-html="title" />
+    <h2 v-if="title" class="heading-2 fade-up mb-medium" v-kata-html="title" />
 
     <div class="flex flex-wrap -mx-medium">
       <div
@@ -20,9 +20,9 @@
         <p
           v-if="item.stat"
           class="heading-2 statistic fade-up"
-          v-html="item.stat"
+          v-kata-html="item.stat"
         />
-        <p v-if="item.title" class="fade-up" v-html="item.title" />
+        <p v-if="item.title" class="fade-up" v-kata-html="item.title" />
       </div>
     </div>
 

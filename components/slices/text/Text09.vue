@@ -1,14 +1,14 @@
 <template>
   <div class="slice text-9 w-r10/12 mx-r1/12">
     <div class="sticky md:w-1/2 md:mr-medium">
-      <h2 class="mb-medium fade-up" v-html="title" v-if="title"></h2>
+      <h2 class="mb-medium fade-up" v-kata-html="title" v-if="title"></h2>
     </div>
     <div ref="content" class="content md:w-1/2 md:ml-medium">
-      <!-- <h3 v-if="superHeading" class="mb-medium fade-up" v-html="superHeading" /> -->
+      <!-- <h3 v-if="superHeading" class="mb-medium fade-up" v-kata-html="superHeading" /> -->
       <div v-if="list" class="sticky-content">
         <div v-for="(item, i) in list" :key="i" class="fade-up mb-slice">
-          <h3 v-if="item.title" v-html="item.title" class="mb-small" />
-          <p v-if="item.text" v-html="item.text" />
+          <h3 v-if="item.title" v-kata-html="item.title" class="mb-small" />
+          <p v-if="item.text" v-kata-html="item.text" />
         </div>
       </div>
     </div>

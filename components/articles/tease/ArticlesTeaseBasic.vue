@@ -5,7 +5,7 @@
     class="article-tease-basic relative"
   >
     <div class="relative title-wrap">
-      <h3 v-if="title" v-html="title" />
+      <h3 v-if="title" v-kata-html="title" />
       <DraftLabel :id="itemId" />
       <div class="read"></div>
     </div>

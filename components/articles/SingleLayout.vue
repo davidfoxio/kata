@@ -8,7 +8,7 @@
     </div>
     <div class="simple-hero mb-large">
       <div class="md:w-r8/12 md:mx-r2/12 w-r10/12 mx-r1/12 mb-large">
-        <h1 class="text-center" v-html="c.title" />
+        <h1 class="text-center" v-kata-html="c.title" />
       </div>
       <div class="sm:w-r10/12 sm:mx-r1/12 px-screen-border sm:px-0 w-full">
         <KataMedia

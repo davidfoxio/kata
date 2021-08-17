@@ -2,11 +2,11 @@
   <div class="hero-11 slice">
     <div class="top mb-slice-half w-r10/12 mx-r1/12">
       <div class="left mb-large md:mb-0">
-        <h1 v-if="title" v-html="title" />
+        <h1 v-if="title" v-kata-html="title" />
         <a href="#main" class="side-link">{{ sideLinkText }}</a>
       </div>
       <div class="right">
-        <p v-if="text" v-html="text" />
+        <p v-if="text" v-kata-html="text" />
         <KataLinks v-if="links" :links="links" class="mt-medium" />
       </div>
     </div>
@@ -14,7 +14,7 @@
       <p
         v-if="subtitle"
         class="pull-out w-r11/12 sm:w-r8/12 lg:w-r6/12 p-screen-border"
-        v-html="subtitle"
+        v-kata-html="subtitle"
       ></p>
       <div class="media-wrap hero-animation border-animate">
         <KataMedia v-if="media" :media="media" :max-width="2000" />

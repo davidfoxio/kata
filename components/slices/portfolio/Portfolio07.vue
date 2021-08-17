@@ -2,7 +2,7 @@
   <div class="slice portfolio-7 relative slice-animation">
     <div v-if="title" class="heading pointer-events-none">
       <div class="heading-inner">
-        <h2 class="text-tertiary heading-1" v-html="title" />
+        <h2 class="text-tertiary heading-1" v-kata-html="title" />
       </div>
     </div>
     <div class="w-r10/12 mx-r1/12 grid grid-cols-2 gap-small">
@@ -21,7 +21,7 @@
           v-if="item.title"
           class="overlay absolute top-0 left-0 w-full h-full p-4 sm:p-small opacity-0"
         >
-          <p class="heading-3" v-html="item.title" />
+          <p class="heading-3" v-kata-html="item.title" />
         </div>
       </div>
     </div>

@@ -18,9 +18,9 @@
             <h3
               v-if="item.title"
               class="mb-small label-1"
-              v-html="item.title"
+              v-kata-html="item.title"
             />
-            <p v-if="item.text" class="para-4" v-html="item.text" />
+            <p v-if="item.text" class="para-4" v-kata-html="item.text" />
           </component>
         </slot>
       </div>

@@ -1,8 +1,8 @@
 <template>
   <div class="portfolio-9 w-r10/12 mx-r1/12">
     <div class="mb-large text-center">
-      <h2 v-if="title" class="heading-2 fade-up" v-html="title" />
-      <p v-if="text" class="mt-medium fade-up" v-html="text" />
+      <h2 v-if="title" class="heading-2 fade-up" v-kata-html="title" />
+      <p v-if="text" class="mt-medium fade-up" v-kata-html="text" />
     </div>
     <div
       v-if="thumbnails"
@@ -30,13 +30,13 @@
           <div class="overlay">
             <div class="title">
               <p v-if="autoNumber" class="heading-1">{{ '0' + (index + 1) }}</p>
-              <h3 v-if="item.title" class="label-1" v-html="item.title" />
+              <h3 v-if="item.title" class="label-1" v-kata-html="item.title" />
             </div>
             <div class="body">
               <p
                 v-if="item.text"
                 class="para-2 whitespace-pre-line"
-                v-html="item.text"
+                v-kata-html="item.text"
               />
             </div>
           </div>

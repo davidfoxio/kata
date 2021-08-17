@@ -28,9 +28,9 @@
         class="w-full"
       >
         <div v-for="item in testimonials" :key="item._key" class="pr-large">
-          <p v-if="item.quote" class="heading-3 mb-large" v-html="item.quote" />
-          <p v-if="item.name" class="label-1" v-html="item.name" />
-          <p v-if="item.job" class="para-4 mt-1" v-html="item.job" />
+          <p v-if="item.quote" class="heading-3 mb-large" v-kata-html="item.quote" />
+          <p v-if="item.name" class="label-1" v-kata-html="item.name" />
+          <p v-if="item.job" class="para-4 mt-1" v-kata-html="item.job" />
         </div>
       </VueSlickCarousel>
 
@@ -58,9 +58,9 @@
     </div>
     <div v-else class="w-full">
       <div v-for="item in testimonials" :key="item._key" class="pr-large">
-        <p v-if="item.quote" class="heading-3 mb-large" v-html="item.quote" />
-        <p v-if="item.name" class="label-1" v-html="item.name" />
-        <p v-if="item.job" class="para-4 mt-1" v-html="item.job" />
+        <p v-if="item.quote" class="heading-3 mb-large" v-kata-html="item.quote" />
+        <p v-if="item.name" class="label-1" v-kata-html="item.name" />
+        <p v-if="item.job" class="para-4 mt-1" v-kata-html="item.job" />
       </div>
     </div>
   </div>

@@ -61,8 +61,8 @@
             @mouseover="setCurrent(item.title)"
             @click="setActive(item)"
           >
-            <h3 v-if="item.title" class="label-1" v-html="item.title" />
-            <!-- <p v-if="item.address" class="para-2 mt-3" v-html="item.address" /> -->
+            <h3 v-if="item.title" class="label-1" v-kata-html="item.title" />
+            <!-- <p v-if="item.address" class="para-2 mt-3" v-kata-html="item.address" /> -->
           </li>
         </ul>
       </transition>

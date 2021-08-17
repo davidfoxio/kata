@@ -3,7 +3,7 @@
     <h2
       v-if="title"
       class="heading-2 mb-large text-center fade-up"
-      v-html="title"
+      v-kata-html="title"
     />
 
     <div ref="listItems" class="relative">
