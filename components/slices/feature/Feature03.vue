@@ -15,7 +15,7 @@
         class="text-white mb-medium fade-up"
         v-kata-html="text"
       />
-      <KataLinks :links="links" class="fade-up" />
+      <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
   </div>
 </template>
