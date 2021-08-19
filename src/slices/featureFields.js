@@ -26,42 +26,43 @@ const features = {
         {
           type: 'image',
           name: 'icon',
-          title: 'Icon'
+          title: 'Icon',
         },
         {
           type: 'string',
           name: 'title',
-          title: 'Title'
+          title: 'Title',
         },
         {
           type: 'text',
           name: 'text',
           title: 'Text',
-          rows: 2
+          rows: 3,
         },
         {
           type: 'reference',
           name: 'link',
           title: 'Link',
           to: config.allTypes,
-          description: 'Optional'
-        }
+          description: 'Optional',
+        },
       ],
       preview: {
         select: {
           heading: 'title',
-          image: 'icon'
+          subheading: 'text',
+          image: 'icon',
         },
-        prepare (selection) {
-          const { heading, image } = selection
+        prepare(selection) {
+          const { heading, image, subheading } = selection
           return {
-            title: heading,
+            title: heading || subheading,
             media: image || BiListPlus,
           }
-        }
-      }
-    }
-  ]
+        },
+      },
+    },
+  ],
 }
 
 const shortFeatures = {

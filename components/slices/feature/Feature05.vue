@@ -2,7 +2,7 @@
   <div class="slice feature-5 w-r10/12 mx-r1/12">
     <div class="mb-large" v-if="title || text">
       <h2 class="fade-up heading-2" v-kata-html="title" />
-      <p v-if="text" v-kata-html="text" class="mt-medium fade-up lg:px-r1/12" />
+      <p v-if="text" v-kata-html="text" class="mt-medium fade-up" />
     </div>
     <ul
       v-if="features"
@@ -28,7 +28,7 @@
           v-kata-html="index + 1 < 10 ? '0' + (index + 1) : index + 1"
         />
         <h3 v-if="item.title" class="label-1 mb-small" v-kata-html="item.title" />
-        <p v-if="item.text" v-kata-html="item.text" />
+        <p v-if="item.text" v-kata-html="item.text" class="para-1" />
       </li>
     </ul>
     <KataLinks :links="links" v-if="links" />
