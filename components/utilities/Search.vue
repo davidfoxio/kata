@@ -33,6 +33,18 @@ export default {
       type: Boolean,
       default: false,
     },
+    appId: {
+      type: String,
+      required: true,
+    },
+    apiKey: {
+      type: String,
+      required: true,
+    },
+    siteId: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
@@ -45,8 +57,7 @@ export default {
         {
           rel: 'stylesheet',
           defer: true,
-          href:
-            'https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css',
+          href: 'https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css',
         },
       ],
       script: [
@@ -56,8 +67,7 @@ export default {
           callback: () => {
             this.initSearch()
           },
-          src:
-            'https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js',
+          src: 'https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js',
         },
       ],
     }
@@ -70,15 +80,18 @@ export default {
   methods: {
     initSearch() {
       const currentBranch = process.env.HEAD // Injected by your build tool
+      console.log(currentBranch)
       let targetBranch = 'master'
       if (currentBranch === 'dev') {
+        targetBranch = currentBranch
+      } else if (currentBranch === 'main') {
         targetBranch = currentBranch
       }
 
       algoliasearchNetlify({
-        appId: '',
-        apiKey: '',
-        siteId: '',
+        appId: this.appId,
+        apiKey: this.apiKey,
+        siteId: this.siteId,
         branch: targetBranch,
         selector: 'div#aa-search',
 

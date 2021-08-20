@@ -1,11 +1,11 @@
 <template>
   <nav class="kata-menu">
-    <ul class="kata-menu-list p-0">
+    <ul class="kata-menu-list p-0 lg:flex lg:items-center lg:justify-end">
       <li
         v-for="(item, i) in menu"
         :key="item._key"
         ref="list"
-        class="nav-link-wrap mb-0 pb-small lg:pb-0"
+        class="nav-link-wrap mb-0 pb-small lg:pb-0 lg:pl-small"
         :class="{
           'has-children relative': item.children && item.children.length > 0,
         }"
