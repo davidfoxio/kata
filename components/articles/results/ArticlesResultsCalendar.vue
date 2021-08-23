@@ -51,7 +51,7 @@ export default {
             allDay: 'true',
             start: this.formatDate(element.startDate),
             end: endDate,
-            url: getLink(element._id),
+            url: this.getLink(element._id),
           }
 
           events.push(obj)
