@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="articles"
+    v-if="articles && articles.length > 0"
     class="
       py-slice-half
       w-r10/12

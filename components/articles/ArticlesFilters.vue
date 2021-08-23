@@ -31,7 +31,7 @@
       </div>
       <button
         type="button"
-        class="btn-secondary mt-small"
+        class="btn-secondary btn-small mt-small"
         @click="clear(filterGroup.label)"
       >
         Clear
