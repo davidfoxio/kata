@@ -1,6 +1,6 @@
 <template>
   <transition-group
-    v-if="articles"
+    v-if="articles && articles.length > 0"
     :class="ulClass"
     tag="ul"
     name="fade"
@@ -17,7 +17,7 @@
       </slot>
     </li>
   </transition-group>
-  <p v-else>No results found, try changing your filters</p>
+  <p v-else>No results found</p>
 </template>
 
 <script>
