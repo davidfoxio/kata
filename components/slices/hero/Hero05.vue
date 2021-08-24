@@ -2,8 +2,8 @@
   <div class="slice hero-5 stack-children">
     <KataMedia
       :media="media"
-      :ratio="16 / 9"
-      :max-width="3000"
+      :ratio="ratio"
+      :max-width="2500"
       class="h-screen w-full object-cover"
     />
     <div
@@ -25,6 +25,19 @@ import { title, text, links, media } from '../shared'
 
 export default {
   mixins: [title, text, links, media],
+  data() {
+    return {
+      ratio: 16 / 9,
+    }
+  },
+  mounted() {
+    if (
+      process.client &&
+      window.matchMedia('(orientation: portrait)').matches
+    ) {
+      this.ratio = 3 / 4
+    }
+  },
 }
 </script>
 

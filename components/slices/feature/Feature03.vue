@@ -2,7 +2,7 @@
   <div class="slice feature-3 stack-children">
     <KataImage
       :image="image"
-      :ratio="16 / 9"
+      :ratio="ratio"
       :max-width="3000"
       class="h-screen w-full object-cover"
     />
@@ -25,6 +25,19 @@ import { title, text, links, image } from '../shared'
 
 export default {
   mixins: [title, text, links, image],
+  data() {
+    return {
+      ratio: 16 / 9,
+    }
+  },
+  mounted() {
+    if (
+      process.client &&
+      window.matchMedia('(orientation: portrait)').matches
+    ) {
+      this.ratio = 3 / 4
+    }
+  },
 }
 </script>
 

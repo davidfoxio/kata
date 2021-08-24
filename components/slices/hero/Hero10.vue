@@ -1,6 +1,8 @@
 <template>
   <div class="slice hero-10">
-    <div class="w-r10/12 lg:w-r9/12 xl:w-r7/12 px-r1/12 relative z-1 content-wrap">
+    <div
+      class="w-r10/12 lg:w-r9/12 xl:w-r7/12 px-r1/12 relative z-1 content-wrap"
+    >
       <div
         class="
           flex-col flex
@@ -31,7 +33,7 @@
     >
       <KataMedia
         :media="media"
-        :ratio="16 / 9"
+        :ratio="ratio"
         :max-width="3000"
         class="w-full h-full"
       />
@@ -44,6 +46,19 @@ import { title, superHeading, text, links, media } from '../shared'
 
 export default {
   mixins: [title, superHeading, text, links, media],
+  data() {
+    return {
+      ratio: 16 / 9,
+    }
+  },
+  mounted() {
+    if (
+      process.client &&
+      window.matchMedia('(orientation: portrait)').matches
+    ) {
+      this.ratio = 3 / 4
+    }
+  },
 }
 </script>
 

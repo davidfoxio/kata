@@ -1,5 +1,5 @@
 <template>
-  <component :is="link ? 'nuxt-link' : 'div'" :to="link">
+  <component :is="link ? 'nuxt-link' : 'div'" :to="link" class="tease-with-image">
     <KataImage
       :image="image"
       :max-width="650"

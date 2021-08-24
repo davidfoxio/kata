@@ -6,7 +6,7 @@
     </div>
     <ul
       v-if="features"
-      class="flex flex-wrap -mx-medium -mb-large"
+      class="flex justify-center items-start flex-wrap -mx-medium -mb-large"
       :class="'length-' + features.length"
     >
       <li

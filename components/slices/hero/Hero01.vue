@@ -15,11 +15,12 @@
         md:py-slice-half
         md:w-1/2
         px-r1/12
-        md:pr-0
+        md:pr-large
         md:flex md:flex-col
         md:justify-center
         order-2
         md:order-1
+        content
       "
     >
       <h1
