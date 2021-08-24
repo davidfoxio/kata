@@ -7,14 +7,19 @@
 </template>
 
 <script>
+// COPY THIS FILE INTO YOUR PROJECT LOCALLY 
+// and uncomment the requirements below
+
 // articles require startDate and endDate fields
 // install the following packages
 // yarn add @fullcalendar/daygrid
 // yarn add @fullcalendar/interaction
 // yarn add @fullcalendar/vue
-import FullCalendar from '@fullcalendar/vue'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import interactionPlugin from '@fullcalendar/interaction'
+
+// uncomment below:
+// import FullCalendar from '@fullcalendar/vue'
+// import dayGridPlugin from '@fullcalendar/daygrid'
+// import interactionPlugin from '@fullcalendar/interaction'
 
 export default {
   components: {
