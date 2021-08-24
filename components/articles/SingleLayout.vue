@@ -34,7 +34,8 @@
         class="sm:flex justify-between sm:flex-wrap mb-large"
       >
         <p v-if="c.startDate" class="font-bold sm:mr-small">
-          {{ (c.startDate || c.date) | formatDate }}
+          {{ c.startDate | formatDate }}
+          <template v-if="c.endDate">- {{ c.endDate | formatDate }}</template>
         </p>
         <p v-if="c.date" class="font-bold sm:mr-small">
           {{ c.date | formatDate }}
