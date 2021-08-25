@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="articles && articles.length > 0 && loaded"
-    class="articles-layout-list relative sm:flex"
+    class="articles-layout-map relative sm:flex"
   >
     <div class="block sm:hidden mx-r1/12 mb-slice-half">
       <button
