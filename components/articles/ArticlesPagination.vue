@@ -1,10 +1,19 @@
 <template>
   <div class="flex flex-wrap -mx-small" v-if="total">
-    <nuxt-link
+    <!-- <nuxt-link
       :to="{ path: $route.path, query: { page: 1 } }"
       :class="currentPage === 1 ? disabledStyle : buttonStyles"
     >
       <span class="hidden sm:inline">&#60;&#60;</span>
+    </nuxt-link> -->
+    <nuxt-link
+      :to="{
+        path: $route.path,
+        query: { page: prevPage ? currentPage - 1 : currentPage },
+      }"
+      :class="!prevPage ? disabledStyle : buttonStyles"
+    >
+      <span class="hidden sm:inline">&#60;</span>
     </nuxt-link>
 
     <nuxt-link
@@ -17,11 +26,20 @@
     </nuxt-link>
 
     <nuxt-link
+      :to="{
+        path: $route.path,
+        query: { page: nextPage ? currentPage + 1 : currentPage },
+      }"
+      :class="!nextPage ? disabledStyle : buttonStyles"
+    >
+      <span class="hidden sm:inline">&#62;</span>
+    </nuxt-link>
+    <!-- <nuxt-link
       :to="{ path: $route.path, query: { page: totalPages } }"
       :class="currentPage === totalPages ? disabledStyle : buttonStyles"
     >
       <span class="hidden sm:inline">&#62;&#62;</span>
-    </nuxt-link>
+    </nuxt-link> -->
   </div>
 </template>
 
@@ -53,6 +71,30 @@ export default {
     currentPage() {
       return parseInt(this.$route.query.page) || 1
     },
+    nextPage() {
+      return this.totalPages >= this.currentPage + 1
+    },
+    prevPage() {
+      return this.currentPage != 1
+    },
   },
+  // methods: {
+  //   prevPage() {
+  //     if (this.currentPage != 1) {
+  //       this.$router.push({
+  //         path: this.$route.path,
+  //         query: { page: this.currentPage - 1 },
+  //       })
+  //     }
+  //   },
+  //   nextPage() {
+  //     if (this.totalPages >= this.currentPage + 1) {
+  //       this.$router.push({
+  //         path: this.$route.path,
+  //         query: { page: this.currentPage + 1 },
+  //       })
+  //     }
+  //   },
+  // },
 }
 </script>
