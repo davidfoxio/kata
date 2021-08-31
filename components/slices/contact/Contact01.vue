@@ -65,6 +65,19 @@
           </div>
         </div>
 
+        <div v-if="formPhone" class="w-full mb-small field">
+          <label for="email" class="sr-only">Phone</label>
+          <div class="w-full control block">
+            <input
+              id="phone"
+              class="input w-full"
+              type="text"
+              name="phone"
+              placeholder="Phone"
+            />
+          </div>
+        </div>
+
         <div class="w-full mb-small field">
           <label for="message" class="sr-only">Message</label>
           <div class="w-full control block">
@@ -115,6 +128,10 @@ export default {
       type: String,
       default: 'Thank you for getting in contact.',
     },
+    formPhone: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
