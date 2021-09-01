@@ -24,7 +24,8 @@ const title = {
 const hiddenTitle = {
   name: 'title',
   type: 'string',
-  hidden: true,
+  description:
+    'This title will show in menus, and when you reference this document',
 }
 
 const slug = {
