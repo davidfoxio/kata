@@ -18,6 +18,11 @@ Vue.directive('kata-html', {
     let elem = value ? value.replace(/\u2028/g, '') : ''
     el.innerHTML = elem
   },
+  update: (el, binding) => {
+    let value = binding.value
+    let elem = value ? value.replace(/\u2028/g, '') : ''
+    el.innerHTML = elem
+  },
 })
 
 Vue.filter('formatDate', (value) => {
