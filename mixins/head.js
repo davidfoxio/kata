@@ -8,14 +8,14 @@ export default {
     }
 
     if (this.c) {
-      if (this.c.seoMeta?.htmlTitle) {
+      if (this.c.seoMeta && this.c.seoMeta.htmlTitle) {
         head.title = this.c.seoMeta.htmlTitle
       } else {
         head.title = this.c.title
       }
 
       head.meta = []
-      if (this.c.seoMeta?.metaDescription) {
+      if (this.c.seoMeta && this.c.seoMeta.metaDescription) {
         head.meta.push(
           {
             hid: 'description',
@@ -41,7 +41,7 @@ export default {
         )
       }
 
-      if (this.c.seoMeta?.socialImage) {
+      if (this.c.seoMeta && this.c.seoMeta.socialImage) {
         head.meta.push(
           {
             hid: 'twitter:image',
