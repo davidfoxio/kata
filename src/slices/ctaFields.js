@@ -1,4 +1,4 @@
-import { links } from "~/components/slices/shared"
+import { links } from 'part:@weflocc/kata/partials/links'
 
 const title = {
   name: 'title',
