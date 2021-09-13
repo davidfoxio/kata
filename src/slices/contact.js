@@ -38,4 +38,12 @@ const contact02 = {
   ],
 }
 
-export { contact01, contact02 }
+const contact03 = {
+  name: 'contact03',
+  type: 'object',
+  title: 'Contact #3',
+  options: defaultOptions,
+  fields: [title, text, address, email, telephone],
+}
+
+export { contact01, contact02, contact03 }

@@ -1,3 +1,5 @@
+import { links } from "~/components/slices/shared"
+
 const title = {
   name: 'title',
   type: 'string',
@@ -15,4 +17,18 @@ const text = {
   rows: 3,
 }
 
-export { title, text, superHeading }
+const items = {
+  name: 'items',
+  title: 'Items',
+  type: 'array',
+  of: [
+    {
+      name: 'item',
+      title: 'Item',
+      type: 'object',
+      fields: [title, text, links()],
+    },
+  ],
+}
+
+export { title, text, superHeading, items }

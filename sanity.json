@@ -114,7 +114,15 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "slices/contact/contact03"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "slices/cta/cta01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/cta/cta02"
     },
     {
       "implements": "part:@sanity/base/schema-type",
