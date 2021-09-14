@@ -14,6 +14,8 @@ import FileLink from './serializers/FileLink.vue'
 import InternalLink from './serializers/InternalLink.vue'
 import ExternalLink from './serializers/ExternalLink.vue'
 import TableField from './serializers/TableField.vue'
+import Accordion from './serializers/Accordion.vue'
+import Testimonial04 from './serializers/Testimonial04Serializer.vue'
 
 export default {
   props: {
@@ -30,6 +32,8 @@ export default {
           image: Image,
           link: BlockLinks,
           tableField: TableField,
+          accordion: Accordion,
+          testimonial04: Testimonial04,
         },
         marks: {
           internalLink: InternalLink,
@@ -54,25 +58,40 @@ export default {
     margin-bottom: var(--spacing-small);
   }
   p + ul {
-    margin-top: var(--spacing-medium);
+    margin-top: var(--spacing-small);
   }
   p + h2,
   p + h3 {
     margin-top: var(--spacing-large);
   }
-  li {
-    position: relative;
-    padding-left: 20px;
-    list-style: none;
-    margin-left: 10px;
 
-    &::before {
-      content: '\2022';
-      // color: $tertiary;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+  ol {
+    list-style: decimal;
+    padding-left: 2.5em;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 2.5em;
+  }
+
+  ol,
+  ul {
+    margin-bottom: var(--spacing-medium);
+  }
+
+  li {
+    padding-left: 0 !important;
+  }
+
+  a:not(.btn-primary, .btn-secondary, .btn-tertiary, .btn-plain) {
+    @apply text-primary;
+  }
+
+  img {
+    max-height: 537px; //from figma
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 </style>

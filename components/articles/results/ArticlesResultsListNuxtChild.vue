@@ -12,11 +12,7 @@
     </div>
   </div>
   <div v-else class="py-slice-half px-5 sm:flex sm:space-x-5">
-    <p>
-      No results found. Try changing your filters or email us at
-      <a href="mailto:hello@habin.co.uk" class="underline">hello@habin.co.uk</a>
-      if you can't find what you're looking for.
-    </p>
+    <p>No results found.</p>
   </div>
 </template>
 

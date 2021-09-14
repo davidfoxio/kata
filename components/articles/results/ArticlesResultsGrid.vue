@@ -1,16 +1,23 @@
 <template>
   <transition-group
-    v-if="articles"
+    v-if="articles && articles.length > 0"
     :class="ulClass"
     tag="ul"
     name="fade"
     mode="out-in"
   >
     <li v-for="item in articles" :key="item._id">
-      <slot name="tease" :item="item"></slot>
+      <slot name="tease" :item="item">
+        <ArticlesTeaseWithImage
+          :item-id="item._id"
+          :link="getLink(item._id)"
+          :title="item.title"
+          :image="item.image"
+        />
+      </slot>
     </li>
   </transition-group>
-  <p v-else>No results found, try changing your filters</p>
+  <p v-else>No results found</p>
 </template>
 
 <script>
@@ -31,7 +38,7 @@ export default {
     ulClass() {
       switch (this.cols) {
         case '4':
-          return 'w-full grid gap-medium grid-cols-1 md:grid-cols-2 xl:grid-cols-4'
+          return 'w-full grid gap-medium grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
         case '2':
           return 'w-full grid gap-medium grid-cols-1 lg:grid-cols-2'
         default:

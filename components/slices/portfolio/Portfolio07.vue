@@ -2,18 +2,17 @@
   <div class="slice portfolio-7 relative slice-animation">
     <div v-if="title" class="heading pointer-events-none">
       <div class="heading-inner">
-        <h2 class="text-tertiary fade-up" v-html="title" />
+        <h2 class="text-tertiary heading-1" v-kata-html="title" />
       </div>
     </div>
     <div class="w-r10/12 mx-r1/12 grid grid-cols-2 gap-small">
       <div
         v-for="(item, index) in imageThumbnails"
         :key="item._key"
-        class="relative item fade-up"
+        class="relative item"
         :class="thumbnailClass(index + 1)"
       >
         <KataImage
-          v-if="item.image"
           :image="item.image"
           :max-width="1000"
           :ratio="ratio(index + 1)"
@@ -22,7 +21,7 @@
           v-if="item.title"
           class="overlay absolute top-0 left-0 w-full h-full p-4 sm:p-small opacity-0"
         >
-          <p class="heading-3" v-html="item.title" />
+          <p class="heading-3" v-kata-html="item.title" />
         </div>
       </div>
     </div>
@@ -73,6 +72,12 @@ export default {
 <style lang="scss" scoped>
 .portfolio-7 {
   max-width: 100vw;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
   .heading {
     position: absolute;
@@ -91,6 +96,12 @@ export default {
       max-width: 100vw;
       position: sticky;
       top: 40%;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
     }
 
     h2 {
@@ -106,34 +117,34 @@ export default {
       animation-fill-mode: both;
       font-weight: normal;
       margin: 0;
-      line-height: 1;
-      width: fit-content;
-      @include fluid-type(150px, 200px);
+      width: 100vw;
       transition: 0.5s ease;
+      line-height: 1;
+      @include fluid-type(65px, 200px);
     }
   }
 
-  @include md-up {
-    @keyframes titlePan {
-      from {
-        transform: translateX(50%);
-      }
-      to {
-        transform: translateX(0%);
-      }
+  // @include md-up {
+  @keyframes titlePan {
+    from {
+      transform: translateX(70vw);
+    }
+    to {
+      transform: translateX(-30vw);
     }
   }
+  // }
 
-  @include md-down {
-    @keyframes titlePan {
-      from {
-        transform: translateX(90%);
-      }
-      to {
-        transform: translateX(0);
-      }
-    }
-  }
+  // @include md-down {
+  //   @keyframes titlePan {
+  //     from {
+  //       transform: translateX(90vw);
+  //     }
+  //     to {
+  //       transform: translateX(0);
+  //     }
+  //   }
+  // }
 
   .landscape:nth-child(odd) {
     align-self: end;

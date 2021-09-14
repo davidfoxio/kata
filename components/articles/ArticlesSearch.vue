@@ -40,8 +40,7 @@ export default {
 }
 </script>
 
-
-<style >
+<style>
 .articles-search input {
   border-color: var(--searchBorderColour, var(--primary));
   border-radius: var(--searchBorderRadius, 0);

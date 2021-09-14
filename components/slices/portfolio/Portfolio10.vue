@@ -1,7 +1,7 @@
 <template>
   <div class="portfolio-10 slice">
     <div v-if="title" class="w-r10/12 mx-r1/12 text-center title">
-      <h2 class="heading-2 mb-large fade-up" v-html="title" />
+      <h2 class="heading-2 mb-large fade-up" v-kata-html="title" />
     </div>
     <div v-if="articles && articles.length > 0" class="slider relative fade-up">
       <VueSlickCarousel
@@ -19,7 +19,9 @@
         </template>
 
         <div v-for="(item, i) in articles" :key="item._id" class="px-small">
-          <slot name="tease" :item="item" :index="i + 1"></slot>
+          <slot name="tease" :item="item" :index="i + 1">
+            <ArticlesTeaseParagraphOverlay v-bind="item" :index="i + 1" />
+          </slot>
         </div>
 
         <template #nextArrow="arrowOption">

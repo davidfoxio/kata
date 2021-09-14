@@ -1,17 +1,25 @@
 <template>
-  <component :is="link ? 'nuxt-link' : 'div'" :to="link">
+  <component :is="link ? 'nuxt-link' : 'div'" :to="link" class="tease-with-image">
     <KataImage
-      v-if="image.asset"
       :image="image"
       :max-width="650"
       :ratio="6 / 4"
       sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
-      class="mb-medium"
     />
-    <h3>
+    <p v-if="categories && categories.length" class="category mt-small">
+      <span v-for="(cat, i) in categories" :key="cat._key">
+        {{ getCategoryTitle(cat._ref) }}
+        <span v-if="i != categories.length - 1">|</span>
+      </span>
+    </p>
+    <p v-if="date" class="date mt-small">
+      {{ date | formatDate }}
+    </p>
+    <h3 class="mt-small">
       {{ title }}
       <DraftLabel :id="itemId" />
     </h3>
+    <p v-if="text" class="text mt-small" v-kata-html="text" />
   </component>
 </template>
 
@@ -20,21 +28,39 @@ export default {
   props: {
     image: {
       type: Object,
-      default: function () {
-        return {}
-      },
+      default: () => {},
     },
     itemId: {
       type: String,
-      required: true,
+      default: '',
     },
     link: {
       type: String,
-      required: true,
+      default: '',
     },
     title: {
       type: String,
-      required: true,
+      default: '',
+    },
+    date: {
+      type: String,
+      default: '',
+    },
+    text: {
+      type: String,
+      default: ''
+    },
+    categories: {
+      type: Array,
+      default: null,
+    },
+  },
+  methods: {
+    getCategoryTitle(id) {
+      return this.$store.getters['references/getFieldByRef']({
+        ref: id,
+        field: 'title',
+      })
     },
   },
 }

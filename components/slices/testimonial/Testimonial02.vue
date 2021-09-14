@@ -35,10 +35,10 @@
               <p
                 v-if="item.quote"
                 class="heading-3 mb-large"
-                v-html="item.quote"
+                v-kata-html="item.quote"
               />
-              <p v-if="item.name" class="label-1" v-html="item.name" />
-              <p v-if="item.job" class="para-4 mt-1" v-html="item.job" />
+              <p v-if="item.name" class="label-1" v-kata-html="item.name" />
+              <p v-if="item.job" class="para-4 mt-1" v-kata-html="item.job" />
               <KataLinks
                 v-if="item.links && item.links.link"
                 :links="item.links.link"
@@ -79,10 +79,10 @@
             <p
               v-if="item.quote"
               class="heading-3 mb-large"
-              v-html="item.quote"
+              v-kata-html="item.quote"
             />
-            <p v-if="item.name" class="label-1" v-html="item.name" />
-            <p v-if="item.job" class="para-4 mt-1" v-html="item.job" />
+            <p v-if="item.name" class="label-1" v-kata-html="item.name" />
+            <p v-if="item.job" class="para-4 mt-1" v-kata-html="item.job" />
             <KataLinks
               v-if="item.links && item.links.link"
               :links="item.links.link"

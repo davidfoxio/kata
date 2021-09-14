@@ -1,11 +1,11 @@
 <template>
   <nav class="kata-menu">
-    <ul class="kata-menu-list p-0">
+    <ul class="kata-menu-list p-0 lg:flex lg:items-center lg:justify-end">
       <li
         v-for="(item, i) in menu"
         :key="item._key"
         ref="list"
-        class="nav-link-wrap mb-0 pb-small lg:pb-0"
+        class="nav-link-wrap mb-0 pb-small lg:pb-0 lg:pl-small"
         :class="{
           'has-children relative': item.children && item.children.length > 0,
         }"
@@ -13,13 +13,21 @@
         @mouseleave="isMobile ? null : closeChild(item, i)"
       >
         <n-link
-          v-if="link(item.link._ref)"
+          v-if="item.link && link(item.link._ref)"
           :to="link(item.link._ref).path"
           class="nav-link inline-block"
           @click.native="clickFn"
-        >
-          {{ link(item.link._ref).title }}
-        </n-link>
+          v-kata-html="
+            item.noLinkJustTitle
+              ? item.noLinkJustTitle
+              : link(item.link._ref).title
+          "
+        />
+        <p
+          v-else-if="item.noLinkJustTitle"
+          class="nav-link inline-block cursor-pointer"
+          v-kata-html="item.noLinkJustTitle"
+        />
         <button
           v-if="item.children"
           title="Show/Hide Child Menu"
@@ -27,15 +35,18 @@
           @click="toggleChild(item, i)"
         ></button>
         <div v-if="item.children" class="child-menu">
-          <div v-for="child in item.children" :key="child.title">
+          <div v-for="child in item.children" :key="child._key">
             <n-link
-              v-if="link(child._ref)"
-              :to="link(child._ref).path"
+              v-if="child.link && link(child.link._ref)"
+              :to="link(child.link._ref).path"
               class="nav-link inline-block"
               @click.native="clickFn"
-            >
-              {{ link(child._ref).title }}
-            </n-link>
+              v-kata-html="
+                child.customTitle
+                  ? child.customTitle
+                  : link(child.link._ref).title
+              "
+            />
           </div>
         </div>
       </li>
@@ -53,7 +64,7 @@ export default {
     clickFn: {
       type: Function,
       default: () => {
-        console.log('no click function available')
+        // console.log('no click function available')
       },
     },
   },
@@ -97,9 +108,8 @@ export default {
     toggleChild(item, i) {
       if (item.children && item.children.length > 0) {
         let dropdown = this.$refs.list[i].querySelector('.child-menu')
-        let dropdownTrigger = this.$refs.list[i].querySelector(
-          '.dropdown-trigger'
-        )
+        let dropdownTrigger =
+          this.$refs.list[i].querySelector('.dropdown-trigger')
         if (dropdown && dropdown.classList.contains('open')) {
           dropdown.classList.remove('open')
         } else {
@@ -147,7 +157,7 @@ export default {
     padding: 15px;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: -15px;
     right: 0;
     margin: auto;
     min-width: 200px;

@@ -5,9 +5,29 @@
       v-bind="settings"
       class="article-results-slider pl-r1/12"
     >
-      <div v-for="item in articles" :key="item._id" class="px-small">
-        <slot name="tease" :item="item"></slot>
+      <template #prevArrow="arrowOption">
+        <button
+          class="carousel-nav prev focus:outline-none mb-medium"
+          title="Previous Slide"
+        >
+          <span></span>
+        </button>
+      </template>
+      <div v-for="item in articles" :key="item._id" class="px-small slide-item">
+        <slot name="tease" :item="item" class="fade-up">
+          <ArticlesTeaseWithImage
+            :item-id="item._id"
+            :link="getLink(item._id)"
+            :title="item.title"
+            :image="item.image"
+          />
+        </slot>
       </div>
+      <template #nextArrow="arrowOption">
+        <button class="carousel-nav next focus:outline-none" title="Next Slide">
+          <span></span>
+        </button>
+      </template>
     </VueSlickCarousel>
     <p v-else>No results found.</p>
   </div>
@@ -38,7 +58,7 @@ export default {
         infinite: false,
         responsive: [
           {
-            breakpoint: 850,
+            breakpoint: 100,
             settings: {
               slidesToShow: 2.5,
             },
@@ -92,61 +112,32 @@ export default {
 <style lang="scss">
 .article-results-slider {
   position: relative;
-  button {
+
+  .slick-disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .carousel-nav {
+    position: absolute;
     top: 0;
     bottom: 0;
     margin: auto;
-    z-index: 50;
-    background: $primary;
-    border-radius: 100%;
-    height: 50px;
-    width: 50px;
 
-    &:before {
-      content: '';
-      border-style: solid;
-      border-width: 3px 3px 0 0;
-      display: inline-block;
-      height: 20px;
-      width: 20px;
-      transform: rotate(-135deg);
-      border-color: white;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      opacity: 1;
+    &.prev {
+      left: 30px;
+    }
+    &.next {
+      right: 30px;
     }
 
-    &:hover {
-      background: $primary;
-    }
-
-    &.slick-disabled {
-      opacity: 0;
-    }
-  }
-  .slick-prev {
-    left: 30px;
-
-    &:before {
-      right: 12px;
-    }
-  }
-  .slick-next {
-    right: 30px;
-    &:before {
-      transform: rotate(45deg);
-      left: 12px;
-    }
-  }
-
-  @media (max-width: 500px) {
-    .slick-next {
-      right: 10px;
-    }
-    .slick-prev {
-      left: 10px;
+    @include sm-down {
+      &.next {
+        right: 10px;
+      }
+      &.prev {
+        left: 10px;
+      }
     }
   }
 }

@@ -1,17 +1,54 @@
 <template>
   <div
-    class="hero-1 slice flex-wrap md:flex-no-wrap flex md:pt-slice-half min-h-screen"
+    class="
+      hero-1
+      slice
+      flex-wrap
+      md:flex-no-wrap
+      md:justify-between
+      flex
+      min-h-screen
+    "
   >
     <div
-      class="md:py-slice-half md:w-r6/12 mx-r1/12 md:mr-0 md:flex md:flex-col md:justify-center order-2 md:order-1 h-4/6 md:h-full"
+      class="
+        md:py-slice-half
+        md:w-1/2
+        px-r1/12
+        md:pr-large
+        md:flex md:flex-col
+        md:justify-center
+        order-2
+        md:order-1
+        content
+      "
     >
-      <h1 class="heading-1 mb-medium" v-html="title" />
-      <p v-if="text" class="whitespace-pre-line" v-html="text" />
-      <KataLinks :links="links" />
+      <h1
+        v-if="superHeading"
+        class="super-heading mb-medium"
+        v-kata-html="superHeading"
+      />
+      <h1 v-else-if="title" class="heading-1 mb-medium" v-kata-html="title" />
+      <h2
+        v-if="title && superHeading"
+        class="heading-1 mb-medium"
+        v-kata-html="title"
+      />
+      <p v-if="text" class="whitespace-pre-line" v-kata-html="text" />
+      <KataLinks v-if="links" :links="links" />
     </div>
 
     <div
-      class="media-wrap mb-large md:mb-0 md:mx-large md:w-r5/12 w-full relative order-1 md:order-2"
+      class="
+        media-wrap
+        mb-large
+        md:mb-0
+        md:w-1/2
+        w-full
+        relative
+        order-1
+        md:order-2
+      "
     >
       <KataMedia
         :media="media"
@@ -24,10 +61,10 @@
 </template>
 
 <script>
-import { title, text, links, media } from '../shared'
+import { superHeading, title, text, links, media } from '../shared'
 
 export default {
-  mixins: [title, text, links, media],
+  mixins: [superHeading, title, text, links, media],
 }
 </script>
 

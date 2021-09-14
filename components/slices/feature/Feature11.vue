@@ -38,9 +38,9 @@
         class="flex flex-col sm:flex-row list-fade-item"
       >
         <div class="sm:w-1/2 sm:mr-large order-2 sm:order-1 py-medium">
-          <h2 v-if="item.title" class="mb-large" v-html="item.title" />
+          <h2 v-if="item.title" class="mb-large" v-kata-html="item.title" />
           <SanityEmbedContent v-if="item.textBody" :blocks="item.textBody" />
-          <KataLinks :links="item.links" />
+          <KataLinks v-if="item.links" :links="item.links" />
         </div>
         <div class="sm:w-1/2 order-1 sm:order-2 mb-large sm:mb-0">
           <KataImage

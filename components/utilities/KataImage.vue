@@ -1,5 +1,6 @@
 <template>
   <img
+    v-if="imageIsSet"
     :srcSet="srcSet"
     :src="src"
     :sizes="sizes"
@@ -16,7 +17,8 @@ export default {
   props: {
     image: {
       type: Object,
-      required: true,
+      // required: true,
+      default: () => {},
     },
     loader: {
       type: Boolean,
@@ -43,19 +45,21 @@ export default {
     }
   },
   computed: {
+    imageIsSet() {
+      return this.image?.asset?._ref
+    },
+    theImage() {
+      // we often get an empty object when no image is defined
+      if (this.imageIsSet) {
+        return this.image
+      } else {
+        return {}
+      }
+    },
     src() {
-      // let calcWidth = this.maxWidth
-      // for (
-      //   let width = this.maxWidth;
-      //   width > 200;
-      //   width -= this.increment(this.maxWidth)
-      // ) {
-      //   calcWidth = width
-      // }
-
       let calcWidth = this.maxWidth / 4
 
-      return this.$imgUrl(this.image)
+      return this.$imgUrl(this.theImage)
         .width(calcWidth)
         .height(this.h(calcWidth))
         .quality(80)
@@ -69,13 +73,16 @@ export default {
         width > 200;
         width -= this.increment(this.maxWidth)
       ) {
-        srcSet += `${this.$imgUrl(this.image)
+        srcSet += `${this.$imgUrl(this.theImage)
           .width(width)
           .height(this.h(width))
           .quality(80)
           .url()} ${width}w,`
       }
-      return srcSet.slice(0, -1) //remove the trailing comma
+
+      srcSet = srcSet.slice(0, -1) //remove the trailing comma
+
+      return srcSet
     },
   },
   methods: {
@@ -88,7 +95,8 @@ export default {
       return Math.floor(val / this.ratio)
     },
     imgMeta(ref) {
-      return this.$store.getters['references/getImageMetadata'](ref)
+      if (ref) return this.$store.getters['references/getImageMetadata'](ref)
+      return null
     },
     // onLoad() {
     // },
@@ -98,7 +106,7 @@ export default {
 
 <style scoped lang="scss">
 img.kata-image {
-  transition: 1s ease;
+  transition: opacity 1s ease;
   opacity: 0;
   &.loaded,
   &.isLoaded {

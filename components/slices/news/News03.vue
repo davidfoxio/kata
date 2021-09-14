@@ -1,13 +1,13 @@
 <template>
-  <div class="news-3 slice">
+  <div class="news-3 slice" v-if="articles">
     <h2
       v-if="title"
       class="heading-2 mb-large text-center fade-up"
-      v-html="title"
+      v-kata-html="title"
     />
 
-    <div v-if="articles" ref="listItems" class="relative">
-      <VueSlickCarousel v-bind="settings" class="article-results-slider">
+    <div ref="listItems" class="relative">
+      <VueSlickCarousel v-bind="settings" class="news-3-slider">
         <template #prevArrow="arrowOption">
           <button
             class="carousel-nav prev focus:outline-none mb-medium"
@@ -21,7 +21,14 @@
           :key="item._id"
           class="px-small slide-item"
         >
-          <slot name="tease" :item="item" class="fade-up"></slot>
+          <slot name="tease" :item="item" class="fade-up">
+            <ArticlesTeaseWithImage
+              :item-id="item._id"
+              :link="getLink(item._id)"
+              :title="item.title"
+              :image="item.image"
+            />
+          </slot>
         </div>
         <template #nextArrow="arrowOption">
           <button
@@ -33,7 +40,6 @@
         </template>
       </VueSlickCarousel>
     </div>
-    <p v-else>No results found.</p>
   </div>
 </template>
 

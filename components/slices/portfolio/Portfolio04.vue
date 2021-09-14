@@ -1,5 +1,5 @@
 <template>
-  <div class="slice portfolio-5 mx-r1/12 w-r10/12">
+  <div class="slice portfolio-4 mx-r1/12 w-r10/12">
     <div class="mb-large text-center">
       <h2 v-if="title" class="mb-medium fade-up">{{ title }}</h2>
     </div>
@@ -7,16 +7,22 @@
       <div
         v-for="item in thumbnails"
         :key="item._key"
-        class="px-small md:w-1/3 fade-up"
+        class="px-small md:w-1/3 fade-up thumbnail"
       >
-        <KataImage
-          v-if="item.image"
-          :image="item.image"
-          :ratio="4 / 3"
-          class="mb-small"
-        />
-        <h3 v-if="item.title" class="mb-small label-1" v-html="item.title" />
-        <p v-if="item.description" class="para-4" v-html="item.description" />
+        <slot name="tease" :item="item">
+          <component
+            :is="item.link ? 'nuxt-link' : 'div'"
+            :to="item.link ? getLink(item.link._ref) : ''"
+          >
+            <KataImage :image="item.image" :ratio="4 / 3" class="mb-small" />
+            <h3
+              v-if="item.title"
+              class="mb-small label-1"
+              v-kata-html="item.title"
+            />
+            <p v-if="item.text" class="para-4" v-kata-html="item.text" />
+          </component>
+        </slot>
       </div>
     </div>
     <div v-if="links" class="text-center">
@@ -32,7 +38,7 @@ export default {
   props: {
     thumbnails: {
       type: Array,
-      required: true,
+      default: null,
     },
   },
   data() {
@@ -45,14 +51,6 @@ export default {
         centerMode: false,
       },
     }
-  },
-  methods: {
-    showNext() {
-      this.$refs['portfolio-5-carousel'].next()
-    },
-    showPrev() {
-      this.$refs['portfolio-5-carousel'].prev()
-    },
   },
 }
 </script>

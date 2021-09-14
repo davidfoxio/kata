@@ -1,6 +1,9 @@
 <template>
   <div class="slice feature-5 w-r10/12 mx-r1/12">
-    <h2 v-if="title" class="mb-large fade-up heading-2" v-html="title" />
+    <div class="mb-large" v-if="title || text">
+      <h2 class="fade-up heading-2" v-kata-html="title" />
+      <p v-if="text" v-kata-html="text" class="mt-medium fade-up lg:pr-r1/12 lg:pr-r2/12" />
+    </div>
     <ul
       v-if="features"
       class="flex flex-wrap -mx-medium"
@@ -12,36 +15,34 @@
         class="mb-large fade-up px-medium item"
         :class="width"
       >
-        <KataImage
+        <KataSimpleImage
           v-if="item.icon"
           :image="item.icon"
           width="50"
           height="50"
-          :max-width="400"
-          :ratio="1"
           class="mb-small"
         />
         <p
           v-else-if="autoNumber"
           class="heading-2"
-          v-html="index + 1 < 10 ? '0' + (index + 1) : index + 1"
+          v-kata-html="index + 1 < 10 ? '0' + (index + 1) : index + 1"
         />
-        <h3 v-if="item.title" class="label-1 mb-small" v-html="item.title" />
-        <p v-if="item.text" v-html="item.text" />
+        <h3 v-if="item.title" class="label-1 mb-small" v-kata-html="item.title" />
+        <p v-if="item.text" v-kata-html="item.text" class="para-1" />
       </li>
     </ul>
-    <KataLinks :links="links" />
+    <KataLinks :links="links" v-if="links" />
   </div>
 </template>
 
 <script>
-import { title, links } from '../shared'
+import { title, text, links } from '../shared'
 export default {
-  mixins: [title, links],
+  mixins: [title, text, links],
   props: {
     features: {
       type: Array,
-      required: true,
+      default: null,
     },
     autoNumber: {
       type: Boolean,
@@ -52,11 +53,11 @@ export default {
     width() {
       let length = this.features.length
       if (length % 4 == 0) {
-        return 'sm:w-1/2 md:w-1/4'
+        return 'w-full sm:w-1/2 md:w-1/4'
       } else if (length % 3 == 0 || length % 6 == 0 || length % 5 == 0) {
-        return 'sm:w-1/2 md:w-1/3'
+        return 'w-full sm:w-1/2 md:w-1/3'
       }
-      return 'sm:w-1/2'
+      return 'w-full sm:w-1/2'
     },
   },
 }

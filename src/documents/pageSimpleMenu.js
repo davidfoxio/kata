@@ -1,0 +1,53 @@
+import { hiddenTitle } from '../partials/meta'
+import config from 'config:@weflocc/kata'
+import { RiMenuAddLine } from 'react-icons/ri'
+
+export default {
+  type: 'document',
+  name: 'pageSimpleMenu',
+  title: 'Menu',
+  initialValue: {
+    title: 'Menu',
+  },
+  fields: [
+    hiddenTitle,
+    {
+      title: 'Menu',
+      type: 'array',
+      name: 'menu',
+      of: [
+        {
+          type: 'object',
+          title: 'Menu Item',
+          name: 'menuItem',
+          fields: [
+            {
+              title: 'Custom Title',
+              name: 'noLinkJustTitle',
+              type: 'string',
+            },
+            {
+              title: 'Link',
+              name: 'link',
+              type: 'reference',
+              to: config.allTypes,
+            },
+          ],
+          preview: {
+            select: {
+              title: 'link.title',
+              noLinkJustTitle: 'noLinkJustTitle',
+            },
+            prepare(selection) {
+              const { title, noLinkJustTitle } = selection
+              return {
+                title: title || noLinkJustTitle || 'Unknown',
+                media: RiMenuAddLine,
+              }
+            },
+          },
+        },
+      ],
+    },
+  ],
+}

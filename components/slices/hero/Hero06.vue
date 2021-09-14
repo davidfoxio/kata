@@ -4,15 +4,17 @@
       :media="media"
       :ratio="16 / 9"
       :max-width="2500"
-      class="px-medium"
+      class="hero-animation border-animate"
     />
 
-    <div class="mt-slice-half mx-r1/12 w-r10/12 sm:flex">
-      <div class="sm:w-1/2 sm:pr-small">
-        <h1 v-if="title" class="heading-1" v-html="title" />
+    <div class="mt-large mx-r1/12 w-r10/12 sm:flex sm:justify-between">
+      <div class="sm:w-1/2 sm:pr-large">
+        <h1 v-if="superHeading" class="super-heading" v-kata-html="superHeading" />
+        <h1 v-else-if="title" class="heading-1" v-kata-html="title" />
+        <h2 v-if="superHeading && title" class="heading-1 mt-small" v-kata-html="title" />
       </div>
-      <div class="sm:w-1/2 sm:pl-small">
-        <p v-if="text" class="mb-medium whitespace-pre-line" v-html="text" />
+      <div class="sm:w-1/2">
+        <p v-if="text" class="mb-medium whitespace-pre-line" v-kata-html="text" />
         <KataLinks v-if="links" :links="links" />
       </div>
     </div>
@@ -20,9 +22,9 @@
 </template>
 
 <script>
-import { title, text, links, media } from '../shared'
+import { superHeading, title, text, links, media } from '../shared'
 export default {
-  mixins: [title, text, links, media],
+  mixins: [superHeading, title, text, links, media],
 }
 </script>
 

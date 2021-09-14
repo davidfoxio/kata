@@ -1,9 +1,9 @@
 <template>
   <div
-    class="portfolio-5 md:flex mx-r1/12 w-r10/12 md:mx-0 md:ml-r1/12 md:w-r11/12 overflow-x-hidden"
+    class="slice portfolio-5 md:flex mx-r1/12 w-r10/12 md:mx-0 md:ml-r1/12 md:w-r11/12 overflow-x-hidden"
   >
     <div class="md:w-r2/12 mb-large fade-up">
-      <h2 v-if="title" class="mb-medium heading-3" v-html="title" />
+      <h2 v-if="title" class="mb-medium heading-3" v-kata-html="title" />
       <button
         class="carousel-nav prev focus:outline-none mr-small"
         title="Previous Slide"
@@ -28,7 +28,6 @@
         <div v-for="item in thumbnails" :key="item._key" class="slide">
           <div class="portfolio-5-image mb-medium">
             <KataImage
-              v-if="item.image"
               :image="item.image"
               :ratio="825 / 500"
               :max-width="1500"
@@ -36,8 +35,8 @@
               data-not-lazy
             />
           </div>
-          <h3 v-if="item.title" class="mb-small label-1" v-html="item.title" />
-          <p v-if="item.text" class="para-2" v-html="item.text" />
+          <h3 v-if="item.title" class="mb-small label-1" v-kata-html="item.title" />
+          <p v-if="item.text" class="para-2" v-kata-html="item.text" />
         </div>
       </VueSlickCarousel>
     </div>

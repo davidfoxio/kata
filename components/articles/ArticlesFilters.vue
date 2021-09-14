@@ -4,29 +4,39 @@
       <h3 v-if="categoryLabels">{{ filterGroup.label }}</h3>
 
       <div v-if="filterGroup.terms" class="flex flex-wrap">
+        <div class="filter-wrapper w-auto block">
+          <button
+            type="button"
+            class="block w-max filter-btn btn-plain mb-2 mr-small"
+            :class="{ selected: all(filterGroup.label) }"
+            @click="clear(filterGroup.label)"
+          >
+            All
+          </button>
+        </div>
         <div
           v-for="filter in filterGroup.terms"
           :key="filter.id"
-          class="filter-wrapper w-1/2 mr-small md:w-auto block"
+          class="filter-wrapper w-auto block"
         >
           <button
             type="button"
-            class="block w-max filter-btn btn-large outline-none"
+            class="block w-max filter-btn btn-plain mb-2 mr-small"
             :class="{ selected: filter.active }"
             @click="toggleFilter(filter.id, filterGroup.label)"
           >
             {{ filter.label }}
           </button>
         </div>
-    </div>
-    <button
-            type="button"
-            class="btn-secondary btn-small !py-1 mt-small"
-            @click="clear(filterGroup.label)"
-          >
-            Clear
-          </button>
       </div>
+      <button
+        type="button"
+        class="btn-secondary btn-small mt-small"
+        @click="clear(filterGroup.label)"
+      >
+        Clear
+      </button>
+    </div>
   </div>
 </template>
 
@@ -48,6 +58,11 @@ export default {
         instance: this.articleInstance,
       })
     },
+    activeFilter() {
+      return this.$store.getters['articles/getActiveFiltersIfExists']({
+        instance: this.articleInstance,
+      })
+    },
   },
   methods: {
     toggleFilter(filterId, filterGroup) {
@@ -63,23 +78,17 @@ export default {
         instance: this.articleInstance,
       })
     },
+    all(filterGroup) {
+      return this.activeFilter[filterGroup]?.length == 0
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
 button.filter-btn {
-  border-color: transparent;
-  @apply border-b-2;
-  text-transform: var(--buttonTextTransform, none);
-  transition: 0.4s ease;
-
-  &:focus,
-  &:hover,
-  &.selected {
-    border-color: var(--buttonBorderColour, var(--primary));
-    @apply outline-none;
+  &:focus {
+    outline: none !important;
   }
-
 }
 </style>

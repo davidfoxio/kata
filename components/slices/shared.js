@@ -38,9 +38,7 @@ const links = {
   props: {
     links: {
       type: Array,
-      default: function () {
-        return []
-      },
+      default: null,
     },
   },
 }
@@ -58,9 +56,7 @@ const image = {
   props: {
     image: {
       type: Object,
-      default: function () {
-        return {}
-      },
+      default: null,
     },
   },
 }
@@ -74,4 +70,4 @@ const description = {
   },
 }
 
-export { title, superHeading, text, textBody, description, links, media, image }
+export {title, superHeading, text, textBody, description, links, media, image}

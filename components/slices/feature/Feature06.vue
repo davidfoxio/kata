@@ -3,7 +3,7 @@
     class="slice feature-6 w-r10/12 mx-r1/12 sm:flex text-center sm:text-left"
   >
     <div class="w-full sm:w-3/5 mb-large sm:mb-0 sm:pr-large">
-      <h2 v-if="title" class="mb-medium fade-up" v-html="title" />
+      <h2 v-if="title" class="mb-medium fade-up" v-kata-html="title" />
       <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
     <div class="sm:w-2/5">
@@ -27,8 +27,8 @@
             class="mb-small mx-auto"
           />
           <div class="sm:pl-small">
-            <h3 v-if="item.title" v-html="item.title" />
-            <p v-if="item.text" v-html="item.text" />
+            <h3 v-if="item.title" v-kata-html="item.title" />
+            <p v-if="item.text" v-kata-html="item.text" />
           </div>
         </li>
       </ul>

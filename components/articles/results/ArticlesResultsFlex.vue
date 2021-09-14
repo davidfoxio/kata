@@ -10,12 +10,11 @@
       <slot name="tease" :item="item">
         <NuxtLink :to="getLink(item._id)">
           <KataImage
-            v-if="item.image.asset"
             :image="item.image"
             :max-width="650"
             :ratio="6 / 4"
             sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
-            class="mb-small"
+            class="mb-small mx-auto"
           />
 
           <div class="title">
@@ -55,17 +54,22 @@ export default {
 
 <style lang="scss">
 .ulClass {
-  li {
-    flex-basis: 40%;
-    flex-grow: 1;
-  }
-  :nth-child(10n + 1),
-  :nth-child(10n + 2),
-  :nth-child(10n + 3),
-  :nth-child(10n + 6),
-  :nth-child(10n + 7),
-  :nth-child(10n + 8) {
-    flex-basis: 30%;
+  @include sm-up {
+    li {
+      flex-basis: 40%;
+      flex-grow: 1;
+      @include md-up {
+        max-width: 50%;
+      }
+    }
+    :nth-child(10n + 1),
+    :nth-child(10n + 2),
+    :nth-child(10n + 3),
+    :nth-child(10n + 6),
+    :nth-child(10n + 7),
+    :nth-child(10n + 8) {
+      flex-basis: 30%;
+    }
   }
 }
 </style>

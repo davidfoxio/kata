@@ -1,19 +1,35 @@
 <template>
   <div
     v-if="articles && articles.length > 0 && loaded"
-    class="articles-layout-list relative sm:flex"
+    class="articles-layout-map relative sm:flex"
   >
     <div class="block sm:hidden mx-r1/12 mb-slice-half">
       <button
         :class="mobileView == 'List' ? 'border-secondary' : 'border-white'"
-        class="font-bold mr-small border-b-2 hover:text-secondary focus:border-b-2 focus:outline-none focus:border-secondary"
+        class="
+          font-bold
+          mr-small
+          border-b-2
+          hover:text-secondary
+          focus:border-b-2
+          focus:outline-none
+          focus:border-secondary
+        "
         @click="mobileView = 'List'"
       >
         List
       </button>
       <button
         :class="mobileView == 'Map' ? 'border-secondary' : 'border-white'"
-        class="font-bold mr-small border-b-2 hover:text-secondary focus:border-b-2 focus:outline-none focus:border-secondary"
+        class="
+          font-bold
+          mr-small
+          border-b-2
+          hover:text-secondary
+          focus:border-b-2
+          focus:outline-none
+          focus:border-secondary
+        "
         @click="mobileView = 'Map'"
       >
         Map
@@ -28,7 +44,16 @@
           <li
             v-for="item in articles"
             :key="item._key"
-            class="mb-large list-item font-bold inline-block sm:block cursor-pointer transition-all hover:text-secondary"
+            class="
+              mb-large
+              list-item
+              font-bold
+              inline-block
+              sm:block
+              cursor-pointer
+              transition-all
+              hover:text-secondary
+            "
             :class="{
               'text-secondary': item.title == currentArticle,
               'text-white': item.title != currentArticle,
@@ -36,8 +61,8 @@
             @mouseover="setCurrent(item.title)"
             @click="setActive(item)"
           >
-            <h3 v-if="item.title" class="label-1" v-html="item.title" />
-            <!-- <p v-if="item.address" class="para-2 mt-3" v-html="item.address" /> -->
+            <h3 v-if="item.title" class="label-1" v-kata-html="item.title" />
+            <!-- <p v-if="item.address" class="para-2 mt-3" v-kata-html="item.address" /> -->
           </li>
         </ul>
       </transition>
@@ -52,7 +77,7 @@
           :center="centre"
           :options="{ fullscreenControl: false, styles: mapStyle }"
           :zoom="zoom"
-          @loaded="mapLoaded"
+          @loaded="mapInitLoaded"
         >
           <GMapMarker
             v-for="article in articles"
@@ -136,6 +161,15 @@ export default {
       default: '',
     },
   },
+  watch: {
+    articles: function (newVal, oldVal) {
+      // watch it
+      console.log('Results map articles changed: ', newVal, ' | was: ', oldVal)
+      if (this.initialLoadDone && this.loaded) {
+        this.mapLoaded()
+      }
+    },
+  },
   data() {
     return {
       currentArticle: {},
@@ -150,6 +184,7 @@ export default {
       infoWindow: null,
       isMobile: false,
       loaded: false,
+      initialLoadDone: false,
     }
   },
   mounted() {
@@ -172,8 +207,16 @@ export default {
       this.currentArticle = item
     },
     setActive(item) {
-      console.log(item.path)
-      this.$router.push({ path: this.path + '/' + item.slug })
+      console.log(this.path, item.slug)
+      if (typeof item.slug == 'string') {
+        this.$router.push({ path: this.path + '/' + item.slug + '/' })
+      } else {
+        this.$router.push({ path: this.path + '/' + item.slug.current + '/' })
+      }
+    },
+    mapInitLoaded() {
+      this.initialLoadDone = true
+      this.mapLoaded()
     },
     mapLoaded(e) {
       let context = this

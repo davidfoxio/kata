@@ -1,5 +1,5 @@
 <template>
-  <div class="slice contact-2 md:flex">
+  <div v-if="location" class="slice contact-2 md:flex">
     <div class="w-full md:w-r5/12 mb-large md:mb-0 map">
       <GMap
         ref="gMap"
@@ -15,19 +15,32 @@
       </GMap>
     </div>
     <div class="w-r10/12 md:w-r5/12 mx-r1/12 md:py-slice-half body">
-      <h2 v-if="title" class="mb-medium heading-2 fade-up" v-html="title" />
-      <p v-if="text" class="mb-medium fade-up" v-html="text" />
+      <h1
+        v-if="isH1 && title"
+        class="mb-medium heading-2 fade-up"
+        v-kata-html="title"
+      />
+      <h2
+        v-else-if="title"
+        class="mb-medium heading-2 fade-up"
+        v-kata-html="title"
+      />
+      <p v-if="text" class="mb-medium fade-up" v-kata-html="text" />
       <ul class="columns fade-up">
         <li v-if="address" class="mb-medium item">
           <p class="label-1">Address</p>
-          <p class="whitespace-pre-line" v-html="address" />
+          <p class="whitespace-pre-line" v-kata-html="address" />
         </li>
-        <li v-if="website" class="mb-medium item">
+        <li v-if="openingTimes" class="mb-medium item">
+          <p class="label-1">Opening Times</p>
+          <p class="whitespace-pre-line" v-kata-html="openingTimes" />
+        </li>
+        <!-- <li v-if="website" class="mb-medium item">
           <p class="label-1">Website</p>
           <p>
             <a :href="website" target="_blank">{{ websiteText || website }}</a>
           </p>
-        </li>
+        </li> -->
         <li v-if="email" class="mb-medium item">
           <p class="label-1">Email</p>
           <p>
@@ -54,7 +67,7 @@
 //      key: 'AIzaSyDqa_gfKjehO6LI6vCIG1gOjhd3TiUE7ew',
 //    },
 // ],
-import { title, text } from "../shared";
+import { title, text } from '../shared'
 export default {
   mixins: [title, text],
   props: {
@@ -64,34 +77,42 @@ export default {
     },
     address: {
       type: String,
-      required: true,
+      default: '',
+    },
+    openingTimes: {
+      type: String,
+      default: '',
     },
     email: {
       type: String,
-      required: true,
+      default: '',
     },
     website: {
       type: String,
-      required: true,
+      default: '',
     },
     websiteText: {
       type: String,
-      default: "",
+      default: '',
     },
     telephone: {
       type: String,
-      required: true,
+      default: '',
     },
     mapPin: {
       type: String,
-      default: "",
+      default: '',
     },
     mapStyle: {
       type: Array,
       default: null,
     },
+    isH1: {
+      type: Boolean,
+      default: false,
+    },
   },
-};
+}
 </script>
 
 <style lang="scss">

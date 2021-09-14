@@ -2,52 +2,64 @@
   <div class="article-results-slideshow">
     <div class="sm:flex">
       <ul
-        class="sm:w-1/2 xl:w-2/3 pr-medium flex flex-col justify-between items-start"
+        class="
+          sm:w-1/2
+          xl:w-2/3
+          pr-medium
+          flex flex-col
+          justify-between
+          items-start
+        "
       >
         <li
           v-for="(item, i) in articles"
           :key="i"
-          class="border-primary border-l-2 flex-grow border-opacity-25 mb-0 transition-all duration-500"
+          class="
+            border-primary border-l-2
+            flex-grow
+            border-opacity-25
+            mb-0
+            transition-all
+            duration-500
+          "
           :class="{ 'border-opacity-100': i == activeArticle }"
           @mouseover="activeArticle = i"
         >
           <nuxt-link
             :to="getLink(item._id)"
-            class="mb-small inline-block pl-small hover:text-primary transition-all duration-500"
+            class="
+              mb-small
+              inline-block
+              pl-small
+              hover:text-primary
+              transition-all
+              duration-500
+            "
+            :class="[i == activeArticle ? 'opacity-90' : 'opacity-30']"
           >
             <p class="label-2">Featured</p>
-            <h3
-              :class="[i == activeArticle ? 'opacity-90' : 'opacity-30']"
-              class="heading-3 my-small"
-            >
+            <h3 class="heading-3 my-small">
               {{ item.title }}
             </h3>
-            <p v-if="item.tags && item.tags.length" class="opacity-50 label-2">
-              Tags:
-              <span v-for="(tag, x) in item.tags" :key="tag._key">
-                {{ $store.getters['references/getTagFromReference'](tag._ref) }}
-                <span v-if="x != item.tags.length - 1">,</span>
-              </span>
-            </p>
             <p
-              v-if="item.category && item.category.length"
+              v-if="item[categoryField] && item[categoryField].length"
               class="opacity-50 label-2"
             >
               Tags:
-              <span v-for="(tag, x) in item.category" :key="tag._key">
+              <span v-for="(tag, x) in item[categoryField]" :key="tag._key">
                 {{
                   $store.getters['references/getFieldByRef']({
                     field: 'title',
                     ref: tag._ref,
                   })
                 }}
-                <span v-if="x != item.category.length - 1">,</span>
+                <span v-if="x != item[categoryField].length - 1">,</span>
               </span>
             </p>
           </nuxt-link>
         </li>
       </ul>
-      <div class="sm:w-1/2 xl:w-1/3 image">
+      <div class="sm:w-1/2 xl:w-1/3 image sm:align-center">
         <transition name="fade" mode="out-in">
           <KataImage
             v-if="articles[activeArticle] && articles[activeArticle].image"
@@ -73,6 +85,10 @@ export default {
     interval: {
       type: Number,
       default: 5000,
+    },
+    categoryField: {
+      type: String,
+      default: 'category',
     },
   },
   data() {

@@ -2,20 +2,20 @@
   <div class="slice feature-3 stack-children">
     <KataImage
       :image="image"
-      :ratio="16 / 9"
+      :ratio="ratio"
       :max-width="3000"
       class="h-screen w-full object-cover"
     />
     <div
-      class="w-r6/12 h-screen flex flex-col justify-end items-start z-1 p-r1/12"
+      class="w-r10/12 md:w-r8/12 lg:w-r6/12 h-screen flex flex-col justify-end items-start z-1 p-r1/12 md:pr-0 content"
     >
-      <h2 class="heading-2 text-white mb-medium fade-up" v-html="title" />
+      <h2 class="heading-2 text-white mb-medium fade-up" v-kata-html="title" />
       <p
         v-if="text"
-        class="text-center text-white mb-medium fade-up"
-        v-html="text"
+        class="text-white mb-medium fade-up"
+        v-kata-html="text"
       />
-      <KataLinks :links="links" class="text-center fade-up" />
+      <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
   </div>
 </template>
@@ -25,6 +25,19 @@ import { title, text, links, image } from '../shared'
 
 export default {
   mixins: [title, text, links, image],
+  data() {
+    return {
+      ratio: 16 / 9,
+    }
+  },
+  mounted() {
+    if (
+      process.client &&
+      window.matchMedia('(orientation: portrait)').matches
+    ) {
+      this.ratio = 3 / 4
+    }
+  },
 }
 </script>
 
