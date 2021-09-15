@@ -29,6 +29,7 @@
       <form
         v-else
         name="contact"
+        id="contact"
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
