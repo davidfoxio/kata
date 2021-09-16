@@ -5,6 +5,7 @@
       :max-width="650"
       :ratio="6 / 4"
       sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
+      class="w-full"
     />
     <p v-if="categories && categories.length" class="category mt-small">
       <span v-for="(cat, i) in categories" :key="cat._key">
