@@ -1,7 +1,11 @@
 <template>
   <div class="slice contact-1 md:flex w-r10/12 mx-r1/12">
     <div class="md:w-1/2 md:pr-large">
-      <h1 v-if="isH1 && title" class="heading-2 mb-medium" v-kata-html="title" />
+      <h1
+        v-if="isH1 && title"
+        class="heading-2 mb-medium"
+        v-kata-html="title"
+      />
       <h2 v-else-if="title" class="mb-medium" v-kata-html="title" />
       <p v-if="text" class="mb-medium" v-kata-html="text" />
       <div class="columns fade-up">
@@ -29,10 +33,11 @@
       <form
         v-else
         name="contact"
+        id="contact"
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        :action="action"
+        @submit="actionFn()"
       >
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="subject" value="Contact form submission" />
@@ -106,23 +111,23 @@ export default {
   props: {
     isH1: {
       type: Boolean,
-      default: false
+      default: false,
     },
     address: {
       type: String,
-      default: ''
+      default: '',
     },
     email: {
       type: String,
-      default: ''
+      default: '',
     },
     telephone: {
       type: String,
-      default: ''
+      default: '',
     },
     action: {
       type: String,
-      default: '#submitted'
+      default: '',
     },
     thanks: {
       type: String,
@@ -130,8 +135,8 @@ export default {
     },
     formPhone: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
@@ -142,6 +147,24 @@ export default {
     if (this.$route.hash == '#submitted') {
       this.submitted = true
     }
+  },
+  watch: {
+    '$route.hash': function (newVal, oldVal) {
+      if (newVal == '#submitted') {
+        this.submitted = true
+      } else {
+        this.submitted = false
+      }
+    },
+  },
+  methods: {
+    actionFn() {
+      if(this.action){
+        return this.action
+      } else {
+        this.$router.push({ hash: '#submitted' })
+      }
+    },
   },
 }
 </script>
