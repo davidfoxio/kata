@@ -64,7 +64,7 @@
 // yarn add vue-instantsearch
 // yarn add algoliasearch
 import SearchIcon from '~/assets/svgs/search.svg?inline'
-
+// uncomment the below to work!
 // import {
 //   AisInstantSearch,
 //   AisHits,
