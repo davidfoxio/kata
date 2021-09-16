@@ -2,7 +2,7 @@
   <div class="search-wrap">
     <button
       ref="search"
-      class="search-icon outline-none focus:outline-none hidden md:block"
+      class="search-icon outline-none focus:outline-none block"
       @click="searchOpen = true"
     >
       <SearchIcon />
@@ -27,16 +27,15 @@
                     <li
                       v-for="item in items"
                       :key="item.objectID"
-                      class="mb-medium"
+                      class="mb-medium search-result"
+                      @click="openLink(item.pathname)"
                     >
-                      <n-link :to="item.pathname" class="search-result">
-                        <h3 class="label-1 mb-small">
-                          <AisHighlight attribute="title" :hit="item" />
-                        </h3>
-                        <p>
-                          <AisHighlight attribute="description" :hit="item" />
-                        </p>
-                      </n-link>
+                      <h3 class="label-1 mb-small">
+                        <AisHighlight attribute="title" :hit="item" />
+                      </h3>
+                      <p>
+                        <AisHighlight attribute="description" :hit="item" />
+                      </p>
                     </li>
                   </ul>
                 </template>
@@ -85,15 +84,18 @@ export default {
     SearchIcon,
   },
   props: {
-    crawlerId: { // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all
+    crawlerId: {
+      // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all
       type: String,
       required: true,
     },
-    adminApiKey: { // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all
+    adminApiKey: {
+      // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all
       type: String,
       required: true,
     },
-    indexName: { // index name from https://www.algolia.com/apps/LB6R4RK6YE/explorer/browse indices
+    indexName: {
+      // index name from https://www.algolia.com/apps/LB6R4RK6YE/explorer/browse indices
       type: String,
       required: true,
     },
@@ -109,10 +111,13 @@ export default {
     }
   },
   mounted() {
-    // if (process.client && window.matchMedia('(max-width: 599px)').matches) {
-    //   this.searchOpen = true
-    // }
     this.searchClient = algoliasearch(this.crawlerId, this.adminApiKey)
+  },
+  methods: {
+    openLink(path) {
+      this.searchOpen = false
+      if (path) this.$router.push({ path: path })
+    },
   },
 }
 </script>
