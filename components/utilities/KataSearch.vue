@@ -65,14 +65,14 @@
 // yarn add algoliasearch
 import SearchIcon from '~/assets/svgs/search.svg?inline'
 
-import {
-  AisInstantSearch,
-  AisHits,
-  AisHighlight,
-  AisSearchBox,
-  AisStateResults,
-} from 'vue-instantsearch'
-import algoliasearch from 'algoliasearch/lite'
+// import {
+//   AisInstantSearch,
+//   AisHits,
+//   AisHighlight,
+//   AisSearchBox,
+//   AisStateResults,
+// } from 'vue-instantsearch'
+// import algoliasearch from 'algoliasearch/lite'
 
 export default {
   components: {
