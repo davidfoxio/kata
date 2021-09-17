@@ -71,7 +71,7 @@
         </div>
 
         <div v-if="formPhone" class="w-full mb-small field">
-          <label for="email" class="sr-only">Phone</label>
+          <label for="phone" class="sr-only">Phone</label>
           <div class="w-full control block">
             <input
               id="phone"

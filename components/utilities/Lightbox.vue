@@ -9,7 +9,7 @@
       <n-link
         :to="{ query: null }"
         title="Close"
-        class="bg-primary opacity-95 fixed top-0 left-0 w-full h-full cursor-default"
+        class="lightbox-underlay bg-primary opacity-95 fixed top-0 left-0 w-full h-full cursor-default"
       ></n-link>
       <div class="lightbox-inner bg-white p-large relative">
         <slot></slot>
@@ -59,5 +59,11 @@ export default {
   &:after {
     transform: rotate(-45deg);
   }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
