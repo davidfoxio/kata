@@ -44,13 +44,16 @@ const hiddenSlug = {
   title: 'Slug',
   name: 'slug',
   type: 'slug',
-  hidden: true,
   options: {
     source: 'title',
     maxLength: 96,
   },
+  description: 'Only flocc studio can see this.',
   validation: (Rule) =>
     Rule.required('A slug is required before you can publish.'),
+  hidden: ({ currentUser }) => {
+    return currentUser.email != 'studio@flocc.co'
+  },
 }
 
 export { metaFieldset, metaField, title, slug, hiddenTitle, hiddenSlug }
