@@ -12,6 +12,10 @@ export default {
       type: 'url',
       name: 'url',
       title: 'URL',
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['http', 'https', 'mailto', 'tel'],
+        }),
     },
   ],
   preview: {
