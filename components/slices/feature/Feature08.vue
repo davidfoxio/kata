@@ -5,7 +5,7 @@
         <h2 class="heading-2 fade-up" v-kata-html="title" />
       </div>
       <div class="sm:w-r4/12">
-        <p v-if="text" class="fade-up" v-kata-html="text" />
+        <p v-if="text" class="fade-up whitespace-pre-line" v-kata-html="text" />
       </div>
     </div>
     <KataImage
