@@ -106,6 +106,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "documents/custom"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "slices/contact/contact01"
     },
     {
