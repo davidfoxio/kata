@@ -35,7 +35,7 @@
         v-kata-html="title"
       />
       <p v-if="text" class="whitespace-pre-line" v-kata-html="text" />
-      <KataLinks v-if="links" :links="links" />
+      <KataLinks v-if="links" :links="links" class="mt-medium" />
     </div>
 
     <div
