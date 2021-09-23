@@ -56,7 +56,7 @@ const feature06 = {
   type: 'object',
   title: 'Feature #6',
   options: defaultOptions,
-  fields: [title, links(), features],
+  fields: [title, text, links(), features],
 }
 const feature07 = {
   name: 'feature07',

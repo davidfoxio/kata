@@ -1,34 +1,33 @@
 <template>
   <div
-    class="slice feature-6 w-r10/12 mx-r1/12 sm:flex text-center sm:text-left"
+    class="slice feature-6 w-r10/12 mx-r1/12 md:flex text-center md:text-left"
   >
-    <div class="w-full sm:w-3/5 mb-large sm:mb-0 sm:pr-large">
-      <h2 v-if="title" class="mb-medium fade-up" v-kata-html="title" />
+    <div class="w-full md:w-r6/12 mb-large md:mb-0 md:pr-r1/12 left">
+      <h2 v-if="title" class="mb-medium fade-up heading-2" v-kata-html="title" />
+      <p v-if="text" class="mb-medium fade-up whitespace-pre-line" v-kata-html="text" />
       <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
-    <div class="sm:w-2/5">
+    <div class="w-full md:w-r4/12 right">
       <ul
         v-if="features"
-        class="flex flex-wrap -mx-medium"
+        class="md:flex md:flex-wrap md:-mx-medium"
         :class="'length-' + features.length"
       >
         <li
           v-for="(item, index) in features"
           :key="item.title ? item.title : index"
-          class="mb-large fade-up px-medium item sm:flex sm:items-start"
+          class="mb-large fade-up item md:px-medium flex items-start"
         >
-          <KataImage
+          <KataSimpleImage
             v-if="item.icon"
             :image="item.icon"
             width="50"
             height="50"
-            :max-width="400"
-            :ratio="1"
             class="mb-small mx-auto"
           />
           <div class="sm:pl-small">
-            <h3 v-if="item.title" v-kata-html="item.title" />
-            <p v-if="item.text" v-kata-html="item.text" />
+            <h3 v-if="item.title" v-kata-html="item.title" class="label-1 mb-[5px]" />
+            <p v-if="item.text" v-kata-html="item.text" class="para-2" />
           </div>
         </li>
       </ul>
@@ -37,9 +36,9 @@
 </template>
 
 <script>
-import { title, links } from '../shared'
+import { title, links, text } from '../shared'
 export default {
-  mixins: [title, links],
+  mixins: [title, links, text],
   props: {
     features: {
       type: Array,
