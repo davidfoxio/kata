@@ -94,3 +94,4 @@ export default {
     height: 35vh;
   }
 }
+</style>

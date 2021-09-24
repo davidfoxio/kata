@@ -37,7 +37,7 @@
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        @submit="actionFn()"
+        :action="action"
       >
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="subject" value="Contact form submission" />
@@ -127,7 +127,7 @@ export default {
     },
     action: {
       type: String,
-      default: '',
+      default: '#submitted'
     },
     thanks: {
       type: String,
