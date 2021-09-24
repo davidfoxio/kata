@@ -12,6 +12,16 @@ const cite = {
   type: 'string',
 }
 
+const superHeading = {
+  name: 'superHeading',
+  type: 'string',
+}
+
+const title = {
+  name: 'title',
+  type: 'string',
+}
+
 const name = {
   name: 'name',
   type: 'string',
@@ -83,4 +93,13 @@ const testimonialsImage = {
   ],
 }
 
-export { testimonials, testimonialsImage, quote, cite, name, job }
+export {
+  superHeading,
+  title,
+  testimonials,
+  testimonialsImage,
+  quote,
+  cite,
+  name,
+  job,
+}

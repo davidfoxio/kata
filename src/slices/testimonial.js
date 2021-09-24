@@ -1,4 +1,5 @@
 import {
+  superHeading, title,
   testimonials,
   quote,
   cite,
@@ -6,6 +7,14 @@ import {
 } from './testimonialFields'
 import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
 import { links } from 'part:@weflocc/kata/partials/links'
+
+const testimonial01 = {
+  name: 'testimonial01',
+  type: 'object',
+  title: 'Testimonial #1',
+  options: defaultOptions,
+  fields: [title, testimonialsImage],
+}
 
 const testimonial02 = {
   name: 'testimonial02',
@@ -31,4 +40,4 @@ const testimonial05 = {
   fields: [quote, cite, links()],
 }
 
-export { testimonial02, testimonial04, testimonial05 }
+export { testimonial01, testimonial02, testimonial04, testimonial05 }

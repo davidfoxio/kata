@@ -274,6 +274,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "slices/testimonial/testimonial01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "slices/testimonial/testimonial02"
     },
     {
