@@ -25,7 +25,7 @@
             height="50"
             class="mb-small mx-auto"
           />
-          <div class="sm:pl-small">
+          <div class="pl-small">
             <h3 v-if="item.title" v-kata-html="item.title" class="label-1 mb-[5px]" />
             <p v-if="item.text" v-kata-html="item.text" class="para-2" />
           </div>
