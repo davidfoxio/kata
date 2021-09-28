@@ -1,22 +1,20 @@
 <template>
   <div
-    class="slice feature-6 w-r10/12 mx-r1/12 md:flex text-center md:text-left"
+    class="slice feature-6 w-r10/12 mx-r1/12 md:flex md:justify-between"
   >
-    <div class="w-full md:w-r6/12 mb-large md:mb-0 md:pr-r1/12 left">
+    <div class="w-full md:w-r5/12 mb-large md:mb-0 md:mr-r2/12 left">
       <h2 v-if="title" class="mb-medium fade-up heading-2" v-kata-html="title" />
       <p v-if="text" class="mb-medium fade-up whitespace-pre-line" v-kata-html="text" />
       <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
-    <div class="w-full md:w-r4/12 right">
+    <div class="w-full md:w-r3/12 right">
       <ul
         v-if="features"
-        class="md:flex md:flex-wrap md:-mx-medium"
-        :class="'length-' + features.length"
       >
         <li
           v-for="(item, index) in features"
           :key="item.title ? item.title : index"
-          class="mb-large fade-up item md:px-medium flex items-start"
+          class="mb-large fade-up item flex items-start"
         >
           <KataSimpleImage
             v-if="item.icon"
