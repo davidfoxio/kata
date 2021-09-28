@@ -17,5 +17,4 @@ jobs:
       - run: yarn
       - run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: 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
