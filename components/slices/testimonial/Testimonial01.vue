@@ -1,7 +1,7 @@
 <template>
   <div class="slice testimonials-1">
     <div class="container text-center mb-medium">
-      <h2 v-if="title" v-kata-html="title" class="label-1" />
+      <h2 v-if="title" v-kata-html="title" class="label-1 fade-up" />
     </div>
     <div v-if="testimonials.length > 1" class="flex">
       <div class="w-r2/12 flex justify-center items-center">
@@ -20,6 +20,7 @@
           'mx-r1/12 w-r10/12': testimonials.length == 1,
           'w-r8/12': testimonials.length > 1,
         }"
+        class="fade-up"
       >
         <div
           v-for="item in testimonials"
@@ -68,7 +69,7 @@
       >
         <p
           v-if="item.quote"
-          class="heading-3 mb-large"
+          class="heading-3 mb-large fade-up"
           v-kata-html="item.quote"
         />
         <KataSimpleImage
@@ -76,14 +77,14 @@
           width="60"
           height="60"
           data-not-lazy
-          class="mx-auto mb-small rounded-full"
+          class="mx-auto mb-small rounded-full fade-up"
         />
-        <p v-if="item.name" class="label-1" v-kata-html="item.name" />
-        <p v-if="item.job" class="para-4 mt-1" v-kata-html="item.job" />
+        <p v-if="item.name" class="label-1 fade-up" v-kata-html="item.name" />
+        <p v-if="item.job" class="para-4 mt-1 fade-up" v-kata-html="item.job" />
         <KataLinks
           v-if="item.links && item.links.link"
           :links="item.links.link"
-          class="mt-small"
+          class="mt-small fade-up"
         />
       </div>
     </div>
