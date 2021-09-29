@@ -29,8 +29,8 @@
         >
           <p
             v-if="item.quote"
-            class="heading-3 mb-large"
             v-kata-html="item.quote"
+            class="heading-3 mb-large"
           />
           <KataSimpleImage
             :image="item.image"
@@ -39,8 +39,8 @@
             data-not-lazy
             class="mx-auto mb-small rounded-full"
           />
-          <p v-if="item.name" class="label-1" v-kata-html="item.name" />
-          <p v-if="item.job" class="para-4 mt-1" v-kata-html="item.job" />
+          <p v-if="item.name" v-kata-html="item.name" class="label-1" />
+          <p v-if="item.job" v-kata-html="item.job" class="para-4 mt-1" />
           <KataLinks
             v-if="item.links && item.links.link"
             :links="item.links.link"
@@ -69,8 +69,8 @@
       >
         <p
           v-if="item.quote"
-          class="heading-3 mb-large fade-up"
           v-kata-html="item.quote"
+          class="heading-3 mb-large fade-up"
         />
         <KataSimpleImage
           :image="item.image"
@@ -79,8 +79,8 @@
           data-not-lazy
           class="mx-auto mb-small rounded-full fade-up"
         />
-        <p v-if="item.name" class="label-1 fade-up" v-kata-html="item.name" />
-        <p v-if="item.job" class="para-4 mt-1 fade-up" v-kata-html="item.job" />
+        <p v-if="item.name" v-kata-html="item.name" class="label-1 fade-up" />
+        <p v-if="item.job" v-kata-html="item.job" class="para-4 mt-1 fade-up" />
         <KataLinks
           v-if="item.links && item.links.link"
           :links="item.links.link"
