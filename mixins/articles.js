@@ -191,13 +191,37 @@ const pagination = {
       var index = this.currentPage * this.itemsPerPage - this.itemsPerPage
       return this.articles.slice(index, index + this.itemsPerPage)
     },
+    paginatedUnfeaturedArticles() {
+      if (!this.articles || this.articles.length != this.articles.length) {
+        return
+      }
+
+      let newArticles = []
+      if (this.showFeatured && this.featured && this.featured.length) {
+        this.articles.forEach((elem) => {
+          if (!this.featured.some((feat) => feat._id === elem._id)) {
+            newArticles.push(elem)
+          }
+        })
+      }
+
+      this.resultCount = newArticles.length
+      if (!this.currentPage) {
+        this.$router.push({
+          path: this.$route.path,
+          query: { page: 1 },
+        })
+      }
+      if (this.currentPage >= this.totalPages) {
+        this.$router.push({
+          path: this.$route.path,
+          query: { page: this.totalPages },
+        })
+      }
+      var index = this.currentPage * this.itemsPerPage - this.itemsPerPage
+      return newArticles.slice(index, index + this.itemsPerPage)
+    },
   },
-  // watch: {
-  //   '$route.query': debounce(function () {
-  //     // this.searchArticles()
-  //     console.log('query changed', this.currentPage)
-  //   }, 500),
-  // },
 }
 
 export { searchArticles, filters, search, singleArticle, pagination }
