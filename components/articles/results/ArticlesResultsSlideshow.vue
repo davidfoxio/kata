@@ -1,40 +1,19 @@
 <template>
   <div class="article-results-slideshow">
-    <div class="sm:flex">
+    <div class="md:flex">
       <ul
-        class="
-          sm:w-1/2
-          xl:w-2/3
-          pr-medium
-          flex flex-col
-          justify-between
-          items-start
-        "
+        class="md:w-1/2 xl:w-2/3 pr-medium flex flex-col justify-between items-start"
       >
         <li
           v-for="(item, i) in articles"
           :key="i"
-          class="
-            border-primary border-l-2
-            flex-grow
-            border-opacity-25
-            mb-0
-            transition-all
-            duration-500
-          "
+          class="border-primary border-l-2 flex-grow border-opacity-25 mb-0 transition-all duration-500"
           :class="{ 'border-opacity-100': i == activeArticle }"
           @mouseover="activeArticle = i"
         >
           <nuxt-link
             :to="getLink(item._id)"
-            class="
-              mb-small
-              inline-block
-              pl-small
-              hover:text-primary
-              transition-all
-              duration-500
-            "
+            class="mb-small inline-block pl-small hover:text-primary transition-all duration-500"
             :class="[i == activeArticle ? 'opacity-90' : 'opacity-30']"
           >
             <p class="label-2">Featured</p>
@@ -59,7 +38,7 @@
           </nuxt-link>
         </li>
       </ul>
-      <div class="sm:w-1/2 xl:w-1/3 image sm:align-center">
+      <div class="md:w-1/2 xl:w-1/3 image md:align-center">
         <transition name="fade" mode="out-in">
           <KataImage
             v-if="articles[activeArticle] && articles[activeArticle].image"
