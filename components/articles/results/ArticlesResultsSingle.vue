@@ -14,15 +14,12 @@
         </transition>
       </div>
       <div
-        class="md:w-1/2 px-r1/12 md:pl-large md:py-slice-half md:flex md:items-center"
+        class="md:w-1/2 px-r1/12 md:pl-large py-slice-half md:flex md:items-center"
       >
-        <nuxt-link
-          :to="getLink(item._id)"
-          class="block hover:text-primary transition-all duration-500 text-center"
-        >
+        <nuxt-link :to="getLink(item._id)" class="block text-center">
           <p
             v-if="item[categoryField] && item[categoryField].length"
-            class="opacity-50 label-2 mb-small"
+            class="label-2 mb-small"
           >
             <span v-for="(tag, x) in item[categoryField]" :key="tag._key">
               {{
@@ -34,10 +31,13 @@
               <span v-if="x != item[categoryField].length - 1">,</span>
             </span>
           </p>
-          <p v-else class="opacity-50 label-2 mb-small">Featured</p>
+          <p v-else class="label-2 mb-small">Featured</p>
           <h3 class="heading-3">
             {{ item.title }}
           </h3>
+          <p class="btn-secondary read-more-btn mt-medium inline-block">
+            Read More
+          </p>
         </nuxt-link>
       </div>
     </div>
@@ -100,8 +100,10 @@ export default {
 
 <style lang="scss" scoped>
 .article-results-single {
-  img {
-    min-height: 75vh;
+  @include md-up {
+    img {
+      min-height: 75vh;
+    }
   }
 }
 </style>
