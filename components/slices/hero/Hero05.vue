@@ -7,13 +7,13 @@
       class="h-screen w-full object-cover"
     />
     <div
-      class="w-r10/12 mx-r1/12 md:w-r6/12 md:mx-r3/12 h-screen flex flex-col justify-center text-center z-1"
+      class="w-r10/12 mx-r1/12 md:w-r6/12 md:mx-r3/12 h-screen flex flex-col justify-center text-center z-1 text"
     >
-      <h1 class="heading-1 text-white mb-medium" v-kata-html="title" />
+      <h1 v-kata-html="title" class="heading-1 text-white mb-medium" />
       <p
         v-if="text"
-        class="text-center text-white mb-medium whitespace-pre-line"
         v-kata-html="text"
+        class="text-center text-white mb-medium whitespace-pre-line"
       />
       <KataLinks v-if="links" :links="links" class="text-center" />
     </div>
