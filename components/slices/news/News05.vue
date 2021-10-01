@@ -6,15 +6,7 @@
       v-for="(item, i) in items"
       :key="item._ref"
       :to="item._id ? link(item._id) : ''"
-      class="
-        item
-        md:flex
-        md:items-center
-        mb-slice
-        md:mb-slice-half
-        md:space-x-medium
-        block
-      "
+      class="item md:flex md:items-center mb-slice md:mb-slice-half md:space-x-medium block"
       :class="{
         'md:flex-row-reverse md:space-x-reverse': i % 2,
       }"
@@ -23,12 +15,12 @@
         <slot name="superHeader" :item="item">
           <h3
             v-if="item.superHeader"
-            class="label-2 mb-medium"
             v-kata-html="item.superHeader"
+            class="label-2 mb-medium"
           />
         </slot>
-        <h2 v-if="item.title" class="heading-3" v-kata-html="item.title" />
-        <p v-if="item.text" class="para-2 mt-medium" v-kata-html="item.text" />
+        <h2 v-if="item.title" v-kata-html="item.title" class="heading-3" />
+        <p v-if="item.text" v-kata-html="item.text" class="para-2 mt-medium" />
       </div>
       <div class="md:w-5/12 lg:w-7/12 image md:mb-0 mb-medium">
         <KataImage :image="item.image" class="h-full w-full object-cover" />
@@ -38,7 +30,7 @@
 </template>
 
 <script>
-import {title} from '../shared'
+import { title } from '../shared'
 export default {
   mixins: [title],
   props: {

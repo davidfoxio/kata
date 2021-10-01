@@ -2,10 +2,10 @@
   <div class="slice feature-8">
     <div class="w-r10/12 mx-r1/12 sm:flex mb-large">
       <div class="sm:w-r6/12 mr-large">
-        <h2 class="heading-2 fade-up" v-kata-html="title" />
+        <h2 v-kata-html="title" class="heading-2 fade-up" />
       </div>
       <div class="sm:w-r4/12">
-        <p v-if="text" class="fade-up whitespace-pre-line" v-kata-html="text" />
+        <p v-if="text" v-kata-html="text" class="fade-up whitespace-pre-line" />
       </div>
     </div>
     <KataImage
