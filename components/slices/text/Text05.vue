@@ -1,20 +1,26 @@
 <template>
-  <div class="slice text-5 flex flex-col sm:flex-row relative justify-start">
+  <div
+    class="slice text-5 flex flex-col relative justify-start"
+    :class="{
+      'reversed md:flex-row-reverse': reversed,
+      'not-reversed md:flex-row': !reversed,
+    }"
+  >
     <div
-      class="w-r10/12 mx-r1/12 sm:w-r6/12 sm:ml-r1/12 sm:mr-large order-2 sm:order-1 sm:py-slice body"
+      class="w-r10/12 mx-r1/12 md:w-r6/12 md:ml-r1/12 md:mr-large order-2 md:order-1 md:py-slice body"
     >
-      <h2 v-if="title" class="mb-large heading-2 fade-up" v-kata-html="title" />
+      <h2 v-if="title" v-kata-html="title" class="mb-large heading-2 fade-up" />
       <SanityEmbedContent v-if="textBody" :blocks="textBody" class="fade-up" />
     </div>
     <div
-      class="sm:w-r5/12 order-1 sm:order-2 mb-large sm:mb-0 sm:relative image"
+      class="md:w-r5/12 order-1 md:order-2 mb-large md:mb-0 md:relative image"
     >
       <KataImage
         :image="image"
         :ratio="ratio"
         :max-width="1500"
         sizes="(max-width:699px) 90vw, (max-width:1439px) 50vw, 50vw"
-        class="sm:h-full sm:w-full sm:absolute sm:top-0 sm:left-0 sm:object-cover sm:bottom-0 sm:m-auto"
+        class="md:h-full md:w-full md:absolute md:top-0 md:left-0 md:object-cover md:bottom-0 md:m-auto"
       />
     </div>
   </div>
@@ -33,6 +39,6 @@ export default {
       type: Number,
       default: 510 / 714,
     },
-  }
+  },
 }
 </script>
