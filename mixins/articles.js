@@ -104,6 +104,19 @@ const searchArticles = {
       return nonFeaturedArticles
     },
   },
+  computed: {
+    unfeaturedArticles() {
+      let newArticles = []
+      if (this.showFeatured && this.featured && this.featured.length) {
+        this.articles.forEach((elem) => {
+          if (!this.featured.some((feat) => feat._id === elem._id)) {
+            newArticles.push(elem)
+          }
+        })
+      }
+      return newArticles
+    },
+  },
 }
 
 const filters = {
