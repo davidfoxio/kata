@@ -209,16 +209,7 @@ const pagination = {
         return
       }
 
-      let newArticles = []
-      if (this.showFeatured && this.featured && this.featured.length) {
-        this.articles.forEach((elem) => {
-          if (!this.featured.some((feat) => feat._id === elem._id)) {
-            newArticles.push(elem)
-          }
-        })
-      }
-
-      this.resultCount = newArticles.length
+      this.resultCount = this.unfeaturedArticles.length
       if (!this.currentPage) {
         this.$router.push({
           path: this.$route.path,
@@ -232,7 +223,7 @@ const pagination = {
         })
       }
       var index = this.currentPage * this.itemsPerPage - this.itemsPerPage
-      return newArticles.slice(index, index + this.itemsPerPage)
+      return this.unfeaturedArticles.slice(index, index + this.itemsPerPage)
     },
   },
 }
