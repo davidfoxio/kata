@@ -24,14 +24,18 @@ export default {
     },
     prepare(selection) {
       const { heading, text } = selection
-      let showEllipsis = true
-      if (text.length < 50) {
-        showEllipsis = false
+      let subtitle = ''
+      if (text) {
+        let showEllipsis = true
+        if (text.length < 50) {
+          showEllipsis = false
+        }
+        subtitle = text.toString().slice(0, 50)
+        subtitle += showEllipsis ? '...' : ''
       }
-      const shortenedSubtitle = text.toString().slice(0, 50)
       return {
-        title: heading,
-        subtitle: `${shortenedSubtitle}${showEllipsis ? '...' : ''}`,
+        title: heading || 'List item',
+        subtitle: text ? subtitle : '',
         media: BiListPlus,
       }
     },
