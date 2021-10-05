@@ -26,6 +26,11 @@ export default {
       default: () => {},
     },
   },
+  data() {
+    return {
+      poster: '',
+    }
+  },
   computed: {
     playbackId() {
       if (this.video?.asset) {
@@ -36,20 +41,13 @@ export default {
       return null
     },
   },
-  data() {
-    return {
-      poster: '',
-    }
-  },
   mounted() {
     if (this.video) {
       // https://github.com/video-dev/hls.js/#embedding-hlsjs
       const videoSrc = `https://stream.mux.com/${this.playbackId}.m3u8`
       this.poster = `https://image.mux.com/${this.playbackId}/thumbnail.jpg`
       if (this.thumbnail) {
-        this.poster = this.$imgUrl(this.thumbnail)
-          .quality(80)
-          .url()
+        this.poster = this.$imgUrl(this.thumbnail).quality(80).url()
       }
       const video = this.$refs.video
 

@@ -3,15 +3,15 @@
     <div class="md:w-1/2 md:pr-large">
       <h1
         v-if="isH1 && title"
-        class="heading-2 mb-medium"
         v-kata-html="title"
+        class="heading-2 mb-medium"
       />
-      <h2 v-else-if="title" class="mb-medium" v-kata-html="title" />
-      <p v-if="text" class="mb-medium" v-kata-html="text" />
+      <h2 v-else-if="title" v-kata-html="title" class="mb-medium" />
+      <p v-if="text" v-kata-html="text" class="mb-medium" />
       <div class="columns fade-up">
         <div v-if="address" class="mb-medium">
           <p class="label-1">Address</p>
-          <p class="whitespace-pre-line" v-kata-html="address" />
+          <p v-kata-html="address" class="whitespace-pre-line" />
         </div>
         <div v-if="email" class="mb-medium">
           <p class="label-1">Email</p>
@@ -32,8 +32,8 @@
       <p v-if="submitted" v-kata-html="thanks" />
       <form
         v-else
-        name="contact"
         id="contact"
+        name="contact"
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
@@ -127,7 +127,7 @@ export default {
     },
     action: {
       type: String,
-      default: '#submitted'
+      default: '#submitted',
     },
     thanks: {
       type: String,
@@ -143,11 +143,6 @@ export default {
       submitted: false,
     }
   },
-  mounted() {
-    if (this.$route.hash == '#submitted') {
-      this.submitted = true
-    }
-  },
   watch: {
     '$route.hash': function (newVal, oldVal) {
       if (newVal == '#submitted') {
@@ -157,9 +152,14 @@ export default {
       }
     },
   },
+  mounted() {
+    if (this.$route.hash == '#submitted') {
+      this.submitted = true
+    }
+  },
   methods: {
     actionFn() {
-      if(this.action){
+      if (this.action) {
         return this.action
       } else {
         this.$router.push({ hash: '#submitted' })

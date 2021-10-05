@@ -8,12 +8,20 @@
       :class="{ 'md:mr-large': !reversed, 'md:ml-large': reversed }"
     >
       <div v-if="superHeading">
-        <h2 class="label-1 mb-medium fade-up" v-kata-html="superHeading" />
-        <h3 v-if="title" class="heading-2 mb-medium fade-up" v-kata-html="title" />
+        <h2 v-kata-html="superHeading" class="label-1 mb-medium fade-up" />
+        <h3
+          v-if="title"
+          v-kata-html="title"
+          class="heading-2 mb-medium fade-up"
+        />
       </div>
-      <h2 v-else class="heading-2 mb-medium fade-up" v-kata-html="title" />
-      <p v-if="text" class="mb-large fade-up whitespace-pre-line" v-kata-html="text" />
-      <KataLinks :links="links" class="fade-up" v-if="links" />
+      <h2 v-else v-kata-html="title" class="heading-2 mb-medium fade-up" />
+      <p
+        v-if="text"
+        v-kata-html="text"
+        class="mb-large fade-up whitespace-pre-line"
+      />
+      <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
     <div class="md:w-1/2 order-1 md:order-2 mb-large md:mb-0 image">
       <KataImage

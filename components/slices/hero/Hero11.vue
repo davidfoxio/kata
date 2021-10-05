@@ -13,8 +13,8 @@
     <div class="bottom">
       <p
         v-if="subtitle"
-        class="pull-out w-r11/12 sm:w-r8/12 lg:w-r6/12 p-screen-border"
         v-kata-html="subtitle"
+        class="pull-out w-r11/12 sm:w-r8/12 lg:w-r6/12 p-screen-border"
       ></p>
       <div class="media-wrap hero-animation border-animate">
         <KataMedia v-if="media" :media="media" :max-width="2000" />

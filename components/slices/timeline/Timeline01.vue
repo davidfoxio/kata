@@ -1,7 +1,7 @@
 <template>
   <div class="slice timeline-1 text-center">
-    <div class="mb-large w-r10/12 mx-r1/12" v-if="title || text">
-      <h2 class="fade-up heading-2" v-kata-html="title" />
+    <div v-if="title || text" class="mb-large w-r10/12 mx-r1/12">
+      <h2 v-kata-html="title" class="fade-up heading-2" />
       <!-- <p v-if="text" v-kata-html="text" class="mt-medium fade-up" /> -->
     </div>
     <VueSlickCarousel v-if="list" v-bind="settings" class="news-3-slider">
@@ -27,8 +27,8 @@
         />
         <h3
           v-if="item.title"
-          class="label-1 mb-small px-medium"
           v-kata-html="item.title"
+          class="label-1 mb-small px-medium"
         />
         <div
           class="checkbox mb-small w-full relative"
@@ -38,8 +38,8 @@
         </div>
         <p
           v-if="item.displayDate"
-          class="para-2 font-bold px-medium"
           v-kata-html="item.displayDate"
+          class="para-2 font-bold px-medium"
         />
         <p v-if="item.text" v-kata-html="item.text" class="para-2 px-medium" />
       </div>
@@ -49,7 +49,7 @@
         </button>
       </template>
     </VueSlickCarousel>
-    <KataLinks :links="links" v-if="links" />
+    <KataLinks v-if="links" :links="links" />
   </div>
 </template>
 

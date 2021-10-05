@@ -34,11 +34,11 @@
             <div :class="{ 'md:w-2/3 md:pl-medium': item.image }">
               <p
                 v-if="item.quote"
-                class="heading-3 mb-large"
                 v-kata-html="item.quote"
+                class="heading-3 mb-large"
               />
-              <p v-if="item.name" class="label-1" v-kata-html="item.name" />
-              <p v-if="item.job" class="para-4 mt-1" v-kata-html="item.job" />
+              <p v-if="item.name" v-kata-html="item.name" class="label-1" />
+              <p v-if="item.job" v-kata-html="item.job" class="para-4 mt-1" />
               <KataLinks
                 v-if="item.links && item.links.link"
                 :links="item.links.link"
@@ -78,11 +78,11 @@
           <div :class="{ 'md:w-2/3 md:pl-medium': item.image }">
             <p
               v-if="item.quote"
-              class="heading-3 mb-large"
               v-kata-html="item.quote"
+              class="heading-3 mb-large"
             />
-            <p v-if="item.name" class="label-1" v-kata-html="item.name" />
-            <p v-if="item.job" class="para-4 mt-1" v-kata-html="item.job" />
+            <p v-if="item.name" v-kata-html="item.name" class="label-1" />
+            <p v-if="item.job" v-kata-html="item.job" class="para-4 mt-1" />
             <KataLinks
               v-if="item.links && item.links.link"
               :links="item.links.link"

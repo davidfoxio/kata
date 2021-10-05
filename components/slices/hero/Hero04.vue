@@ -3,7 +3,7 @@
     <div
       class="w-r10/12 mx-r1/12 md:w-r6/12 md:mx-r3/12 flex flex-col justify-center text-center z-1"
     >
-      <h1 class="heading-1 mb-slice-half" v-kata-html="title" />
+      <h1 v-kata-html="title" class="heading-1 mb-slice-half" />
     </div>
 
     <div class="w-r10/12 mx-r1/12 text-center z-1 mb-slice">

@@ -17,23 +17,23 @@
     <div class="w-r10/12 md:w-r5/12 mx-r1/12 md:py-slice-half body">
       <h1
         v-if="isH1 && title"
-        class="mb-medium heading-2 fade-up"
         v-kata-html="title"
+        class="mb-medium heading-2 fade-up"
       />
       <h2
         v-else-if="title"
-        class="mb-medium heading-2 fade-up"
         v-kata-html="title"
+        class="mb-medium heading-2 fade-up"
       />
-      <p v-if="text" class="mb-medium fade-up" v-kata-html="text" />
+      <p v-if="text" v-kata-html="text" class="mb-medium fade-up" />
       <ul class="columns fade-up">
         <li v-if="address" class="mb-medium item">
           <p class="label-1">Address</p>
-          <p class="whitespace-pre-line" v-kata-html="address" />
+          <p v-kata-html="address" class="whitespace-pre-line" />
         </li>
         <li v-if="openingTimes" class="mb-medium item">
           <p class="label-1">Opening Times</p>
-          <p class="whitespace-pre-line" v-kata-html="openingTimes" />
+          <p v-kata-html="openingTimes" class="whitespace-pre-line" />
         </li>
         <!-- <li v-if="website" class="mb-medium item">
           <p class="label-1">Website</p>

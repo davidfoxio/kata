@@ -17,10 +17,10 @@
             <KataImage :image="item.image" :ratio="4 / 3" class="mb-small" />
             <h3
               v-if="item.title"
-              class="mb-small label-1"
               v-kata-html="item.title"
+              class="mb-small label-1"
             />
-            <p v-if="item.text" class="para-4" v-kata-html="item.text" />
+            <p v-if="item.text" v-kata-html="item.text" class="para-4" />
           </component>
         </slot>
       </div>

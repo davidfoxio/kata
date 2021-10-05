@@ -1,8 +1,8 @@
 <template>
   <div class="team-4 slice w-r10/12 mx-r1/12">
     <div class="heading mb-large">
-      <h2 v-if="title" class="fade-up" v-kata-html="title" />
-      <p v-if="text" class="mt-medium fade-up" v-kata-html="text" />
+      <h2 v-if="title" v-kata-html="title" class="fade-up" />
+      <p v-if="text" v-kata-html="text" class="mt-medium fade-up" />
     </div>
     <div class="team-list">
       <ul :class="ulClass">
@@ -15,10 +15,10 @@
             />
             <h3
               v-if="item.title"
-              class="mb-small label-1"
               v-kata-html="item.title"
+              class="mb-small label-1"
             />
-            <p v-if="item.text" class="para-2" v-kata-html="item.text" />
+            <p v-if="item.text" v-kata-html="item.text" class="para-2" />
           </slot>
         </li>
       </ul>

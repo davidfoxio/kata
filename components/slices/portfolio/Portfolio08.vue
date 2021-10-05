@@ -1,8 +1,8 @@
 <template>
-  <div class="portfolio-8 slice w-r10/12 mx-r1/12" v-if="feed">
+  <div v-if="feed" class="portfolio-8 slice w-r10/12 mx-r1/12">
     <div class="mb-large">
       <h2 v-if="title" v-kata-html="title" />
-      <p v-if="text" class="mt-medium" v-kata-html="text" />
+      <p v-if="text" v-kata-html="text" class="mt-medium" />
     </div>
     <transition-group :class="ulClass" tag="ul" name="fade" mode="out-in">
       <li
@@ -12,11 +12,11 @@
       >
         <slot name="tease" :item="item">
           <ArticlesTeaseWithImage
-              :item-id="item._id"
-              :link="getLink(item._id)"
-              :title="item.title"
-              :image="item.image"
-            />
+            :item-id="item._id"
+            :link="getLink(item._id)"
+            :title="item.title"
+            :image="item.image"
+          />
         </slot>
       </li>
     </transition-group>

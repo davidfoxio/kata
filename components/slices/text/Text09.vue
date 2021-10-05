@@ -1,7 +1,7 @@
 <template>
   <div class="slice text-9 w-r10/12 mx-r1/12">
     <div class="sticky md:w-1/2 md:mr-medium">
-      <h2 class="mb-medium fade-up" v-kata-html="title" v-if="title"></h2>
+      <h2 v-if="title" v-kata-html="title" class="mb-medium fade-up"></h2>
     </div>
     <div ref="content" class="content md:w-1/2 md:ml-medium">
       <!-- <h3 v-if="superHeading" class="mb-medium fade-up" v-kata-html="superHeading" /> -->

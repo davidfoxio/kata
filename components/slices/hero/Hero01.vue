@@ -1,54 +1,27 @@
 <template>
   <div
-    class="
-      hero-1
-      slice
-      flex-wrap
-      md:flex-no-wrap
-      md:justify-between
-      flex
-      min-h-screen
-    "
+    class="hero-1 slice flex-wrap md:flex-no-wrap md:justify-between flex min-h-screen"
   >
     <div
-      class="
-        md:py-slice-half
-        md:w-1/2
-        px-r1/12
-        md:pr-large
-        md:flex md:flex-col
-        md:justify-center
-        order-2
-        md:order-1
-        content
-      "
+      class="md:py-slice-half md:w-1/2 px-r1/12 md:pr-large md:flex md:flex-col md:justify-center order-2 md:order-1 content"
     >
       <h1
         v-if="superHeading"
-        class="super-heading mb-medium"
         v-kata-html="superHeading"
+        class="super-heading mb-medium"
       />
-      <h1 v-else-if="title" class="heading-1 mb-medium" v-kata-html="title" />
+      <h1 v-else-if="title" v-kata-html="title" class="heading-1 mb-medium" />
       <h2
         v-if="title && superHeading"
-        class="heading-1 mb-medium"
         v-kata-html="title"
+        class="heading-1 mb-medium"
       />
-      <p v-if="text" class="whitespace-pre-line" v-kata-html="text" />
+      <p v-if="text" v-kata-html="text" class="whitespace-pre-line" />
       <KataLinks v-if="links" :links="links" class="mt-medium" />
     </div>
 
     <div
-      class="
-        media-wrap
-        mb-large
-        md:mb-0
-        md:w-1/2
-        w-full
-        relative
-        order-1
-        md:order-2
-      "
+      class="media-wrap mb-large md:mb-0 md:w-1/2 w-full relative order-1 md:order-2"
     >
       <KataMedia
         :media="media"

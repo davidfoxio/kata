@@ -1,6 +1,6 @@
 <template>
   <div class="slice feature-9 w-r10/12 mx-r1/12 fade-up">
-    <h2 v-if="title" class="text-center mb-large" v-kata-html="title" />
+    <h2 v-if="title" v-kata-html="title" class="text-center mb-large" />
     <transition-group
       name="fade-list"
       class="flex sm:-mx-small mb-large flex-wrap justify-between items-center"
@@ -41,7 +41,11 @@
           :key="elem._key"
           class="sm:px-small mb-medium sm:w-1/2"
         >
-          <h2 v-if="elem.title" class="mb-small label-1" v-kata-html="elem.title" />
+          <h2
+            v-if="elem.title"
+            v-kata-html="elem.title"
+            class="mb-small label-1"
+          />
           <SanityEmbedContent v-if="elem.textBody" :blocks="elem.textBody" />
         </div>
         <KataLinks

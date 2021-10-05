@@ -34,7 +34,7 @@
       </VueSlickCarousel>
     </div>
     <div class="md:w-r4/12">
-      <h2 v-if="title" class="mb-medium heading-3" v-kata-html="title" />
+      <h2 v-if="title" v-kata-html="title" class="mb-medium heading-3" />
       <SanityEmbedContent
         v-if="textBody"
         :blocks="textBody"

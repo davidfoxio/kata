@@ -9,12 +9,8 @@
     <div
       class="w-r10/12 md:w-r8/12 lg:w-r6/12 h-screen flex flex-col justify-end items-start z-1 p-r1/12 md:pr-0 content"
     >
-      <h2 class="heading-2 text-white mb-medium fade-up" v-kata-html="title" />
-      <p
-        v-if="text"
-        class="text-white mb-medium fade-up"
-        v-kata-html="text"
-      />
+      <h2 v-kata-html="title" class="heading-2 text-white mb-medium fade-up" />
+      <p v-if="text" v-kata-html="text" class="text-white mb-medium fade-up" />
       <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
   </div>
