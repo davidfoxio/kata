@@ -1,5 +1,6 @@
 import {
-  superHeading, title,
+  superHeading,
+  title,
   testimonials,
   quote,
   cite,
@@ -24,6 +25,14 @@ const testimonial02 = {
   fields: [testimonialsImage],
 }
 
+const testimonial03 = {
+  name: 'testimonial03',
+  type: 'object',
+  title: 'Testimonial #3',
+  options: defaultOptions,
+  fields: [title, testimonials],
+}
+
 const testimonial04 = {
   name: 'testimonial04',
   type: 'object',
@@ -40,4 +49,10 @@ const testimonial05 = {
   fields: [quote, cite, links()],
 }
 
-export { testimonial01, testimonial02, testimonial04, testimonial05 }
+export {
+  testimonial01,
+  testimonial02,
+  testimonial03,
+  testimonial04,
+  testimonial05,
+}
