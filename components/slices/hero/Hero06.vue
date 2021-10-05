@@ -7,8 +7,8 @@
       class="hero-animation border-animate"
     />
 
-    <div class="mt-large mx-r1/12 w-r10/12 sm:flex sm:justify-between">
-      <div class="sm:w-1/2 sm:pr-large">
+    <div class="mt-large mx-r1/12 w-r10/12 md:flex md:justify-between text">
+      <div class="md:w-1/2 md:pr-large">
         <h1
           v-if="superHeading"
           v-kata-html="superHeading"
@@ -21,7 +21,7 @@
           class="heading-1 mt-small"
         />
       </div>
-      <div class="sm:w-1/2">
+      <div class="md:w-1/2">
         <p
           v-if="text"
           v-kata-html="text"
