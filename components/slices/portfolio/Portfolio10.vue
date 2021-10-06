@@ -59,23 +59,11 @@ export default {
       settings: {
         arrows: true,
         dots: false,
-        slidesToShow: 6.25,
+        slidesToShow: 5.25,
         infinite: false,
         responsive: [
           {
-            breakpoint: 2000,
-            settings: {
-              slidesToShow: 5.25,
-            },
-          },
-          {
-            breakpoint: 1500,
-            settings: {
-              slidesToShow: 4.25,
-            },
-          },
-          {
-            breakpoint: 1100,
+            breakpoint: 1400,
             settings: {
               slidesToShow: 3.5,
             },
