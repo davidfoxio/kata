@@ -8,7 +8,7 @@
   >
     <div class="relative title-wrap">
       <h3 v-if="title" v-kata-html="title" class="label-1" />
-      <DraftLabel :id="itemId" />
+      <DraftLabel v-if="itemId" :id="itemId" />
     </div>
     <p v-if="date" class="mt-small para-2">{{ date | formatDate }}</p>
     <p v-if="excerpt" v-kata-html="excerpt" class="mt-small para-2" />
@@ -20,7 +20,7 @@ export default {
   props: {
     itemId: {
       type: String,
-      required: true,
+      default: '',
     },
     categories: {
       type: Array,
@@ -55,10 +55,9 @@ export default {
         return 'n-link'
       } else if (this.link) {
         return 'a'
-      } 
+      }
       return 'div'
     },
-    
   },
   methods: {
     getCategoryTitle(id) {

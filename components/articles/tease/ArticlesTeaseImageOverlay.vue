@@ -14,7 +14,7 @@
     />
     <h3 class="label-1">
       {{ title }}
-      <DraftLabel :id="itemId" />
+      <DraftLabel v-if="itemId" :id="itemId" />
     </h3>
     <div class="overlay flex flex-col justify-center items-center">
       <p class="btn-primary text-center">Find out more</p>
@@ -29,10 +29,9 @@ export default {
       type: Array,
       default: null,
     },
-    
     itemId: {
       type: String,
-      required: true,
+      default: '',
     },
     link: {
       type: String,

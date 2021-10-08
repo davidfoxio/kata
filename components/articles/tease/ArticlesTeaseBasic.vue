@@ -6,7 +6,7 @@
   >
     <div class="relative title-wrap">
       <h3 v-if="title" v-kata-html="title" />
-      <DraftLabel :id="itemId" />
+      <DraftLabel v-if="itemId" :id="itemId" />
       <div class="read"></div>
     </div>
 
@@ -24,7 +24,7 @@ export default {
   props: {
     itemId: {
       type: String,
-      required: true,
+      default: '',
     },
     categories: {
       type: Array,

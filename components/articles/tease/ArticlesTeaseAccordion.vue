@@ -2,7 +2,7 @@
   <div class="accordion-item pb-small mb-small">
     <div class="accordion-trigger" :class="{ active: visible }" @click="open">
       <h3 v-if="title" v-kata-html="title" class="label-1" />
-      <DraftLabel :id="itemId" />
+      <DraftLabel v-if="itemId" :id="itemId" />
 
       <p v-if="categories && categories.length" class="label-2 mt-0">
         <span v-for="(cat, i) in categories" :key="cat._key">

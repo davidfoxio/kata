@@ -33,14 +33,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    // from algolia
     appId: {
       type: String,
       required: true,
     },
+    // from Aloglia
     apiKey: {
       type: String,
       required: true,
     },
+    // this is the netlify site api key
     siteId: {
       type: String,
       required: true,
@@ -57,7 +60,8 @@ export default {
         {
           rel: 'stylesheet',
           defer: true,
-          href: 'https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css',
+          href:
+            'https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css',
         },
       ],
       script: [
@@ -67,7 +71,8 @@ export default {
           callback: () => {
             this.initSearch()
           },
-          src: 'https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js',
+          src:
+            'https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js',
         },
       ],
     }

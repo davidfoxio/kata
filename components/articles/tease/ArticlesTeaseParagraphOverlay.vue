@@ -16,14 +16,18 @@
       />
       <div class="overlay">
         <div class="title">
-          <p class="heading-1" v-if="index">{{ '0' + index }}</p>
-          <h3 v-if="title" class="label-1" v-kata-html="title" />
+          <p v-if="index" class="heading-1">{{ '0' + index }}</p>
+          <h3 v-if="title" v-kata-html="title" class="label-1" />
         </div>
         <div class="body">
-          <p v-if="text" class="para-2 whitespace-pre-line" v-kata-html="text" />
+          <p
+            v-if="text"
+            v-kata-html="text"
+            class="para-2 whitespace-pre-line"
+          />
         </div>
       </div>
-       <div class="bg-overlay bg-primary" />
+      <div class="bg-overlay bg-primary" />
     </div>
   </div>
 </template>

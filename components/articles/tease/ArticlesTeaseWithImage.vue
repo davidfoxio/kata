@@ -1,5 +1,9 @@
 <template>
-  <component :is="link ? 'nuxt-link' : 'div'" :to="link" class="tease-with-image">
+  <component
+    :is="link ? 'nuxt-link' : 'div'"
+    :to="link"
+    class="tease-with-image"
+  >
     <KataImage
       :image="image"
       :max-width="650"
@@ -18,9 +22,9 @@
     </p>
     <h3 class="mt-small">
       {{ title }}
-      <DraftLabel :id="itemId" />
+      <DraftLabel v-if="itemId" :id="itemId" />
     </h3>
-    <p v-if="text" class="text mt-small" v-kata-html="text" />
+    <p v-if="text" v-kata-html="text" class="text mt-small" />
   </component>
 </template>
 
@@ -49,7 +53,7 @@ export default {
     },
     text: {
       type: String,
-      default: ''
+      default: '',
     },
     categories: {
       type: Array,
