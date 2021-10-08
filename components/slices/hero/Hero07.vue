@@ -10,7 +10,7 @@
       min-h-screen
     "
   >
-    <div class="media-wrap mb-large md:mb-0 md:w-1/2 w-full relative">
+    <div class="media-wrap mb-large md:mb-0 md:w-r5/12 w-full relative">
       <KataMedia
         :media="media"
         :ratio="1"
@@ -20,8 +20,9 @@
     </div>
     <div
       class="
+        body
         md:py-slice-half
-        md:w-1/2
+        md:w-r7/12
         px-r1/12
         md:pr-0
         md:flex md:flex-col
@@ -31,16 +32,16 @@
       <h1
         v-if="superHeading"
         v-kata-html="superHeading"
-        class="super-heading mb-medium"
+        class="super-heading"
       />
-      <h1 v-else-if="title" v-kata-html="title" class="heading-1 mb-medium" />
+      <h1 v-else-if="title" v-kata-html="title" class="heading-1" />
       <h2
         v-if="title && superHeading"
         v-kata-html="title"
-        class="heading-1 mb-medium"
+        class="heading-1 mt-medium"
       />
-      <p v-if="text" v-kata-html="text" class="whitespace-pre-line" />
-      <KataLinks v-if="links" :links="links" />
+      <p v-if="text" v-kata-html="text" class="whitespace-pre-line mt-medium" />
+      <KataLinks v-if="links" :links="links" class="links mt-medium" />
     </div>
   </div>
 </template>
