@@ -5,6 +5,7 @@
     class="tease-with-image"
   >
     <KataImage
+      v-if="image"
       :image="image"
       :max-width="650"
       :ratio="6 / 4"

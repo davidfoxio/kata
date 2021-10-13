@@ -167,7 +167,24 @@ const fullTextEditor = (name = 'Text Body', settings) => {
           { title: 'Subheading', value: 'h3' },
         ],
       },
-      standardImage(),
+      {
+        title: 'Image',
+        name: 'image',
+        type: 'image',
+        options: {
+          hotspot: true,
+        },
+        fields: [
+          {
+            name: 'caption',
+            type: 'string',
+            title: 'Caption',
+            options: {
+              isHighlighted: true, // <-- make this field easily accessible
+            },
+          },
+        ],
+      },
       {
         type: 'youtube',
       },
@@ -188,6 +205,9 @@ const fullTextEditor = (name = 'Text Body', settings) => {
             type: 'table',
           },
         ],
+      },
+      {
+        type: 'testimonial04',
       },
     ],
   }

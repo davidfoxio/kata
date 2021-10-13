@@ -1,5 +1,5 @@
 <template>
-  <div v-if="articles" class="news-3 slice">
+  <div v-if="articles && articles.length" class="news-3 slice">
     <h2
       v-if="title"
       v-kata-html="title"

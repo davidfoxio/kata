@@ -1,10 +1,17 @@
-# sanity-plugin-kata
+# @weflocc/kata Package (private)
 
 ## Installation
 
 ```
-sanity install kata
+yarn add @weflocc/kata
 ```
+
+## Updating
+
+```
+yarn upgrade @weflocc/kata@latest
+```
+
 
 ## Configuration
 

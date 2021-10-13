@@ -1,11 +1,18 @@
 <template>
-  <img
-    v-lazy-load
-    :alt="asset ? $imgMeta(asset._ref).alt : ''"
-    :title="asset ? $imgMeta(asset._ref).title : ''"
-    :data-srcset="srcSet"
-    :sizes="sizes"
-  />
+  <div class="image">
+    <img
+      v-lazy-load
+      :alt="asset ? $imgMeta(asset._ref).alt : ''"
+      :title="asset ? $imgMeta(asset._ref).title : ''"
+      :data-srcset="srcSet"
+      :sizes="sizes"
+    />
+    <p
+      v-if="caption"
+      class="image-caption btn-small mb-medium -mt-small"
+      v-html="caption"
+    />
+  </div>
 </template>
 
 <script>
@@ -17,7 +24,7 @@ export default {
     },
     maxWidth: {
       type: Number,
-      default: 1000,
+      default: 1500,
     },
     ratio: {
       type: Number,
@@ -26,6 +33,10 @@ export default {
     sizes: {
       type: String,
       default: '100vw',
+    },
+    caption: {
+      type: String,
+      default: '',
     },
   },
   computed: {

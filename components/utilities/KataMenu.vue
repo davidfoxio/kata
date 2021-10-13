@@ -56,7 +56,6 @@ export default {
       },
     },
   },
-
   methods: {
     link(ref) {
       return this.$store.getters['references/getLinkFromReference'](ref)

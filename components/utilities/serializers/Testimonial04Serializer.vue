@@ -2,17 +2,7 @@
   <div class="slice testimonials-4-serializer py-slice-half">
     <div v-if="testimonials && testimonials.length > 1" class="fade-up">
       <div
-        class="
-          absolute
-          left-0
-          top-0
-          bottom-0
-          my-auto
-          flex
-          justify-center
-          items-center
-          btn-left
-        "
+        class="absolute left-0 top-0 bottom-0 my-auto flex justify-center items-center btn-left"
       >
         <button
           class="carousel-nav prev focus:outline-none"
@@ -27,25 +17,23 @@
         ref="testimonials-4-serializer-carousel"
         class="w-full"
       >
-        <div v-for="item in testimonials" :key="item._key" class="pr-large">
-          <p v-if="item.quote" class="heading-3 mb-large" v-kata-html="item.quote" />
-          <p v-if="item.name" class="label-1" v-kata-html="item.name" />
-          <p v-if="item.job" class="para-4 mt-1" v-kata-html="item.job" />
+        <div
+          v-for="item in testimonials"
+          :key="item._key"
+          class="pr-large testimonial-item"
+        >
+          <p
+            v-if="item.quote"
+            v-kata-html="item.quote"
+            class="heading-3 mb-large"
+          />
+          <p v-if="item.name" v-kata-html="item.name" class="label-1" />
+          <p v-if="item.job" v-kata-html="item.job" class="para-4 mt-1" />
         </div>
       </VueSlickCarousel>
 
       <div
-        class="
-          absolute
-          right-0
-          top-0
-          bottom-0
-          my-auto
-          flex
-          justify-center
-          items-center
-          btn-right
-        "
+        class="absolute right-0 top-0 bottom-0 my-auto flex justify-center items-center btn-right"
       >
         <button
           class="carousel-nav next focus:outline-none"
@@ -57,10 +45,18 @@
       </div>
     </div>
     <div v-else class="w-full">
-      <div v-for="item in testimonials" :key="item._key" class="pr-large">
-        <p v-if="item.quote" class="heading-3 mb-large" v-kata-html="item.quote" />
-        <p v-if="item.name" class="label-1" v-kata-html="item.name" />
-        <p v-if="item.job" class="para-4 mt-1" v-kata-html="item.job" />
+      <div
+        v-for="item in testimonials"
+        :key="item._key"
+        class="pr-large testimonial-item"
+      >
+        <p
+          v-if="item.quote"
+          v-kata-html="item.quote"
+          class="heading-3 mb-large"
+        />
+        <p v-if="item.name" v-kata-html="item.name" class="label-1" />
+        <p v-if="item.job" v-kata-html="item.job" class="para-4 mt-1" />
       </div>
     </div>
   </div>
