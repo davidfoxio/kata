@@ -90,10 +90,6 @@ export default {
 
 <style lang="scss">
 .news-3 {
-  .slick-prev,
-  .slick-next {
-    background: white !important;
-  }
   .slick-track {
     display: flex;
 
@@ -104,6 +100,7 @@ export default {
   .carousel-nav {
     position: absolute;
     z-index: 50;
+
     &.prev {
       left: var(--screen-border-size);
     }
