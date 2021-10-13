@@ -15,17 +15,22 @@
         class="mb-large fade-up px-medium item"
         :class="width"
       >
-        <KataSimpleImage
-          v-if="item.icon"
-          :image="item.icon"
-          class="mb-small mx-auto object-contain"
-        />
-        <h3
-          v-if="item.title"
-          v-kata-html="item.title"
-          class="label-1 mb-small"
-        />
-        <p v-if="item.text" v-kata-html="item.text" class="para-2" />
+        <component
+          :is="item.link ? 'nuxt-link' : 'div'"
+          :to="item.link ? getLink(item.link._ref) : null"
+        >
+          <KataSimpleImage
+            v-if="item.icon"
+            :image="item.icon"
+            class="mb-small mx-auto object-contain"
+          />
+          <h3
+            v-if="item.title"
+            v-kata-html="item.title"
+            class="label-1 mb-small"
+          />
+          <p v-if="item.text" v-kata-html="item.text" class="para-2" />
+        </component>
       </li>
     </ul>
     <KataLinks v-if="links" :links="links" class="mt-large fade-up" />
