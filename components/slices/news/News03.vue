@@ -90,6 +90,14 @@ export default {
 
 <style lang="scss">
 .news-3 {
+  .slick-prev:hover,
+  .slick-prev:focus,
+  .slick-next:hover,
+  .slick-next:focus {
+    color: white;
+    outline: none;
+    background: white;
+  }
   .slick-track {
     display: flex;
 
