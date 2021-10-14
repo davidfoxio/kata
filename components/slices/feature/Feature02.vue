@@ -36,7 +36,7 @@
     <div class="md:w-1/2 order-1 md:order-2 mb-large md:mb-0 md:relative image">
       <KataImage
         :image="image"
-        :ratio="685 / 514"
+        :ratio="ratio"
         :max-width="1500"
         sizes="(max-width:699px) 90vw, (max-width:1439px) 50vw, 50vw"
         class="md:h-full md:w-full md:absolute md:top-0 md:left-0 md:object-cover md:bottom-0 md:m-auto"
@@ -53,6 +53,10 @@ export default {
     shortFeatures: {
       type: Array,
       default: null,
+    },
+    ratio: {
+      type: Number,
+      default: 685 / 514,
     },
   },
 }
