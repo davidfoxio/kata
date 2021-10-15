@@ -28,7 +28,7 @@
       </div>
       <SocialMedia />
     </div>
-    <div class="md:w-1/2 md:pl-large">
+    <div id="form" class="md:w-1/2 md:pl-large">
       <p v-if="submitted" v-kata-html="thanks" />
       <form
         v-else
@@ -127,7 +127,7 @@ export default {
     },
     action: {
       type: String,
-      default: '#submitted',
+      default: '?form=submitted#form',
     },
     thanks: {
       type: String,
@@ -144,8 +144,8 @@ export default {
     }
   },
   watch: {
-    '$route.hash': function (newVal, oldVal) {
-      if (newVal == '#submitted') {
+    '$route.query': function (newVal, oldVal) {
+      if (newVal.form == 'submitted') {
         this.submitted = true
       } else {
         this.submitted = false
@@ -153,7 +153,7 @@ export default {
     },
   },
   mounted() {
-    if (this.$route.hash == '#submitted') {
+    if (this.$route.query.form == 'submitted') {
       this.submitted = true
     }
   },
@@ -162,7 +162,7 @@ export default {
       if (this.action) {
         return this.action
       } else {
-        this.$router.push({ hash: '#submitted' })
+        this.$router.push({ query: { form: 'submitted' } })
       }
     },
   },
