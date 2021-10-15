@@ -6,7 +6,7 @@
       height="360"
       :src="src || dataSrc"
       frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
       allowfullscreen
     ></iframe>
   </div>
