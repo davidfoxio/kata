@@ -24,7 +24,7 @@
         md:py-slice-half
         md:w-r7/12
         px-r1/12
-        md:pr-0
+        md:pl-large
         md:flex md:flex-col
         md:justify-center
       "

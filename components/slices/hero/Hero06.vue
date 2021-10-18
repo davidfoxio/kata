@@ -2,7 +2,7 @@
   <div class="hero-6 slice">
     <KataMedia
       :media="media"
-      :ratio="16 / 9"
+      :ratio="ratio"
       :max-width="2500"
       class="hero-animation border-animate"
     />
@@ -37,6 +37,12 @@
 import { superHeading, title, text, links, media } from '../shared'
 export default {
   mixins: [superHeading, title, text, links, media],
+  props: {
+    ratio: {
+      type: Number,
+      default: 16 / 9,
+    },
+  },
 }
 </script>
 

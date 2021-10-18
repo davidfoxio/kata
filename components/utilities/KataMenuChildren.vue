@@ -14,19 +14,19 @@
       >
         <n-link
           v-if="item.link && link(item.link._ref)"
-          :to="link(item.link._ref).path"
-          class="nav-link inline-block"
-          @click.native="clickFn"
           v-kata-html="
             item.noLinkJustTitle
               ? item.noLinkJustTitle
               : link(item.link._ref).title
           "
+          :to="link(item.link._ref).path"
+          class="nav-link inline-block"
+          @click.native="clickFn"
         />
         <p
           v-else-if="item.noLinkJustTitle"
-          class="nav-link inline-block cursor-pointer"
           v-kata-html="item.noLinkJustTitle"
+          class="nav-link inline-block cursor-pointer"
         />
         <button
           v-if="item.children"
@@ -38,14 +38,14 @@
           <div v-for="child in item.children" :key="child._key">
             <n-link
               v-if="child.link && link(child.link._ref)"
-              :to="link(child.link._ref).path"
-              class="nav-link inline-block"
-              @click.native="clickFn"
               v-kata-html="
                 child.customTitle
                   ? child.customTitle
                   : link(child.link._ref).title
               "
+              :to="link(child.link._ref).path"
+              class="nav-link inline-block"
+              @click.native="clickFn"
             />
           </div>
         </div>
@@ -108,8 +108,9 @@ export default {
     toggleChild(item, i) {
       if (item.children && item.children.length > 0) {
         let dropdown = this.$refs.list[i].querySelector('.child-menu')
-        let dropdownTrigger =
-          this.$refs.list[i].querySelector('.dropdown-trigger')
+        let dropdownTrigger = this.$refs.list[i].querySelector(
+          '.dropdown-trigger'
+        )
         if (dropdown && dropdown.classList.contains('open')) {
           dropdown.classList.remove('open')
         } else {
