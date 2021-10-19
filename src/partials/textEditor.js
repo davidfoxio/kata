@@ -59,18 +59,18 @@ const basicTextEditor = (name = 'Text Body', settings) => {
                 },
               ],
             },
-            {
-              name: 'link',
-              type: 'object',
-              title: 'Link',
-              fields: [
-                {
-                  name: 'href',
-                  title: 'URL',
-                  type: 'url',
-                },
-              ],
-            },
+            // {
+            //   name: 'link',
+            //   type: 'object',
+            //   title: 'Link',
+            //   fields: [
+            //     {
+            //       name: 'href',
+            //       title: 'URL',
+            //       type: 'url',
+            //     },
+            //   ],
+            // },
           ],
         },
       },
@@ -147,18 +147,18 @@ const fullTextEditor = (name = 'Text Body', settings) => {
                 },
               ],
             },
-            {
-              name: 'link',
-              type: 'object',
-              title: 'Link',
-              fields: [
-                {
-                  name: 'href',
-                  title: 'URL',
-                  type: 'url',
-                },
-              ],
-            },
+            // {
+            //   name: 'link',
+            //   type: 'object',
+            //   title: 'Link',
+            //   fields: [
+            //     {
+            //       name: 'href',
+            //       title: 'URL',
+            //       type: 'url',
+            //     },
+            //   ],
+            // },
           ],
         },
         styles: [
