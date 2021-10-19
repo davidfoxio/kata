@@ -9,9 +9,9 @@ export default {
       let context = this
       setTimeout(() => {
         // set timeout to allow new route to mount before calling set link
-        // TODO: find a way to detect when mount has finished for another route?
+        // TODO: find a way to detect when mount has finished
         context.setLinks()
-      }, 500)
+      }, 1000)
     },
   },
   mounted() {
@@ -37,8 +37,8 @@ export default {
 
         document.addEventListener('mousemove', function (e) {
           if (cursor) {
-            cursor.style.top = e.pageY + 'px'
-            cursor.style.left = e.pageX + 'px'
+            cursor.style.top = e.clientY + 'px'
+            cursor.style.left = e.clientX + 'px'
           }
         })
       } else {
@@ -74,7 +74,7 @@ export default {
   background: black;
   z-index: 99999;
   pointer-events: none;
-  position: absolute;
+  position: fixed;
   width: 20px;
   height: 20px;
   border-radius: 50%;
