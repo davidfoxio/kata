@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap -mx-small" v-if="total">
+  <div v-if="total" class="flex flex-wrap -mx-small">
     <!-- <nuxt-link
       :to="{ path: $route.path, query: { page: 1 } }"
       :class="currentPage === 1 ? disabledStyle : buttonStyles"

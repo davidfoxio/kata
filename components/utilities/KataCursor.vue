@@ -5,16 +5,28 @@
 <script>
 export default {
   watch: {
-    $route: function (newVal, oldVal) {
-      let context = this
-      setTimeout(() => {
-        // set timeout to allow new route to mount before calling set link
-        // TODO: find a way to detect when mount has finished
-        context.setLinks()
-      }, 1000)
+    $route: {
+      handler: function (newVal, oldVal) {
+        let context = this
+        setTimeout(() => {
+          // set timeout to allow new route to mount before calling set link
+          // TODO: find a way to detect when mount has finished
+          context.setLinks()
+        }, 1500)
+      },
+      deep: true,
+      // immediate: true,
     },
   },
   mounted() {
+    let context = this
+    this.$nextTick(() => {
+      context.setup()
+      context.setLinks()
+    })
+  },
+  updated() {
+    console.log('updated called')
     let context = this
     this.$nextTick(() => {
       context.setup()
@@ -50,18 +62,20 @@ export default {
       if (process.client && !this.isTouchDevice()) {
         let cursor = this.$refs.cursor
         let links = document.querySelectorAll('a, button, input[type=submit]')
-        for (let index = 0; index < links.length; index++) {
-          const element = links[index]
-          element.style.cursor = 'none'
-          element.addEventListener('mouseover', function () {
-            cursor.classList.add('hover')
-          })
-          element.addEventListener('mouseout', function () {
-            cursor.classList.remove('hover')
-          })
-          element.addEventListener('click', function () {
-            cursor.classList.remove('hover')
-          })
+        if (cursor && links) {
+          for (let index = 0; index < links.length; index++) {
+            const element = links[index]
+            element.style.cursor = 'none'
+            element.addEventListener('mouseover', function () {
+              cursor.classList.add('hover')
+            })
+            element.addEventListener('mouseout', function () {
+              cursor.classList.remove('hover')
+            })
+            element.addEventListener('click', function () {
+              cursor.classList.remove('hover')
+            })
+          }
         }
       }
     },

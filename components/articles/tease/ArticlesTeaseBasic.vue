@@ -86,7 +86,6 @@ export default {
         transition: 0.3s ease;
         opacity: 1;
         left: 0;
-        right: 0;
         transform: rotate(45deg);
         right: 5px;
       }

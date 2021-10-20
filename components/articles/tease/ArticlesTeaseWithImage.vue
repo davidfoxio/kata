@@ -26,6 +26,7 @@
       <DraftLabel v-if="itemId" :id="itemId" />
     </h3>
     <p v-if="text" v-kata-html="text" class="text mt-small" />
+    <p v-if="readMore" v-kata-html="readMore" class="read-more mt-small" />
   </component>
 </template>
 
@@ -53,6 +54,10 @@ export default {
       default: '',
     },
     text: {
+      type: String,
+      default: '',
+    },
+    readMore: {
       type: String,
       default: '',
     },
