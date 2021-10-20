@@ -1,5 +1,5 @@
 <template>
-  <div v-if="total" class="flex flex-wrap -mx-small">
+  <div v-if="total && total > perPage" class="flex flex-wrap -mx-small">
     <!-- <nuxt-link
       :to="{ path: $route.path, query: { page: 1 } }"
       :class="currentPage === 1 ? disabledStyle : buttonStyles"
