@@ -113,6 +113,8 @@ const searchArticles = {
             newArticles.push(elem)
           }
         })
+      } else {
+        newArticles = this.articles
       }
       return newArticles
     },
