@@ -44,6 +44,10 @@ export default {
       type: Array,
       default: null,
     },
+    textBody: {
+      type: Array,
+      default: null,
+    },
     link: {
       type: String,
       default: '',
