@@ -3,6 +3,14 @@
     {{ text }}
   </nuxt-link>
 
+  <button
+    v-else-if="_type == 'anchor'"
+    :class="linkStyle"
+    @click="scrollTo(anchor)"
+  >
+    {{ text }}
+  </button>
+
   <a
     v-else-if="fileLink"
     :href="link"
@@ -17,6 +25,7 @@
   <a v-else-if="url" :href="link" target="_blank" :class="linkStyle">
     {{ text }}
   </a>
+
   <nuxt-link
     v-else-if="query && query != null"
     :to="{ query: { lightbox: query } }"
@@ -57,6 +66,10 @@ export default {
       type: String,
       default: null,
     },
+    _type: {
+      type: String,
+      default: null,
+    },
   },
   computed: {
     link() {
@@ -85,6 +98,21 @@ export default {
       } else {
         const text = this.link ? this.link.title : null
         return text
+      }
+    },
+  },
+  methods: {
+    scrollTo(anchor) {
+      if (process.client) {
+        if (anchor.includes('#')) anchor = anchor.replace('#', '')
+        let el = document.getElementById(anchor)
+        let header = document.getElementById('header')
+        if (el && header) {
+          window.scrollTo({
+            top: el.offsetTop - header.offsetHeight,
+            behavior: 'smooth',
+          })
+        }
       }
     },
   },
