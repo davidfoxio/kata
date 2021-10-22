@@ -4,7 +4,7 @@
       v-for="link in links"
       v-bind="link"
       :key="link._key"
-      class="mx-2 inline-block mb-small"
+      class="mx-2 inline-block mb-small fade-up"
     />
   </div>
 </template>
