@@ -32,8 +32,8 @@
       <p v-if="submitted" v-kata-html="thanks" />
       <form
         v-else
-        id="contact"
-        name="contact"
+        :id="formName"
+        :name="formName"
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
@@ -136,6 +136,10 @@ export default {
     formPhone: {
       type: Boolean,
       default: false,
+    },
+    formName: {
+      type: String,
+      default: 'contact',
     },
   },
   data() {
