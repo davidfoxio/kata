@@ -1,6 +1,10 @@
 <template>
   <div class="slider" :class="{ loaded: !loading }">
-    <div ref="css-slider" class="css-slider">
+    <div
+      ref="css-slider"
+      class="css-slider"
+      :class="{ 'two-slides': images.length == 2 }"
+    >
       <div
         v-for="(item, i) in images"
         :key="item._id"
@@ -130,6 +134,13 @@ export default {
         height: 100%;
         width: 100%;
         object-fit: cover;
+      }
+    }
+
+    &.two-slides {
+      .slide-image.last-active {
+        opacity: 0;
+        transition: opacity 1s ease-in;
       }
     }
   }
