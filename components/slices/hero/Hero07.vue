@@ -4,7 +4,7 @@
       hero-7
       slice
       flex-wrap
-      md:flex-no-wrap
+      md:flex-nowrap
       md:justify-between
       flex
       min-h-screen
