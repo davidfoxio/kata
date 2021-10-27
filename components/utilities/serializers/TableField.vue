@@ -53,7 +53,7 @@ th {
 
 td:first-child,
 th:first-child {
-  padding-left: 12px i !important;
+  padding-left: 12px !important;
 }
 
 thead {
