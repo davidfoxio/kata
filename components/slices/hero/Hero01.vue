@@ -1,6 +1,6 @@
 <template>
   <div
-    class="hero-1 slice flex-wrap md:flex-no-wrap md:justify-between flex min-h-screen"
+    class="hero-1 slice flex-wrap md:flex-nowrap md:justify-between flex min-h-screen"
   >
     <div
       class="md:py-slice-half md:w-1/2 px-r1/12 md:pr-large md:flex md:flex-col md:justify-center order-2 md:order-1 content"
