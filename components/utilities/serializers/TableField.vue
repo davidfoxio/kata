@@ -47,7 +47,7 @@ th {
   border-width: 0 0 0 1px;
   font-size: inherit;
   margin: 0;
-  overflow: visible; /*to make ths where the title is really long work*/
+  overflow: visible; /* to make ths where the title is really long work */
   @apply p-small;
 }
 

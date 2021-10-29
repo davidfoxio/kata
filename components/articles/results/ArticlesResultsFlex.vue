@@ -49,6 +49,14 @@ export default {
       type: Array,
     },
   },
+  methods: {
+    getCategoryTitle(id) {
+      return this.$store.getters['references/getFieldByRef']({
+        ref: id,
+        field: 'title',
+      })
+    },
+  },
 }
 </script>
 

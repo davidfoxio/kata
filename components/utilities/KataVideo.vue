@@ -3,12 +3,15 @@
     v-if="video"
     ref="video"
     v-observe-visibility="isVisible"
+    class="kata-video"
     nocontrols
     muted
     :autoplay="false"
     preload="true"
     playsinline
     :poster="image"
+    :class="{ loaded: loaded }"
+    @load="loaded = true"
   ></video>
 </template>
 
@@ -29,6 +32,7 @@ export default {
       playPromise: false,
       isMobile: false,
       image: '',
+      loaded: false,
     }
   },
   computed: {
@@ -42,7 +46,7 @@ export default {
     if (this.video) {
       // https://github.com/video-dev/hls.js/#embedding-hlsjs
       const videoSrc = `https://stream.mux.com/${this.playbackId}.m3u8`
-      this.image = `https://image.mux.com/${this.playbackId}/thumbnail.jpg`
+      this.image = `https://image.mux.com/${this.playbackId}/thumbnail.jpg?time=0`
       const video = this.$refs.video
 
       if (Hls.isSupported()) {
@@ -83,3 +87,14 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss">
+video.kata-video {
+  transition: opacity 1s ease;
+  opacity: 0;
+  &.loaded,
+  &.isLoaded {
+    opacity: 1;
+  }
+}
+</style>

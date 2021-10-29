@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="articles"
-    class="py-slice-half px-5 md:flex md:space-x-5 relative articles-results-list-nuxt-child"
+    class="md:flex md:space-x-medium relative articles-results-list-nuxt-child"
   >
     <div class="md:w-1/2 list">
       <transition-group tag="ul" name="fade" mode="out-in">
@@ -14,7 +14,7 @@
       <nuxt-child v-if="$route.params.slug" />
     </div>
   </div>
-  <div v-else class="py-slice-half px-5 md:flex md:space-x-5">
+  <div v-else class="no-results">
     <p>No results found.</p>
   </div>
 </template>

@@ -161,15 +161,15 @@ export default {
       this.submitted = true
     }
   },
-  methods: {
-    actionFn() {
-      if (this.action) {
-        return this.action
-      } else {
-        this.$router.push({ query: { form: 'submitted' } })
-      }
-    },
-  },
+  // methods: {
+  //   actionFn() {
+  //     if (this.action) {
+  //       return this.action
+  //     } else {
+  //       this.$router.push({ query: { form: 'submitted' } })
+  //     }
+  //   },
+  // },
 }
 </script>
 
