@@ -10,8 +10,6 @@
     preload="true"
     playsinline
     :poster="image"
-    :class="{ loaded: loaded }"
-    @load="loaded = true"
   ></video>
 </template>
 
@@ -87,14 +85,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="scss">
-video.kata-video {
-  transition: opacity 1s ease;
-  opacity: 0;
-  &.loaded,
-  &.isLoaded {
-    opacity: 1;
-  }
-}
-</style>
