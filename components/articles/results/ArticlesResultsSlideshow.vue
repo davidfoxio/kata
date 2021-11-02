@@ -44,18 +44,25 @@
         </li>
       </ul>
       <div
-        class="md:w-1/2 xl:w-1/3 image md:align-center pl-small md:pl-0 border-primary border-l-2 md:border-none"
+        class="md:w-1/2 xl:w-1/3 image md:align-center pl-small md:pl-0 border-primary border-l-2 md:border-none relative"
       >
-        <transition name="fade" mode="out-in">
+        <div
+          v-for="(item, i) in articles"
+          :key="item._id"
+          class="slide-image"
+          :class="{
+            active: activeArticle == i,
+          }"
+        >
           <KataImage
-            v-if="articles[activeArticle] && articles[activeArticle].image"
-            :key="activeArticle"
-            :image="articles[activeArticle].image"
-            sizes="50vw"
-            :max-width="900"
+            v-if="item.image"
+            data-not-lazy
+            :image="item.image"
             :ratio="4 / 3"
+            class="h-full object-cover w-full"
+            :sizes="sizes"
           />
-        </transition>
+        </div>
       </div>
     </div>
   </div>
@@ -116,13 +123,36 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .article-results-slideshow {
-  img {
-    // min-height: 200px;
-    height: 100%;
-    object-fit: cover;
+  .image {
+    min-height: 50vh;
+  }
+  .slide-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease-in;
+    z-index: 1;
     width: 100%;
+    height: 100%;
+    opacity: 0;
+    overflow: hidden;
+
+    &.active {
+      z-index: 5;
+      width: 100%;
+      transition: 0;
+      opacity: 1;
+    }
+
+    img {
+      max-height: calc(100vh - var(--header-height));
+      object-fit: cover;
+      height: 100%;
+      min-height: 100%;
+      object-position: center center;
+    }
   }
 }
 </style>
