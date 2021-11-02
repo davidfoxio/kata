@@ -11,20 +11,21 @@
           :class="{ 'border-opacity-100': i == activeArticle }"
           @mouseover="activeArticle = i"
         >
+          <p v-if="i == 0" class="label-2 pl-small opacity-30 featured-label">
+            Featured
+          </p>
           <nuxt-link
             :to="getLink(item._id)"
             class="mb-small inline-block pl-small hover:text-primary transition-all duration-500"
             :class="[i == activeArticle ? 'opacity-90' : 'opacity-30']"
           >
-            <p class="label-2">Featured</p>
             <h3 class="heading-3 my-small">
               {{ item.title }}
             </h3>
             <p
               v-if="item[categoryField] && item[categoryField].length"
-              class="opacity-50 label-2"
+              class="label-2 category"
             >
-              Tags:
               <span v-for="(tag, x) in item[categoryField]" :key="tag._key">
                 {{
                   $store.getters['references/getFieldByRef']({
@@ -112,10 +113,6 @@ export default {
     height: 100%;
     object-fit: cover;
     width: 100%;
-    max-height: 50vh;
-  }
-  .image {
-    height: 50vh;
   }
 }
 </style>
