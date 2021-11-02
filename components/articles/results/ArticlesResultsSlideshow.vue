@@ -23,7 +23,11 @@
               {{ item.title }}
             </h3>
             <p
-              v-if="item[categoryField] && item[categoryField].length"
+              v-if="
+                showCategories &&
+                item[categoryField] &&
+                item[categoryField].length
+              "
               class="label-2 category"
             >
               <span v-for="(tag, x) in item[categoryField]" :key="tag._key">
@@ -39,7 +43,9 @@
           </nuxt-link>
         </li>
       </ul>
-      <div class="md:w-1/2 xl:w-1/3 image md:align-center">
+      <div
+        class="md:w-1/2 xl:w-1/3 image md:align-center pl-small md:pl-0 border-primary border-l-2 md:border-none"
+      >
         <transition name="fade" mode="out-in">
           <KataImage
             v-if="articles[activeArticle] && articles[activeArticle].image"
@@ -69,6 +75,10 @@ export default {
     categoryField: {
       type: String,
       default: 'category',
+    },
+    showCategories: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {

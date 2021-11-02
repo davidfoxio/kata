@@ -62,21 +62,49 @@ export default {
 
 <style lang="scss">
 .ulClass {
-  @include sm-up {
+  li {
+    flex-basis: calc(50% - var(--spacing-medium));
+    flex-grow: 1;
+    max-width: 50%;
+  }
+  li:nth-child(10n + 3),
+  li:nth-child(10n + 6),
+  li:nth-child(10n + 9) {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  @include md-up {
     li {
-      flex-basis: 40%;
+      flex-basis: calc(50% - var(--spacing-medium));
       flex-grow: 1;
-      @include md-up {
-        max-width: 50%;
-      }
+      max-width: 50%;
     }
-    :nth-child(10n + 1),
-    :nth-child(10n + 2),
-    :nth-child(10n + 3),
-    :nth-child(10n + 6),
-    :nth-child(10n + 7),
-    :nth-child(10n + 8) {
-      flex-basis: 30%;
+    li:nth-child(10n + 1),
+    li:nth-child(10n + 2),
+    li:nth-child(10n + 3),
+    li:nth-child(10n + 6),
+    li:nth-child(10n + 7),
+    li:nth-child(10n + 8) {
+      flex-basis: calc(33% - var(--spacing-medium));
+    }
+  }
+  @include xl-up {
+    li,
+    li:nth-child(10n + 6),
+    li:nth-child(10n + 7) {
+      flex-basis: calc(33% - var(--spacing-medium));
+      min-width: calc(33% - var(--spacing-medium));
+      max-width: 34%;
+    }
+    li:nth-child(10n + 1),
+    li:nth-child(10n + 2),
+    li:nth-child(10n + 3),
+    li:nth-child(10n + 4),
+    li:nth-child(10n + 8),
+    li:nth-child(10n + 9) {
+      flex-basis: calc(25% - var(--spacing-medium));
+      min-width: calc(25% - var(--spacing-medium));
     }
   }
 }
