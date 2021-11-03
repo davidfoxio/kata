@@ -2,7 +2,7 @@
   <div class="article-results-slideshow">
     <div class="md:flex">
       <ul
-        class="md:w-1/2 xl:w-2/3 md:pr-medium flex flex-col justify-between items-start"
+        class="md:w-1/2 md:pr-medium flex flex-col justify-between items-start"
       >
         <li
           v-for="(item, i) in articles"
@@ -44,7 +44,7 @@
         </li>
       </ul>
       <div
-        class="md:w-1/2 xl:w-1/3 image md:align-center pl-small md:pl-0 border-primary border-l-2 md:border-none relative"
+        class="md:w-1/2 image md:align-center pl-small md:pl-0 border-primary border-l-2 md:border-none relative"
       >
         <div
           v-for="(item, i) in articles"
