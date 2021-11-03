@@ -87,6 +87,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    sizes: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
