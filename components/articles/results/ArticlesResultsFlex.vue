@@ -1,12 +1,12 @@
 <template>
   <transition-group
     v-if="articles"
-    class="ulClass flex flex-wrap gap-medium"
+    class="flex flex-wrap article-results-flex"
     tag="ul"
     name="fade"
     mode="out-in"
   >
-    <li v-for="item in articles" :key="item._id">
+    <li v-for="item in articles" :key="item._id" class="mb-medium">
       <slot name="tease" :item="item">
         <NuxtLink :to="getLink(item._id)">
           <KataImage
@@ -61,11 +61,13 @@ export default {
 </script>
 
 <style lang="scss">
-.ulClass {
+.article-results-flex {
+  margin: 0 calc(-1 * (var(--spacing-medium) / 2));
   li {
     flex-basis: calc(50% - var(--spacing-medium));
     flex-grow: 1;
     max-width: 50%;
+    padding: 0 calc(var(--spacing-medium) / 2);
   }
   li:nth-child(10n + 3),
   li:nth-child(10n + 6),
