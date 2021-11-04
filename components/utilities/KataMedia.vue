@@ -9,8 +9,8 @@
       class="h-full w-full object-cover"
     />
     <KataVideo
-      v-else-if="video"
-      :video="video"
+      v-else-if="videoSrc"
+      :video="videoSrc"
       class="h-full w-full object-cover"
       loop
     ></KataVideo>
@@ -46,6 +46,7 @@ export default {
       default: '100vw',
     },
   },
+  data: () => ({ isMobile: false }),
   computed: {
     image() {
       if (
@@ -58,13 +59,31 @@ export default {
         return null
       }
     },
+    videoSrc() {
+      if (this.isMobile && this.mobileVideo) {
+        return this.mobileVideo
+      } else {
+        return this.video
+      }
+    },
     video() {
       if (
         this.media &&
-        this.media.length === 1 &&
+        this.media.length > 0 &&
         this.media[0]._type == 'video'
       ) {
         return this.media[0]
+      } else {
+        return null
+      }
+    },
+    mobileVideo() {
+      if (
+        this.media &&
+        this.media.length > 1 &&
+        this.media[1]._type == 'video'
+      ) {
+        return this.media[1]
       } else {
         return null
       }
@@ -78,6 +97,11 @@ export default {
 
       return slides
     },
+  },
+  mounted() {
+    if (process.client && window.matchMedia('(max-width: 500px)').matches) {
+      this.isMobile = true
+    }
   },
 }
 </script>
