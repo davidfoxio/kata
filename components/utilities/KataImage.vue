@@ -8,6 +8,7 @@
     :width="maxWidth"
     :height="maxWidth * ratio"
     class="kata-image"
+    :alt="alt"
   />
 </template>
 
@@ -83,6 +84,22 @@ export default {
 
       return srcSet
     },
+    alt() {
+      let meta = this.$store.getters['references/getImageMetadata'](
+        this.image.asset._ref
+      )
+      // set in order of preference
+      let items = ['alt', 'title', 'description', 'id']
+      let alt = ''
+      for (let i = 0; i < items.length; i++) {
+        const elem = items[i]
+        if (meta.hasOwnProperty(elem) && meta[elem]) {
+          alt = meta[elem]
+          break
+        }
+      }
+      return alt
+    },
   },
   methods: {
     increment(maxWidth) {
@@ -93,12 +110,6 @@ export default {
     h(val) {
       return Math.floor(val / this.ratio)
     },
-    imgMeta(ref) {
-      if (ref) return this.$store.getters['references/getImageMetadata'](ref)
-      return null
-    },
-    // onLoad() {
-    // },
   },
 }
 </script>
