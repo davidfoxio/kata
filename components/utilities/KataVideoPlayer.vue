@@ -8,7 +8,7 @@
     playsinline
     width="100%"
     preload="metadata"
-    :poster="poster"
+    :data-poster="poster"
   ></video>
 </template>
 

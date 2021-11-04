@@ -9,7 +9,7 @@
     :autoplay="false"
     preload="true"
     playsinline
-    :poster="image"
+    :data-poster="image"
   ></video>
 </template>
 

@@ -8,7 +8,6 @@
     :width="maxWidth"
     :height="maxWidth * ratio"
     class="kata-image"
-    @load="loaded = true"
   />
 </template>
 
@@ -105,10 +104,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-img.kata-image {
+// fade in lazyloaded images
+img.kata-image.lazyLoad {
   transition: opacity 1s ease;
   opacity: 0;
-  &.loaded,
   &.isLoaded {
     opacity: 1;
   }
