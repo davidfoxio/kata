@@ -7,14 +7,18 @@
       <div
         v-for="item in thumbnails"
         :key="item._key"
-        class="px-small md:w-1/3 fade-up thumbnail"
+        class="px-small md:w-1/3 flex-grow fade-up thumbnail"
       >
         <slot name="tease" :item="item">
           <component
             :is="item.link ? 'nuxt-link' : 'div'"
             :to="item.link ? getLink(item.link._ref) : ''"
           >
-            <KataImage :image="item.image" :ratio="4 / 3" class="mb-small" />
+            <KataImage
+              :image="item.image"
+              :ratio="3 / 4"
+              class="mb-small max-h-[70vh] object-cover"
+            />
             <h3
               v-if="item.title"
               v-kata-html="item.title"
