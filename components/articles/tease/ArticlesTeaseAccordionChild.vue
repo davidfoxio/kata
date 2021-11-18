@@ -32,7 +32,11 @@
       @before-leave="start"
       @after-leave="end"
     >
-      <n-child v-if="slug && slug.current == $route.params.slug" :slug="slug" />
+      <n-child
+        v-if="slug && slug.current == $route.params.slug"
+        :slug="slug"
+        class="accordion-content pt-small"
+      />
     </transition>
   </div>
 </template>
