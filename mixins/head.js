@@ -100,6 +100,17 @@ export default {
           }
         )
       }
+
+      if (this.c.seoMeta && this.c.seoMeta.schemaOrg) {
+        // https://mhagemann.medium.com/how-to-add-structured-json-ld-data-to-nuxt-js-8bb5f7c8a2d
+        head.__dangerouslyDisableSanitizers = ['script']
+        head.script = [
+          {
+            innerHTML: JSON.stringify(this.c.seoMeta.schemaOrg),
+            type: 'application/ld+json',
+          },
+        ]
+      }
     }
 
     return head
