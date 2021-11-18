@@ -106,7 +106,7 @@ export default {
         head.__dangerouslyDisableSanitizers = ['script']
         head.script = [
           {
-            innerHTML: JSON.stringify(this.c.seoMeta.schemaOrg),
+            innerHTML: this.c.seoMeta.schemaOrg,
             type: 'application/ld+json',
           },
         ]
