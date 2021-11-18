@@ -24,9 +24,7 @@ export default {
     },
     categories: {
       type: Array,
-      default: function () {
-        return []
-      },
+      default: null,
     },
     internalLink: {
       type: Boolean,
