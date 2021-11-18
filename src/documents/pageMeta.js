@@ -1,4 +1,8 @@
-import { hiddenTitle } from 'part:@weflocc/kata/partials/meta'
+import {
+  hiddenTitle,
+  sharingImage,
+  schemaOrg,
+} from 'part:@weflocc/kata/partials/meta'
 
 export default {
   type: 'document',
@@ -20,19 +24,7 @@ export default {
       type: 'text',
       rows: 3,
     },
-    {
-      title: 'Social Sharing Image',
-      name: 'socialImage',
-      type: 'image',
-      description: '1200px x 630px',
-    },
-    {
-      name: 'schemaOrg',
-      title: 'Schema.org JS',
-      description:
-        'Leave out the opening and closing script tags, JSON only here',
-      type: 'text',
-      rows: 5,
-    },
+    sharingImage,
+    schemaOrg,
   ],
 }

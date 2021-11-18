@@ -1,3 +1,9 @@
+import {
+  metaDescription,
+  sharingImage,
+  schemaOrg,
+} from 'part:@weflocc/kata/partials/meta'
+
 export default {
   name: 'seoMeta',
   type: 'object',
@@ -8,16 +14,8 @@ export default {
       name: 'htmlTitle',
       title: 'Prepend Meta Title',
     },
-    {
-      type: 'text',
-      name: 'metaDescription',
-      title: 'Meta Description',
-    },
-    {
-      title: 'Social Sharing Image',
-      name: 'socialImage',
-      type: 'image',
-      description: '1200px x 630px',
-    },
+    metaDescription,
+    sharingImage,
+    schemaOrg,
   ],
 }
