@@ -1,6 +1,6 @@
 <template>
-  <div class="slice feature-8">
-    <div class="w-r10/12 mx-r1/12 sm:flex mb-large">
+  <div class="slice feature-8" :class="{ 'w-r10/12 mx-r1/12': isContained }">
+    <div class="sm:flex mb-large">
       <div class="sm:w-r6/12 mr-large">
         <h2 v-kata-html="title" class="heading-2 fade-up" />
       </div>
@@ -9,10 +9,17 @@
       </div>
     </div>
     <KataImage
+      v-if="ratio && image"
+      :ratio="ratio"
       :image="image"
-      :ratio="16 / 9"
       :max-width="3000"
-      class="h-screen w-full object-cover"
+      class="w-full h-auto"
+    />
+    <KataImage02
+      v-else-if="image"
+      :image="image"
+      :max-width="3000"
+      class="h-auto w-full"
     />
   </div>
 </template>
@@ -22,6 +29,16 @@ import { title, text, image } from '../shared'
 
 export default {
   mixins: [title, text, image],
+  props: {
+    isContained: {
+      type: Boolean,
+      default: false,
+    },
+    ratio: {
+      type: Number,
+      default: null,
+    },
+  },
 }
 </script>
 
