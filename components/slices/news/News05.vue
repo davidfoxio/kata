@@ -23,7 +23,11 @@
         <p v-if="item.text" v-kata-html="item.text" class="para-2 mt-medium" />
       </div>
       <div class="md:w-5/12 lg:w-7/12 image md:mb-0 mb-medium">
-        <KataImage :image="item.image" class="h-full w-full object-cover" />
+        <KataImage
+          :ratio="4 / 3"
+          :image="item.image"
+          class="h-full w-full object-cover"
+        />
       </div>
     </component>
   </div>

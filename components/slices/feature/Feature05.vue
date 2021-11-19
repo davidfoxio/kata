@@ -15,7 +15,7 @@
     >
       <li
         v-for="(item, index) in features"
-        :key="item.title ? item.title : index"
+        :key="item._key"
         class="mb-large fade-up px-medium item"
         :class="width"
       >

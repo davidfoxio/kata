@@ -1,6 +1,10 @@
 <template>
   <div class="accordion-item">
-    <div class="accordion-trigger pb-small" :class="{ active: visible }" @click="open">
+    <div
+      class="accordion-trigger pb-small"
+      :class="{ active: visible }"
+      @click="open"
+    >
       <h3 v-if="title" v-kata-html="title" />
       <div class="plus" :class="{ open: visible }"></div>
     </div>
@@ -26,11 +30,21 @@ export default {
       type: String,
       required: true,
     },
+    // can set startOpen to true to show as open to begin with
+    startOpen: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       index: null,
       visible: false,
+    }
+  },
+  mounted() {
+    if (this.startOpen) {
+      this.visible = true
     }
   },
   methods: {
