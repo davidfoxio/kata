@@ -15,17 +15,17 @@
     </div>
     <div class="md:w-1/2 body">
       <div v-if="address" class="mb-medium">
-        <p class="label-1">Address</p>
+        <p v-if="!hideLabels" class="label-1">Address</p>
         <p v-kata-html="address" class="whitespace-pre-line" />
       </div>
       <div v-if="email" class="mb-medium">
-        <p class="label-1">Email</p>
+        <p v-if="!hideLabels" class="label-1">Email</p>
         <p>
           <a :href="'mailto:' + email">{{ email }}</a>
         </p>
       </div>
       <div v-if="telephone" class="mb-medium">
-        <p class="label-1">Telephone</p>
+        <p v-if="!hideLabels" class="label-1">Telephone</p>
         <p>
           <a :href="'tel:' + telephone">{{ telephone }}</a>
         </p>
@@ -40,6 +40,10 @@ export default {
   mixins: [title, text],
   props: {
     isH1: {
+      type: Boolean,
+      default: false,
+    },
+    hideLabels: {
       type: Boolean,
       default: false,
     },
