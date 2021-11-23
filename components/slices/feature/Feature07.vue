@@ -23,6 +23,7 @@
             v-if="item.icon"
             :image="item.icon"
             class="mb-small mx-auto object-contain"
+            :class="item.link ? 'has-link' : null"
           />
           <h3
             v-if="item.title"
