@@ -1,8 +1,15 @@
 <template>
-  <nuxt-link v-if="internalLink" :to="path" :class="linkStyle">
+  <nuxt-link v-if="internalLink && !isOnSamePage" :to="path" :class="linkStyle">
     {{ text }}
   </nuxt-link>
 
+  <button
+    v-else-if="internalLink && isOnSamePage && anchor"
+    :class="linkStyle"
+    @click="scrollToAnchor(anchor)"
+  >
+    {{ text }}
+  </button>
   <button
     v-else-if="_type == 'anchor'"
     :class="linkStyle"
@@ -85,6 +92,13 @@ export default {
         return null
       }
     },
+    isOnSamePage() {
+      if (this.link?.path) {
+        return this.link.path === this.$route.fullPath ? true : false
+      } else {
+        return false
+      }
+    },
     path() {
       let path = this.link ? this.link.path : null
       if (this.internalLink && this.anchor) {
@@ -110,6 +124,23 @@ export default {
         if (el && header) {
           window.scrollTo({
             top: el.offsetTop - header.offsetHeight,
+            behavior: 'smooth',
+          })
+        }
+      }
+    },
+    scrollToAnchor(anchor) {
+      if (process.client) {
+        console.log('whoosh')
+        anchor = anchor.toString()
+        if (anchor.includes('#')) {
+          anchor = anchor.replace('#', '')
+        }
+        let elem = document.getElementById(anchor, anchor.replace('#', ''))
+        if (elem) {
+          window.scrollBy({
+            top: elem.getBoundingClientRect().top - 150,
+            left: 0,
             behavior: 'smooth',
           })
         }
