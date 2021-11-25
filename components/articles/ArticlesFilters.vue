@@ -29,13 +29,15 @@
           </button>
         </div>
       </div>
-      <button
+      <!-- there is now a separate clear button component for all the filters -->
+      <!-- the below clear is redundant, as there is also an all -->
+      <!-- <button
         type="button"
         class="btn-secondary btn-small mt-small"
         @click="clear(filterGroup.label)"
       >
         Clear
-      </button>
+      </button> -->
     </div>
   </div>
 </template>
