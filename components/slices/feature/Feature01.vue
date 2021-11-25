@@ -1,7 +1,10 @@
 <template>
   <div
     class="slice feature-1 w-r10/12 mx-r1/12 flex flex-col"
-    :class="{ 'md:flex-row-reverse': reversed, 'md:flex-row': !reversed }"
+    :class="{
+      'md:flex-row-reverse reversed': reversed,
+      'md:flex-row ': !reversed,
+    }"
   >
     <div
       class="md:w-1/2 order-2 md:order-1 py-medium text"
