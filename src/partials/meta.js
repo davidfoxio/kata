@@ -5,7 +5,6 @@ const metaFieldset = {
     collapsed: true,
     collapsible: true,
   },
-  
 }
 
 const metaField = {
@@ -27,6 +26,9 @@ const hiddenTitle = {
   type: 'string',
   description:
     'This title will show in menus, and when you reference this document',
+  hidden: ({ currentUser }) => {
+    return currentUser.email != 'studio@flocc.co'
+  },
 }
 
 const slug = {
