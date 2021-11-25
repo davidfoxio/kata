@@ -23,13 +23,16 @@ const searchArticles = {
         for (const [filterGroup, activeTerms] of Object.entries(
           this.activeFilters
         )) {
-          if (activeTerms.length) {
+          if (activeTerms.length && activeTerms.length > 1) {
             let termsString = ``
             activeTerms.forEach((element) => {
               termsString += `"${element}", `
             })
 
             queryBuilder += ` && ${filterGroup}[]._ref in [${termsString}]`
+          } else if (activeTerms.length == 1) {
+            let term = activeTerms[0]
+            queryBuilder += ` && '${term}' in ${filterGroup}[]._ref`
           }
         }
       }
@@ -40,7 +43,13 @@ const searchArticles = {
       }
 
       // custom Filter
-      if (this.customFilter && this.customFilter.value) {
+      if (
+        this.customFilter &&
+        this.customFilter.value &&
+        this.customFilter.type == 'array'
+      ) {
+        queryBuilder += ` && "${this.customFilter.value}" ${this.customFilter.comparator} ${this.customFilter.field}`
+      } else if (this.customFilter && this.customFilter.value) {
         queryBuilder += ` && ${this.customFilter.field} ${this.customFilter.comparator} "${this.customFilter.value}"`
       }
 
@@ -52,6 +61,10 @@ const searchArticles = {
       console.log(groqQuery)
 
       this.articles = await this.$sanity.fetch(groqQuery)
+
+      if (this.paginatedArticles) {
+        this.$router.push({ path: this.$router.path, query: { page: 1 } })
+      }
     },
 
     articlesNotFeatured() {
