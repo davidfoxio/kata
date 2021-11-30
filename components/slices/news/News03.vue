@@ -58,10 +58,9 @@ export default {
       type: Array,
       default: null,
     },
-  },
-  data() {
-    return {
-      settings: {
+    settings: {
+      type: Object,
+      default: () => ({
         arrows: true,
         dots: false,
         slidesToShow: 3,
@@ -82,8 +81,8 @@ export default {
             },
           },
         ],
-      },
-    }
+      }),
+    },
   },
 }
 </script>
