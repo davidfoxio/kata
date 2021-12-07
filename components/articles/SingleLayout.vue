@@ -1,14 +1,14 @@
 <template>
   <div>
     <div
-      class="back-btn mt-small mb-large mx-screen-border"
       v-if="indexPath && backText"
+      class="back-btn mt-small mb-large mx-screen-border"
     >
       <nuxt-link :to="indexPath">{{ backText }}</nuxt-link>
     </div>
     <div class="simple-hero mb-large">
       <div class="md:w-r8/12 md:mx-r2/12 w-r10/12 mx-r1/12 mb-large">
-        <h1 class="text-center" v-kata-html="c.title" />
+        <h1 v-kata-html="c.title" class="text-center" />
       </div>
       <div class="sm:w-r10/12 sm:mx-r1/12 px-screen-border sm:px-0 w-full">
         <KataMedia
@@ -48,8 +48,8 @@
     </div>
 
     <div
-      class="text-center px-screen-border mb-slice-half"
       v-if="indexPath && backText"
+      class="text-center px-screen-border mb-slice-half"
     >
       <div class="back-btn">
         <nuxt-link :to="indexPath">{{ backText }}</nuxt-link>

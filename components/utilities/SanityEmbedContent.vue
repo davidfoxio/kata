@@ -64,6 +64,9 @@ export default {
   p + h3 {
     margin-top: var(--spacing-large);
   }
+  p + .youtube-wrap {
+    @apply mt-medium;
+  }
 
   ol {
     list-style: decimal;
