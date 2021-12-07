@@ -6,30 +6,14 @@
     <div class="block sm:hidden mx-r1/12 mb-slice-half">
       <button
         :class="mobileView == 'List' ? 'border-secondary' : 'border-white'"
-        class="
-          font-bold
-          mr-small
-          border-b-2
-          hover:text-secondary
-          focus:border-b-2
-          focus:outline-none
-          focus:border-secondary
-        "
+        class="font-bold mr-small border-b-2 hover:text-secondary focus:border-b-2 focus:outline-none focus:border-secondary"
         @click="mobileView = 'List'"
       >
         List
       </button>
       <button
         :class="mobileView == 'Map' ? 'border-secondary' : 'border-white'"
-        class="
-          font-bold
-          mr-small
-          border-b-2
-          hover:text-secondary
-          focus:border-b-2
-          focus:outline-none
-          focus:border-secondary
-        "
+        class="font-bold mr-small border-b-2 hover:text-secondary focus:border-b-2 focus:outline-none focus:border-secondary"
         @click="mobileView = 'Map'"
       >
         Map
@@ -44,16 +28,7 @@
           <li
             v-for="item in articles"
             :key="item._key"
-            class="
-              mb-large
-              list-item
-              font-bold
-              inline-block
-              sm:block
-              cursor-pointer
-              transition-all
-              hover:text-secondary
-            "
+            class="mb-large list-item font-bold inline-block sm:block cursor-pointer transition-all hover:text-secondary"
             :class="{
               'text-secondary': item.title == currentArticle,
               'text-white': item.title != currentArticle,
@@ -61,14 +36,18 @@
             @mouseover="setCurrent(item.title)"
             @click="setActive(item)"
           >
-            <h3 v-if="item.title" class="label-1" v-kata-html="item.title" />
-            <!-- <p v-if="item.address" class="para-2 mt-3" v-kata-html="item.address" /> -->
+            <h3 v-if="item.title" v-kata-html="item.title" class="label-1" />
+            <p
+              v-if="item[thumbField]"
+              v-kata-html="item[thumbField]"
+              class="para-2 mt-3"
+            />
           </li>
         </ul>
       </transition>
     </div>
     <div class="sm:w-2/3 relative">
-      <!-- <nuxt-child :key="$route.name" /> -->
+      <nuxt-child v-if="hasChild" :key="$route.name" />
       <transition name="fade">
         <GMap
           v-if="(isMobile && mobileView == 'Map') || !isMobile"
@@ -144,9 +123,15 @@ export default {
         return { lat: 40, lng: 20 }
       },
     },
+    // path must start with a / eg. /members
     path: {
       type: String,
-      required: true,
+      default: '',
+    },
+    // pas in the name of the field you want to show below the title
+    thumbField: {
+      type: String,
+      default: '',
     },
     mapStyle: {
       type: Array,
@@ -160,14 +145,9 @@ export default {
       type: String,
       default: '',
     },
-  },
-  watch: {
-    articles: function (newVal, oldVal) {
-      // watch it
-      console.log('Results map articles changed: ', newVal, ' | was: ', oldVal)
-      if (this.initialLoadDone && this.loaded) {
-        this.mapLoaded()
-      }
+    hasChild: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -186,6 +166,15 @@ export default {
       loaded: false,
       initialLoadDone: false,
     }
+  },
+  watch: {
+    articles: function (newVal, oldVal) {
+      // watch it
+      console.log('Results map articles changed: ', newVal, ' | was: ', oldVal)
+      if (this.initialLoadDone && this.loaded) {
+        this.mapLoaded()
+      }
+    },
   },
   mounted() {
     this.mq()
@@ -207,11 +196,17 @@ export default {
       this.currentArticle = item
     },
     setActive(item) {
-      console.log(this.path, item.slug)
+      console.log('here', this.path, item.slug)
       if (typeof item.slug == 'string') {
-        this.$router.push({ path: this.path + '/' + item.slug + '/' })
+        let path = this.path
+          ? this.path + '/' + item.slug + '/'
+          : '/' + item.slug + '/'
+        this.$router.push({ path: path })
       } else {
-        this.$router.push({ path: this.path + '/' + item.slug.current + '/' })
+        let path = this.path
+          ? this.path + '/' + item.slug.current + '/'
+          : '/' + item.slug.current + '/'
+        this.$router.push({ path: path })
       }
     },
     mapInitLoaded() {
