@@ -31,6 +31,7 @@ export default {
               name: 'link',
               type: 'reference',
               to: config.allTypes,
+              disableNew: true, // we don't want people to be able to create new pages here!
             },
           ],
           preview: {
