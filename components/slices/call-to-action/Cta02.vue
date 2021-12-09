@@ -1,14 +1,15 @@
 <template>
-  <div
-    class="slice call-to-action-2 w-r10/12 mx-r1/12 md:w-r7/12 md:mx-auto text-center"
-  >
+  <div class="slice call-to-action-2 w-r10/12 mx-r1/12 text-center">
     <h2 v-if="title" v-kata-html="title" class="heading-2 fade-up mb-medium" />
-    <div v-if="items" class="flex justify-evenly sm:px-r1/12 xl:px-r2/12">
-      <div v-for="item in items" :key="item._key">
+    <div
+      v-if="items"
+      class="md:flex w-full justify-evenly sm:px-r1/12 xl:px-r2/12"
+    >
+      <div v-for="item in items" :key="item._key" class="md:px-medium">
         <h3
           v-if="item.title"
           v-kata-html="item.title"
-          class="heading-2 fade-up mb-medium"
+          class="heading-3 fade-up mb-medium"
         />
         <p
           v-if="item.text"
