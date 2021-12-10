@@ -13,7 +13,7 @@
         @change="handleChange($event, filterGroup.label)"
       >
         <select :name="filterGroup.label">
-          <option value="">All</option>
+          <option value="">All {{ camelToTitle(filterGroup.label) }}</option>
           <option
             v-for="filter in filterGroup.terms"
             :key="filter.id"
@@ -52,6 +52,20 @@ export default {
     },
   },
   methods: {
+    camelToTitle(text) {
+      const result = text.replace(/([A-Z])/g, ' $1')
+      let finalResult = result.charAt(0).toUpperCase() + result.slice(1)
+      if (
+        finalResult.includes('category') ||
+        finalResult.includes('Category')
+      ) {
+        finalResult = finalResult.replace('category', 'categories')
+        finalResult = finalResult.replace('Category', 'Categories')
+      } else {
+        finalResult += 's'
+      }
+      return finalResult
+    },
     handleChange(e, filterGroup) {
       let val = e.target.value
       console.log(e.target.value, filterGroup)
