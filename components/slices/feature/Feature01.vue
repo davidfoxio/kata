@@ -19,12 +19,8 @@
         />
       </div>
       <h2 v-else v-kata-html="title" class="heading-2 mb-medium fade-up" />
-      <p
-        v-if="text"
-        v-kata-html="text"
-        class="mb-large fade-up whitespace-pre-line"
-      />
-      <KataLinks v-if="links" :links="links" class="fade-up" />
+      <p v-if="text" v-kata-html="text" class="fade-up whitespace-pre-line" />
+      <KataLinks v-if="links" :links="links" class="fade-up mt-large" />
     </div>
     <div class="md:w-1/2 order-1 md:order-2 mb-large md:mb-0 image">
       <KataImage
