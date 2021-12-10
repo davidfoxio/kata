@@ -5,11 +5,13 @@ const standardImage = (name = 'Image', vars = {}) => {
   const required = vars?.required || false
   const title = vars?.title || name
   const description = vars?.description || ''
+  const hidden = vars?.hidden || false
   return {
     name: camelCase(name),
     title: title,
     type: 'image',
     description: description,
+    hidden: hidden,
     options: {
       hotspot: true,
       ...defaultOptions,

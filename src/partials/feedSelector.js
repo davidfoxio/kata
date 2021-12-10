@@ -12,6 +12,7 @@ const feedSelector = ({
   noShowAll,
   filter,
   filterParams,
+  hidden,
 }) => {
   // Defaults
   selectedTitle = selectedTitle || 'Choose manually'
@@ -23,6 +24,7 @@ const feedSelector = ({
   noShowAll = noShowAll || false
   filter = filter || false
   filterParams = filterParams || false
+  hidden = hidden || false
 
   let options = {}
   if (filter) {
@@ -98,6 +100,7 @@ const feedSelector = ({
     description: description,
     fields: fields,
     options: defaultOptions,
+    hidden: hidden,
   }
 }
 
