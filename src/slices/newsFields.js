@@ -1,4 +1,4 @@
-import { standardImage } from "../partials/image"
+import { standardImage } from '../partials/image'
 import config from 'config:@weflocc/kata'
 import { BiListPlus } from 'react-icons/bi'
 
@@ -39,7 +39,9 @@ const items = {
           name: 'link',
           title: 'Link',
           to: config.allTypes,
-          disableNew: true, // we don't want people to be able to create new pages here!
+          options: {
+            disableNew: true, // we don't want people to be able to create new pages here!
+          },
         },
       ],
       preview: {

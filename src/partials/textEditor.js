@@ -56,7 +56,9 @@ const basicTextEditor = (name = 'Text Body', settings) => {
                   type: 'reference',
                   title: 'Reference',
                   to: config.allTypes,
-                  disableNew: true, // we don't want people to be able to create new pages here!
+                  options: {
+                    disableNew: true, // we don't want people to be able to create new pages here!
+                  },
                 },
               ],
             },

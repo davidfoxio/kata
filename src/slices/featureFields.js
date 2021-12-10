@@ -45,7 +45,9 @@ const features = {
           title: 'Link',
           to: config.allTypes,
           description: 'Optional',
-          disableNew: true, // we don't want people to be able to create new pages here!
+          options: {
+            disableNew: true, // we don't want people to be able to create new pages here!
+          },
         },
       ],
       preview: {

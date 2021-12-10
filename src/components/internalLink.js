@@ -11,7 +11,9 @@ export default {
       type: 'reference',
       name: 'internalLink',
       to: config.allTypes,
-      disableNew: true, // we don't want people to be able to create new pages here!
+      options: {
+        disableNew: true, // we don't want people to be able to create new pages here!
+      },
     },
     linkText,
     linkStyle,
