@@ -5,18 +5,26 @@
       v-if="items"
       class="md:flex w-full justify-evenly sm:px-r1/12 xl:px-r2/12"
     >
-      <div v-for="item in items" :key="item._key" class="md:px-medium">
+      <div
+        v-for="item in items"
+        :key="item._key"
+        class="md:px-medium mb-medium md:mb-0"
+      >
         <h3
           v-if="item.title"
           v-kata-html="item.title"
-          class="heading-3 fade-up mb-medium"
+          class="heading-3 fade-up mb-small"
         />
         <p
           v-if="item.text"
           v-kata-html="item.text"
-          class="fade-up mb-medium whitespace-pre-line"
+          class="fade-up whitespace-pre-line"
         />
-        <KataLinks v-if="item.links" :links="item.links" class="fade-up" />
+        <KataLinks
+          v-if="item.links"
+          :links="item.links"
+          class="fade-up mt-small"
+        />
       </div>
     </div>
   </div>
