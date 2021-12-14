@@ -4,6 +4,7 @@
     ref="video"
     v-observe-visibility="isVisible"
     class="kata-video"
+    :class="{ loaded: loaded }"
     nocontrols
     muted
     :autoplay="false"
@@ -54,9 +55,23 @@ export default {
       } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = videoSrc
       }
+
+      this.videoLoaded()
     }
   },
   methods: {
+    videoLoaded() {
+      this.$nextTick(() => {
+        const video = this.$refs.video
+        let self = this
+        video.addEventListener('loadeddata', function () {
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState
+          if (video.readyState > 2) {
+            self.loaded = true
+          }
+        })
+      })
+    },
     isVisible(isVisible, entry) {
       // if (!this.isMobile) {
       let context = this
@@ -85,3 +100,14 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.kata-video {
+  opacity: 0;
+  transition: opacity 1s ease;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+</style>
