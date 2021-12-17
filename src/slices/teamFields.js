@@ -55,4 +55,80 @@ const thumbnails = {
   ],
 }
 
-export { title, text, thumbnails }
+const profiles = {
+  name: 'profiles',
+  title: 'Profiles',
+  type: 'array',
+  options: {
+    collapsable: true,
+  },
+  of: [
+    {
+      name: 'profile',
+      type: 'object',
+      fields: [
+        {
+          name: 'name',
+          type: 'string',
+        },
+        {
+          name: 'job',
+          type: 'string',
+        },
+        {
+          name: 'bio',
+          type: 'text',
+          rows: 3,
+        },
+        standardImage(),
+        {
+          name: 'socials',
+          type: 'object',
+          options: { collapsible: true, collapsed: true },
+          fields: [
+            {
+              title: 'Twitter',
+              name: 'twitter',
+              type: 'string',
+            },
+            {
+              title: 'Facebook',
+              name: 'facebook',
+              type: 'string',
+            },
+            {
+              title: 'Instagram',
+              name: 'instagram',
+              type: 'string',
+            },
+            {
+              title: 'Linked In',
+              name: 'linkedIn',
+              type: 'string',
+            },
+            {
+              title: 'Youtube',
+              name: 'youtube',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+      preview: {
+        select: {
+          heading: 'name',
+          image: 'image',
+        },
+        prepare(selection) {
+          const { heading, image } = selection
+          return {
+            title: heading,
+            media: image || BiListPlus,
+          }
+        },
+      },
+    },
+  ],
+}
+
+export { title, text, thumbnails, profiles }
