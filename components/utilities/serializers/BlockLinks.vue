@@ -1,5 +1,5 @@
 <template>
-  <div v-if="link" class="-mx-2 my-medium">
+  <div v-if="link" class="-mx-2 my-medium kata-block-links">
     <KataLink
       v-for="item in link"
       v-bind="item"
