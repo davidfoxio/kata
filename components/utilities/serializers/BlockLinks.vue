@@ -1,10 +1,10 @@
 <template>
-  <div v-if="link" class="-mx-2 my-medium kata-block-links">
+  <div v-if="link" class="space-x-small kata-block-links">
     <KataLink
       v-for="item in link"
       v-bind="item"
       :key="item._key"
-      class="mx-2 inline-block"
+      class="inline-block"
     />
   </div>
 </template>

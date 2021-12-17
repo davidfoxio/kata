@@ -50,7 +50,8 @@ export default {
 .embed-content-wrap {
   img,
   .youtube-wrap,
-  .btn-primary {
+  .btn-primary,
+  .kata-block-links {
     margin-bottom: var(--spacing-medium);
   }
   h2,
@@ -64,7 +65,12 @@ export default {
   p + h3 {
     margin-top: var(--spacing-large);
   }
-  p + .youtube-wrap {
+  p + .youtube-wrap,
+  h2 + .youtube-wrap,
+  h3 + .youtube-wrap,
+  p + .kata-block-links,
+  h2 + .kata-block-links,
+  h3 + .kata-block-links {
     @apply mt-medium;
   }
 
