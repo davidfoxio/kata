@@ -49,7 +49,7 @@
     "eslint-webpack-plugin": "^2.5.2",
     "prettier": "2.2.1",
     "prettier-eslint-cli": "^5.0.1",
-    "sanipack": "2.0.1"
+    "sanipack": "^2.1.0"
   },
   "peerDependencies": {
     "react": "^17.0.0"
