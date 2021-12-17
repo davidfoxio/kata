@@ -3,7 +3,7 @@
     "source": "./src",
     "compiled": "./lib"
   },
-  "parts": [    
+  "parts": [
     {
       "name": "part:@weflocc/kata/partials/defaults",
       "path": "partials/defaults"
@@ -271,6 +271,10 @@
     {
       "implements": "part:@sanity/base/schema-type",
       "path": "slices/stats/stats01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/team/team03"
     },
     {
       "implements": "part:@sanity/base/schema-type",
