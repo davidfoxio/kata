@@ -7,7 +7,7 @@
       target="_blank"
       class="inline-block hover:text-secondary"
     >
-      <twitterIcon />
+      <twitterIcon :width="size" :height="width" />
     </a>
     <a
       v-if="socialMedia.facebook"
@@ -16,7 +16,7 @@
       target="_blank"
       class="inline-block hover:text-secondary"
     >
-      <facebookIcon />
+      <facebookIcon :width="size" :height="width" />
     </a>
     <a
       v-if="socialMedia.linkedIn"
@@ -25,7 +25,7 @@
       target="_blank"
       class="inline-block hover:text-secondary"
     >
-      <linkedinIcon />
+      <linkedinIcon :width="size" :height="width" />
     </a>
     <a
       v-if="socialMedia.youtube"
@@ -34,7 +34,7 @@
       target="_blank"
       class="inline-block hover:text-secondary"
     >
-      <youtubeIcon />
+      <youtubeIcon :width="size" :height="width" />
     </a>
     <a
       v-if="socialMedia.instagram"
@@ -43,7 +43,7 @@
       target="_blank"
       class="inline-block hover:text-secondary"
     >
-      <instagramIcon />
+      <instagramIcon :width="size" :height="width" />
     </a>
   </div>
 </template>
@@ -63,9 +63,21 @@ export default {
     youtubeIcon,
     instagramIcon,
   },
+  props: {
+    socialLinks: {
+      type: Object,
+      default: () => {},
+    },
+    size: {
+      type: Number,
+      default: 30,
+    },
+  },
   computed: {
     socialMedia() {
-      return this.$store.state.globalContent.socialMedia
+      return this.socialLinks
+        ? this.socialLinks
+        : this.$store.state.globalContent.socialMedia
     },
   },
 }
@@ -78,12 +90,6 @@ export default {
     path {
       fill: currentColor;
       transition: 0.4s ease;
-    }
-  }
-  a {
-    svg {
-      width: 30px;
-      height: 30px;
     }
   }
 }
