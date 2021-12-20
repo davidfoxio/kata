@@ -19,7 +19,7 @@
   </button>
 
   <a
-    v-else-if="fileLink"
+    v-else-if="fileLink && link"
     :href="link"
     :class="linkStyle"
     class="btn-file"
@@ -29,7 +29,7 @@
     {{ text }}
   </a>
 
-  <a v-else-if="url" :href="link" target="_blank" :class="linkStyle">
+  <a v-else-if="url && link" :href="link" target="_blank" :class="linkStyle">
     {{ text }}
   </a>
 
@@ -82,7 +82,10 @@ export default {
     link() {
       if (this.url) {
         return this.url
-      } else if (this.internalLink || this.fileLink) {
+      } else if (
+        this.internalLink ||
+        (this.fileLink && this.fileLink?.asset?._ref)
+      ) {
         const ref = this.internalLink
           ? this.internalLink._ref
           : this.fileLink.asset._ref

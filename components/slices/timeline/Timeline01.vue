@@ -19,7 +19,7 @@
         class="fade-up item"
       >
         <KataSimpleImage
-          v-if="item.icon"
+          v-if="item.icon && item.icon._ref"
           :image="item.icon"
           width="50"
           height="50"
