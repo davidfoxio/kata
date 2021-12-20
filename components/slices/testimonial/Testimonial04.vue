@@ -15,7 +15,11 @@
         ref="testimonials-4-carousel"
         class="w-r8/12"
       >
-        <div v-for="item in testimonials" :key="item._key" class="pr-large">
+        <div
+          v-for="item in testimonials"
+          :key="item._key"
+          class="pr-large testimonial-item"
+        >
           <p
             v-if="item.quote"
             v-kata-html="item.quote"
@@ -36,8 +40,12 @@
         </button>
       </div>
     </div>
-    <div v-else class="w-r8/12 mx-r2/12">
-      <div v-for="item in testimonials" :key="item._key" class="pr-large">
+    <div v-else class="w-r8/12 mx-r2/12 single-testimonial">
+      <div
+        v-for="item in testimonials"
+        :key="item._key"
+        class="pr-large testimonial-item"
+      >
         <p
           v-if="item.quote"
           v-kata-html="item.quote"
