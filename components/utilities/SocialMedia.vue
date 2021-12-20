@@ -7,7 +7,7 @@
       target="_blank"
       class="inline-block hover:text-secondary"
     >
-      <twitterIcon :width="size" :height="width" />
+      <twitterIcon :width="size" :height="size" />
     </a>
     <a
       v-if="socialMedia.facebook"
@@ -16,7 +16,7 @@
       target="_blank"
       class="inline-block hover:text-secondary"
     >
-      <facebookIcon :width="size" :height="width" />
+      <facebookIcon :width="size" :height="size" />
     </a>
     <a
       v-if="socialMedia.linkedIn"
@@ -25,7 +25,7 @@
       target="_blank"
       class="inline-block hover:text-secondary"
     >
-      <linkedinIcon :width="size" :height="width" />
+      <linkedinIcon :width="size" :height="size" />
     </a>
     <a
       v-if="socialMedia.youtube"
@@ -34,7 +34,7 @@
       target="_blank"
       class="inline-block hover:text-secondary"
     >
-      <youtubeIcon :width="size" :height="width" />
+      <youtubeIcon :width="size" :height="size" />
     </a>
     <a
       v-if="socialMedia.instagram"
@@ -43,7 +43,7 @@
       target="_blank"
       class="inline-block hover:text-secondary"
     >
-      <instagramIcon :width="size" :height="width" />
+      <instagramIcon :width="size" :height="size" />
     </a>
   </div>
 </template>
