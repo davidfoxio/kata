@@ -20,7 +20,7 @@
           :to="item.link ? getLink(item.link._ref) : null"
         >
           <KataSimpleImage
-            v-if="item.icon"
+            v-if="item.icon && item.icon.asset && item.icon.asset._ref"
             :image="item.icon"
             class="mb-small mx-auto object-contain"
             :class="item.link ? 'has-link' : null"
