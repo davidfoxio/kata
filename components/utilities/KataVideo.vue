@@ -7,7 +7,7 @@
     :class="{ loaded: loaded }"
     nocontrols
     muted
-    :autoplay="false"
+    :autoplay="true"
     preload="true"
     playsinline
     :data-poster="image"
@@ -65,8 +65,9 @@ export default {
         const video = this.$refs.video
         let self = this
         video.addEventListener('loadeddata', function () {
+          console.log(video.readyState)
           // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState
-          if (video.readyState > 2) {
+          if (video.readyState >= 2) {
             self.loaded = true
           }
         })
