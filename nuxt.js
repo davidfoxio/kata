@@ -17,6 +17,7 @@ export default function () {
     './components/slices/portfolio',
     './components/slices/statistics',
     './components/slices/team',
+    './components/slices/team/parts',
     './components/slices/testimonial',
     './components/slices/text',
     './components/utilities',
