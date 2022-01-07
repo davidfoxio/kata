@@ -5,7 +5,10 @@
         <h2 v-kata-html="title" class="text-tertiary heading-1" />
       </div>
     </div>
-    <div class="w-r10/12 mx-r1/12 grid grid-cols-2 gap-small">
+    <div
+      v-if="imageThumbnails && imageThumbnails.length"
+      class="w-r10/12 mx-r1/12 grid grid-cols-2 gap-small"
+    >
       <div
         v-for="(item, index) in imageThumbnails"
         :key="item._key"
@@ -44,9 +47,11 @@ export default {
     }
   },
   mounted() {
-    for (let x = 0; x < this.imageThumbnails.length; x++) {
-      this.portrait.push(4 * x - 2)
-      this.portrait.push(4 * x - 1)
+    if (this.imageThumbnails?.length) {
+      for (let x = 0; x < this.imageThumbnails.length; x++) {
+        this.portrait.push(4 * x - 2)
+        this.portrait.push(4 * x - 1)
+      }
     }
   },
   methods: {
