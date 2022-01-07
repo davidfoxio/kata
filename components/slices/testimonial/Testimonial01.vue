@@ -1,6 +1,6 @@
 <template>
   <div class="slice testimonials-1">
-    <div class="container text-center mb-medium">
+    <div class="mx-r1/12 w-r10/12 text-center mb-medium">
       <h2 v-if="title" v-kata-html="title" class="label-1 fade-up" />
     </div>
     <div v-if="testimonials.length > 1" class="flex">
@@ -26,6 +26,7 @@
           v-for="item in testimonials"
           :key="item._key"
           class="md:px-r1/12 text-center"
+          :item="item"
         />
       </VueSlickCarousel>
       <div
@@ -46,6 +47,7 @@
         v-for="item in testimonials"
         :key="item._key"
         class="md:px-r1/12 text-center"
+        :item="item"
       />
     </div>
   </div>
