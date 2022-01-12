@@ -12,12 +12,22 @@
       class="mx-r1/12 w-r10/12 md:w-2/3 md:ml-large py-medium md:mr-0 md:pr-r1/12 body"
     >
       <div v-if="superHeading">
-        <h2 v-kata-html="superHeading" class="mb-medium label-1 fade-up" />
-        <h3
-          v-if="title"
-          v-kata-html="title"
-          class="mb-large heading-3 fade-up"
-        />
+        <template v-if="isH1">
+          <h1 v-kata-html="superHeading" class="mb-medium label-1 fade-up" />
+          <h2
+            v-if="title"
+            v-kata-html="title"
+            class="mb-large heading-3 fade-up"
+          />
+        </template>
+        <template v-else>
+          <h2 v-kata-html="superHeading" class="mb-medium label-1 fade-up" />
+          <h3
+            v-if="title"
+            v-kata-html="title"
+            class="mb-large heading-3 fade-up"
+          />
+        </template>
       </div>
       <h2
         v-else-if="title"
@@ -47,6 +57,10 @@ export default {
     list: {
       type: Array,
       default: null,
+    },
+    isH1: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {
