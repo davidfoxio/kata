@@ -1,6 +1,6 @@
 <template>
   <div class="slice testimonials-4">
-    <div v-if="testimonials && testimonials.length > 1" class="flex fade-up">
+    <div v-if="testimonials" class="flex fade-up">
       <div class="w-r2/12 flex justify-center items-center">
         <button
           class="carousel-nav prev focus:outline-none"
@@ -15,12 +15,10 @@
         ref="testimonials-4-carousel"
         class="w-r8/12"
       >
-        <Testimonial04Part
-          v-for="item in testimonials"
-          :key="item._key"
-          class="pr-large testimonial-item"
-          :item="item"
-        />
+        <!-- div required here for vue slick to detect group -->
+        <div v-for="item in testimonials" :key="item._key" class="item">
+          <Testimonial04Part class="pr-large testimonial-item" :item="item" />
+        </div>
       </VueSlickCarousel>
 
       <div class="w-r2/12 flex justify-center items-center">
