@@ -34,6 +34,10 @@ const basicTextEditor = (name = 'Text Body', settings) => {
                   name: 'href',
                   type: 'url',
                   title: 'URL',
+                  validation: (Rule) =>
+                    Rule.uri({
+                      scheme: ['http', 'https', 'mailto', 'tel', 'sms'],
+                    }),
                 },
                 {
                   title: 'Open in new tab',
@@ -109,6 +113,10 @@ const fullTextEditor = (name = 'Text Body', settings) => {
                   name: 'href',
                   type: 'url',
                   title: 'URL',
+                  validation: (Rule) =>
+                    Rule.uri({
+                      scheme: ['http', 'https', 'mailto', 'tel', 'sms'],
+                    }),
                 },
                 {
                   title: 'Open in new tab',
