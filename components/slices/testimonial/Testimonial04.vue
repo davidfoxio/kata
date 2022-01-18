@@ -1,6 +1,6 @@
 <template>
   <div class="slice testimonials-4">
-    <div v-if="testimonials" class="flex fade-up">
+    <div v-if="testimonials && testimonials.length > 1" class="flex fade-up">
       <div class="w-r2/12 flex justify-center items-center">
         <button
           class="carousel-nav prev focus:outline-none"
