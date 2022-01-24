@@ -18,6 +18,7 @@
             v-for="filter in filterGroup.terms"
             :key="filter.id"
             :value="filter.id"
+            :selected="isActiveDefault(filterGroup.label, filter.id)"
           >
             {{ filter.label }}
           </option>
@@ -52,6 +53,9 @@ export default {
     },
   },
   methods: {
+    isActiveDefault(filterGroup, id) {
+      return this.activeFilter[filterGroup].includes(id) ? true : false
+    },
     camelToTitle(text) {
       const result = text.replace(/([A-Z])/g, ' $1')
       let finalResult = result.charAt(0).toUpperCase() + result.slice(1)
