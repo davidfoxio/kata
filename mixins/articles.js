@@ -208,6 +208,7 @@ const pagination = {
       if (!this.currentPage) {
         this.$router.push({
           path: this.$route.path,
+          // set the page and existing query params
           query: { page: 1, ...this.existingQueries },
         })
       }

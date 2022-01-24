@@ -53,6 +53,8 @@ export default {
     },
   },
   methods: {
+    // isActiveDefault allows to set a selected option by default outside the component
+    // a filter can be set or cleared programaticaly by modifiying the activeFilter object
     isActiveDefault(filterGroup, id) {
       return this.activeFilter[filterGroup].includes(id) ? true : false
     },
