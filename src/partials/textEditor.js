@@ -4,6 +4,9 @@ import { GoFileSymlinkFile } from 'react-icons/go'
 import { standardImage } from 'part:@weflocc/kata/partials/image'
 const camelCase = require('lodash.camelcase')
 
+// Preview components
+import TablePreview from '../components/TablePreview'
+
 const basicTextEditor = (name = 'Text Body', settings) => {
   return {
     title: name,
@@ -216,6 +219,12 @@ const fullTextEditor = (name = 'Text Body', settings) => {
             type: 'table',
           },
         ],
+        preview: {
+          select: {
+            table: 'table',
+          },
+          component: TablePreview,
+        },
       },
       {
         type: 'testimonial04',
