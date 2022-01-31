@@ -1,5 +1,5 @@
 <template>
-  <table class="table-auto">
+  <table class="table-auto mt-medium">
     <thead>
       <tr>
         <th v-for="cell in header.cells" :key="cell">{{ cell }}</th>

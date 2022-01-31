@@ -9,7 +9,7 @@ const TableRow = (props) => {
     if (items[i]) {
       cells.push(
         <Card padding={3} shadow={1}>
-          <Text weight={i === 0 ? 'semibold' : 'regular'}>{items[i]}</Text>
+          <Text>{items[i]}</Text>
         </Card>
       )
     } else {
@@ -20,33 +20,32 @@ const TableRow = (props) => {
 }
 
 const TablePreview = ({ value }) => {
-    const { table } = value
-    if (table) {
-          return (
-            <InfoToolTip>
-              <Container padding={3}>
-                <Grid columns={table.rows[0].cells.length}>
-                  {table.rows.map((element) => {
-                    return (
-                      <TableRow
-                        cols={table.rows[0].cells.length}
-                        items={element.cells}
-                        key={element._key}
-                      />
-                    )
-                  })}
-                </Grid>
-              </Container>
-            </InfoToolTip>
-          )
-    } else {
-          return (
-            <InfoToolTip>
-              <Container padding={3}>
-              </Container>
-            </InfoToolTip>
-          )
-    }
+  const { table } = value
+  if (table) {
+    return (
+      <InfoToolTip>
+        <Container padding={3}>
+          <Grid columns={table.rows[0].cells.length}>
+            {table.rows.map((element) => {
+              return (
+                <TableRow
+                  cols={table.rows[0].cells.length}
+                  items={element.cells}
+                  key={element._key}
+                />
+              )
+            })}
+          </Grid>
+        </Container>
+      </InfoToolTip>
+    )
+  } else {
+    return (
+      <InfoToolTip>
+        <Container padding={3}></Container>
+      </InfoToolTip>
+    )
+  }
 }
 
 export default TablePreview
