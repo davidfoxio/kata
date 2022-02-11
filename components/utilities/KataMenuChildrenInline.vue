@@ -16,17 +16,18 @@
         >
           <n-link
             v-if="item.link && link(item.link._ref)"
-            :to="link(item.link._ref).path"
-            class="heading-3 inline-block transition-all ease-in"
-            @click.native="clickFn"
             v-kata-html="
               item.noLinkJustTitle
                 ? item.noLinkJustTitle
                 : link(item.link._ref).title
             "
+            :to="link(item.link._ref).path"
+            class="heading-3 inline-block transition-all ease-in"
+            @click.native="clickFn"
           />
           <p
             v-else
+            v-kata-html="item.noLinkJustTitle"
             class="heading-3 inline-block title-only"
             :class="{
               'title-has-children cursor-pointer': item.children,
@@ -36,7 +37,6 @@
                 ? toggleChild(item, i)
                 : null
             "
-            v-kata-html="item.noLinkJustTitle"
           />
           <button
             v-if="item.children && item.children.length"
@@ -52,14 +52,14 @@
           <div v-for="child in item.children" :key="child._key">
             <n-link
               v-if="child.link && link(child.link._ref)"
-              :to="link(child.link._ref).path"
-              class="label-1 block"
-              @click.native="clickFn"
               v-kata-html="
                 child.customTitle
                   ? child.customTitle
                   : link(child.link._ref).title
               "
+              :to="link(child.link._ref).path"
+              class="label-1 block"
+              @click.native="clickFn"
             />
           </div>
         </div>
@@ -108,8 +108,9 @@ export default {
     toggleChild(item, i) {
       if (item.children && item.children.length > 0) {
         let dropdown = this.$refs.list[i].querySelector('.child-menu')
-        let dropdownTrigger =
-          this.$refs.list[i].querySelector('.dropdown-trigger')
+        let dropdownTrigger = this.$refs.list[i].querySelector(
+          '.dropdown-trigger'
+        )
         if (dropdown && dropdown.classList.contains('open')) {
           dropdown.classList.remove('open')
         } else {
@@ -155,7 +156,7 @@ export default {
     transition: 0.4s ease;
 
     &:hover {
-      color: $secondary;
+      color: $primary;
     }
   }
 
@@ -173,11 +174,11 @@ export default {
     .dropdown-trigger {
       &::before,
       &::after {
-        background: $secondary;
+        background: $primary;
       }
     }
     .title-has-children {
-      color: $secondary;
+      color: $primary;
     }
   }
 }
