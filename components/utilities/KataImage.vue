@@ -57,7 +57,7 @@ export default {
       }
     },
     src() {
-      let calcWidth = this.maxWidth / 4
+      let calcWidth = Math.round(this.maxWidth / 4)
 
       return this.$imgUrl(this.theImage)
         .width(calcWidth)
@@ -108,7 +108,7 @@ export default {
       return increment
     },
     h(val) {
-      return Math.floor(val / this.ratio)
+      return Math.round(val / this.ratio)
     },
   },
 }
