@@ -1,13 +1,13 @@
 <template>
   <div class="article-results-calendar">
-    <client-only>
+    <!-- <client-only>
       <FullCalendar :options="calendarOptions" />
-    </client-only>
+    </client-only> -->
   </div>
 </template>
 
 <script>
-// COPY THIS FILE INTO YOUR PROJECT LOCALLY 
+// COPY THIS FILE INTO YOUR PROJECT LOCALLY
 // and uncomment the requirements below
 
 // articles require startDate and endDate fields
@@ -22,9 +22,9 @@
 // import interactionPlugin from '@fullcalendar/interaction'
 
 export default {
-  components: {
-    FullCalendar, // make the <FullCalendar> tag available
-  },
+  // components: {
+  //   FullCalendar, // make the <FullCalendar> tag available
+  // },
   props: {
     articles: {
       type: Array,
