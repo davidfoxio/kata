@@ -8,7 +8,8 @@
       <SearchIcon />
     </button>
     <transition name="fade">
-      <div v-show="searchOpen" class="search-lightbox">
+      <!-- uncomment the below to work! -->
+      <!-- <div v-show="searchOpen" class="search-lightbox">
         <AisInstantSearch
           v-if="searchClient"
           :search-client="searchClient"
@@ -55,16 +56,19 @@
         >
           {{ showCloseText ? 'Close' : '' }}
         </button>
-      </div>
+      </div> -->
     </transition>
   </div>
 </template>
 
 <script>
+// Copy this file locally!
+
 // yarn add vue-instantsearch
 // yarn add algoliasearch
 import SearchIcon from '~/assets/svgs/search.svg?inline'
 // uncomment the below to work!
+
 // import {
 //   AisInstantSearch,
 //   AisHits,
@@ -75,14 +79,15 @@ import SearchIcon from '~/assets/svgs/search.svg?inline'
 // import algoliasearch from 'algoliasearch/lite'
 
 export default {
-  components: {
-    AisInstantSearch,
-    AisStateResults,
-    AisHits,
-    AisHighlight,
-    AisSearchBox,
-    SearchIcon,
-  },
+  // uncomment the below to work!
+  // components: {
+  //   AisInstantSearch,
+  //   AisStateResults,
+  //   AisHits,
+  //   AisHighlight,
+  //   AisSearchBox,
+  //   SearchIcon,
+  // },
   props: {
     crawlerId: {
       // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all
