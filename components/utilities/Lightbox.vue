@@ -33,6 +33,18 @@ export default {
 <style lang="scss" scoped>
 .lightbox {
   z-index: 100;
+
+  .lightbox-inner {
+    max-height: 95%;
+    max-width: 95%;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
 .opacity-95 {
   opacity: 0.95;
@@ -60,10 +72,12 @@ export default {
     transform: rotate(-45deg);
   }
 }
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>
