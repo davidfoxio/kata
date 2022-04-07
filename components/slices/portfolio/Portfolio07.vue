@@ -110,21 +110,22 @@ export default {
     }
 
     h2 {
-      animation-name: titlePan;
-      animation-duration: 1s;
-      animation-timing-function: linear;
-      /* Pause the animation */
-      animation-play-state: paused;
-      /* Bind the animation to scroll */
-      animation-delay: calc(var(--slice-move) * -1s); //minus duration amount
-      /* These last 2 properites clean up overshoot weirdness */
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
+      // animation-name: titlePan;
+      // animation-duration: 1s;
+      // animation-timing-function: linear;
+      // /* Pause the animation */
+      // animation-play-state: paused;
+      // /* Bind the animation to scroll */
+      // animation-delay: calc(var(--slice-move) * -1s); //minus duration amount
+      // /* These last 2 properites clean up overshoot weirdness */
+      // animation-iteration-count: 1;
+      // animation-fill-mode: both;
       font-weight: normal;
       margin: 0;
       width: 100vw;
-      transition: 0.5s ease;
+      transition: 0.1s linear;
       line-height: 1;
+      transform: translateX(calc((var(--slice-move) * -50vw) + 50vw));
       @include fluid-type(65px, 200px);
     }
   }
