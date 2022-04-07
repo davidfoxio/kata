@@ -72,7 +72,7 @@ const thumbnails = {
   ],
 }
 
-const imageThumbnails = {
+const imageThumbnailsLinkable = {
   name: 'imageThumbnails',
   title: 'Thumbnails',
   type: 'array',
@@ -116,6 +116,43 @@ const imageThumbnails = {
   ],
 }
 
+const imageThumbnails = {
+  name: 'imageThumbnails',
+  title: 'Thumbnails',
+  type: 'array',
+  options: {
+    collapsable: true,
+  },
+  of: [
+    {
+      name: 'item',
+      title: 'Item',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          title: 'Title',
+          type: 'string',
+        },
+        standardImage(),
+      ],
+      preview: {
+        select: {
+          heading: 'title',
+          image: 'image',
+        },
+        prepare(selection) {
+          const { heading, image } = selection
+          return {
+            title: heading,
+            media: image || BiListPlus,
+          }
+        },
+      },
+    },
+  ],
+}
+
 const portfolio06Slides = {
   name: 'imageThumbnails',
   title: 'Thumbnails',
@@ -131,6 +168,7 @@ export {
   superHeading,
   text,
   thumbnails,
+  imageThumbnailsLinkable,
   imageThumbnails,
   portfolio06Slides,
 }
