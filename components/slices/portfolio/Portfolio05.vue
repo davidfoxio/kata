@@ -63,10 +63,9 @@ export default {
       type: Array,
       required: true,
     },
-  },
-  data() {
-    return {
-      settings: {
+    settings: {
+      type: Object,
+      default: () => ({
         arrows: false,
         dots: false,
         slidesToShow: 1.1,
@@ -75,9 +74,23 @@ export default {
         lazyLoad: 'ondemand',
         autoplay: true,
         autoplaySpeed: 5000,
-      },
-    }
+      }),
+    },
   },
+  // data() {
+  //   return {
+  //     settings: {
+  //       arrows: false,
+  //       dots: false,
+  //       slidesToShow: 1.1,
+  //       infinite: true,
+  //       centerMode: false,
+  //       lazyLoad: 'ondemand',
+  //       autoplay: true,
+  //       autoplaySpeed: 5000,
+  //     },
+  //   }
+  // },
   methods: {
     showNext() {
       this.$refs['portfolio-5-carousel'].next()
