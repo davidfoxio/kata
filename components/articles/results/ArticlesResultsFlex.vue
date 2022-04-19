@@ -36,7 +36,7 @@
       </slot>
     </li>
   </transition-group>
-  <p v-else>No results found, try changing your filters</p>
+  <p v-else-if="noResultsMessage" v-kata-html="noResultsMessage" />
 </template>
 
 <script>
@@ -47,6 +47,10 @@ export default {
         return []
       },
       type: Array,
+    },
+    noResultsMessage: {
+      type: String,
+      default: 'No results found',
     },
   },
   methods: {

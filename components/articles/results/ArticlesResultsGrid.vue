@@ -17,7 +17,7 @@
       </slot>
     </li>
   </transition-group>
-  <p v-else>No results found</p>
+  <p v-else-if="noResultsMessage" v-kata-html="noResultsMessage" />
 </template>
 
 <script>
@@ -26,6 +26,10 @@ export default {
     cols: {
       type: String,
       default: '3',
+    },
+    noResultsMessage: {
+      type: String,
+      default: 'No results found',
     },
     articles: {
       default: function () {
