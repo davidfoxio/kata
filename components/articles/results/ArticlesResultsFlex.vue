@@ -36,7 +36,11 @@
       </slot>
     </li>
   </transition-group>
-  <p v-else-if="noResultsMessage" v-kata-html="noResultsMessage" />
+  <p
+    v-else-if="noResultsMessage"
+    v-kata-html="noResultsMessage"
+    class="no-results"
+  />
 </template>
 
 <script>
