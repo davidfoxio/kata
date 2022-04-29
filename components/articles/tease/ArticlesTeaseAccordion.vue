@@ -24,6 +24,7 @@
       <div v-show="visible" class="accordion-content pt-small">
         <SanityEmbedContent v-if="body" :blocks="body" />
         <SanityEmbedContent v-else-if="textBody" :blocks="textBody" />
+        <slot name="content"></slot>
       </div>
     </transition>
   </div>
