@@ -85,7 +85,8 @@ export default {
   }
 
   @include md-up {
-    li {
+    li,
+    li:nth-child(10n + 9) {
       flex-basis: calc(50% - var(--spacing-medium));
       flex-grow: 1;
       max-width: 50%;
