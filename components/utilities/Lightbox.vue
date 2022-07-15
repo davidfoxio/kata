@@ -10,10 +10,16 @@
         :to="{ query: null }"
         title="Close"
         class="lightbox-underlay bg-primary opacity-95 fixed top-0 left-0 w-full h-full cursor-default"
+        @click.native="onClose"
       ></n-link>
       <div class="lightbox-inner bg-white p-large relative">
         <slot></slot>
-        <n-link :to="{ query: null }" title="Close" class="close-btn"></n-link>
+        <n-link
+          :to="{ query: null }"
+          title="Close"
+          class="close-btn"
+          @click.native="onClose"
+        ></n-link>
       </div>
     </div>
   </transition>
@@ -25,6 +31,11 @@ export default {
     query: {
       type: String,
       required: true,
+    },
+  },
+  methods: {
+    onClose() {
+      this.$emit('close')
     },
   },
 }
