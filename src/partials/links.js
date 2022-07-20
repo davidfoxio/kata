@@ -1,13 +1,12 @@
 const camelCase = require('lodash.camelcase')
 import config from 'config:@weflocc/kata'
 
-const links = (name = 'Links') => {
+const links = (name = 'Links', settings) => {
   return {
     name: camelCase(name),
     title: name,
+    ...settings,
     type: 'array',
-    // validation: (Rule) =>
-    //   Rule.max(2).warning('The maximum number of CTA links on this slice is 2'),
     editModal: 'popover',
     of: config.buttonTypes,
   }
