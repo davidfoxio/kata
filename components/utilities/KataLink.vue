@@ -34,8 +34,16 @@
   </a>
 
   <nuxt-link
-    v-else-if="query && query != null"
+    v-else-if="_type == 'lightboxButton' && query && query != null"
     :to="{ query: { lightbox: query } }"
+    :class="linkStyle"
+  >
+    {{ text }}
+  </nuxt-link>
+
+  <nuxt-link
+    v-else-if="_type == 'drawerButton' && query && query != null"
+    :to="{ query: { drawer: query } }"
     :class="linkStyle"
   >
     {{ text }}
