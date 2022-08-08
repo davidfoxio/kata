@@ -4,16 +4,7 @@
       <button
         v-if="active"
         title="Close"
-        class="
-          kata-drawer-underlay
-          fixed
-          top-0
-          left-0
-          w-full
-          h-full
-          cursor-default
-          bg-black
-        "
+        class="kata-drawer-underlay fixed top-0 left-0 w-full h-full cursor-default bg-black"
         :class="{
           'opacity-50': active,
           'opacity-0': !active,
@@ -24,20 +15,11 @@
     <transition name="slide">
       <div
         v-if="active"
-        class="
-          kata-drawer-inner
-          fixed
-          top-0
-          right-0
-          flex
-          items-center
-          justify-end
-          h-full
-          w-[90%]
-          md:w-1/2
-        "
+        class="kata-drawer-inner fixed top-0 right-0 flex items-center justify-end h-full w-[90%] md:w-1/2"
       >
-        <div class="kata-drawer-content bg-primary relative w-full h-full">
+        <div
+          class="kata-drawer-content bg-primary relative w-full h-full max-h-screen overflow-scroll"
+        >
           <slot></slot>
           <button title="Close" class="close-btn" @click="close"></button>
         </div>
