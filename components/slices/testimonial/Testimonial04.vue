@@ -1,43 +1,45 @@
 <template>
   <div class="slice testimonials-4">
-    <div v-if="testimonials && testimonials.length > 1" class="flex fade-up">
-      <div class="w-r2/12 flex justify-center items-center">
-        <button
-          class="carousel-nav prev focus:outline-none"
-          title="Previous Slide"
-          @click="showPrev"
-        >
-          <span></span>
-        </button>
-      </div>
-      <VueSlickCarousel
-        v-bind="settings"
-        ref="testimonials-4-carousel"
-        class="w-r8/12"
-      >
-        <!-- div required here for vue slick to detect group -->
-        <div v-for="item in testimonials" :key="item._key" class="item">
-          <Testimonial04Part class="pr-large testimonial-item" :item="item" />
+    <div class="xl:w-r12/12 xl:mx-auto">
+      <div v-if="testimonials && testimonials.length > 1" class="flex fade-up">
+        <div class="w-r2/12 flex justify-center items-center">
+          <button
+            class="carousel-nav prev focus:outline-none"
+            title="Previous Slide"
+            @click="showPrev"
+          >
+            <span></span>
+          </button>
         </div>
-      </VueSlickCarousel>
-
-      <div class="w-r2/12 flex justify-center items-center">
-        <button
-          class="carousel-nav next focus:outline-none"
-          title="Next Slide"
-          @click="showNext"
+        <VueSlickCarousel
+          v-bind="settings"
+          ref="testimonials-4-carousel"
+          class="w-r8/12"
         >
-          <span></span>
-        </button>
+          <!-- div required here for vue slick to detect group -->
+          <div v-for="item in testimonials" :key="item._key" class="item">
+            <Testimonial04Part class="pr-large testimonial-item" :item="item" />
+          </div>
+        </VueSlickCarousel>
+
+        <div class="w-r2/12 flex justify-center items-center">
+          <button
+            class="carousel-nav next focus:outline-none"
+            title="Next Slide"
+            @click="showNext"
+          >
+            <span></span>
+          </button>
+        </div>
       </div>
-    </div>
-    <div v-else class="w-r8/12 mx-r2/12 single-testimonial">
-      <Testimonial04Part
-        v-for="item in testimonials"
-        :key="item._key"
-        class="pr-large testimonial-item"
-        :item="item"
-      />
+      <div v-else class="w-r8/12 mx-r2/12 single-testimonial">
+        <Testimonial04Part
+          v-for="item in testimonials"
+          :key="item._key"
+          class="pr-large testimonial-item"
+          :item="item"
+        />
+      </div>
     </div>
   </div>
 </template>
