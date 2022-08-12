@@ -15,7 +15,7 @@
     <transition name="slide">
       <div
         v-if="active"
-        class="kata-drawer-inner fixed top-0 right-0 flex items-center justify-end h-full w-[90%] md:w-1/2"
+        class="kata-drawer-inner fixed top-0 right-0 flex items-center justify-end h-full w-[100%] md:w-1/2"
       >
         <div
           class="kata-drawer-content bg-primary relative w-full h-full max-h-screen overflow-scroll"
