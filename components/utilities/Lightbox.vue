@@ -1,5 +1,5 @@
 <template>
-  <transition :key="query" name="fade">
+  <transition :key="query" name="lightbox-fade">
     <!-- TODO: try params instead? -->
     <!-- pass in query that matches the one set in sanity, eg. <Lightbox query="video"> -->
     <div
@@ -41,7 +41,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .lightbox {
   z-index: 100;
 
@@ -56,39 +56,40 @@ export default {
       display: none;
     }
   }
-}
-.opacity-95 {
-  opacity: 0.95;
-}
-.close-btn {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  width: 30px;
-  height: 30px;
 
-  &:before,
-  &:after {
+  .opacity-95 {
+    opacity: 0.95;
+  }
+  .close-btn {
     position: absolute;
-    left: 15px;
-    content: ' ';
+    right: 5px;
+    top: 5px;
+    width: 30px;
     height: 30px;
-    width: 2px;
-    background-color: black;
-  }
-  &:before {
-    transform: rotate(45deg);
-  }
-  &:after {
-    transform: rotate(-45deg);
+
+    &:before,
+    &:after {
+      position: absolute;
+      left: 15px;
+      content: ' ';
+      height: 30px;
+      width: 2px;
+      background-color: black;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
   }
 }
-.fade-enter-active,
-.fade-leave-active {
+.lightbox-fade-enter-active,
+.lightbox-fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter,
-.fade-leave-to {
+.lightbox-fade-enter,
+.lightbox-fade-leave-to {
   opacity: 0;
 }
 </style>
