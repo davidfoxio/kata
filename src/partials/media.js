@@ -2,7 +2,7 @@ import { standardImage } from '../partials/image'
 // import { videoSrcset } from './videoSrcset'
 const camelCase = require('lodash.camelcase')
 
-const media = (name = 'Media', required = true) => {
+const media = (name = 'Media', settings = {}) => {
   return {
     name: camelCase(name),
     title: name,
@@ -21,6 +21,7 @@ const media = (name = 'Media', required = true) => {
           'We recommend you crop and compress your video here before uploading it: https://www.videosmaller.com/.',
       },
     ],
+    ...settings,
     // validation: required
     //   ? (Rule) => Rule.required('Please select an image.')
     //   : null,
