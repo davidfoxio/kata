@@ -5,6 +5,7 @@
       v-bind="feature"
       :id="'feature-list-item-' + i"
       :key="feature._key"
+      :ratio="ratio"
       :reversed="i % 2 == 0"
       class="mb-large slice-animation"
     />
@@ -17,6 +18,10 @@ export default {
     features: {
       type: Array,
       required: true,
+    },
+    ratio: {
+      type: Number,
+      default: 685 / 514,
     },
   },
 }
