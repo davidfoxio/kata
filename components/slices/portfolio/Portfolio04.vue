@@ -1,7 +1,12 @@
 <template>
   <div class="slice portfolio-4 mx-r1/12 w-r10/12">
     <div class="mb-large text-center">
-      <h2 v-if="title" class="mb-medium fade-up">{{ title }}</h2>
+      <h2 v-if="title" class="fade-up">{{ title }}</h2>
+      <p
+        v-if="text"
+        class="mt-medium whitespace-pre-line lg:px-r1/12"
+        v-html="text"
+      />
     </div>
     <div class="mb-large flex flex-wrap justify-evenly -mx-small">
       <div
@@ -36,9 +41,9 @@
 </template>
 
 <script>
-import { title, links } from '../shared'
+import { title, text, links } from '../shared'
 export default {
-  mixins: [title, links],
+  mixins: [title, text, links],
   props: {
     thumbnails: {
       type: Array,

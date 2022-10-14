@@ -7,7 +7,7 @@
       class="h-screen w-full object-cover"
     />
     <div
-      class="w-r10/12 mx-r1/12 md:w-r6/12 md:mx-r3/12 h-screen flex flex-col justify-center text-center z-1 text"
+      class="w-r10/12 mx-r1/12 md:w-r6/12 md:mx-r3/12 h-screen flex flex-col justify-center text-center z-1 text relative"
     >
       <h1
         v-if="superHeading"
