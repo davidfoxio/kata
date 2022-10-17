@@ -2,7 +2,7 @@
   <div class="slice feature-7 w-r10/12 mx-r1/12 text-center">
     <div v-if="title || text" class="mb-large">
       <h2 v-kata-html="title" class="fade-up heading-2" />
-      <p v-if="text" v-kata-html="text" class="mt-medium fade-up lg:px-r1/12" />
+      <p v-if="text" v-kata-html="text" class="mt-small fade-up lg:px-r1/12" />
     </div>
     <ul
       v-if="features"
