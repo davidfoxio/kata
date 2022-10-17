@@ -1,10 +1,9 @@
 <template>
   <div v-if="articles && articles.length" class="news-3 slice">
-    <h2
-      v-if="title"
-      v-kata-html="title"
-      class="heading-2 mb-large text-center fade-up"
-    />
+    <div v-if="title || text" class="w-r10/12 mx-auto text-center mb-medium">
+      <h2 v-if="title" v-kata-html="title" class="heading-2 fade-up" />
+      <p v-if="text" v-kata-html="text" class="fade-up whitespace-pre-line" />
+    </div>
 
     <div ref="listItems" class="relative">
       <VueSlickCarousel v-bind="settings" class="news-3-slider">
@@ -40,6 +39,7 @@
         </template>
       </VueSlickCarousel>
     </div>
+    <KataLinks v-if="links" :links="links" class="mt-small" />
   </div>
 </template>
 

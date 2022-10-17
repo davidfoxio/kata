@@ -1,4 +1,5 @@
 import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
+import { links } from 'part:@weflocc/kata/partials/links'
 
 const feedSelector = ({
   field,
@@ -10,6 +11,7 @@ const feedSelector = ({
   description,
   sliceTitle,
   noShowAll,
+  hasLinks,
   filter,
   filterParams,
   hidden,
@@ -25,6 +27,7 @@ const feedSelector = ({
   filter = filter || false
   filterParams = filterParams || false
   hidden = hidden || false
+  hasLinks = hasLinks || false
 
   let options = {}
   if (filter) {
@@ -91,6 +94,10 @@ const feedSelector = ({
     fields.push(categories)
   } else if (!noShowAll) {
     fields.push(show)
+  }
+
+  if (hasLinks) {
+    fields.push(links())
   }
 
   return {
