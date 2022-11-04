@@ -34,5 +34,10 @@ export default {
       name: 'youtube',
       type: 'string',
     },
+    {
+      title: 'TikTok',
+      name: 'tiktok',
+      type: 'url',
+    },
   ],
 }
