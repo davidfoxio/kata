@@ -38,14 +38,24 @@
         class="flex flex-col sm:flex-row list-fade-item"
       >
         <div class="sm:w-1/2 sm:mr-large order-2 sm:order-1 py-medium">
-          <h2 v-if="item.title" v-kata-html="item.title" class="mb-large" />
-          <SanityEmbedContent v-if="item.textBody" :blocks="item.textBody" />
-          <KataLinks v-if="item.links" :links="item.links" />
+          <h2 v-if="item.title" v-kata-html="item.title" />
+          <SanityEmbedContent
+            v-if="item.textBody"
+            :blocks="item.textBody"
+            class="mt-small"
+          />
+          <KataLinks v-if="item.links" :links="item.links" class="mt-small" />
         </div>
         <div class="sm:w-1/2 order-1 sm:order-2 mb-large sm:mb-0">
           <KataImage
-            v-if="item.standardImage.image"
-            :image="item.standardImage.image"
+            v-if="
+              (item.standardImage && item.standardImage.image) || item.image
+            "
+            :image="
+              item.standardImage && item.standardImage.image
+                ? item.standardImage.image
+                : item.image
+            "
             :ratio="685 / 514"
             :max-width="1500"
             sizes="(max-width: 500px) 100vw, 45vw"
