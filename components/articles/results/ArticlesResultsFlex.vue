@@ -6,14 +6,18 @@
     name="fade"
     mode="out-in"
   >
-    <li v-for="item in articles" :key="item._id" class="mb-medium">
-      <slot name="tease" :item="item">
+    <li
+      v-for="(item, i) in articles"
+      :key="item._id || item._key"
+      class="mb-medium"
+    >
+      <slot name="tease" :item="item" :index="i">
         <NuxtLink :to="getLink(item._id)">
           <KataImage
             :image="item.image"
             :max-width="650"
             :ratio="6 / 4"
-            sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
+            sizes="sm:90vw md:50vw lg:50vw xl:50vw"
             class="mb-small mx-auto"
           />
 
@@ -36,11 +40,7 @@
       </slot>
     </li>
   </transition-group>
-  <p
-    v-else-if="noResultsMessage"
-    v-kata-html="noResultsMessage"
-    class="no-results"
-  />
+  <p v-else class="no-results">No results found, try changing your filters</p>
 </template>
 
 <script>
@@ -51,10 +51,6 @@ export default {
         return []
       },
       type: Array,
-    },
-    noResultsMessage: {
-      type: String,
-      default: 'No results found',
     },
   },
   methods: {
@@ -79,17 +75,17 @@ export default {
   }
   li:nth-child(10n + 3),
   li:nth-child(10n + 6),
-  li:nth-child(10n + 9) {
+  li:nth-child(10n + 9),
+  li:nth-child(10n + 10) {
     flex-basis: 100%;
     max-width: 100%;
   }
 
   @include md-up {
-    li,
-    li:nth-child(10n + 9) {
+    li {
       flex-basis: calc(50% - var(--spacing-medium));
       flex-grow: 1;
-      max-width: 50%;
+      max-width: 50% !important;
     }
     li:nth-child(10n + 1),
     li:nth-child(10n + 2),
@@ -106,14 +102,15 @@ export default {
     li:nth-child(10n + 7) {
       flex-basis: calc(33% - var(--spacing-medium));
       min-width: calc(33% - var(--spacing-medium));
-      max-width: 34%;
+      max-width: 34% !important;
     }
     li:nth-child(10n + 1),
     li:nth-child(10n + 2),
     li:nth-child(10n + 3),
     li:nth-child(10n + 4),
     li:nth-child(10n + 8),
-    li:nth-child(10n + 9) {
+    li:nth-child(10n + 9),
+    li:nth-child(10n + 10) {
       flex-basis: calc(25% - var(--spacing-medium));
       min-width: calc(25% - var(--spacing-medium));
     }

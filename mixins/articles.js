@@ -205,20 +205,23 @@ const pagination = {
       }
       this.resultCount = this.articles.length
       this.existingQueries = this.$route.query
+      let current = this.currentPage
       if (!this.currentPage) {
-        this.$router.push({
-          path: this.$route.path,
-          // set the page and existing query params
-          query: { page: 1, ...this.existingQueries },
-        })
+        current = 1
+        // prevents unable to click back button issue
+        // this.$router.push({
+        //   path: this.$route.path,
+        //   // set the page and existing query params
+        //   query: { page: 1, ...this.existingQueries },
+        // })
       }
-      if (this.currentPage >= this.totalPages) {
+      if (current >= this.totalPages) {
         this.$router.push({
           path: this.$route.path,
           query: { page: this.totalPages, ...this.existingQueries },
         })
       }
-      var index = this.currentPage * this.itemsPerPage - this.itemsPerPage
+      var index = current * this.itemsPerPage - this.itemsPerPage
       return this.articles.slice(index, index + this.itemsPerPage)
     },
     paginatedUnfeaturedArticles() {
@@ -227,13 +230,17 @@ const pagination = {
       }
       this.existingQueries = this.$route.query
       this.resultCount = this.unfeaturedArticles.length
+      let current = this.currentPage
       if (!this.currentPage) {
-        this.$router.push({
-          path: this.$route.path,
-          query: { page: 1, ...this.existingQueries },
-        })
+        current = 1
+        // prevents unable to click back button issue
+        // this.$router.push({
+        //   path: this.$route.path,
+        //   // set the page and existing query params
+        //   query: { page: 1, ...this.existingQueries },
+        // })
       }
-      if (this.currentPage >= this.totalPages) {
+      if (current >= this.totalPages) {
         this.existingQueries.page = this.totalPages
         this.$router.push({
           path: this.$route.path,
@@ -241,7 +248,7 @@ const pagination = {
         })
       }
       console.log(this.$route.query)
-      var index = this.currentPage * this.itemsPerPage - this.itemsPerPage
+      var index = current * this.itemsPerPage - this.itemsPerPage
       return this.unfeaturedArticles.slice(index, index + this.itemsPerPage)
     },
   },
