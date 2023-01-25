@@ -2,7 +2,6 @@
   <div v-if="asset && theImage && src()" class="image">
     <nuxt-img
       :src="src()"
-      :class="{ loaded: loaded }"
       :width="maxWidth"
       class="embedded-image w-full h-auto"
       :alt="asset ? $imgMeta(asset._ref).alt : ''"
@@ -10,7 +9,6 @@
       loading="lazy"
       :sizes="sizes"
       :format="format"
-      @onLoad="imgLoaded"
     />
     <p
       v-if="caption"
@@ -45,7 +43,6 @@ export default {
     },
   },
   data: () => ({
-    loaded: false,
     format: 'webp',
   }),
   computed: {
