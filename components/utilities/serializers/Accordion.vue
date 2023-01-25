@@ -12,10 +12,10 @@
 
 <script>
 // This duplicates SanityEmbedContent but does not include Accordion as a type
-// This avoids a never-ending-loop of <SanityEmbedontent> and <Accordion> components
+// This avoids a never-ending-loop of <SanityEmbedContent> and <Accordion> components
 
 import Youtube from './Youtube.vue'
-import Image from './SanityImage.vue'
+import EmbeddedImage from './EmbeddedImage.vue'
 import BlockLinks from './BlockLinks.vue'
 import FileLink from './FileLink.vue'
 import InternalLink from './InternalLink.vue'
@@ -34,7 +34,7 @@ export default {
       serializers: {
         types: {
           youtube: Youtube,
-          image: Image,
+          image: EmbeddedImage,
           link: BlockLinks,
           tableField: TableField,
         },
