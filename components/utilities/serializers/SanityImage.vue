@@ -1,7 +1,6 @@
 <template>
   <div class="image">
-    <img
-      v-lazy-load
+    <nuxt-img
       :alt="asset ? $imgMeta(asset._ref).alt : ''"
       :title="asset ? $imgMeta(asset._ref).title : ''"
       :data-srcset="srcSet"
@@ -32,7 +31,7 @@ export default {
     },
     sizes: {
       type: String,
-      default: '100vw',
+      default: 'xl:100vw',
     },
     caption: {
       type: String,

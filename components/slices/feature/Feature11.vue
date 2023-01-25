@@ -58,7 +58,7 @@
             "
             :ratio="685 / 514"
             :max-width="1500"
-            sizes="(max-width: 500px) 100vw, 45vw"
+            sizes="xl:100vw md:45vw"
             class="h-full w-full object-cover"
           />
         </div>

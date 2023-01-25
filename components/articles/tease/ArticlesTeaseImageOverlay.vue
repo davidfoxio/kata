@@ -9,7 +9,7 @@
       :media="media"
       :ratio="16 / 9"
       :max-width="650"
-      sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
+      sizes="xs:90vw md:50vw xl:33vw"
       class="bg-img"
     />
     <h3 class="label-1">

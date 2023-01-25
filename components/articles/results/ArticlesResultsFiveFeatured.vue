@@ -7,7 +7,7 @@
     mode="out-in"
   >
     <li v-for="(item, i) in articles" :key="item._id">
-      <slot name="tease" :item="item" v-if="i != 0">
+      <slot v-if="i != 0" name="tease" :item="item">
         <NuxtLink
           :to="getLink(item._id) ? getLink(item._id) : ''"
           :class="{ 'large-thumb': i == 0, 'px-r1/12 block md:px-0': i != 0 }"
@@ -16,7 +16,7 @@
             :image="item.image"
             :max-width="650"
             :ratio="i == 0 ? 3 / 4 : 4 / 3"
-            sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
+            sizes="xs:90vw md:50vw xl:33vw"
             :class="{
               'mb-small': i != 0,
               'md:h-full object-cover max-h-screen': i == 0,
@@ -52,7 +52,7 @@
           :image="item.image"
           :max-width="650"
           :ratio="i == 0 ? 3 / 4 : 4 / 3"
-          sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
+          sizes="xs:90vw md:50vw xl:33vw"
           :class="{
             'md:h-full object-cover max-h-screen': i == 0,
           }"

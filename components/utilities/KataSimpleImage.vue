@@ -1,5 +1,11 @@
 <template>
-  <img :alt="$imgMeta(image.asset._ref).alt" :src="src" />
+  <nuxt-img
+    class="kata-simple-image"
+    :loading="lazy ? 'lazy' : 'eager'"
+    :alt="alt"
+    :src="src()"
+    :format="format"
+  />
 </template>
 
 <script>
@@ -13,15 +19,46 @@ export default {
       type: Boolean,
       default: false,
     },
+    lazy: {
+      type: Boolean,
+      default: true,
+    },
   },
+  data: () => ({
+    format: 'webp',
+  }),
   computed: {
-    src() {
-      return this.$imgUrl(this.image).url()
+    alt() {
+      let alt = ''
+      if (this.image) {
+        let meta = this.$store.getters['references/getImageMetadata'](
+          this.image.asset._ref
+        )
+        // set in order of preference
+        let items = ['alt', 'title', 'description', 'id']
+
+        // console.log('meta', meta)
+        if (!meta || !Object.keys(meta).length) {
+          return alt
+        }
+        for (let i = 0; i < items.length; i++) {
+          const elem = items[i]
+          if (Object.prototype.hasOwnProperty.call(meta, elem) && meta[elem]) {
+            alt = meta[elem]
+            break
+          }
+        }
+      }
+      return alt
     },
   },
   methods: {
-    imgMeta(ref) {
-      return this.$store.getters['references/getImageMetadata'](ref)
+    src() {
+      let url = this.$imgUrl(this.image).url()
+      if (url && url.includes('.svg')) {
+        this.format = ''
+      }
+      return url
     },
   },
 }
