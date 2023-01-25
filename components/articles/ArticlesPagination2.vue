@@ -25,10 +25,10 @@
 // can have custom search articles function
 // include as below:
 // <ArticlesPagination2
-//   :total="articles.length"
-//   :per-page="12"
+//   :total="total"
+//   :per-page="pagination"
 //   class="mb-large"
-//   @searchArticles="searchArticles"
+//   @paginationTriggerSearch="paginationTriggerSearch"
 // />
 export default {
   props: {

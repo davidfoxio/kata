@@ -2,6 +2,7 @@ import { groq } from '@nuxtjs/sanity'
 const debounce = require('lodash.debounce')
 
 const searchArticles = {
+  data: () => ({ showPagination: false }),
   methods: {
     async searchArticles() {
       let queryBuilder = ``
@@ -56,15 +57,30 @@ const searchArticles = {
       // sort
       const articleSort = this.articleSort || ''
 
-      const groqQuery = groq`*[ ${queryBuilder} ] ${articleSort}`
-
-      console.log(groqQuery)
-
-      this.articles = await this.$sanity.fetch(groqQuery)
-
-      if (this.paginatedArticles) {
-        this.$router.push({ path: this.$router.path, query: { page: 1 } })
+      // pagination
+      let pagination = ''
+      if (this.showPagination) {
+        pagination = `[${this.min}...${this.max}]`
       }
+
+      const groqQuery = `*[ ${queryBuilder} ]${articleSort}${pagination}`
+
+      if (this.showPagination) {
+        let groqQuery2 = `{"articles": ${groqQuery}, "total": count(*[${queryBuilder}])}`
+        let data = await this.$sanity.fetch(groqQuery2)
+        this.total = data.total
+        this.articles = data.articles
+      } else {
+        this.articles = await this.$sanity.fetch(groqQuery)
+      }
+
+      // console.log(groqQuery)
+
+      // this.articles = await this.$sanity.fetch(groqQuery)
+
+      // if (this.paginatedArticles) {
+      //   this.$router.push({ path: this.$router.path, query: { page: 1 } })
+      // }
     },
 
     articlesNotFeatured() {
@@ -256,8 +272,9 @@ const pagination = {
 }
 
 const pagination2 = {
-  data: () => ({ min: 0, max: 12, total: 0, showPagination: true }),
-  mounted() {
+  data: () => ({ min: 0, max: 12, total: 0 }),
+  beforeMount() {
+    this.showPagination = true
     if (this.pagination) {
       this.max = this.pagination
     }
