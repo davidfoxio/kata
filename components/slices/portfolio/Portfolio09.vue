@@ -23,7 +23,7 @@
             :image="item.image"
             :ratio="3 / 4"
             :max-width="650"
-            sizes="xs:95vw md:50vw xl:33vw"
+            sizes="sm:95vw md:50vw xl:33vw"
             class="background"
           />
           <div v-else class="background bg-primary" />

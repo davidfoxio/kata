@@ -29,7 +29,7 @@
         :ratio="ratio"
         :max-width="1500"
         class="h-full w-full object-cover"
-        sizes="xs:90vw md:50vw"
+        sizes="sm:90vw md:50vw"
       />
     </div>
   </div>

@@ -6,7 +6,7 @@
           <KataImage
             v-if="articles[activeArticle] && articles[activeArticle].image"
             :image="articles[activeArticle].image"
-            sizes="xs:50vw xl:50vw"
+            sizes="sm:50vw xl:50vw"
             :max-width="1000"
             :ratio="4 / 3"
             class="h-full w-full object-cover"

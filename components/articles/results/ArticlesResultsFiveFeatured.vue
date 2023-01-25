@@ -16,7 +16,7 @@
             :image="item.image"
             :max-width="650"
             :ratio="i == 0 ? 3 / 4 : 4 / 3"
-            sizes="xs:90vw md:50vw xl:33vw"
+            sizes="sm:90vw md:50vw xl:33vw"
             :class="{
               'mb-small': i != 0,
               'md:h-full object-cover max-h-screen': i == 0,
@@ -52,7 +52,7 @@
           :image="item.image"
           :max-width="650"
           :ratio="i == 0 ? 3 / 4 : 4 / 3"
-          sizes="xs:90vw md:50vw xl:33vw"
+          sizes="sm:90vw md:50vw xl:33vw"
           :class="{
             'md:h-full object-cover max-h-screen': i == 0,
           }"

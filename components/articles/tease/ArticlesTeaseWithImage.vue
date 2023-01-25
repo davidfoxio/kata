@@ -9,7 +9,7 @@
       :image="image"
       :max-width="650"
       :ratio="6 / 4"
-      sizes="xs:90vw md:50vw xl:33vw"
+      sizes="sm:90vw md:50vw xl:33vw"
       class="w-full"
     />
     <p v-if="categories && categories.length" class="category mt-small">
