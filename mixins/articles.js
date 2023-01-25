@@ -273,12 +273,16 @@ const pagination = {
 
 const pagination2 = {
   data: () => ({ min: 0, max: 12, total: 0 }),
-  beforeMount() {
-    this.showPagination = true
-    if (this.pagination) {
-      this.max = this.pagination
-    }
-  },
+  // TODO: can't trigger mounted from here
+  // copy into your page!
+  // mounted() {
+  //   console.log('mounted')
+  //   this.showPagination = true
+  //   if (this.pagination) {
+  //     this.max = this.pagination
+  //   }
+  //   this.searchArticles()
+  // },
   methods: {
     async paginationTriggerSearch(min, max) {
       console.log('paginationTriggerSearch')
