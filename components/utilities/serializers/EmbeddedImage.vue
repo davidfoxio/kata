@@ -1,5 +1,5 @@
 <template>
-  <div class="image">
+  <div v-if="asset && theImage && src()" class="image">
     <nuxt-img
       :src="src()"
       :class="{ loaded: loaded }"
