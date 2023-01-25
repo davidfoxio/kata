@@ -66,7 +66,7 @@ const searchArticles = {
       const groqQuery = `*[ ${queryBuilder} ]${articleSort}${pagination}`
 
       if (this.showPagination) {
-        let groqQuery2 = `{"articles": ${groqQuery}, "total": count(*[${queryBuilder}])}`
+        let groqQuery2 = `{"articles": ${groqQuery}, "total": count(*[${queryBuilder}]${articleSort})}`
         let data = await this.$sanity.fetch(groqQuery2)
         this.total = data.total
         this.articles = data.articles
