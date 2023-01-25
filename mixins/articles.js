@@ -144,6 +144,10 @@ const filters = {
   },
   watch: {
     activeFilters: function () {
+      if (this.showPagination) {
+        this.min = 0
+        this.max = this.itemsPerPage
+      }
       this.searchArticles()
     },
   },
@@ -186,9 +190,6 @@ const singleArticle = {
 // you can set data pagination to the number of items you would like per page on the listing page
 const pagination = {
   computed: {
-    currentPage() {
-      return this.$route.query.page
-    },
     itemsPerPage() {
       return this.pagination || 12 //12 is default per page
     },
@@ -254,4 +255,33 @@ const pagination = {
   },
 }
 
-export { searchArticles, filters, search, singleArticle, pagination }
+const pagination2 = {
+  data: () => ({ min: 0, max: 12, total: 0, showPagination: true }),
+  mounted() {
+    if (this.pagination) {
+      this.max = this.pagination
+    }
+  },
+  methods: {
+    async paginationTriggerSearch(min, max) {
+      console.log('paginationTriggerSearch')
+      this.min = min
+      this.max = max
+      await this.searchArticles()
+    },
+  },
+  computed: {
+    itemsPerPage() {
+      return this.pagination ? this.pagination : 12 //12 is default per page
+    },
+  },
+}
+
+export {
+  searchArticles,
+  filters,
+  search,
+  singleArticle,
+  pagination,
+  pagination2,
+}
