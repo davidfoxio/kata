@@ -76,7 +76,7 @@ const sharingImage = {
 
 const twitterSharingImage = {
   title: 'Twitter Sharing Image',
-  name: 'socialImage',
+  name: 'twitterSharingImage',
   type: 'image',
   description: '800px x 800px',
 }
