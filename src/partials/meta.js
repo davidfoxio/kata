@@ -74,6 +74,13 @@ const sharingImage = {
   description: '1200px x 630px',
 }
 
+const twitterSharingImage = {
+  title: 'Twitter Sharing Image',
+  name: 'socialImage',
+  type: 'image',
+  description: '800px x 800px',
+}
+
 const metaTitle = {
   name: 'metaTitle',
   title: 'Global Meta Title',
@@ -96,6 +103,7 @@ export {
   hiddenSlug,
   schemaOrg,
   sharingImage,
+  twitterSharingImage,
   metaTitle,
   metaDescription,
 }
