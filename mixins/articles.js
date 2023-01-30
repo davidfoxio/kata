@@ -66,6 +66,7 @@ const searchArticles = {
       const groqQuery = `*[ ${queryBuilder} ]${articleSort}${pagination}`
 
       if (this.showPagination) {
+        // might want this to not include featured: *[_type == 'press' && !(_id in *[_type == 'pressFeatured'][0].featured[]._ref)]
         let groqQuery2 = `{"articles": ${groqQuery}, "total": count(*[${queryBuilder}]${articleSort})}`
         let data = await this.$sanity.fetch(groqQuery2)
         this.total = data.total
