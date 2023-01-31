@@ -47,6 +47,8 @@
       <SanityEmbedContent v-else-if="c.body" :blocks="c.body" />
     </div>
 
+    <slot name="afterContent" />
+
     <div
       v-if="indexPath && backText"
       class="text-center px-screen-border mb-slice-half"

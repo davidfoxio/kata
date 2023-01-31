@@ -56,8 +56,16 @@
         >
           <KataImage
             v-if="item.image"
-            data-not-lazy
+            :lazy="false"
             :image="item.image"
+            :ratio="4 / 3"
+            class="h-full object-cover w-full"
+            :sizes="sizes"
+          />
+          <KataMedia
+            v-else-if="item.media"
+            :lazy="false"
+            :media="item.media"
             :ratio="4 / 3"
             class="h-full object-cover w-full"
             :sizes="sizes"
