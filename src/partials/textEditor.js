@@ -1,13 +1,51 @@
 import config from 'config:@weflocc/kata'
 import { BiLinkExternal, BiLink } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
+import { GrSubscript, GrSuperscript } from 'react-icons/gr'
 import { standardImage } from 'part:@weflocc/kata/partials/image'
 const camelCase = require('lodash.camelcase')
+import React from 'react'
 
 // Preview components
 import TablePreview from '../components/TablePreview'
 
-const basicTextEditor = (name = 'Text Body', settings) => {
+const superscriptRender = (props) => (
+  <span style={{ fontSize: '10px', verticalAlign: 'top' }}>
+    {props.children}
+  </span>
+)
+const subscriptRender = (props) => (
+  <span style={{ fontSize: '10px', verticalAlign: 'bottom' }}>
+    {props.children}
+  </span>
+)
+
+const basicTextEditor = (name = 'Text Body', settings, options) => {
+  let decorators = [
+    { title: 'Strong', value: 'strong' },
+    { title: 'Emphasis', value: 'em' },
+    { title: 'Underline', value: 'underline' },
+  ]
+  if (options && options.subscript) {
+    decorators.push({
+      title: 'Superscript',
+      value: 'sup',
+      blockEditor: {
+        icon: GrSuperscript,
+        render: superscriptRender,
+      },
+    })
+  }
+  if (options && options.superscript) {
+    decorators.push({
+      title: 'Subscript',
+      value: 'sub',
+      blockEditor: {
+        icon: GrSubscript,
+        render: subscriptRender,
+      },
+    })
+  }
   return {
     title: name,
     name: camelCase(name),
@@ -19,11 +57,7 @@ const basicTextEditor = (name = 'Text Body', settings) => {
         lists: [{ title: 'Bullet', value: 'bullet' }],
         styles: [],
         marks: {
-          decorators: [
-            { title: 'Strong', value: 'strong' },
-            { title: 'Emphasis', value: 'em' },
-            { title: 'Underline', value: 'underline' },
-          ],
+          decorators: decorators,
           annotations: [
             {
               name: 'externalLink',
@@ -88,7 +122,33 @@ const basicTextEditor = (name = 'Text Body', settings) => {
   }
 }
 
-const fullTextEditor = (name = 'Text Body', settings) => {
+const fullTextEditor = (name = 'Text Body', settings, options) => {
+  let decorators = [
+    { title: 'Strong', value: 'strong' },
+    { title: 'Emphasis', value: 'em' },
+    { title: 'Underline', value: 'underline' },
+  ]
+  console.log('options', options)
+  if (options && options.subscript) {
+    decorators.push({
+      title: 'Superscript',
+      value: 'sup',
+      blockEditor: {
+        icon: GrSuperscript,
+        render: superscriptRender,
+      },
+    })
+  }
+  if (options && options.superscript) {
+    decorators.push({
+      title: 'Subscript',
+      value: 'sub',
+      blockEditor: {
+        icon: GrSubscript,
+        render: subscriptRender,
+      },
+    })
+  }
   return {
     title: name,
     name: camelCase(name),
@@ -98,11 +158,7 @@ const fullTextEditor = (name = 'Text Body', settings) => {
       {
         type: 'block',
         marks: {
-          decorators: [
-            { title: 'Strong', value: 'strong' },
-            { title: 'Emphasis', value: 'em' },
-            { title: 'Underline', value: 'underline' },
-          ],
+          decorators: decorators,
           annotations: [
             {
               name: 'externalLink',

@@ -16,6 +16,8 @@ import ExternalLink from './serializers/ExternalLink.vue'
 import TableField from './serializers/TableField.vue'
 import Accordion from './serializers/Accordion.vue'
 import Testimonial04 from './serializers/Testimonial04Serializer.vue'
+import superscript from './serializers/superscript.vue'
+import subscript from './serializers/subscript.vue'
 
 export default {
   props: {
@@ -39,6 +41,8 @@ export default {
           internalLink: InternalLink,
           externalLink: ExternalLink,
           file: FileLink,
+          superscript: superscript,
+          subscript: subscript,
         },
       },
     }
