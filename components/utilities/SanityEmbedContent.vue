@@ -41,8 +41,8 @@ export default {
           internalLink: InternalLink,
           externalLink: ExternalLink,
           file: FileLink,
-          superscript: superscript,
-          subscript: subscript,
+          sup: superscript,
+          sub: subscript,
         },
       },
     }
