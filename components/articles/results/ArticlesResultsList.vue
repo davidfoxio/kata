@@ -5,7 +5,9 @@
   >
     <transition-group tag="ul" name="fade" mode="out-in" class="w-full">
       <li v-for="item in articles" :key="item._id || item._key">
-        <slot name="tease" :item="item"></slot>
+        <slot name="tease" :item="item">
+          {{ item.title }}
+        </slot>
       </li>
     </transition-group>
   </div>

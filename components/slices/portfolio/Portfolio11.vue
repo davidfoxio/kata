@@ -181,74 +181,76 @@ export default {
 </script>
 
 <style lang="scss">
-.articles-list {
-  overflow: scroll;
-}
-.GMap__Wrapper,
-.articles-list {
-  height: 80vh;
-  min-height: 500px;
-
-  @media (max-width: 500px) {
-    height: 50vh;
-    min-height: 300px;
+.portfolio-11 {
+  .articles-list {
+    overflow: scroll;
   }
-}
-.gm-style .gm-style-iw-d {
-  overflow: hidden !important;
-}
-.gm-style .gm-style-iw-c {
-  background: $primary;
-  padding: 0;
-  border-radius: 0;
+  .GMap__Wrapper,
+  .articles-list {
+    height: 80vh;
+    min-height: 500px;
 
-  button {
-    position: relative;
-    img {
-      display: none !important;
-    }
-    &::after,
-    &::before {
-      content: '';
-      background-color: white;
-      width: 15px;
-      height: 2px;
-      position: absolute;
-      right: 10px;
-      top: 16px;
-    }
-    &:before {
-      transform: rotate(45deg);
-    }
-    &:after {
-      transform: rotate(-45deg);
+    @media (max-width: 500px) {
+      height: 50vh;
+      min-height: 300px;
     }
   }
-}
-.gm-style .gm-style-iw-t::after {
-  background: linear-gradient(
-    45deg,
-    rgba($primary, 1) 50%,
-    rgba($primary, 0) 51%,
-    rgba($primary, 0) 100%
-  );
-}
-.info-window {
-  background: $primary;
-  color: white;
-  padding: 30px;
-
-  p {
-    font-size: 15px;
+  .gm-style .gm-style-iw-d {
+    overflow: hidden !important;
   }
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
+  .gm-style .gm-style-iw-c {
+    background: $primary;
+    padding: 0;
+    border-radius: 0;
 
-.fade-enter,
-.fade-leave-active {
-  opacity: 0;
+    button {
+      position: relative;
+      img {
+        display: none !important;
+      }
+      &::after,
+      &::before {
+        content: '';
+        background-color: white;
+        width: 15px;
+        height: 2px;
+        position: absolute;
+        right: 10px;
+        top: 16px;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  .gm-style .gm-style-iw-t::after {
+    background: linear-gradient(
+      45deg,
+      rgba($primary, 1) 50%,
+      rgba($primary, 0) 51%,
+      rgba($primary, 0) 100%
+    );
+  }
+  .info-window {
+    background: $primary;
+    color: white;
+    padding: 30px;
+
+    p {
+      font-size: 15px;
+    }
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0;
+  }
 }
 </style>

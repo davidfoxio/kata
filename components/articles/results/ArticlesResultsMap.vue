@@ -254,107 +254,109 @@ export default {
 </script>
 
 <style lang="scss">
-.articles-list {
-  overflow: scroll;
-  z-index: 11;
-}
-.slide-right-enter-active,
-.slide-right-leave-active {
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-.slide-right-enter,
-.slide-right-leave-to {
-  opacity: 0;
-  transform: translateX(100%);
-}
-.slide-left-enter-active,
-.slide-left-leave-active {
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-.slide-left-enter,
-.slide-left-leave-to {
-  opacity: 0;
-  transform: translateX(-100%);
-}
-.GMap__Wrapper,
-.articles-list {
-  height: 80vh;
-  min-height: 500px;
-}
-
-@media (max-width: 500px) {
-  .GMap__Wrapper {
-    height: 80vh;
-    min-height: 300px;
-  }
+.articles-layout-map {
   .articles-list {
-    height: auto;
-    min-height: 0;
+    overflow: scroll;
+    z-index: 11;
   }
-}
-.partner-page {
-  height: 80vh;
-  min-height: 500px;
+  .slide-right-enter-active,
+  .slide-right-leave-active {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+  .slide-right-enter,
+  .slide-right-leave-to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  .slide-left-enter-active,
+  .slide-left-leave-active {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+  .slide-left-enter,
+  .slide-left-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  .GMap__Wrapper,
+  .articles-list {
+    height: 80vh;
+    min-height: 500px;
+  }
 
   @media (max-width: 500px) {
-    height: 100vh;
-  }
-}
-.gm-style .gm-style-iw-d {
-  overflow: hidden !important;
-}
-.gm-style .gm-style-iw-c {
-  background: $primary;
-  padding: 0;
-  border-radius: 0;
-
-  button {
-    position: relative;
-    img {
-      display: none !important;
+    .GMap__Wrapper {
+      height: 80vh;
+      min-height: 300px;
     }
-    &::after,
-    &::before {
-      content: '';
-      background-color: white;
-      width: 15px;
-      height: 2px;
-      position: absolute;
-      right: 10px;
-      top: 16px;
-    }
-    &:before {
-      transform: rotate(45deg);
-    }
-    &:after {
-      transform: rotate(-45deg);
+    .articles-list {
+      height: auto;
+      min-height: 0;
     }
   }
-}
-.gm-style .gm-style-iw-t::after {
-  background: linear-gradient(
-    45deg,
-    rgba($primary, 1) 50%,
-    rgba($primary, 0) 51%,
-    rgba($primary, 0) 100%
-  );
-}
-.info-window {
-  background: $primary;
-  color: white;
-  padding: 30px;
+  .partner-page {
+    height: 80vh;
+    min-height: 500px;
 
-  p {
-    font-size: 15px;
+    @media (max-width: 500px) {
+      height: 100vh;
+    }
   }
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
+  .gm-style .gm-style-iw-d {
+    overflow: hidden !important;
+  }
+  .gm-style .gm-style-iw-c {
+    background: $primary;
+    padding: 0;
+    border-radius: 0;
 
-.fade-enter,
-.fade-leave-active {
-  opacity: 0;
+    button {
+      position: relative;
+      img {
+        display: none !important;
+      }
+      &::after,
+      &::before {
+        content: '';
+        background-color: white;
+        width: 15px;
+        height: 2px;
+        position: absolute;
+        right: 10px;
+        top: 16px;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  .gm-style .gm-style-iw-t::after {
+    background: linear-gradient(
+      45deg,
+      rgba($primary, 1) 50%,
+      rgba($primary, 0) 51%,
+      rgba($primary, 0) 100%
+    );
+  }
+  .info-window {
+    background: $primary;
+    color: white;
+    padding: 30px;
+
+    p {
+      font-size: 15px;
+    }
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0;
+  }
 }
 </style>
