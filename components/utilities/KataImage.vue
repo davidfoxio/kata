@@ -70,7 +70,7 @@ export default {
       default: '',
     },
   },
-  data: () => ({ loaded: false, format: 'webp' }),
+  data: () => ({ loaded: false, format: 'webp', svg: false }),
   computed: {
     imageIsSet() {
       return this.image?.asset?._ref
@@ -110,6 +110,24 @@ export default {
       }
       return alt
     },
+    getFormat() {
+      if (this.svg !== true) {
+        if (process.client) {
+          var elem = document.createElement('canvas')
+
+          if (elem.getContext && elem.getContext('2d')) {
+            // was able or not to get WebP representation
+            return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
+              ? 'webp'
+              : 'jpeg'
+          } else {
+            // very old browser like IE 8, canvas not supported
+            return 'jpeg'
+          }
+        }
+      }
+      return ''
+    },
   },
   methods: {
     imgLoaded() {
@@ -125,6 +143,7 @@ export default {
         .url()
       if (url && url.includes('.svg')) {
         this.format = ''
+        this.svg = true
       }
       return url
     },

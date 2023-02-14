@@ -8,7 +8,7 @@
     :alt="alt"
     :loading="lazy ? 'lazy' : 'eager'"
     :sizes="sizes"
-    :format="format"
+    :format="getFormat"
     @onLoad="imgLoaded"
   />
 </template>
@@ -41,6 +41,7 @@ export default {
   },
   data: () => ({
     loaded: false,
+    svg: false,
     format: 'webp',
   }),
   computed: {
@@ -72,6 +73,24 @@ export default {
       }
       return alt
     },
+    getFormat() {
+      if (this.svg !== true) {
+        if (process.client) {
+          var elem = document.createElement('canvas')
+
+          if (elem.getContext && elem.getContext('2d')) {
+            // was able or not to get WebP representation
+            return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
+              ? 'webp'
+              : 'jpeg'
+          } else {
+            // very old browser like IE 8, canvas not supported
+            return 'jpeg'
+          }
+        }
+      }
+      return ''
+    },
   },
   methods: {
     src() {
@@ -82,6 +101,7 @@ export default {
       if (url && url.includes('.svg')) {
         console.log('format svg')
         this.format = ''
+        this.svg = true
       }
       return url
     },
