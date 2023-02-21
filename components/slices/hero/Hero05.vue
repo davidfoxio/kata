@@ -4,10 +4,10 @@
       :media="media"
       :ratio="ratio"
       :max-width="2500"
-      class="h-screen w-full object-cover"
+      class="h-screen w-full object-cover z-1"
     />
     <div
-      class="w-r10/12 mx-r1/12 md:w-r6/12 md:mx-r3/12 h-screen flex flex-col justify-center text-center z-1 text relative"
+      class="w-r10/12 mx-r1/12 md:w-r6/12 md:mx-r3/12 h-screen flex flex-col justify-center text-center z-2 text relative"
     >
       <h1
         v-if="superHeading"
@@ -55,7 +55,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .hero-5 {
   position: relative;
   background: black;
@@ -72,6 +72,10 @@ export default {
     left: 1px;
     top: 0px;
     background: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 2;
+  }
+  .css-slider {
+    z-index: 1;
   }
 }
 </style>
