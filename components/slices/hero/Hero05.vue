@@ -1,13 +1,13 @@
 <template>
-  <div class="slice hero-5 stack-children">
+  <div class="slice hero-5 stack-children min-h-screen">
     <KataMedia
       :media="media"
       :ratio="ratio"
       :max-width="2500"
-      class="h-screen w-full object-cover z-1"
+      class="h-full w-full object-cover z-1"
     />
     <div
-      class="w-r10/12 mx-r1/12 md:w-r6/12 md:mx-r3/12 h-screen flex flex-col justify-center text-center z-2 text relative"
+      class="w-r10/12 mx-r1/12 md:w-r6/12 md:mx-r3/12 min-h-screen flex flex-col justify-center text-center z-2 text relative"
     >
       <h1
         v-if="superHeading"
