@@ -7,10 +7,13 @@
     mode="out-in"
   >
     <li v-for="(item, i) in articles" :key="item._id">
-      <slot v-if="i != 0" name="tease" :item="item">
+      <slot v-if="i != 0 && i != 5" name="tease" :item="item">
         <NuxtLink
           :to="getLink(item._id) ? getLink(item._id) : ''"
-          :class="{ 'large-thumb': i == 0, 'px-r1/12 block md:px-0': i != 0 }"
+          :class="{
+            'large-thumb': i == 0 || i == 5,
+            'px-r1/12 block md:px-0': i != 0 && i != 5,
+          }"
         >
           <KataImage
             :image="item.image"
@@ -18,8 +21,8 @@
             :ratio="i == 0 ? 3 / 4 : 4 / 3"
             sizes="sm:90vw md:50vw xl:33vw"
             :class="{
-              'mb-small': i != 0,
-              'md:h-full object-cover max-h-screen': i == 0,
+              'mb-small': i != 0 && i != 5,
+              'md:h-full object-cover max-h-screen': i == 0 || i == 5,
             }"
             class="w-full"
           />
@@ -46,7 +49,7 @@
       <NuxtLink
         v-else
         :to="getLink(item._id)"
-        :class="{ 'large-thumb': i == 0 }"
+        :class="{ 'large-thumb h-full': i == 0 || i == 5 }"
       >
         <KataImage
           :image="item.image"
@@ -54,7 +57,7 @@
           :ratio="i == 0 ? 3 / 4 : 4 / 3"
           sizes="sm:90vw md:50vw xl:33vw"
           :class="{
-            'md:h-full object-cover max-h-screen': i == 0,
+            'md:h-full object-cover max-h-screen': i == 0 || i == 5,
           }"
           class="w-full"
         />
@@ -116,17 +119,9 @@ export default {
     }
   }
 
-  li:first-child {
-    grid-row-start: 1;
-    grid-row-end: span 2;
-
-    // @include md-up {
-    //   grid-row-end: span 4;
-    // }
-
-    // @include lg-up {
-    //   grid-row-end: span 2;
-    // }
+  li:first-child,
+  li:nth-of-type(6) {
+    @apply md:row-span-2;
 
     a {
       display: grid;
