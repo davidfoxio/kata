@@ -102,9 +102,8 @@ export default {
   }
 
   img {
+    @apply object-contain mx-auto;
     max-height: 537px; //from figma
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 </style>
