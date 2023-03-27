@@ -1,6 +1,17 @@
 <template>
   <div class="youtube-wrap">
     <iframe
+      v-if="isPlaylist"
+      width="560"
+      height="315"
+      :src="playlistUrl"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+    <iframe
+      v-else
       width="560"
       height="315"
       :src="'https://www.youtube-nocookie.com/embed/' + videoId"
@@ -16,12 +27,23 @@ export default {
   props: {
     url: {
       type: String,
-      default: () => '',
+      default: '',
+    },
+    isPlaylist: {
+      type: Boolean,
+      default: false,
+    },
+    playlistUrl: {
+      type: String,
+      default: '',
     },
   },
   computed: {
     videoId() {
-      return this.getId(this.url)
+      if (!this.isPlaylist) {
+        return this.getId(this.url)
+      }
+      return ''
     },
   },
   methods: {
