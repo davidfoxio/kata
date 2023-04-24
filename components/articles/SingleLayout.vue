@@ -18,6 +18,13 @@
           :max-width="2000"
           :loader="true"
         />
+        <KataImage02
+          v-else-if="c.image && c.noCrop"
+          :image="c.image"
+          :ratio="2 / 1"
+          :max-width="2000"
+          :loader="true"
+        />
         <KataImage
           v-else-if="c.image"
           :image="c.image"
