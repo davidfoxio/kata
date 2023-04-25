@@ -14,6 +14,7 @@
         <KataMedia
           v-if="c.media"
           :media="c.media"
+          :no-crop="c.noCrop"
           :ratio="2 / 1"
           :max-width="2000"
           :loader="true"

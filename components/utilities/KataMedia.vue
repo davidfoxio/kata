@@ -1,10 +1,17 @@
 <template>
   <div v-if="image || video" class="media-image">
     <KataImage
-      v-if="image"
+      v-if="image && !noCrop"
       :image="image"
       :sizes="sizes"
       :ratio="ratio"
+      :max-width="maxWidth"
+      class="h-full w-full object-cover"
+    />
+    <KataImage02
+      v-else-if="image && noCrop"
+      :image="image"
+      :sizes="sizes"
       :max-width="maxWidth"
       class="h-full w-full object-cover"
     />
@@ -13,7 +20,7 @@
       :video="videoSrc"
       class="h-full w-full object-cover"
       loop
-    ></KataVideo>
+    />
   </div>
   <div v-else-if="slides && slides.length" class="media-slider">
     <KataCssSlider
@@ -40,6 +47,10 @@ export default {
     maxWidth: {
       type: Number,
       default: 1000,
+    },
+    noCrop: {
+      type: Boolean,
+      default: false,
     },
     sizes: {
       type: String,
