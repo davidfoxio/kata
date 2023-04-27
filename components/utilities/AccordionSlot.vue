@@ -80,41 +80,23 @@ export default {
   position: relative;
 
   .plus {
+    @apply absolute inset-y-0 right-0 m-auto;
     width: 15px;
     height: 15px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
     &:before {
       content: '';
       transition: all 0.5s ease-in-out;
       transform: rotate(-90deg);
-      position: absolute;
-      background-color: $primary;
-      width: 100%;
+      @apply absolute bg-primary w-full inset-0 m-auto;
       height: 3px;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      margin: auto;
     }
     &:after {
       content: '';
+      @apply inset-0 h-full bg-primary absolute m-auto;
       transition: all 0.5s ease-in-out;
       transform: rotate(-90deg);
       opacity: 1;
-      position: absolute;
-      background-color: $primary;
       width: 3px;
-      height: 100%;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      margin: auto;
     }
 
     &.open {
