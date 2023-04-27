@@ -1,5 +1,5 @@
 <template>
-  <div class="slice text-10 mx-auto w-r24/24 md:w-r20/24">
+  <div class="slice text-10 mx-auto w-r10/12 lg:w-r8/12 text-max">
     <h2 v-if="title" v-kata-html="title" class="text-center mb-large fade-up" />
     <div v-if="list" class="accordion-list fade-up">
       <AccordionSlot

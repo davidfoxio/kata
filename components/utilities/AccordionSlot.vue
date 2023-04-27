@@ -16,7 +16,7 @@
       @before-leave="start"
       @after-leave="end"
     >
-      <div v-show="visible" class="accordion-content pt-small pb-small">
+      <div v-show="visible" class="accordion-content pb-small">
         <slot></slot>
       </div>
     </transition>
