@@ -1,4 +1,4 @@
-import { title, list, superHeading } from './textFields'
+import { title, list, superHeading, listWithButtons } from './textFields'
 import { basicTextEditor } from 'part:@weflocc/kata/partials/textEditor'
 import { media } from 'part:@weflocc/kata/partials/media'
 import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
@@ -77,6 +77,14 @@ const text09 = {
   fields: [title, list],
 }
 
+const text10 = {
+  name: 'text10',
+  type: 'object',
+  title: 'Text #10',
+  options: defaultOptions,
+  fields: [title, listWithButtons],
+}
+
 export {
   text01,
   text02,
@@ -87,4 +95,5 @@ export {
   text07,
   text08,
   text09,
+  text10,
 }
