@@ -70,4 +70,23 @@ const description = {
   },
 }
 
-export {title, superHeading, text, textBody, description, links, media, image}
+const list = {
+  props: {
+    list: {
+      type: Array,
+      default: null,
+    },
+  },
+}
+
+export {
+  title,
+  superHeading,
+  text,
+  textBody,
+  description,
+  links,
+  media,
+  image,
+  list,
+}
