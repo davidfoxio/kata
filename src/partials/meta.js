@@ -26,6 +26,7 @@ const hiddenTitle = {
   type: 'string',
   description:
     'This title will show in menus, and when you reference this document',
+  validation: (Rule) => Rule.required(),
   hidden: ({ currentUser }) => {
     return currentUser.email != 'studio@flocc.co'
   },
