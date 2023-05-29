@@ -258,7 +258,7 @@ const pagination = {
         //   query: { page: 1, ...this.existingQueries },
         // })
       }
-      if (current >= this.totalPages) {
+      if (current > this.totalPages) {
         this.existingQueries.page = this.totalPages
         this.$router.push({
           path: this.$route.path,
