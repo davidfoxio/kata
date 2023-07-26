@@ -207,6 +207,9 @@ const singleArticle = {
 // you can set data pagination to the number of items you would like per page on the listing page
 const pagination = {
   computed: {
+    currentPage() {
+      return this.$route.query ? this.$route.query.page : 1
+    },
     itemsPerPage() {
       return this.pagination || 12 //12 is default per page
     },
